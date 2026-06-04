@@ -3,6 +3,7 @@
 //! 提供 MaaFramework 初始化、版本检查、设备搜索、控制器、资源和任务管理
 
 use log::{debug, error, info, warn};
+use std::net::{TcpStream, ToSocketAddrs};
 use std::sync::atomic::{AtomicI64, Ordering};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
@@ -23,12 +24,48 @@ use super::utils::{emit_callback_event, get_maafw_dir, handle_task_callback, nor
 
 /// MaaFramework 最小支持版本
 const MIN_MAAFW_VERSION: &str = "5.5.0-beta.1";
+const MUMU_GUEST_ADB_ADDRESS: &str = "10.0.2.15:5555";
+const MUMU_LOCALHOST_ADB_ADDRESS: &str = "127.0.0.1:16384";
+const MUMU_ADB_PROBE_TIMEOUT_MS: u64 = 300;
 
 /// ControllerPool 复用时的合成 conn_id（负数，避免与 MaaFramework 正数 ID 冲突）
 static SYNTHETIC_CONN_ID: AtomicI64 = AtomicI64::new(-1);
 
 fn next_synthetic_conn_id() -> i64 {
     SYNTHETIC_CONN_ID.fetch_sub(1, Ordering::Relaxed)
+}
+
+fn should_rewrite_mumu_adb_address(address: &str, localhost_available: bool) -> bool {
+    address == MUMU_GUEST_ADB_ADDRESS && localhost_available
+}
+
+fn can_connect_tcp(address: &str, timeout: Duration) -> bool {
+    let Ok(addrs) = address.to_socket_addrs() else {
+        return false;
+    };
+
+    addrs
+        .into_iter()
+        .any(|addr| TcpStream::connect_timeout(&addr, timeout).is_ok())
+}
+
+fn normalize_mumu_adb_address(device: &mut AdbDevice) {
+    if device.address != MUMU_GUEST_ADB_ADDRESS {
+        return;
+    }
+
+    let localhost_available = can_connect_tcp(
+        MUMU_LOCALHOST_ADB_ADDRESS,
+        Duration::from_millis(MUMU_ADB_PROBE_TIMEOUT_MS),
+    );
+
+    if should_rewrite_mumu_adb_address(&device.address, localhost_available) {
+        info!(
+            "Rewriting MuMu ADB address from {} to {} for {}",
+            device.address, MUMU_LOCALHOST_ADB_ADDRESS, device.name
+        );
+        device.address = MUMU_LOCALHOST_ADB_ADDRESS.to_string();
+    }
 }
 
 /// 更新实例的 Controller 并清理不再使用的旧 Pool 条目
@@ -247,13 +284,17 @@ pub async fn find_adb_devices_impl(state: Arc<MaaState>) -> Result<Vec<AdbDevice
 
         let result_devices: Vec<AdbDevice> = devices
             .into_iter()
-            .map(|d| AdbDevice {
-                name: d.name,
-                adb_path: d.adb_path.to_string_lossy().to_string(),
-                address: d.address,
-                screencap_methods: d.screencap_methods,
-                input_methods: d.input_methods,
-                config: d.config.to_string(),
+            .map(|d| {
+                let mut device = AdbDevice {
+                    name: d.name,
+                    adb_path: d.adb_path.to_string_lossy().to_string(),
+                    address: d.address,
+                    screencap_methods: d.screencap_methods,
+                    input_methods: d.input_methods,
+                    config: d.config.to_string(),
+                };
+                normalize_mumu_adb_address(&mut device);
+                device
             })
             .collect();
 
@@ -274,6 +315,33 @@ pub async fn maa_find_adb_devices(
 ) -> Result<Vec<AdbDevice>, String> {
     info!("maa_find_adb_devices called");
     find_adb_devices_impl(state.inner().clone()).await
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn rewrites_mumu_guest_address_when_localhost_is_available() {
+        assert!(should_rewrite_mumu_adb_address(
+            MUMU_GUEST_ADB_ADDRESS,
+            true
+        ));
+    }
+
+    #[test]
+    fn keeps_mumu_guest_address_when_localhost_is_unavailable() {
+        assert!(!should_rewrite_mumu_adb_address(
+            MUMU_GUEST_ADB_ADDRESS,
+            false
+        ));
+    }
+
+    #[test]
+    fn keeps_non_mumu_addresses() {
+        assert!(!should_rewrite_mumu_adb_address("127.0.0.1:7555", true));
+        assert!(!should_rewrite_mumu_adb_address("127.0.0.1:16384", true));
+    }
 }
 
 /// 查找 Win32 窗口的内部实现（可从 Tauri 命令和 HTTP 处理器共享调用）

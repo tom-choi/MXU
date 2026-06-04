@@ -8,8 +8,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,json}\" \"*.{json,md}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,json}\" \"*.{json,md}\"",
+    "prepare:golden-spatula-mumu": "node scripts/prepare-golden-spatula-mumu.mjs",
+    "prepare:golden-spatula-mumu:strict": "node scripts/prepare-golden-spatula-mumu.mjs --strict-maafw",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,json}\" \"scripts/**/*.{js,mjs,cjs,json,md}\" \"projects/**/*.{json,md}\" \"*.{json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,json}\" \"scripts/**/*.{js,mjs,cjs,json,md}\" \"projects/**/*.{json,md}\" \"*.{json,md}\"",
     "format:rust": "cd src-tauri && cargo fmt",
     "format:all": "pnpm format && pnpm format:rust",
     "prepare": "husky"

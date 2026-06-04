@@ -1,0 +1,29 @@
+{
+  "SmokeTest": {
+    "action": "Screencap",
+    "post_delay": 500
+  },
+  "ScreencapOnly": {
+    "action": "Screencap"
+  },
+  "StartGame": {
+    "action": "StartApp",
+    "package": "com.tencent.jkchess",
+    "post_delay": 3000,
+    "next": [
+      "ScreencapOnly"
+    ]
+  },
+  "StopGame": {
+    "action": "StopApp",
+    "package": "com.tencent.jkchess"
+  },
+  "TapKnownPoint": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [
+      640,
+      360
+    ]
+  }
+}
