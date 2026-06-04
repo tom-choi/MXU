@@ -1,0 +1,148 @@
+{
+  "interface_version": 2,
+  "name": "GoldenSpatulaMuMu",
+  "label": "金铲铲 MuMu",
+  "title": "金铲铲之战 - MuMu 控制",
+  "version": "0.3.1",
+  "description": "用于 MuMu 上金铲铲之战的保守 MaaFramework 控制包。",
+  "controller": [
+    {
+      "name": "MuMuAdb",
+      "label": "MuMu ADB",
+      "description": "通过 ADB 连接 MuMu 安卓模拟器。",
+      "type": "Adb",
+      "display_short_side": 720
+    }
+  ],
+  "resource": [
+    {
+      "name": "GoldenSpatula",
+      "label": "金铲铲资源",
+      "description": "包含主界面、日常巡检与截图调试的基础任务资源。",
+      "path": ["resource"],
+      "controller": ["MuMuAdb"]
+    }
+  ],
+  "group": [
+    {
+      "name": "basic",
+      "label": "基础",
+      "description": "连接、启动、主界面确认与基础控制任务。",
+      "default_expand": true
+    },
+    {
+      "name": "daily",
+      "label": "日常",
+      "description": "保守的日常导航任务，不触碰购买确认。",
+      "default_expand": true
+    },
+    {
+      "name": "debug",
+      "label": "调试",
+      "description": "截图、坐标和模板调试任务。",
+      "default_expand": true
+    }
+  ],
+  "task": [
+    {
+      "name": "LobbyReady",
+      "label": "回到主界面",
+      "entry": "LobbyReady",
+      "default_check": true,
+      "description": "启动游戏，按模板尝试关闭常见弹窗，并保存主界面截图。",
+      "group": ["basic"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "ClearPopups",
+      "label": "关闭常见弹窗",
+      "entry": "ClearPopups",
+      "default_check": false,
+      "description": "按模板处理关闭按钮和退出确认的取消按钮，然后保存截图。",
+      "group": ["basic"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "EventClaimScout",
+      "label": "事件签到巡检",
+      "entry": "EventClaim",
+      "default_check": false,
+      "description": "进入事件页保存截图并返回主界面；当前版本仍不点击领取按钮。",
+      "group": ["daily"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "ShopFreeCheck",
+      "label": "商城免费项巡检",
+      "entry": "ShopFreeCheck",
+      "default_check": false,
+      "description": "进入商城保存截图并返回主界面，不触碰购买按钮。",
+      "group": ["daily"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "RedDotPatrol",
+      "label": "红点巡检截图",
+      "entry": "RedDotPatrol",
+      "default_check": false,
+      "description": "检测左侧红点并依次巡检主要入口，保存命名截图用于模板和 ROI 调整。",
+      "group": ["debug"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "SmokeTest",
+      "label": "连线截图测试",
+      "entry": "SmokeTest",
+      "default_check": false,
+      "description": "保存一张截图，用于确认控制器和资源已准备好。",
+      "group": ["debug"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "ScreencapOnly",
+      "label": "仅截图",
+      "entry": "ScreencapOnly",
+      "default_check": false,
+      "description": "保存当前模拟器画面。",
+      "group": ["debug"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "StartGame",
+      "label": "启动游戏",
+      "entry": "StartGame",
+      "default_check": false,
+      "description": "使用已知包名启动金铲铲之战。",
+      "group": ["basic"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "StopGame",
+      "label": "停止游戏",
+      "entry": "StopGame",
+      "default_check": false,
+      "description": "使用已知包名停止金铲铲之战。",
+      "group": ["basic"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "TapKnownPoint",
+      "label": "点击屏幕中心",
+      "entry": "TapKnownPoint",
+      "default_check": false,
+      "description": "点击 1280x720 MuMu 画面的中心点。",
+      "group": ["debug"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    }
+  ]
+}

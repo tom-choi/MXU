@@ -1,18 +1,18 @@
 {
   "SmokeTest": {
     "action": "Screencap",
+    "filename": "smoke_test",
     "post_delay": 500
   },
   "ScreencapOnly": {
-    "action": "Screencap"
+    "action": "Screencap",
+    "filename": "manual_screencap"
   },
   "StartGame": {
     "action": "StartApp",
     "package": "com.tencent.jkchess",
     "post_delay": 3000,
-    "next": [
-      "ScreencapOnly"
-    ]
+    "next": ["LobbyReady_ClearPopups"]
   },
   "StopGame": {
     "action": "StopApp",
@@ -21,9 +21,485 @@
   "TapKnownPoint": {
     "recognition": "DirectHit",
     "action": "Click",
-    "target": [
-      640,
-      360
-    ]
+    "target": [640, 360]
+  },
+
+  "LobbyReady": {
+    "action": "StartApp",
+    "package": "com.tencent.jkchess",
+    "post_delay": 3000,
+    "next": ["LobbyReady_ClearPopups"]
+  },
+  "LobbyReady_ClearPopups": {
+    "next": ["[JumpBack]Popup_CloseX", "[JumpBack]Popup_ExitCancel"],
+    "timeout": 1500,
+    "on_error": ["Lobby_Validate"]
+  },
+  "Lobby_Validate": {
+    "next": ["Lobby_LeftMenuVisible"],
+    "timeout": 1500,
+    "on_error": ["Lobby_Screencap"]
+  },
+  "Lobby_LeftMenuVisible": {
+    "recognition": "TemplateMatch",
+    "template": [
+      "lobby/nav_event.png",
+      "lobby/nav_shop.png",
+      "lobby/nav_treasure.png",
+      "lobby/nav_codex.png",
+      "lobby/nav_summon.png"
+    ],
+    "threshold": [0.78, 0.78, 0.78, 0.78, 0.78],
+    "roi": [0, 120, 180, 450],
+    "action": "Screencap",
+    "filename": "lobby_ready"
+  },
+  "Lobby_Screencap": {
+    "action": "Screencap",
+    "filename": "lobby_ready"
+  },
+
+  "ClearPopups": {
+    "next": ["[JumpBack]Popup_CloseX", "[JumpBack]Popup_ExitCancel"],
+    "timeout": 1500,
+    "on_error": ["Popup_ScreencapAfterClose"]
+  },
+  "Popup_CloseX": {
+    "recognition": "TemplateMatch",
+    "template": "popup/close_x.png",
+    "threshold": 0.72,
+    "roi": [1040, 30, 220, 160],
+    "action": "Click",
+    "target": [1138, 96],
+    "post_delay": 700
+  },
+  "Popup_ExitCancel": {
+    "recognition": "TemplateMatch",
+    "template": "popup/exit_cancel_button.png",
+    "threshold": 0.78,
+    "roi": [350, 320, 600, 230],
+    "action": "Click",
+    "target": [525, 455],
+    "post_delay": 700
+  },
+  "Popup_CloseTopRight_Once": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [1210, 70],
+    "post_delay": 700,
+    "next": ["Popup_ScreencapAfterClose"]
+  },
+  "Popup_ScreencapAfterClose": {
+    "action": "Screencap",
+    "filename": "popup_after_close",
+    "next": ["Lobby_Screencap"]
+  },
+
+  "EventClaim": {
+    "next": ["EnsureLobby_StartApp_ForDaily"]
+  },
+  "EnsureLobby_StartApp_ForDaily": {
+    "action": "StartApp",
+    "package": "com.tencent.jkchess",
+    "post_delay": 1800,
+    "next": ["Event_TapEntry"]
+  },
+  "Event_TapEntry": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "Click",
+    "target": [74, 161],
+    "post_delay": 1200,
+    "next": ["Event_PageScreencap"]
+  },
+  "Event_PageScreencap": {
+    "action": "Screencap",
+    "filename": "event_page",
+    "next": ["Event_ClaimDisabledGuard"]
+  },
+  "Event_ClaimDisabledGuard": {
+    "action": "Screencap",
+    "filename": "event_claim_guard_no_click",
+    "next": ["BackToLobby_FromEvent"]
+  },
+  "BackToLobby_FromEvent": {
+    "next": ["BackArrow_Click_ToLobby", "Lobby_Visible_Screencap"],
+    "timeout": 1500,
+    "on_error": ["BackFixed_ToLobby"]
+  },
+  "BackArrow_Click_ToLobby": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
+  },
+  "BackFixed_ToLobby": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
+  },
+  "Lobby_Visible_Screencap": {
+    "recognition": "TemplateMatch",
+    "template": [
+      "lobby/nav_event.png",
+      "lobby/nav_shop.png",
+      "lobby/nav_treasure.png",
+      "lobby/nav_codex.png",
+      "lobby/nav_summon.png"
+    ],
+    "threshold": [0.78, 0.78, 0.78, 0.78, 0.78],
+    "roi": [0, 120, 180, 450],
+    "action": "Screencap",
+    "filename": "lobby_ready"
+  },
+
+  "ShopFreeCheck": {
+    "next": ["EnsureLobby_StartApp_ForShop"]
+  },
+  "EnsureLobby_StartApp_ForShop": {
+    "action": "StartApp",
+    "package": "com.tencent.jkchess",
+    "post_delay": 1800,
+    "next": ["Shop_TapEntry"]
+  },
+  "Shop_TapEntry": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_shop.png",
+    "threshold": 0.78,
+    "roi": [0, 205, 180, 90],
+    "action": "Click",
+    "target": [73, 248],
+    "post_delay": 1200,
+    "next": ["Shop_PageScreencap"]
+  },
+  "Shop_PageScreencap": {
+    "action": "Screencap",
+    "filename": "shop_page",
+    "next": ["Shop_FreeGuardNoClick"]
+  },
+  "Shop_FreeGuardNoClick": {
+    "action": "Screencap",
+    "filename": "shop_free_guard_no_click",
+    "next": ["BackToLobby_FromShop"]
+  },
+  "BackToLobby_FromShop": {
+    "next": ["BackArrow_Click_ToLobby", "Lobby_Visible_Screencap"],
+    "timeout": 1500,
+    "on_error": ["BackFixed_ToLobby"]
+  },
+
+  "RedDotPatrol": {
+    "next": ["Patrol_StartApp"]
+  },
+  "Patrol_StartApp": {
+    "action": "StartApp",
+    "package": "com.tencent.jkchess",
+    "post_delay": 1800,
+    "next": ["Patrol_ClearPopups"]
+  },
+  "Patrol_ClearPopups": {
+    "next": ["[JumpBack]Popup_CloseX", "[JumpBack]Popup_ExitCancel"],
+    "timeout": 1200,
+    "on_error": ["Patrol_Lobby_Screencap"]
+  },
+  "Patrol_Lobby_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_lobby_before",
+    "next": ["Patrol_RedDotCheck"]
+  },
+  "Patrol_RedDotCheck": {
+    "next": ["Patrol_RedDotDetected"],
+    "timeout": 800,
+    "on_error": ["Patrol_Event_Open"]
+  },
+  "Patrol_RedDotDetected": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/red_dot_yellow.png",
+    "threshold": 0.68,
+    "roi": [100, 120, 80, 450],
+    "action": "Screencap",
+    "filename": "patrol_left_red_dot_detected",
+    "next": ["Patrol_Event_Open"]
+  },
+
+  "Patrol_Event_Open": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "Click",
+    "target": [74, 161],
+    "post_delay": 1200,
+    "next": ["Patrol_Event_Screencap"]
+  },
+  "Patrol_Event_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_event_page",
+    "next": ["Patrol_BackAfterEvent"]
+  },
+  "Patrol_BackAfterEvent": {
+    "next": ["Patrol_BackArrow_Click_ToShop", "Patrol_LobbyVisible_ToShop"],
+    "timeout": 1500,
+    "on_error": ["Patrol_BackFixed_ToShop"]
+  },
+  "Patrol_BackArrow_Click_ToShop": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Shop_Open"]
+  },
+  "Patrol_BackFixed_ToShop": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Shop_Open"]
+  },
+  "Patrol_LobbyVisible_ToShop": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "DoNothing",
+    "next": ["Patrol_Shop_Open"]
+  },
+
+  "Patrol_Shop_Open": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_shop.png",
+    "threshold": 0.78,
+    "roi": [0, 205, 180, 90],
+    "action": "Click",
+    "target": [73, 248],
+    "post_delay": 1200,
+    "next": ["Patrol_Shop_Screencap"]
+  },
+  "Patrol_Shop_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_shop_page",
+    "next": ["Patrol_BackAfterShop"]
+  },
+  "Patrol_BackAfterShop": {
+    "next": ["Patrol_BackArrow_Click_ToTreasure", "Patrol_LobbyVisible_ToTreasure"],
+    "timeout": 1500,
+    "on_error": ["Patrol_BackFixed_ToTreasure"]
+  },
+  "Patrol_BackArrow_Click_ToTreasure": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Treasure_Open"]
+  },
+  "Patrol_BackFixed_ToTreasure": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Treasure_Open"]
+  },
+  "Patrol_LobbyVisible_ToTreasure": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "DoNothing",
+    "next": ["Patrol_Treasure_Open"]
+  },
+
+  "Patrol_Treasure_Open": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_treasure.png",
+    "threshold": 0.78,
+    "roi": [0, 295, 180, 90],
+    "action": "Click",
+    "target": [76, 337],
+    "post_delay": 1200,
+    "next": ["Patrol_Treasure_Screencap"]
+  },
+  "Patrol_Treasure_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_treasure_page",
+    "next": ["Patrol_BackAfterTreasure"]
+  },
+  "Patrol_BackAfterTreasure": {
+    "next": ["Patrol_BackArrow_Click_ToCodex", "Patrol_LobbyVisible_ToCodex"],
+    "timeout": 1500,
+    "on_error": ["Patrol_BackFixed_ToCodex"]
+  },
+  "Patrol_BackArrow_Click_ToCodex": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Codex_Open"]
+  },
+  "Patrol_BackFixed_ToCodex": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Codex_Open"]
+  },
+  "Patrol_LobbyVisible_ToCodex": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "DoNothing",
+    "next": ["Patrol_Codex_Open"]
+  },
+
+  "Patrol_Codex_Open": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_codex.png",
+    "threshold": 0.78,
+    "roi": [0, 385, 180, 90],
+    "action": "Click",
+    "target": [73, 426],
+    "post_delay": 1200,
+    "next": ["Patrol_Codex_Screencap"]
+  },
+  "Patrol_Codex_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_codex_page",
+    "next": ["Patrol_BackAfterCodex"]
+  },
+  "Patrol_BackAfterCodex": {
+    "next": [
+      "Patrol_CloseX_Click_ToSummon",
+      "Patrol_BackArrow_Click_ToSummon",
+      "Patrol_LobbyVisible_ToSummon"
+    ],
+    "timeout": 1500,
+    "on_error": ["Patrol_CloseFixed_ToSummon"]
+  },
+  "Patrol_CloseX_Click_ToSummon": {
+    "recognition": "TemplateMatch",
+    "template": "popup/close_x.png",
+    "threshold": 0.72,
+    "roi": [1040, 30, 220, 160],
+    "action": "Click",
+    "target": [1138, 96],
+    "post_delay": 900,
+    "next": ["Patrol_Summon_Open"]
+  },
+  "Patrol_BackArrow_Click_ToSummon": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Summon_Open"]
+  },
+  "Patrol_CloseFixed_ToSummon": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [1138, 96],
+    "post_delay": 900,
+    "next": ["Patrol_AfterCloseFixed_ToSummon"]
+  },
+  "Patrol_AfterCloseFixed_ToSummon": {
+    "next": ["Patrol_LobbyVisible_ToSummon"],
+    "timeout": 900,
+    "on_error": ["Patrol_BackFixed_ToSummon"]
+  },
+  "Patrol_BackFixed_ToSummon": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Patrol_Summon_Open"]
+  },
+  "Patrol_LobbyVisible_ToSummon": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_event.png",
+    "threshold": 0.78,
+    "roi": [0, 120, 180, 90],
+    "action": "DoNothing",
+    "next": ["Patrol_Summon_Open"]
+  },
+
+  "Patrol_Summon_Open": {
+    "recognition": "TemplateMatch",
+    "template": "lobby/nav_summon.png",
+    "threshold": 0.78,
+    "roi": [0, 475, 180, 90],
+    "action": "Click",
+    "target": [73, 517],
+    "post_delay": 1200,
+    "next": ["Patrol_Summon_Screencap"]
+  },
+  "Patrol_Summon_Screencap": {
+    "action": "Screencap",
+    "filename": "patrol_summon_page",
+    "next": ["Patrol_BackAfterSummon"]
+  },
+  "Patrol_BackAfterSummon": {
+    "next": [
+      "Patrol_RewardOk_Click_ToLobby",
+      "Patrol_CloseX_Click_ToLobby",
+      "Patrol_BackArrow_Click_ToLobby",
+      "Lobby_Visible_Screencap"
+    ],
+    "timeout": 1500,
+    "on_error": ["Patrol_BackFixed_ToLobby"]
+  },
+  "Patrol_RewardOk_Click_ToLobby": {
+    "recognition": "TemplateMatch",
+    "template": "popup/reward_title.png",
+    "threshold": 0.78,
+    "roi": [500, 20, 280, 80],
+    "action": "Click",
+    "target": [526, 655],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
+  },
+  "Patrol_CloseX_Click_ToLobby": {
+    "recognition": "TemplateMatch",
+    "template": "popup/close_x.png",
+    "threshold": 0.72,
+    "roi": [1040, 30, 220, 160],
+    "action": "Click",
+    "target": [1138, 96],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
+  },
+  "Patrol_BackArrow_Click_ToLobby": {
+    "recognition": "TemplateMatch",
+    "template": ["page/back_arrow.png", "page/back_arrow_gold.png"],
+    "threshold": [0.76, 0.72],
+    "roi": [0, 0, 130, 90],
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
+  },
+  "Patrol_BackFixed_ToLobby": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [50, 36],
+    "post_delay": 900,
+    "next": ["Lobby_Screencap"]
   }
 }

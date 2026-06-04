@@ -25,4 +25,5 @@ dist-ssr
 
 # maafw
 interface.json
+!projects/**/interface.json
 mxu.json
