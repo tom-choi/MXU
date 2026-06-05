@@ -11,6 +11,7 @@
     "prepare:golden-spatula-mumu": "node scripts/prepare-golden-spatula-mumu.mjs",
     "prepare:golden-spatula-mumu:strict": "node scripts/prepare-golden-spatula-mumu.mjs --strict-maafw",
     "golden:red-dot": "node scripts/golden-spatula-run-red-dot.mjs",
+    "golden:tutorial": "node scripts/golden-spatula-run-red-dot.mjs --entry BeginnerTutorialFullRun --timeout-ms 600000 --no-strict-patrol-coverage",
     "golden:analyze": "node scripts/golden-spatula-analyze-run.mjs",
     "golden:crop-assets": "node scripts/golden-spatula-crop-assets.mjs",
     "golden:fetch-knowledge": "node scripts/golden-spatula-fetch-knowledge.mjs",

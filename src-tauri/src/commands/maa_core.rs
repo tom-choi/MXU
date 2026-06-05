@@ -4,6 +4,7 @@
 
 use log::{debug, error, info, warn};
 use std::net::{TcpStream, ToSocketAddrs};
+use std::path::Path;
 use std::sync::atomic::{AtomicI64, Ordering};
 use std::sync::Arc;
 use std::time::{Duration, Instant};
@@ -65,6 +66,28 @@ fn normalize_mumu_adb_address(device: &mut AdbDevice) {
             device.address, MUMU_LOCALHOST_ADB_ADDRESS, device.name
         );
         device.address = MUMU_LOCALHOST_ADB_ADDRESS.to_string();
+    }
+}
+
+fn load_toolkit_option(data_dir: &Path) -> String {
+    let option_path = data_dir.join("config").join("maa_option.json");
+    let Ok(content) = std::fs::read_to_string(&option_path) else {
+        return "{}".to_string();
+    };
+
+    match serde_json::from_str::<serde_json::Value>(&content) {
+        Ok(value) => {
+            info!("Using MaaFramework option file: {}", option_path.display());
+            value.to_string()
+        }
+        Err(err) => {
+            warn!(
+                "Ignoring invalid MaaFramework option file {}: {}",
+                option_path.display(),
+                err
+            );
+            "{}".to_string()
+        }
     }
 }
 
@@ -185,7 +208,8 @@ pub fn maa_init(state: State<Arc<MaaState>>, lib_dir: Option<String>) -> Result<
     // 确保数据目录存在
     let _ = std::fs::create_dir_all(&data_dir);
 
-    if let Err(e) = Toolkit::init_option(&user_path_str, "{}") {
+    let toolkit_option = load_toolkit_option(&data_dir);
+    if let Err(e) = Toolkit::init_option(&user_path_str, &toolkit_option) {
         warn!("Failed to init toolkit option: {}", e);
     }
 
@@ -942,6 +966,7 @@ pub fn run_task_impl(
         let instance_id_for_sink = instance_id.to_string();
         tasker
             .add_sink(move |msg, detail| {
+                debug!("[run_task][tasker] {} {}", msg, detail);
                 handle_task_callback(
                     &maa_state_for_sink,
                     &app_for_sink,
@@ -956,6 +981,7 @@ pub fn run_task_impl(
         let app_for_context_sink = app.clone();
         tasker
             .add_context_sink(move |msg, detail| {
+                debug!("[run_task][context] {} {}", msg, detail);
                 emit_callback_event(&app_for_context_sink, msg, detail);
             })
             .map_err(|e| e.to_string())?;

@@ -1,0 +1,98 @@
+{
+  "id": "lin_xiaobei_17_4_fast_climb",
+  "title": "铲17.4最快上分思路",
+  "author": "林小北Lindo",
+  "source_url": "https://mp.weixin.qq.com/s?__biz=MzIzNDM2MDI4Ng==&mid=2247551614&idx=1&sn=ee3f3c6282e9bef296d2cc13d6cb1f9f",
+  "season": "S17/S18",
+  "game_version": "17.4",
+  "captured_at": "2026-06-05",
+  "automation_profile": {
+    "target": "full_auto_later",
+    "current_phase": "beginner_guide_click_test",
+    "enabled_actions": ["click_beginner_guide", "click_start_game", "screencap"],
+    "locked_actions": ["buy_champion", "sell_champion", "reroll", "level_up", "position_units"]
+  },
+  "main_decision": {
+    "primary_paths": ["新星九五", "机甲龙王"],
+    "conditional_paths": ["观星璐璐", "幻灵皎月", "魔术师女枪", "武器专属"],
+    "fallback": "正常过渡，优先经济羁绊，3-2 再根据血量、经济和强化二次定阵"
+  },
+  "stage_rules": [
+    {
+      "stage": "1",
+      "checks": ["右下观星", "野怪发牌"],
+      "rules": [
+        {
+          "when": "观星为泉水且早发露露",
+          "recommendation": "可占观星璐璐"
+        }
+      ]
+    },
+    {
+      "stage": "2-1",
+      "checks": ["第一个强化", "开局羁绊", "关键棋子", "装备方向"],
+      "rules": [
+        {
+          "when": "强化为远征",
+          "recommendation": "定远征/机甲龙王"
+        },
+        {
+          "when": "武器专属强化",
+          "recommendation": "定武器专属"
+        },
+        {
+          "when": "三幻灵开局",
+          "recommendation": "连败转皎月或龙王"
+        },
+        {
+          "when": "早来女枪且装备匹配",
+          "recommendation": "可定魔术师女枪吃分"
+        }
+      ]
+    },
+    {
+      "stage": "3-2",
+      "checks": ["血量", "经济", "经济强化", "战力强化"],
+      "rules": [
+        {
+          "when": "经济强且血量可控",
+          "recommendation": "4-2 拉 9 启动新星九五"
+        },
+        {
+          "when": "战力强但经济一般",
+          "recommendation": "4-1 启动，抢龙王和加里奥"
+        }
+      ]
+    }
+  ],
+  "lineup_codes": [
+    {
+      "name": "新星九五",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzc4ODEzMjY5OTk0"
+    },
+    {
+      "name": "机甲龙王2.0",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzgwMTIzODExMzEw"
+    },
+    {
+      "name": "观星璐璐",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzc5NDIxMzIwOTg2"
+    },
+    {
+      "name": "幻灵皎月",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzc4NzUwNjM1OTE3"
+    },
+    {
+      "name": "魔术师女枪",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzc3NjI3NjA2MzM3"
+    },
+    {
+      "name": "武器专属",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzc5MzMxNzg0OTMx"
+    },
+    {
+      "name": "神器定阵",
+      "code": "MjE5OTY5MDM5MDAxMzM4NDQxNzgwMzg1OTM5NTg0"
+    }
+  ]
+}

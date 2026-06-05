@@ -50,6 +50,12 @@
       "default_expand": true
     },
     {
+      "name": "automation",
+      "label": "自动化测试",
+      "description": "新手引导和策略自动化的分阶段点击验证任务。",
+      "default_expand": true
+    },
+    {
       "name": "knowledge",
       "label": "知识库 / 识别调试",
       "description": "棋子、装备、羁绊和强化符文模板识别任务；只截图和识别，不做对局操作。",
@@ -104,6 +110,46 @@
       "default_check": false,
       "description": "检测左侧红点并依次巡检主要入口，保存命名截图用于模板和 ROI 调整。",
       "group": ["debug"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "GuideModeClickTest",
+      "label": "新手引导点击测试",
+      "entry": "GuideModeClickTest",
+      "default_check": false,
+      "description": "假设当前停在赛季玩法页，点击中间的新手引导，再点击右下开始游戏，并保存点击前后截图。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "GuideModeSelectBeginnerOnly",
+      "label": "只选中新手引导",
+      "entry": "GuideModeSelectBeginnerOnly",
+      "default_check": false,
+      "description": "假设当前停在赛季玩法页，只点击中间的新手引导并保存前后截图，用于验证第一个点位。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "GuideModeStartButtonOnly",
+      "label": "只点击开始游戏",
+      "entry": "GuideModeStartButtonOnly",
+      "default_check": false,
+      "description": "假设当前停在赛季玩法页且已选中新手引导，只点击右下开始游戏并保存前后截图。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "BeginnerTutorialFullRun",
+      "label": "完整新手教学",
+      "entry": "BeginnerTutorialFullRun",
+      "default_check": false,
+      "description": "假设当前停在赛季玩法页，自动选择新手引导并完成升级、上阵、升星、羁绊、装备、选秀和三星教程；会产生购买、刷新、出售和拖拽操作，仅用于教程测试。",
+      "group": ["automation"],
       "controller": ["MuMuAdb"],
       "resource": ["GoldenSpatula"]
     },

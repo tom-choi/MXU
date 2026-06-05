@@ -23,6 +23,66 @@
     "action": "Click",
     "target": [640, 360]
   },
+  "GuideModeClickTest": {
+    "action": "Screencap",
+    "filename": "guide_mode_before_click",
+    "next": ["GuideMode_SelectBeginner"]
+  },
+  "GuideModeSelectBeginnerOnly": {
+    "action": "Screencap",
+    "filename": "guide_mode_before_select",
+    "next": ["GuideMode_SelectBeginner_Only"]
+  },
+  "GuideModeStartButtonOnly": {
+    "action": "Screencap",
+    "filename": "guide_mode_before_start_button",
+    "next": ["GuideMode_StartGame_Only"]
+  },
+  "GuideMode_SelectBeginner": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [729, 444, 2, 2],
+    "post_delay": 1000,
+    "next": ["GuideMode_AfterSelect"]
+  },
+  "GuideMode_SelectBeginner_Only": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [729, 444, 2, 2],
+    "post_delay": 1000,
+    "next": ["GuideMode_AfterSelect_Only"]
+  },
+  "GuideMode_AfterSelect": {
+    "action": "Screencap",
+    "filename": "guide_mode_after_select",
+    "next": ["GuideMode_StartGame"]
+  },
+  "GuideMode_AfterSelect_Only": {
+    "action": "Screencap",
+    "filename": "guide_mode_after_select_only"
+  },
+  "GuideMode_StartGame": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [1122, 640, 2, 2],
+    "post_delay": 3500,
+    "next": ["GuideMode_AfterStart"]
+  },
+  "GuideMode_StartGame_Only": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [1122, 640, 2, 2],
+    "post_delay": 3500,
+    "next": ["GuideMode_AfterStart_Only"]
+  },
+  "GuideMode_AfterStart": {
+    "action": "Screencap",
+    "filename": "guide_mode_after_start"
+  },
+  "GuideMode_AfterStart_Only": {
+    "action": "Screencap",
+    "filename": "guide_mode_after_start_only"
+  },
 
   "LobbyReady": {
     "action": "StartApp",

@@ -1,0 +1,621 @@
+{
+  "BeginnerTutorialFullRun": {
+    "action": "Screencap",
+    "filename": "tutorial_full_00_mode_page",
+    "next": ["Tutorial_SelectBeginnerMode"]
+  },
+  "Tutorial_SelectBeginnerMode": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [729, 444, 2, 2],
+    "post_delay": 1000,
+    "next": ["Tutorial_StartBeginnerMode"]
+  },
+  "Tutorial_StartBeginnerMode": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [1122, 640, 2, 2],
+    "post_delay": 5000,
+    "next": ["Tutorial_IntroScreencap"]
+  },
+  "Tutorial_IntroScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_01_intro",
+    "next": ["Tutorial_IntroPickNewPlayer"]
+  },
+  "Tutorial_IntroPickNewPlayer": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [640, 465, 2, 2],
+    "post_delay": 1200,
+    "next": ["Tutorial_IntroConfirm"]
+  },
+  "Tutorial_IntroConfirm": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [640, 650, 2, 2],
+    "post_delay": 16000,
+    "next": ["Tutorial_Stage1Loaded"]
+  },
+  "Tutorial_Stage1Loaded": {
+    "action": "Screencap",
+    "filename": "tutorial_full_02_stage1_loaded",
+    "next": ["Tutorial_Stage1DialogA"]
+  },
+  "Tutorial_Stage1DialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [730, 630, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage1DialogB"]
+  },
+  "Tutorial_Stage1DialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage1BuyXp"]
+  },
+  "Tutorial_Stage1BuyXp": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [245, 615, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage1AfterXp"]
+  },
+  "Tutorial_Stage1AfterXp": {
+    "action": "Screencap",
+    "filename": "tutorial_full_03_stage1_after_xp",
+    "next": ["Tutorial_Stage1DeployDialogA"]
+  },
+  "Tutorial_Stage1DeployDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [730, 630, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage1DeployDialogB"]
+  },
+  "Tutorial_Stage1DeployDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 1200,
+    "next": ["Tutorial_Stage1DragBenchUnit"]
+  },
+  "Tutorial_Stage1DragBenchUnit": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [340, 500],
+    "end": [735, 388],
+    "duration": 800,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage1DeployScreencap"]
+  },
+  "Tutorial_Stage1DeployScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_04_stage1_deployed",
+    "next": ["Tutorial_Stage1BattleDialogA"]
+  },
+  "Tutorial_Stage1BattleDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage1BattleDialogB"]
+  },
+  "Tutorial_Stage1BattleDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 38000,
+    "next": ["Tutorial_Stage2AfterBattle1"]
+  },
+  "Tutorial_Stage2AfterBattle1": {
+    "action": "Screencap",
+    "filename": "tutorial_full_05_after_battle1",
+    "next": ["Tutorial_Stage2WinDialogA"]
+  },
+  "Tutorial_Stage2WinDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage2WinDialogB"]
+  },
+  "Tutorial_Stage2WinDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 4000,
+    "next": ["Tutorial_Stage2StartDialogA"]
+  },
+  "Tutorial_Stage2StartDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage2StartDialogB"]
+  },
+  "Tutorial_Stage2StartDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage2ShopScreencap"]
+  },
+  "Tutorial_Stage2ShopScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_06_stage2_shop",
+    "next": ["Tutorial_Stage2BuyFirstCopy"]
+  },
+  "Tutorial_Stage2BuyFirstCopy": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [756, 692, 2, 2],
+    "post_delay": 900,
+    "next": ["Tutorial_Stage2BuySecondCopy"]
+  },
+  "Tutorial_Stage2BuySecondCopy": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [914, 692, 2, 2],
+    "post_delay": 4500,
+    "next": ["Tutorial_Stage2StarScreencap"]
+  },
+  "Tutorial_Stage2StarScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_07_stage2_two_star",
+    "next": ["Tutorial_Stage2ContinueTraining"]
+  },
+  "Tutorial_Stage2ContinueTraining": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [640, 584, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage2BattleDialogA"]
+  },
+  "Tutorial_Stage2BattleDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage2BattleDialogB"]
+  },
+  "Tutorial_Stage2BattleDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 38000,
+    "next": ["Tutorial_Stage3AfterBattle2"]
+  },
+  "Tutorial_Stage3AfterBattle2": {
+    "action": "Screencap",
+    "filename": "tutorial_full_08_after_battle2",
+    "next": ["Tutorial_Stage3WinDialogA"]
+  },
+  "Tutorial_Stage3WinDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage3WinDialogB"]
+  },
+  "Tutorial_Stage3WinDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 3000,
+    "next": ["Tutorial_Stage3IntroDialogA"]
+  },
+  "Tutorial_Stage3IntroDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage3IntroDialogB"]
+  },
+  "Tutorial_Stage3IntroDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage3BuyGuard"]
+  },
+  "Tutorial_Stage3BuyGuard": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [720, 692, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_Stage3DeployDialogA"]
+  },
+  "Tutorial_Stage3DeployDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage3DeployDialogB"]
+  },
+  "Tutorial_Stage3DeployDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 1200,
+    "next": ["Tutorial_Stage3DragGuard"]
+  },
+  "Tutorial_Stage3DragGuard": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [337, 496],
+    "end": [640, 282],
+    "duration": 900,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage3TraitDialogA"]
+  },
+  "Tutorial_Stage3TraitDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage3TraitDialogB"]
+  },
+  "Tutorial_Stage3TraitDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 8000,
+    "next": ["Tutorial_Stage3OpenTraitButton"]
+  },
+  "Tutorial_Stage3OpenTraitButton": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [160, 111, 2, 2],
+    "post_delay": 1500,
+    "next": ["Tutorial_Stage3TraitEffectHint"]
+  },
+  "Tutorial_Stage3TraitEffectHint": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [790, 216, 2, 2],
+    "post_delay": 1000,
+    "next": ["Tutorial_Stage3TraitMemberHint"]
+  },
+  "Tutorial_Stage3TraitMemberHint": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [714, 407, 2, 2],
+    "post_delay": 1000,
+    "next": ["Tutorial_Stage3SellExtra"]
+  },
+  "Tutorial_Stage3SellExtra": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [335, 500],
+    "end": [640, 641],
+    "duration": 1200,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage3SellScreencap"]
+  },
+  "Tutorial_Stage3SellScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_09_stage3_after_sell",
+    "next": ["Tutorial_Stage3BattleDialogA"]
+  },
+  "Tutorial_Stage3BattleDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage3BattleDialogB"]
+  },
+  "Tutorial_Stage3BattleDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 35000,
+    "next": ["Tutorial_Stage4AfterBattle3"]
+  },
+  "Tutorial_Stage4AfterBattle3": {
+    "action": "Screencap",
+    "filename": "tutorial_full_10_after_battle3",
+    "next": ["Tutorial_Stage4StartDialogA"]
+  },
+  "Tutorial_Stage4StartDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage4StartDialogB"]
+  },
+  "Tutorial_Stage4StartDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 4000,
+    "next": ["Tutorial_Stage4OrbDialogA"]
+  },
+  "Tutorial_Stage4OrbDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage4OrbDialogB"]
+  },
+  "Tutorial_Stage4OrbDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 2000,
+    "next": ["Tutorial_Stage4MoveToOrbFirstTap"]
+  },
+  "Tutorial_Stage4MoveToOrbFirstTap": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [706, 247, 2, 2],
+    "post_delay": 1500,
+    "next": ["Tutorial_Stage4MoveToOrbSecondTap"]
+  },
+  "Tutorial_Stage4MoveToOrbSecondTap": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [706, 247, 2, 2],
+    "post_delay": 4500,
+    "next": ["Tutorial_Stage4ItemScreencap"]
+  },
+  "Tutorial_Stage4ItemScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_11_stage4_item_ready",
+    "next": ["Tutorial_Stage4EquipSword"]
+  },
+  "Tutorial_Stage4EquipSword": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [102, 104],
+    "end": [708, 369],
+    "duration": 1200,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage4CarouselDialogA"]
+  },
+  "Tutorial_Stage4CarouselDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage4CarouselDialogB"]
+  },
+  "Tutorial_Stage4CarouselDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 9000,
+    "next": ["Tutorial_CarouselScreencap"]
+  },
+  "Tutorial_CarouselScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_12_carousel",
+    "next": ["Tutorial_CarouselHintA"]
+  },
+  "Tutorial_CarouselHintA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_CarouselHintB"]
+  },
+  "Tutorial_CarouselHintB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 2500,
+    "next": ["Tutorial_CarouselPick"]
+  },
+  "Tutorial_CarouselPick": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [612, 394, 2, 2],
+    "post_delay": 10000,
+    "next": ["Tutorial_Stage4SellCarouselUnit"]
+  },
+  "Tutorial_Stage4SellCarouselUnit": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [640, 504],
+    "end": [579, 642],
+    "duration": 1400,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage4CombineHintA"]
+  },
+  "Tutorial_Stage4CombineHintA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage4CombineHintB"]
+  },
+  "Tutorial_Stage4CombineHintB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 1500,
+    "next": ["Tutorial_Stage4CombineItem"]
+  },
+  "Tutorial_Stage4CombineItem": {
+    "recognition": "DirectHit",
+    "action": "Swipe",
+    "begin": [102, 101],
+    "end": [708, 369],
+    "duration": 1200,
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage4RecipeTap"]
+  },
+  "Tutorial_Stage4RecipeTap": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [103, 101, 2, 2],
+    "post_delay": 24000,
+    "next": ["Tutorial_Stage5AfterBattle4"]
+  },
+  "Tutorial_Stage5AfterBattle4": {
+    "action": "Screencap",
+    "filename": "tutorial_full_13_after_battle4",
+    "next": ["Tutorial_Stage5DialogA"]
+  },
+  "Tutorial_Stage5DialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage5DialogB"]
+  },
+  "Tutorial_Stage5DialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 5000,
+    "next": ["Tutorial_Stage5OpenGoldAndShop"]
+  },
+  "Tutorial_Stage5OpenGoldAndShop": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [355, 352, 2, 2],
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage5ShopScreencap"]
+  },
+  "Tutorial_Stage5ShopScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_14_stage5_shop",
+    "next": ["Tutorial_Stage5BuyA"]
+  },
+  "Tutorial_Stage5BuyA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [720, 692, 2, 2],
+    "post_delay": 900,
+    "next": ["Tutorial_Stage5BuyB"]
+  },
+  "Tutorial_Stage5BuyB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [878, 692, 2, 2],
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage5RefreshA"]
+  },
+  "Tutorial_Stage5RefreshA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [247, 684, 2, 2],
+    "post_delay": 3000,
+    "next": ["Tutorial_Stage5BuyC"]
+  },
+  "Tutorial_Stage5BuyC": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [720, 692, 2, 2],
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage5RefreshB"]
+  },
+  "Tutorial_Stage5RefreshB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [247, 684, 2, 2],
+    "post_delay": 3000,
+    "next": ["Tutorial_Stage5RefreshC"]
+  },
+  "Tutorial_Stage5RefreshC": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [247, 684, 2, 2],
+    "post_delay": 3000,
+    "next": ["Tutorial_Stage5BuyD"]
+  },
+  "Tutorial_Stage5BuyD": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [720, 692, 2, 2],
+    "post_delay": 900,
+    "next": ["Tutorial_Stage5BuyE"]
+  },
+  "Tutorial_Stage5BuyE": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [878, 692, 2, 2],
+    "post_delay": 3500,
+    "next": ["Tutorial_Stage5RefreshD"]
+  },
+  "Tutorial_Stage5RefreshD": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [247, 684, 2, 2],
+    "post_delay": 3000,
+    "next": ["Tutorial_Stage5BuyF"]
+  },
+  "Tutorial_Stage5BuyF": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [720, 692, 2, 2],
+    "post_delay": 8000,
+    "next": ["Tutorial_Stage5ThreeStarScreencap"]
+  },
+  "Tutorial_Stage5ThreeStarScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_15_three_star",
+    "next": ["Tutorial_Stage5FinalBattleDialogA"]
+  },
+  "Tutorial_Stage5FinalBattleDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_Stage5FinalBattleDialogB"]
+  },
+  "Tutorial_Stage5FinalBattleDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 25000,
+    "next": ["Tutorial_FinalVictoryScreencap"]
+  },
+  "Tutorial_FinalVictoryScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_16_victory",
+    "next": ["Tutorial_FinalExitButton"]
+  },
+  "Tutorial_FinalExitButton": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [640, 590, 2, 2],
+    "post_delay": 8000,
+    "next": ["Tutorial_FinalCongratsDialogA"]
+  },
+  "Tutorial_FinalCongratsDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_FinalCongratsDialogB"]
+  },
+  "Tutorial_FinalCongratsDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 8000,
+    "next": ["Tutorial_FinalEncourageDialogA"]
+  },
+  "Tutorial_FinalEncourageDialogA": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 676, 2, 2],
+    "post_delay": 700,
+    "next": ["Tutorial_FinalEncourageDialogB"]
+  },
+  "Tutorial_FinalEncourageDialogB": {
+    "recognition": "DirectHit",
+    "action": "Click",
+    "target": [936, 644, 2, 2],
+    "post_delay": 15000,
+    "next": ["Tutorial_CompleteLobbyScreencap"]
+  },
+  "Tutorial_CompleteLobbyScreencap": {
+    "action": "Screencap",
+    "filename": "tutorial_full_17_complete_lobby"
+  }
+}
