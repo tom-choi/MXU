@@ -1,0 +1,40 @@
+{
+  "id": 9349,
+  "slug": "item_9349_battlebunnycrossbow_up",
+  "name": "战兔至尊弩炮",
+  "aliases": ["战兔至尊弩炮", "battlebunnycrossbow_up", "battlebunnycrossbow_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "获得技能暴击。 每3次暴击，朝目标发射6个可以暴击的透体飞箭。每个造成100%【攻击力】物理伤害。 参与击败时，从目标处发射一连串的12个飞箭。 技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 每次技能施放至多3层。 推荐角色定位：物理射手或物理战士",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/battlebunnycrossbow_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9349_battlebunnycrossbow_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9349_battlebunnycrossbow_up.png",
+    "template_resource_path": "item/special/item_9349_battlebunnycrossbow_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/battlebunnycrossbow_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9349,
+    "tft_equip_id": null,
+    "name": "战兔至尊弩炮",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/battlebunnycrossbow_up.png",
+    "icon": "battlebunnycrossbow_up",
+    "desc": "获得技能暴击。  每3次暴击，朝目标发射6个可以暴击的透体飞箭。每个造成100%【攻击力】物理伤害。  参与击败时，从目标处发射一连串的12个飞箭。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 每次技能施放至多3层。 推荐角色定位：物理射手或物理战士",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

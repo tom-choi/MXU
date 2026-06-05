@@ -1,0 +1,40 @@
+{
+  "id": 9264,
+  "slug": "item_9264_infect",
+  "name": "指令模块：虚弱",
+  "aliases": ["指令模块：虚弱", "infect", "infect"],
+  "category": "special",
+  "type": "-1",
+  "description": "指定一个弈子，其攻击造成灼烧、重伤和冰冷。获得8%攻击速度。 （适合所有弈子）",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/infect.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9264_infect.png",
+    "template_path": "resource_knowledge/image/item/special/item_9264_infect.png",
+    "template_resource_path": "item/special/item_9264_infect.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/infect.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9264,
+    "tft_equip_id": null,
+    "name": "指令模块：虚弱",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/infect.png",
+    "icon": "infect",
+    "desc": "指定一个弈子，其攻击造成灼烧、重伤和冰冷。获得8%攻击速度。 （适合所有弈子）",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

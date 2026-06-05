@@ -1,0 +1,40 @@
+{
+  "id": 41707,
+  "slug": "item_41707_41707",
+  "name": "海魔人纹章",
+  "aliases": ["海魔人纹章", "41707", "41707"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【海魔人】羁绊。",
+  "synthesis": [1008, 1007],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41707.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41707_41707.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41707_41707.png",
+    "template_resource_path": "item/completed/item_41707_41707.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41707.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41707,
+    "tft_equip_id": null,
+    "name": "海魔人纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41707.png",
+    "icon": "41707",
+    "desc": "携带者获得【海魔人】羁绊。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1007,
+    "type": "转职纹章"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 3019,
+  "slug": "item_3019_golden_remover",
+  "name": "金制拆卸器",
+  "aliases": ["金制拆卸器", "golden_remover", "golden_remover"],
+  "category": "special",
+  "type": "-1",
+  "description": "用在一位英雄身上即可取下其所有装备，次数不限。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/golden_remover.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3019_golden_remover.png",
+    "template_path": "resource_knowledge/image/item/special/item_3019_golden_remover.png",
+    "template_resource_path": "item/special/item_3019_golden_remover.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/golden_remover.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3019,
+    "tft_equip_id": null,
+    "name": "金制拆卸器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/golden_remover.png",
+    "icon": "golden_remover",
+    "desc": "用在一位英雄身上即可取下其所有装备，次数不限。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

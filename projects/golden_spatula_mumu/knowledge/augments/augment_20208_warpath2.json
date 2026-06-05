@@ -1,0 +1,42 @@
+{
+  "id": 20208,
+  "slug": "augment_20208_warpath2",
+  "name": "征战之路",
+  "aliases": ["征战之路", "warpath2"],
+  "level": 2,
+  "description": "获得一个2星2费弈子。造成80玩家伤害后，获得一个装有高费弈子和装备的宝箱。 (当前：0)",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/warpath2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20208_warpath2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20208_warpath2.png",
+    "template_resource_path": "augment/augment_20208_warpath2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/warpath2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20208,
+    "name": "征战之路",
+    "description": "获得一个2星2费弈子。造成80玩家伤害后，获得一个装有高费弈子和装备的宝箱。 (当前：0)",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/warpath2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

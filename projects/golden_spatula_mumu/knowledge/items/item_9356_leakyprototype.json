@@ -1,0 +1,40 @@
+{
+  "id": 9356,
+  "slug": "item_9356_leakyprototype",
+  "name": "泄露原型",
+  "aliases": ["泄露原型", "leakyprototype", "leakyprototype"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每5秒，该装备失去3法术加成，并获得1法力回复。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leakyprototype.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9356_leakyprototype.png",
+    "template_path": "resource_knowledge/image/item/special/item_9356_leakyprototype.png",
+    "template_resource_path": "item/special/item_9356_leakyprototype.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leakyprototype.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9356,
+    "tft_equip_id": null,
+    "name": "泄露原型",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leakyprototype.png",
+    "icon": "leakyprototype",
+    "desc": "每5秒，该装备失去3法术加成，并获得1法力回复。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

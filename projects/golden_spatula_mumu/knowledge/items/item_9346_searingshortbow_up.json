@@ -1,0 +1,40 @@
+{
+  "id": 9346,
+  "slug": "item_9346_searingshortbow_up",
+  "name": "进化余烬射击",
+  "aliases": ["进化余烬射击", "searingshortbow_up", "searingshortbow_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每消耗15法力值，对1名附近的敌人发射1个飞弹，造成相当于100 + 携带者50%法术加成的魔法伤害，并对敌人施加持续10秒的1%灼烧效果和33%重伤效果。 每个飞弹会留下一片缓慢消失的地带，对其中的敌人每秒造成60魔法伤害。 伤害随阶段提升。 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果 推荐角色定位：魔法术师",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9346_searingshortbow_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9346_searingshortbow_up.png",
+    "template_resource_path": "item/special/item_9346_searingshortbow_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9346,
+    "tft_equip_id": null,
+    "name": "进化余烬射击",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow_up.png",
+    "icon": "searingshortbow_up",
+    "desc": "每消耗15法力值，对1名附近的敌人发射1个飞弹，造成相当于100 + 携带者50%法术加成的魔法伤害，并对敌人施加持续10秒的1%灼烧效果和33%重伤效果。   每个飞弹会留下一片缓慢消失的地带，对其中的敌人每秒造成60魔法伤害。  伤害随阶段提升。 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果 推荐角色定位：魔法术师",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

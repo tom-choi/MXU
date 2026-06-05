@@ -1,0 +1,40 @@
+{
+  "id": 6111,
+  "slug": "item_6111_varusobsession",
+  "name": "韦鲁斯的执念",
+  "aliases": ["韦鲁斯的执念", "varusobsession", "varusobsession"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "对战开始时：你最强大的那个坦克成为【灵魂伴侣】。其每存活一秒，携带者获得3%可叠加的物理加成和法术加成。 【灵魂伴侣】会获得携带者造成伤害20%的等额治疗。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/varusobsession.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6111_varusobsession.png",
+    "template_path": "resource_knowledge/image/item/special/item_6111_varusobsession.png",
+    "template_resource_path": "item/special/item_6111_varusobsession.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/varusobsession.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6111,
+    "tft_equip_id": null,
+    "name": "韦鲁斯的执念",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/varusobsession.png",
+    "icon": "varusobsession",
+    "desc": "对战开始时：你最强大的那个坦克成为【灵魂伴侣】。其每存活一秒，携带者获得3%可叠加的物理加成和法术加成。  【灵魂伴侣】会获得携带者造成伤害20%的等额治疗。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

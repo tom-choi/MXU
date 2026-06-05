@@ -1,0 +1,87 @@
+{
+  "id": 18408,
+  "slug": "champion_18408_s17_head_bayin",
+  "name": "羊咩咩 & 咩咩羊",
+  "aliases": ["羊咩咩 & 咩咩羊", "s17_bayin", "s17_head_bayin", "s17_bayin"],
+  "cost": 0,
+  "buy_price": 0,
+  "traits": [],
+  "trait_refs": [],
+  "skill": {
+    "name": "利尾横扫",
+    "description": "被动：普攻造成50(【法术加成】)额外魔法伤害。 主动：获得持续4秒的125(【法术加成】)护盾值，并为友军提供持续至战斗结束的20%法术加成。然后用尾巴横扫一个半圆范围，对命中的敌人们造成200(【法术加成】)魔法伤害。",
+    "brief_value": "50/80/140|125/300/300|200/200/200",
+    "value_description": "额外伤害:50(【法术加成】) 50/80/140|护盾:125(【法术加成】) 125/300/300|尾击伤害:200(【法术加成】) 200/200/200",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_bayin.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 0,
+      "armor": 75,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 20,
+      "init_hp": 992,
+      "init_mp": 0,
+      "magic_resist": 75,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bayin.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18408_s17_head_bayin.png",
+    "template_path": "resource_knowledge/image/champion/0/champion_18408_s17_head_bayin.png",
+    "template_resource_path": "champion/0/champion_18408_s17_head_bayin.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/18408",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bayin.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "388",
+    "id": 18408,
+    "tft_hero_id": 18408,
+    "name": "羊咩咩 & 咩咩羊",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bayin.png",
+    "hero_paint": "s17_bayin",
+    "hero_type": 1,
+    "buy_price": 0,
+    "price": 0,
+    "skill_brief_value": "50/80/140|125/300/300|200/200/200",
+    "skill_desc": "被动：普攻造成50(【法术加成】)额外魔法伤害。  主动：获得持续4秒的125(【法术加成】)护盾值，并为友军提供持续至战斗结束的20%法术加成。然后用尾巴横扫一个半圆范围，对命中的敌人们造成200(【法术加成】)魔法伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_bayin.png",
+    "skill_name": "利尾横扫",
+    "skill_value_desc": "额外伤害:50(【法术加成】) 50/80/140|护盾:125(【法术加成】) 125/300/300|尾击伤害:200(【法术加成】) 200/200/200",
+    "show_hero_tag": true,
+    "species": [-1],
+    "class": ["-1"],
+    "races": [],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 0,
+        "armor": 75,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 20,
+        "init_hp": 992,
+        "init_mp": 0,
+        "magic_resist": 75,
+        "max_mp": 50
+      }
+    ],
+    "enabled": false
+  }
+}

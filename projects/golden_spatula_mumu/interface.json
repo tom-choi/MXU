@@ -3,7 +3,7 @@
   "name": "GoldenSpatulaMuMu",
   "label": "金铲铲 MuMu",
   "title": "金铲铲之战 - MuMu 控制",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "用于 MuMu 上金铲铲之战的保守 MaaFramework 控制包。",
   "controller": [
     {
@@ -20,6 +20,13 @@
       "label": "金铲铲资源",
       "description": "包含主界面、日常巡检与截图调试的基础任务资源。",
       "path": ["resource"],
+      "controller": ["MuMuAdb"]
+    },
+    {
+      "name": "GoldenSpatulaKnowledge",
+      "label": "金铲铲资源 + 知识库",
+      "description": "在基础资源后额外加载棋子、装备、羁绊和强化符文识别模板；仅用于识别调试。",
+      "path": ["resource", "resource_knowledge"],
       "controller": ["MuMuAdb"]
     }
   ],
@@ -40,6 +47,12 @@
       "name": "debug",
       "label": "调试",
       "description": "截图、坐标和模板调试任务。",
+      "default_expand": true
+    },
+    {
+      "name": "knowledge",
+      "label": "知识库 / 识别调试",
+      "description": "棋子、装备、羁绊和强化符文模板识别任务；只截图和识别，不做对局操作。",
       "default_expand": true
     }
   ],
@@ -93,6 +106,66 @@
       "group": ["debug"],
       "controller": ["MuMuAdb"],
       "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "KnowledgeSmokeTest",
+      "label": "知识库模板加载测试",
+      "entry": "KnowledgeSmokeTest",
+      "default_check": false,
+      "description": "加载棋子、装备、羁绊和强化符文模板并保存截图，用于确认知识库资源可被 Maa 读取。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeShopChampions",
+      "label": "识别商店棋子",
+      "entry": "RecognizeShopChampions",
+      "default_check": false,
+      "description": "只截图并在商店区域尝试匹配当前版本棋子头像，不点击棋子或购买。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeBasicItems",
+      "label": "识别基础装备",
+      "entry": "RecognizeBasicItems",
+      "default_check": false,
+      "description": "只截图并尝试匹配基础装备图标；模板数量少，适合作为装备识别第一层巡检。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeCompletedItems",
+      "label": "识别成装图标",
+      "entry": "RecognizeCompletedItems",
+      "default_check": false,
+      "description": "只截图并尝试匹配常规成装图标；不触发点击或购买。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeSpecialItems",
+      "label": "识别特殊装备",
+      "entry": "RecognizeSpecialItems",
+      "default_check": false,
+      "description": "只截图并尝试匹配特殊装备、神器和机制装备图标；模板较多，建议按需调试。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeTraitsPanel",
+      "label": "识别羁绊面板",
+      "entry": "RecognizeTraitsPanel",
+      "default_check": false,
+      "description": "只截图并在左侧羁绊区域尝试匹配当前版本羁绊图标。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
     },
     {
       "name": "SmokeTest",

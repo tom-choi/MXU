@@ -1,0 +1,87 @@
+{
+  "id": 28437,
+  "slug": "champion_28437_m_head_elderdragon",
+  "name": "星界远古巨龙",
+  "aliases": ["星界远古巨龙", "m_elder_dragon", "m_head_elderdragon", "m_elderdragon"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": [],
+  "trait_refs": [],
+  "skill": {
+    "name": "0",
+    "description": "0",
+    "brief_value": "0",
+    "value_description": "0",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/m_elderdragon.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 0,
+      "armor": 50,
+      "attack_range": 2,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 450,
+      "init_hp": 10800,
+      "init_mp": 0,
+      "magic_resist": 50,
+      "max_mp": 0
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/m_head_elderdragon.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_28437_m_head_elderdragon.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_28437_m_head_elderdragon.png",
+    "template_resource_path": "champion/1/champion_28437_m_head_elderdragon.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/28437",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/m_head_elderdragon.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "460",
+    "id": 28437,
+    "tft_hero_id": 28437,
+    "name": "星界远古巨龙",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/m_head_elderdragon.png",
+    "hero_paint": "m_elder_dragon",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "0",
+    "skill_desc": "0",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/m_elderdragon.png",
+    "skill_name": "0",
+    "skill_value_desc": "0",
+    "show_hero_tag": true,
+    "species": [],
+    "class": [],
+    "races": [],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 0,
+        "armor": 50,
+        "attack_range": 2,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 450,
+        "init_hp": 10800,
+        "init_mp": 0,
+        "magic_resist": 50,
+        "max_mp": 0
+      }
+    ],
+    "enabled": false
+  }
+}

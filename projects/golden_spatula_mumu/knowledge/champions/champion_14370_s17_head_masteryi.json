@@ -1,0 +1,183 @@
+{
+  "id": 14370,
+  "slug": "champion_14370_s17_head_masteryi",
+  "name": "易",
+  "aliases": ["易", "s17_masteryi", "s17_head_masteryi", "s17_masteryi"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["灵能特工", "狂战士"],
+  "trait_refs": [
+    {
+      "id": 407,
+      "name": "灵能特工"
+    },
+    {
+      "id": "315",
+      "name": "狂战士"
+    }
+  ],
+  "skill": {
+    "name": "灵能打击",
+    "description": "被动：每第三次攻击是一次双连斩，造成70(【物理加成】)额外物理伤害。 主动：在短暂的冥想之后，进入一个持续5秒的灵能状态，从而获得10%全能汲取、70%攻击速度、以及额外移动速度。每秒两次，发射一道灵能投影至附近的一个随机敌人，造成70(【物理加成】【法术加成】)物理伤害。",
+    "brief_value": "70/105/550|20/30/200|50/75/600",
+    "value_description": "被动伤害：70(【物理加成】) 70/105/550|飞弹伤害：【法术加成】 20/30/200|投影伤害：70=50【物理加成】+20【法术加成】 50/75/600",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_masteryi.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 65,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1100,
+      "init_mp": 30,
+      "magic_resist": 65,
+      "max_mp": 70
+    },
+    {
+      "level": 2,
+      "sell_price": 11,
+      "armor": 65,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 1980,
+      "init_mp": 30,
+      "magic_resist": 65,
+      "max_mp": 70
+    },
+    {
+      "level": 3,
+      "sell_price": 35,
+      "armor": 65,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 4564,
+      "init_mp": 30,
+      "magic_resist": 65,
+      "max_mp": 70
+    },
+    {
+      "level": 4,
+      "sell_price": 107,
+      "armor": 65,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 6148,
+      "init_mp": 30,
+      "magic_resist": 65,
+      "max_mp": 70
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_masteryi.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14370_s17_head_masteryi.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14370_s17_head_masteryi.png",
+    "template_resource_path": "champion/4/champion_14370_s17_head_masteryi.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14370",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_masteryi.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "257",
+    "id": 14370,
+    "tft_hero_id": 14370,
+    "name": "易",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_masteryi.png",
+    "hero_paint": "s17_masteryi",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "70/105/550|20/30/200|50/75/600",
+    "skill_desc": "被动：每第三次攻击是一次双连斩，造成70(【物理加成】)额外物理伤害。  主动：在短暂的冥想之后，进入一个持续5秒的灵能状态，从而获得10%全能汲取、70%攻击速度、以及额外移动速度。每秒两次，发射一道灵能投影至附近的一个随机敌人，造成70(【物理加成】【法术加成】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_masteryi.png",
+    "skill_name": "灵能打击",
+    "skill_value_desc": "被动伤害：70(【物理加成】) 70/105/550|飞弹伤害：【法术加成】 20/30/200|投影伤害：70=50【物理加成】+20【法术加成】 50/75/600",
+    "show_hero_tag": true,
+    "species": [407],
+    "class": ["315"],
+    "races": [
+      {
+        "id": 407,
+        "name": "灵能特工"
+      }
+    ],
+    "traits": [
+      {
+        "id": "315",
+        "name": "狂战士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 65,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1100,
+        "init_mp": 30,
+        "magic_resist": 65,
+        "max_mp": 70
+      },
+      {
+        "level": 2,
+        "sell_price": 11,
+        "armor": 65,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 1980,
+        "init_mp": 30,
+        "magic_resist": 65,
+        "max_mp": 70
+      },
+      {
+        "level": 3,
+        "sell_price": 35,
+        "armor": 65,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 4564,
+        "init_mp": 30,
+        "magic_resist": 65,
+        "max_mp": 70
+      },
+      {
+        "level": 4,
+        "sell_price": 107,
+        "armor": 65,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 6148,
+        "init_mp": 30,
+        "magic_resist": 65,
+        "max_mp": 70
+      }
+    ]
+  }
+}

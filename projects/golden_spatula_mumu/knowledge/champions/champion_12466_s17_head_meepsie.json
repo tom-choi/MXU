@@ -1,0 +1,295 @@
+{
+  "id": 12466,
+  "slug": "champion_12466_s17_head_meepsie",
+  "name": "小木灵",
+  "aliases": ["小木灵", "s17_meepsie", "s17_head_meepsie", "s17_meepsie"],
+  "cost": 2,
+  "buy_price": 0,
+  "traits": ["木灵族", "牧羊人", "旅人"],
+  "trait_refs": [
+    {
+      "id": 402,
+      "name": "木灵族"
+    },
+    {
+      "id": "319",
+      "name": "牧羊人"
+    },
+    {
+      "id": "321",
+      "name": "旅人"
+    }
+  ],
+  "skill": {
+    "name": "宇宙大爆炸",
+    "description": "被动：普攻造成40(【法术加成】)额外魔法伤害： 主动：跳跃至2格内的最大敌群并猛砸地面，从而在一个半径三格的范围内造成240(【法术加成】)魔法伤害，每远离中心一格，这个伤害就降低35%。相距最近的3个敌人会被击飞1.25秒。 木灵加成：被动的额外伤害提升，幅度为60%x木灵数。木灵加成：被动的额外伤害提升，幅度为60%x木灵数。",
+    "brief_value": "40/60/90|240/360/560|1.25/1.5/1.75",
+    "value_description": "额外伤害：40=40【法术加成】+0% 40/60/90|伤害：240(【法术加成】) 240/360/560|晕眩时长 1.25/1.5/1.75",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_meepsie.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 2,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 20,
+      "init_hp": 950,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 5,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 1710,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 17,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 3078,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 53,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 4446,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 5,
+      "sell_price": 2,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.55,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 65,
+      "init_hp": 950,
+      "init_mp": 50,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 6,
+      "sell_price": 5,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.55,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 97,
+      "init_hp": 1710,
+      "init_mp": 50,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 7,
+      "sell_price": 17,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.55,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 145,
+      "init_hp": 3078,
+      "init_mp": 50,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 8,
+      "sell_price": 53,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.55,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 195,
+      "init_hp": 4446,
+      "init_mp": 50,
+      "magic_resist": 45,
+      "max_mp": 100
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meepsie.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_12466_s17_head_meepsie.png",
+    "template_path": "resource_knowledge/image/champion/2/champion_12466_s17_head_meepsie.png",
+    "template_resource_path": "champion/2/champion_12466_s17_head_meepsie.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/12466",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meepsie.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "141",
+    "id": 12466,
+    "tft_hero_id": 12466,
+    "name": "小木灵",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meepsie.png",
+    "hero_paint": "s17_meepsie",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 2,
+    "skill_brief_value": "40/60/90|240/360/560|1.25/1.5/1.75",
+    "skill_desc": "被动：普攻造成40(【法术加成】)额外魔法伤害：  主动：跳跃至2格内的最大敌群并猛砸地面，从而在一个半径三格的范围内造成240(【法术加成】)魔法伤害，每远离中心一格，这个伤害就降低35%。相距最近的3个敌人会被击飞1.25秒。  木灵加成：被动的额外伤害提升，幅度为60%x木灵数。木灵加成：被动的额外伤害提升，幅度为60%x木灵数。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_meepsie.png",
+    "skill_name": "宇宙大爆炸",
+    "skill_value_desc": "额外伤害：40=40【法术加成】+0% 40/60/90|伤害：240(【法术加成】) 240/360/560|晕眩时长 1.25/1.5/1.75",
+    "show_hero_tag": true,
+    "species": [402],
+    "class": ["319", "321"],
+    "races": [
+      {
+        "id": 402,
+        "name": "木灵族"
+      }
+    ],
+    "traits": [
+      {
+        "id": "319",
+        "name": "牧羊人"
+      },
+      {
+        "id": "321",
+        "name": "旅人"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 2,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 20,
+        "init_hp": 950,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 5,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 1710,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 17,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 3078,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 53,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 4446,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 5,
+        "sell_price": 2,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.55,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 65,
+        "init_hp": 950,
+        "init_mp": 50,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 6,
+        "sell_price": 5,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.55,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 97,
+        "init_hp": 1710,
+        "init_mp": 50,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 7,
+        "sell_price": 17,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.55,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 145,
+        "init_hp": 3078,
+        "init_mp": 50,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 8,
+        "sell_price": 53,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.55,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 195,
+        "init_hp": 4446,
+        "init_mp": 50,
+        "magic_resist": 45,
+        "max_mp": 100
+      }
+    ]
+  }
+}

@@ -1,0 +1,665 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "source": {
+    "defaultVersion": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=default_version",
+    "activeVersions": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=active_versions",
+    "versionsInfo": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=versions_info",
+    "chess": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "chessNameIndex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess_name_index&versionId=17_17.17.4_S18",
+    "equip": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "trait": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "hex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "lineup": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "category": "trait",
+  "entries": [
+    {
+      "id": 83110101,
+      "name": "暗星",
+      "slug": "trait_83110101_s17_trait_icon_darkstar",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_darkstar.png",
+      "template_resource_path": "trait/trait_83110101_s17_trait_icon_darkstar.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83110101_s17_trait_icon_darkstar.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83300101,
+      "name": "霸天机甲",
+      "slug": "trait_83300101_s17_trait_icon_mecha",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_mecha.png",
+      "template_resource_path": "trait/trait_83300101_s17_trait_icon_mecha.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83300101_s17_trait_icon_mecha.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83290101,
+      "name": "堡垒卫士",
+      "slug": "trait_83290101_s17_trait_icon_bastion",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bastion.png",
+      "template_resource_path": "trait/trait_83290101_s17_trait_icon_bastion.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83290101_s17_trait_icon_bastion.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83410101,
+      "name": "斗神",
+      "slug": "trait_83410101_s17_trait_icon_divineduelist",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_divineduelist.png",
+      "template_resource_path": "trait/trait_83410101_s17_trait_icon_divineduelist.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83410101_s17_trait_icon_divineduelist.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83150101,
+      "name": "斗士",
+      "slug": "trait_83150101_s17_trait_icon_brawler",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_brawler.png",
+      "template_resource_path": "trait/trait_83150101_s17_trait_icon_brawler.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83150101_s17_trait_icon_brawler.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83390101,
+      "name": "法官",
+      "slug": "trait_83390101_s17_trait_icon_arbiter",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_arbiter.png",
+      "template_resource_path": "trait/trait_83390101_s17_trait_icon_arbiter.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83390101_s17_trait_icon_arbiter.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83500101,
+      "name": "根除者",
+      "slug": "trait_83500101_s17_trait_icon_destroyer",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_destroyer.png",
+      "template_resource_path": "trait/trait_83500101_s17_trait_icon_destroyer.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83500101_s17_trait_icon_destroyer.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83380101,
+      "name": "狗狗机器人",
+      "slug": "trait_83380101_s17_trait_icon_partyanimal",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_partyanimal.png",
+      "template_resource_path": "trait/trait_83380101_s17_trait_icon_partyanimal.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83380101_s17_trait_icon_partyanimal.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83420101,
+      "name": "观星者",
+      "slug": "trait_83420101_s17_trait_icon_stargazer",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_stargazer.png",
+      "template_resource_path": "trait/trait_83420101_s17_trait_icon_stargazer.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83420101_s17_trait_icon_stargazer.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83130101,
+      "name": "海魔人",
+      "slug": "trait_83130101_s17_trait_icon_primordian",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_primordian.png",
+      "template_resource_path": "trait/trait_83130101_s17_trait_icon_primordian.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83130101_s17_trait_icon_primordian.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83510101,
+      "name": "黑暗魔女",
+      "slug": "trait_83510101_s17_trait_icon_darklady",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_darklady.png",
+      "template_resource_path": "trait/trait_83510101_s17_trait_icon_darklady.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83510101_s17_trait_icon_darklady.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83370101,
+      "name": "幻灵战队",
+      "slug": "trait_83370101_s17_trait_icon_animatech",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_animatech.png",
+      "template_resource_path": "trait/trait_83370101_s17_trait_icon_animatech.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83370101_s17_trait_icon_animatech.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83260101,
+      "name": "救世主",
+      "slug": "trait_83260101_s17_trait_icon_redeemer",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_redeemer.png",
+      "template_resource_path": "trait/trait_83260101_s17_trait_icon_redeemer.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83260101_s17_trait_icon_redeemer.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83250101,
+      "name": "狙神",
+      "slug": "trait_83250101_s17_trait_icon_sniper",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_sniper.png",
+      "template_resource_path": "trait/trait_83250101_s17_trait_icon_sniper.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83250101_s17_trait_icon_sniper.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83330101,
+      "name": "军工1号",
+      "slug": "trait_83330101_s17_trait_icon_factorynew",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_factorynew.png",
+      "template_resource_path": "trait/trait_83330101_s17_trait_icon_factorynew.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83330101_s17_trait_icon_factorynew.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83170101,
+      "name": "狂战士",
+      "slug": "trait_83170101_s17_trait_icon_marauder",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_marauder.png",
+      "template_resource_path": "trait/trait_83170101_s17_trait_icon_marauder.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83170101_s17_trait_icon_marauder.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83240101,
+      "name": "灵能特工",
+      "slug": "trait_83240101_s17_trait_icon_psionic",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_psionic.png",
+      "template_resource_path": "trait/trait_83240101_s17_trait_icon_psionic.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83240101_s17_trait_icon_psionic.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83200101,
+      "name": "旅人",
+      "slug": "trait_83200101_s17_trait_icon_voyager",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_voyager.png",
+      "template_resource_path": "trait/trait_83200101_s17_trait_icon_voyager.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83200101_s17_trait_icon_voyager.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83190101,
+      "name": "魔术师",
+      "slug": "trait_83190101_s17_trait_icon_replicator",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_replicator.png",
+      "template_resource_path": "trait/trait_83190101_s17_trait_icon_replicator.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83190101_s17_trait_icon_replicator.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83230101,
+      "name": "末日使者",
+      "slug": "trait_83230101_s17_trait_icon_doomer",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_doomer.png",
+      "template_resource_path": "trait/trait_83230101_s17_trait_icon_doomer.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83230101_s17_trait_icon_doomer.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83100101,
+      "name": "木灵族",
+      "slug": "trait_83100101_s17_trait_icon_astronaut",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_astronaut.png",
+      "template_resource_path": "trait/trait_83100101_s17_trait_icon_astronaut.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83100101_s17_trait_icon_astronaut.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83360101,
+      "name": "牧羊人",
+      "slug": "trait_83360101_s17_trait_icon_shepherd",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_shepherd.png",
+      "template_resource_path": "trait/trait_83360101_s17_trait_icon_shepherd.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83360101_s17_trait_icon_shepherd.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83350101,
+      "name": "暮光铁壁",
+      "slug": "trait_83350101_s17_trait_icon_bulwark",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bulwark.png",
+      "template_resource_path": "trait/trait_83350101_s17_trait_icon_bulwark.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83350101_s17_trait_icon_bulwark.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83270101,
+      "name": "神谕",
+      "slug": "trait_83270101_s17_trait_icon_channeler",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_channeler.png",
+      "template_resource_path": "trait/trait_83270101_s17_trait_icon_channeler.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83270101_s17_trait_icon_channeler.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83120101,
+      "name": "太空律动",
+      "slug": "trait_83120101_s17_trait_icon_spacegroove",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_spacegroove.png",
+      "template_resource_path": "trait/trait_83120101_s17_trait_icon_spacegroove.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83120101_s17_trait_icon_spacegroove.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83320101,
+      "name": "天煞",
+      "slug": "trait_83320101_s17_trait_icon_galaxyhunter",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_galaxyhunter.png",
+      "template_resource_path": "trait/trait_83320101_s17_trait_icon_galaxyhunter.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83320101_s17_trait_icon_galaxyhunter.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83180101,
+      "name": "挑战者",
+      "slug": "trait_83180101_s17_trait_icon_challenger",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_challenger.png",
+      "template_resource_path": "trait/trait_83180101_s17_trait_icon_challenger.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83180101_s17_trait_icon_challenger.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83160101,
+      "name": "未来战士",
+      "slug": "trait_83160101_s17_trait_icon_timebreaker",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_timebreaker.png",
+      "template_resource_path": "trait/trait_83160101_s17_trait_icon_timebreaker.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83160101_s17_trait_icon_timebreaker.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83400101,
+      "name": "武装战姬",
+      "slug": "trait_83400101_s17_trait_icon_gungoddess",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_gungoddess.png",
+      "template_resource_path": "trait/trait_83400101_s17_trait_icon_gungoddess.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83400101_s17_trait_icon_gungoddess.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83280101,
+      "name": "新星特攻队",
+      "slug": "trait_83280101_s17_trait_icon_nova",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_nova.png",
+      "template_resource_path": "trait/trait_83280101_s17_trait_icon_nova.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83280101_s17_trait_icon_nova.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83210101,
+      "name": "游侠",
+      "slug": "trait_83210101_s17_trait_icon_rogue",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_rogue.png",
+      "template_resource_path": "trait/trait_83210101_s17_trait_icon_rogue.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83210101_s17_trait_icon_rogue.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83220101,
+      "name": "织命人",
+      "slug": "trait_83220101_s17_trait_icon_fateweaver",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_fateweaver.png",
+      "template_resource_path": "trait/trait_83220101_s17_trait_icon_fateweaver.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83220101_s17_trait_icon_fateweaver.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83140101,
+      "name": "重装战士",
+      "slug": "trait_83140101_s17_trait_icon_vanguard",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_vanguard.png",
+      "template_resource_path": "trait/trait_83140101_s17_trait_icon_vanguard.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83140101_s17_trait_icon_vanguard.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    },
+    {
+      "id": 83310101,
+      "name": "最高指挥官",
+      "slug": "trait_83310101_s17_trait_icon_commander",
+      "category": "trait",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_commander.png",
+      "template_resource_path": "trait/trait_83310101_s17_trait_icon_commander.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83310101_s17_trait_icon_commander.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "left_panel_1280x720": [0, 0, 360, 720],
+        "note": "对局内左侧羁绊列表或羁绊面板区域。"
+      }
+    }
+  ]
+}

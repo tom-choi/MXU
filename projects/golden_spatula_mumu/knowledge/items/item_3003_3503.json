@@ -1,0 +1,40 @@
+{
+  "id": 3003,
+  "slug": "item_3003_3503",
+  "name": "装备拆卸器",
+  "aliases": ["装备拆卸器", "3503", "3503"],
+  "category": "special",
+  "type": "-1",
+  "description": "用在一位英雄身上即可取下其所有装备。 [无法对战斗中的英雄使用。] [消耗品-这个物品会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3503.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3003_3503.png",
+    "template_path": "resource_knowledge/image/item/special/item_3003_3503.png",
+    "template_resource_path": "item/special/item_3003_3503.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3503.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3003,
+    "tft_equip_id": null,
+    "name": "装备拆卸器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3503.png",
+    "icon": "3503",
+    "desc": "用在一位英雄身上即可取下其所有装备。  [无法对战斗中的英雄使用。] [消耗品-这个物品会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

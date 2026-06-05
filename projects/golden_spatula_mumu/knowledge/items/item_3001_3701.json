@@ -1,0 +1,40 @@
+{
+  "id": 3001,
+  "slug": "item_3001_3701",
+  "name": "英雄复制器",
+  "aliases": ["英雄复制器", "3701", "3701"],
+  "category": "special",
+  "type": "-1",
+  "description": "用在一位英雄身上，即可生成一个该英雄的1星版本到你的备战区。 [消耗品-这个物品会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3701.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3001_3701.png",
+    "template_path": "resource_knowledge/image/item/special/item_3001_3701.png",
+    "template_resource_path": "item/special/item_3001_3701.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3701.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3001,
+    "tft_equip_id": null,
+    "name": "英雄复制器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3701.png",
+    "icon": "3701",
+    "desc": "用在一位英雄身上，即可生成一个该英雄的1星版本到你的备战区。  [消耗品-这个物品会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 6075,
+  "slug": "item_6075_wit_s_end",
+  "name": "智慧末刃",
+  "aliases": ["智慧末刃", "wit_s_end", "wit_s_end"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "攻击造成30额外魔法伤害。 治疗携带者，数额为30%的所有已造成魔法伤害。 这个伤害基于阶段而提升。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/wit_s_end.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6075_wit_s_end.png",
+    "template_path": "resource_knowledge/image/item/special/item_6075_wit_s_end.png",
+    "template_resource_path": "item/special/item_6075_wit_s_end.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/wit_s_end.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6075,
+    "tft_equip_id": null,
+    "name": "智慧末刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/wit_s_end.png",
+    "icon": "wit_s_end",
+    "desc": "攻击造成30额外魔法伤害。  治疗携带者，数额为30%的所有已造成魔法伤害。  这个伤害基于阶段而提升。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

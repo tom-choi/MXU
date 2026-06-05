@@ -1,0 +1,183 @@
+{
+  "id": 11461,
+  "slug": "champion_11461_s17_head_veigar",
+  "name": "维迦",
+  "aliases": ["维迦", "s17_veigar", "s17_head_veigar", "s17_veigar"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": ["木灵族", "魔术师"],
+  "trait_refs": [
+    {
+      "id": 402,
+      "name": "木灵族"
+    },
+    {
+      "id": "316",
+      "name": "魔术师"
+    }
+  ],
+  "skill": {
+    "name": "木灵流星雨",
+    "description": "召唤一颗木灵流星落在目标上，造成310(【法术加成】)魔法伤害。 木灵加成：召唤额外0()个迷你木灵流星落在附近的目标上，每个造成31(【法术加成】)魔法伤害。木灵加成：召唤额外0()个迷你木灵流星落在附近的目标上，每个造成31(【法术加成】)魔法伤害。",
+    "brief_value": "310/465/700||31/47/70",
+    "value_description": "伤害：310(【法术加成】) 310/465/700|迷你木灵：0=2x |迷你伤害：31（【法术加成】） 31/47/70",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_veigar.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 1,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 500,
+      "init_mp": 10,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 3,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 900,
+      "init_mp": 10,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 9,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 1620,
+      "init_mp": 10,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 27,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 2340,
+      "init_mp": 10,
+      "magic_resist": 15,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_veigar.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_11461_s17_head_veigar.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_11461_s17_head_veigar.png",
+    "template_resource_path": "champion/1/champion_11461_s17_head_veigar.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/11461",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_veigar.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "53",
+    "id": 11461,
+    "tft_hero_id": 11461,
+    "name": "维迦",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_veigar.png",
+    "hero_paint": "s17_veigar",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "310/465/700||31/47/70",
+    "skill_desc": "召唤一颗木灵流星落在目标上，造成310(【法术加成】)魔法伤害。  木灵加成：召唤额外0()个迷你木灵流星落在附近的目标上，每个造成31(【法术加成】)魔法伤害。木灵加成：召唤额外0()个迷你木灵流星落在附近的目标上，每个造成31(【法术加成】)魔法伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_veigar.png",
+    "skill_name": "木灵流星雨",
+    "skill_value_desc": "伤害：310(【法术加成】) 310/465/700|迷你木灵：0=2x |迷你伤害：31（【法术加成】） 31/47/70",
+    "show_hero_tag": true,
+    "species": [402],
+    "class": ["316"],
+    "races": [
+      {
+        "id": 402,
+        "name": "木灵族"
+      }
+    ],
+    "traits": [
+      {
+        "id": "316",
+        "name": "魔术师"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 1,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 500,
+        "init_mp": 10,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 3,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 900,
+        "init_mp": 10,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 9,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 1620,
+        "init_mp": 10,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 27,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 2340,
+        "init_mp": 10,
+        "magic_resist": 15,
+        "max_mp": 50
+      }
+    ]
+  }
+}

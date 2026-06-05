@@ -1,0 +1,52 @@
+{
+  "id": 2028,
+  "slug": "item_2028_2248",
+  "name": "石像鬼石板甲",
+  "aliases": ["石像鬼石板甲", "2248", "2248"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每有一个敌人正在以携带者为目标，携带者就会获得10护甲和10魔抗。",
+  "synthesis": [1005, 1006],
+  "recommended_users": [
+    "未解析棋子 12460",
+    "蕾欧娜",
+    "未解析棋子 14384",
+    "未解析棋子 12462",
+    "拉莫斯",
+    "奥恩",
+    "茂凯",
+    "俄洛伊",
+    "努努和威朗普",
+    "古拉加斯",
+    "潘森"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2248.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2028_2248.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2028_2248.png",
+    "template_resource_path": "item/completed/item_2028_2248.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2248.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2028,
+    "tft_equip_id": null,
+    "name": "石像鬼石板甲",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2248.png",
+    "icon": "2248",
+    "desc": "每有一个敌人正在以携带者为目标，携带者就会获得10护甲和10魔抗。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1005,
+    "synthesis2": 1006,
+    "type": "成型装备"
+  }
+}

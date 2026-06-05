@@ -1,0 +1,40 @@
+{
+  "id": 6083,
+  "slug": "item_6083_blighting_jewel",
+  "name": "枯萎珠宝",
+  "aliases": ["枯萎珠宝", "blighting_jewel", "blighting_jewel"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "造成魔法伤害时会将目标的魔抗削减6。如果目标的魔抗是0，则转而会为携带者提供2法力值。 技能伤害每0.5秒仅能在每个敌人身上触发一次此效果。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blighting_jewel.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6083_blighting_jewel.png",
+    "template_path": "resource_knowledge/image/item/special/item_6083_blighting_jewel.png",
+    "template_resource_path": "item/special/item_6083_blighting_jewel.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blighting_jewel.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6083,
+    "tft_equip_id": null,
+    "name": "枯萎珠宝",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blighting_jewel.png",
+    "icon": "blighting_jewel",
+    "desc": "造成魔法伤害时会将目标的魔抗削减6。如果目标的魔抗是0，则转而会为携带者提供2法力值。  技能伤害每0.5秒仅能在每个敌人身上触发一次此效果。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

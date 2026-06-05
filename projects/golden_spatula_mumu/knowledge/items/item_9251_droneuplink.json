@@ -1,0 +1,40 @@
+{
+  "id": 9251,
+  "slug": "item_9251_droneuplink",
+  "name": "无人机上行链路",
+  "aliases": ["无人机上行链路", "droneuplink", "droneuplink"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每3秒，一个无人机将来自携带者攻击和技能的20%伤害重复至相同目标。 在(4)层级时：如果携带者是【灵能特工】，获得一个额外的小型无人机，重复25%伤害。 推荐使用者：【娑娜】和【维克托】。",
+  "synthesis": [],
+  "recommended_users": ["维克托"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/droneuplink.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9251_droneuplink.png",
+    "template_path": "resource_knowledge/image/item/special/item_9251_droneuplink.png",
+    "template_resource_path": "item/special/item_9251_droneuplink.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/droneuplink.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9251,
+    "tft_equip_id": null,
+    "name": "无人机上行链路",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/droneuplink.png",
+    "icon": "droneuplink",
+    "desc": "每3秒，一个无人机将来自携带者攻击和技能的20%伤害重复至相同目标。  在(4)层级时：如果携带者是【灵能特工】，获得一个额外的小型无人机，重复25%伤害。  推荐使用者：【娑娜】和【维克托】。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

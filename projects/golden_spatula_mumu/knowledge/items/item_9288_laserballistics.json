@@ -1,0 +1,40 @@
+{
+  "id": 9288,
+  "slug": "item_9288_laserballistics",
+  "name": "镭射弹道",
+  "aliases": ["镭射弹道", "laserballistics", "laserballistics"],
+  "category": "special",
+  "type": "-1",
+  "description": "攻击范围额外扩大1格并穿透敌人，每穿透1个目标，伤害降低60%。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/laserballistics.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9288_laserballistics.png",
+    "template_path": "resource_knowledge/image/item/special/item_9288_laserballistics.png",
+    "template_resource_path": "item/special/item_9288_laserballistics.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/laserballistics.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9288,
+    "tft_equip_id": null,
+    "name": "镭射弹道",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/laserballistics.png",
+    "icon": "laserballistics",
+    "desc": "攻击范围额外扩大1格并穿透敌人，每穿透1个目标，伤害降低60%。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

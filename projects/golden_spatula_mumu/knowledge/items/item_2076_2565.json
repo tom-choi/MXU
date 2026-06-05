@@ -1,0 +1,40 @@
+{
+  "id": 2076,
+  "slug": "item_2076_2565",
+  "name": "光明版蓝霸符",
+  "aliases": ["光明版蓝霸符", "2565", "2565"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "从所有来源中获得20%额外物理加成和法术加成。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2565.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2076_2565.png",
+    "template_path": "resource_knowledge/image/item/special/item_2076_2565.png",
+    "template_resource_path": "item/special/item_2076_2565.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2565.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2076,
+    "tft_equip_id": null,
+    "name": "光明版蓝霸符",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2565.png",
+    "icon": "2565",
+    "desc": "从所有来源中获得20%额外物理加成和法术加成。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

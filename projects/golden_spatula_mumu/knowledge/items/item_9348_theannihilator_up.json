@@ -1,0 +1,40 @@
+{
+  "id": 9348,
+  "slug": "item_9348_theannihilator_up",
+  "name": "幻灵启示录",
+  "aliases": ["幻灵启示录", "theannihilator_up", "theannihilator_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "储存造成伤害的20%。每6秒和倒下时，对所有敌人造成相当于储存伤害的真实伤害，每远离中心一格，这个伤害降低5%。 推荐角色定位：物理术师或魔法术师",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9348_theannihilator_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9348_theannihilator_up.png",
+    "template_resource_path": "item/special/item_9348_theannihilator_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9348,
+    "tft_equip_id": null,
+    "name": "幻灵启示录",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator_up.png",
+    "icon": "theannihilator_up",
+    "desc": "储存造成伤害的20%。每6秒和倒下时，对所有敌人造成相当于储存伤害的真实伤害，每远离中心一格，这个伤害降低5%。  推荐角色定位：物理术师或魔法术师",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9311,
+  "slug": "item_9311_heartseeker2",
+  "name": "觅心者++",
+  "aliases": ["觅心者++", "heartseeker2", "heartseeker2"],
+  "category": "special",
+  "type": "-1",
+  "description": "+40%暴击几率和+18%暴击伤害",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9311_heartseeker2.png",
+    "template_path": "resource_knowledge/image/item/special/item_9311_heartseeker2.png",
+    "template_resource_path": "item/special/item_9311_heartseeker2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9311,
+    "tft_equip_id": null,
+    "name": "觅心者++",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker2.png",
+    "icon": "heartseeker2",
+    "desc": "+40%暴击几率和+18%暴击伤害",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

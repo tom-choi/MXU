@@ -1,0 +1,183 @@
+{
+  "id": 11468,
+  "slug": "champion_11468_s17_head_poppy",
+  "name": "波比",
+  "aliases": ["波比", "s17_poppy", "s17_head_poppy", "s17_poppy"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": ["木灵族", "堡垒卫士"],
+  "trait_refs": [
+    {
+      "id": 402,
+      "name": "木灵族"
+    },
+    {
+      "id": "310",
+      "name": "堡垒卫士"
+    }
+  ],
+  "skill": {
+    "name": "飙速木灵",
+    "description": "召唤一个大型木灵，然后把它炸向目标，对命中的第一个目标造成385(【物理加成】【护甲】)物理伤害。如果这个效果击杀了敌人，那么这个木灵会弹射至相距最近的那个敌人并造成过量击杀伤害。 木灵加成：木灵的体型和伤害提升0()木灵加成：木灵的体型和伤害提升0%()",
+    "brief_value": "100%/150%/250%|340/510/850",
+    "value_description": "伤害：【护甲】 100%/150%/250%|伤害：385=340【物理加成】+100%【护甲】 340/510/850|木灵加成：0%=15%x",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_poppy.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 1,
+      "armor": 45,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 700,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 55
+    },
+    {
+      "level": 2,
+      "sell_price": 3,
+      "armor": 45,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 1260,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 55
+    },
+    {
+      "level": 3,
+      "sell_price": 9,
+      "armor": 45,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 2268,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 55
+    },
+    {
+      "level": 4,
+      "sell_price": 27,
+      "armor": 45,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 3277,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 55
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_poppy.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_11468_s17_head_poppy.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_11468_s17_head_poppy.png",
+    "template_resource_path": "champion/1/champion_11468_s17_head_poppy.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/11468",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_poppy.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "61",
+    "id": 11468,
+    "tft_hero_id": 11468,
+    "name": "波比",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_poppy.png",
+    "hero_paint": "s17_poppy",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "100%/150%/250%|340/510/850",
+    "skill_desc": "召唤一个大型木灵，然后把它炸向目标，对命中的第一个目标造成385(【物理加成】【护甲】)物理伤害。如果这个效果击杀了敌人，那么这个木灵会弹射至相距最近的那个敌人并造成过量击杀伤害。  木灵加成：木灵的体型和伤害提升0()木灵加成：木灵的体型和伤害提升0%()",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_poppy.png",
+    "skill_name": "飙速木灵",
+    "skill_value_desc": "伤害：【护甲】 100%/150%/250%|伤害：385=340【物理加成】+100%【护甲】 340/510/850|木灵加成：0%=15%x",
+    "show_hero_tag": true,
+    "species": [402],
+    "class": ["310"],
+    "races": [
+      {
+        "id": 402,
+        "name": "木灵族"
+      }
+    ],
+    "traits": [
+      {
+        "id": "310",
+        "name": "堡垒卫士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 1,
+        "armor": 45,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 700,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 55
+      },
+      {
+        "level": 2,
+        "sell_price": 3,
+        "armor": 45,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 1260,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 55
+      },
+      {
+        "level": 3,
+        "sell_price": 9,
+        "armor": 45,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 2268,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 55
+      },
+      {
+        "level": 4,
+        "sell_price": 27,
+        "armor": 45,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 3277,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 55
+      }
+    ]
+  }
+}

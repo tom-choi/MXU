@@ -1,0 +1,40 @@
+{
+  "id": 6090,
+  "slug": "item_6090_titanichydra",
+  "name": "巨型九头蛇",
+  "aliases": ["巨型九头蛇", "titanichydra", "titanichydra"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "攻击对目标和邻格敌人造成相当于携带者4%最大生命值外加6%物理加成的额外物理伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/titanichydra.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6090_titanichydra.png",
+    "template_path": "resource_knowledge/image/item/special/item_6090_titanichydra.png",
+    "template_resource_path": "item/special/item_6090_titanichydra.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/titanichydra.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6090,
+    "tft_equip_id": null,
+    "name": "巨型九头蛇",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/titanichydra.png",
+    "icon": "titanichydra",
+    "desc": "攻击对目标和邻格敌人造成相当于携带者4%最大生命值外加6%物理加成的额外物理伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

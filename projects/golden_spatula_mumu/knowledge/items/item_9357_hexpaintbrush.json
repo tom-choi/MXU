@@ -1,0 +1,40 @@
+{
+  "id": 9357,
+  "slug": "item_9357_hexpaintbrush",
+  "name": "烈阳格",
+  "aliases": ["烈阳格", "hexpaintbrush", "hexpaintbrush"],
+  "category": "special",
+  "type": "-1",
+  "description": "将这个格子放在一个弈子上。这个格子中的友方弈子会在5秒里持续造成15%额外魔法伤害。这个伤害在持续期间附带33%重伤和1%灼烧。 [消耗品-这个装备会在使用后消失。] 灼烧:每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9357_hexpaintbrush.png",
+    "template_path": "resource_knowledge/image/item/special/item_9357_hexpaintbrush.png",
+    "template_resource_path": "item/special/item_9357_hexpaintbrush.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9357,
+    "tft_equip_id": null,
+    "name": "烈阳格",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+    "icon": "hexpaintbrush",
+    "desc": "将这个格子放在一个弈子上。这个格子中的友方弈子会在5秒里持续造成15%额外魔法伤害。这个伤害在持续期间附带33%重伤和1%灼烧。  [消耗品-这个装备会在使用后消失。] 灼烧:每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

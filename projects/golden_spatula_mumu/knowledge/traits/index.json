@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "version_id": "17_17.17.4_S18",
+  "season": "S18",
+  "count": 34,
+  "entries": [
+    {
+      "id": 83110101,
+      "slug": "trait_83110101_s17_trait_icon_darkstar",
+      "name": "暗星",
+      "path": "trait_83110101_s17_trait_icon_darkstar.json"
+    },
+    {
+      "id": 83300101,
+      "slug": "trait_83300101_s17_trait_icon_mecha",
+      "name": "霸天机甲",
+      "path": "trait_83300101_s17_trait_icon_mecha.json"
+    },
+    {
+      "id": 83290101,
+      "slug": "trait_83290101_s17_trait_icon_bastion",
+      "name": "堡垒卫士",
+      "path": "trait_83290101_s17_trait_icon_bastion.json"
+    },
+    {
+      "id": 83410101,
+      "slug": "trait_83410101_s17_trait_icon_divineduelist",
+      "name": "斗神",
+      "path": "trait_83410101_s17_trait_icon_divineduelist.json"
+    },
+    {
+      "id": 83150101,
+      "slug": "trait_83150101_s17_trait_icon_brawler",
+      "name": "斗士",
+      "path": "trait_83150101_s17_trait_icon_brawler.json"
+    },
+    {
+      "id": 83390101,
+      "slug": "trait_83390101_s17_trait_icon_arbiter",
+      "name": "法官",
+      "path": "trait_83390101_s17_trait_icon_arbiter.json"
+    },
+    {
+      "id": 83500101,
+      "slug": "trait_83500101_s17_trait_icon_destroyer",
+      "name": "根除者",
+      "path": "trait_83500101_s17_trait_icon_destroyer.json"
+    },
+    {
+      "id": 83380101,
+      "slug": "trait_83380101_s17_trait_icon_partyanimal",
+      "name": "狗狗机器人",
+      "path": "trait_83380101_s17_trait_icon_partyanimal.json"
+    },
+    {
+      "id": 83420101,
+      "slug": "trait_83420101_s17_trait_icon_stargazer",
+      "name": "观星者",
+      "path": "trait_83420101_s17_trait_icon_stargazer.json"
+    },
+    {
+      "id": 83130101,
+      "slug": "trait_83130101_s17_trait_icon_primordian",
+      "name": "海魔人",
+      "path": "trait_83130101_s17_trait_icon_primordian.json"
+    },
+    {
+      "id": 83510101,
+      "slug": "trait_83510101_s17_trait_icon_darklady",
+      "name": "黑暗魔女",
+      "path": "trait_83510101_s17_trait_icon_darklady.json"
+    },
+    {
+      "id": 83370101,
+      "slug": "trait_83370101_s17_trait_icon_animatech",
+      "name": "幻灵战队",
+      "path": "trait_83370101_s17_trait_icon_animatech.json"
+    },
+    {
+      "id": 83260101,
+      "slug": "trait_83260101_s17_trait_icon_redeemer",
+      "name": "救世主",
+      "path": "trait_83260101_s17_trait_icon_redeemer.json"
+    },
+    {
+      "id": 83250101,
+      "slug": "trait_83250101_s17_trait_icon_sniper",
+      "name": "狙神",
+      "path": "trait_83250101_s17_trait_icon_sniper.json"
+    },
+    {
+      "id": 83330101,
+      "slug": "trait_83330101_s17_trait_icon_factorynew",
+      "name": "军工1号",
+      "path": "trait_83330101_s17_trait_icon_factorynew.json"
+    },
+    {
+      "id": 83170101,
+      "slug": "trait_83170101_s17_trait_icon_marauder",
+      "name": "狂战士",
+      "path": "trait_83170101_s17_trait_icon_marauder.json"
+    },
+    {
+      "id": 83240101,
+      "slug": "trait_83240101_s17_trait_icon_psionic",
+      "name": "灵能特工",
+      "path": "trait_83240101_s17_trait_icon_psionic.json"
+    },
+    {
+      "id": 83200101,
+      "slug": "trait_83200101_s17_trait_icon_voyager",
+      "name": "旅人",
+      "path": "trait_83200101_s17_trait_icon_voyager.json"
+    },
+    {
+      "id": 83190101,
+      "slug": "trait_83190101_s17_trait_icon_replicator",
+      "name": "魔术师",
+      "path": "trait_83190101_s17_trait_icon_replicator.json"
+    },
+    {
+      "id": 83230101,
+      "slug": "trait_83230101_s17_trait_icon_doomer",
+      "name": "末日使者",
+      "path": "trait_83230101_s17_trait_icon_doomer.json"
+    },
+    {
+      "id": 83100101,
+      "slug": "trait_83100101_s17_trait_icon_astronaut",
+      "name": "木灵族",
+      "path": "trait_83100101_s17_trait_icon_astronaut.json"
+    },
+    {
+      "id": 83360101,
+      "slug": "trait_83360101_s17_trait_icon_shepherd",
+      "name": "牧羊人",
+      "path": "trait_83360101_s17_trait_icon_shepherd.json"
+    },
+    {
+      "id": 83350101,
+      "slug": "trait_83350101_s17_trait_icon_bulwark",
+      "name": "暮光铁壁",
+      "path": "trait_83350101_s17_trait_icon_bulwark.json"
+    },
+    {
+      "id": 83270101,
+      "slug": "trait_83270101_s17_trait_icon_channeler",
+      "name": "神谕",
+      "path": "trait_83270101_s17_trait_icon_channeler.json"
+    },
+    {
+      "id": 83120101,
+      "slug": "trait_83120101_s17_trait_icon_spacegroove",
+      "name": "太空律动",
+      "path": "trait_83120101_s17_trait_icon_spacegroove.json"
+    },
+    {
+      "id": 83320101,
+      "slug": "trait_83320101_s17_trait_icon_galaxyhunter",
+      "name": "天煞",
+      "path": "trait_83320101_s17_trait_icon_galaxyhunter.json"
+    },
+    {
+      "id": 83180101,
+      "slug": "trait_83180101_s17_trait_icon_challenger",
+      "name": "挑战者",
+      "path": "trait_83180101_s17_trait_icon_challenger.json"
+    },
+    {
+      "id": 83160101,
+      "slug": "trait_83160101_s17_trait_icon_timebreaker",
+      "name": "未来战士",
+      "path": "trait_83160101_s17_trait_icon_timebreaker.json"
+    },
+    {
+      "id": 83400101,
+      "slug": "trait_83400101_s17_trait_icon_gungoddess",
+      "name": "武装战姬",
+      "path": "trait_83400101_s17_trait_icon_gungoddess.json"
+    },
+    {
+      "id": 83280101,
+      "slug": "trait_83280101_s17_trait_icon_nova",
+      "name": "新星特攻队",
+      "path": "trait_83280101_s17_trait_icon_nova.json"
+    },
+    {
+      "id": 83210101,
+      "slug": "trait_83210101_s17_trait_icon_rogue",
+      "name": "游侠",
+      "path": "trait_83210101_s17_trait_icon_rogue.json"
+    },
+    {
+      "id": 83220101,
+      "slug": "trait_83220101_s17_trait_icon_fateweaver",
+      "name": "织命人",
+      "path": "trait_83220101_s17_trait_icon_fateweaver.json"
+    },
+    {
+      "id": 83140101,
+      "slug": "trait_83140101_s17_trait_icon_vanguard",
+      "name": "重装战士",
+      "path": "trait_83140101_s17_trait_icon_vanguard.json"
+    },
+    {
+      "id": 83310101,
+      "slug": "trait_83310101_s17_trait_icon_commander",
+      "name": "最高指挥官",
+      "path": "trait_83310101_s17_trait_icon_commander.json"
+    }
+  ]
+}

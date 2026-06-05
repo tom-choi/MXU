@@ -1,0 +1,40 @@
+{
+  "id": 2082,
+  "slug": "item_2082_2571",
+  "name": "光明版日炎斗篷",
+  "aliases": ["光明版日炎斗篷", "2571", "2571"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "获得16%最大生命值。 每2秒，对2格内的一名敌人施加持续10秒的2%灼烧效果和33%重伤效果。 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2571.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2082_2571.png",
+    "template_path": "resource_knowledge/image/item/special/item_2082_2571.png",
+    "template_resource_path": "item/special/item_2082_2571.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2571.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2082,
+    "tft_equip_id": null,
+    "name": "光明版日炎斗篷",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2571.png",
+    "icon": "2571",
+    "desc": "获得16%最大生命值。  每2秒，对2格内的一名敌人施加持续10秒的2%灼烧效果和33%重伤效果。  灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

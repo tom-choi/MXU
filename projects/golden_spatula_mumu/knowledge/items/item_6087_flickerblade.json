@@ -1,0 +1,40 @@
+{
+  "id": 6087,
+  "slug": "item_6087_flickerblade",
+  "name": "烁刃",
+  "aliases": ["烁刃", "flickerblade", "flickerblade"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "攻击提供5%可叠加的攻击速度。每3次攻击还会提供2%物理加成和2%法术加成。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/flickerblade.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6087_flickerblade.png",
+    "template_path": "resource_knowledge/image/item/special/item_6087_flickerblade.png",
+    "template_resource_path": "item/special/item_6087_flickerblade.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/flickerblade.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6087,
+    "tft_equip_id": null,
+    "name": "烁刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/flickerblade.png",
+    "icon": "flickerblade",
+    "desc": "攻击提供5%可叠加的攻击速度。每3次攻击还会提供2%物理加成和2%法术加成。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

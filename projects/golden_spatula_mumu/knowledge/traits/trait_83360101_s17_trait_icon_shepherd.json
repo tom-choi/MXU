@@ -1,0 +1,104 @@
+{
+  "id": 83360101,
+  "slug": "trait_83360101_s17_trait_icon_shepherd",
+  "name": "牧羊人",
+  "aliases": ["牧羊人", "s17_trait_icon_shepherd", "319"],
+  "description": "【牧羊人】召唤【群星誓约】并辅助其战斗。",
+  "effect": "(3)召唤【羊咩咩】 |(5)召唤【咩咩羊】 |(7)【羊咩咩】和【咩咩羊】的誓约更加深厚 【羊咩咩】和【咩咩羊】的强度会随【牧羊人】的星级总数而提升",
+  "levels": [],
+  "members": [
+    {
+      "id": 11457,
+      "name": "丽桑卓",
+      "cost": 1
+    },
+    {
+      "id": 11460,
+      "name": "提莫",
+      "cost": 1
+    },
+    {
+      "id": 12460,
+      "name": "小木灵",
+      "cost": 2
+    },
+    {
+      "id": 13460,
+      "name": "俄洛伊",
+      "cost": 3
+    },
+    {
+      "id": 14380,
+      "name": "乐芙兰",
+      "cost": 4
+    },
+    {
+      "id": 15425,
+      "name": "娑娜",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_shepherd.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83360101_s17_trait_icon_shepherd.png",
+    "template_path": "resource_knowledge/image/trait/trait_83360101_s17_trait_icon_shepherd.png",
+    "template_resource_path": "trait/trait_83360101_s17_trait_icon_shepherd.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_shepherd.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83360101,
+    "name": "牧羊人",
+    "desc": "【牧羊人】召唤【群星誓约】并辅助其战斗。",
+    "effect_desc": "(3)召唤【羊咩咩】 |(5)召唤【咩咩羊】 |(7)【羊咩咩】和【咩咩羊】的誓约更加深厚  【羊咩咩】和【咩咩羊】的强度会随【牧羊人】的星级总数而提升",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_shepherd.png",
+    "level_info": "(3)召唤【羊咩咩】 |(5)召唤【咩咩羊】 |(7)【羊咩咩】和【咩咩羊】的誓约更加深厚  【羊咩咩】和【咩咩羊】的强度会随【牧羊人】的星级总数而提升|(3)召唤【羊咩咩】 |(5)召唤【咩咩羊】 |(7)【羊咩咩】和【咩咩羊】的誓约更加深厚  【羊咩咩】和【咩咩羊】的强度会随【牧羊人】的星级总数而提升|(3)召唤【羊咩咩】 |(5)召唤【咩咩羊】 |(7)【羊咩咩】和【咩咩羊】的誓约更加深厚  【羊咩咩】和【咩咩羊】的强度会随【牧羊人】的星级总数而提升",
+    "trait_id": 83360101,
+    "tft_trait_id": "319",
+    "type": 1,
+    "map_id": 10,
+    "max_level": 3,
+    "num_list": "3|5|7",
+    "color": "1",
+    "members": [
+      {
+        "id": 11457,
+        "name": "丽桑卓",
+        "price": 1
+      },
+      {
+        "id": 11460,
+        "name": "提莫",
+        "price": 1
+      },
+      {
+        "id": 12460,
+        "name": "小木灵",
+        "price": 2
+      },
+      {
+        "id": 13460,
+        "name": "俄洛伊",
+        "price": 3
+      },
+      {
+        "id": 14380,
+        "name": "乐芙兰",
+        "price": 4
+      },
+      {
+        "id": 15425,
+        "name": "娑娜",
+        "price": 5
+      }
+    ]
+  }
+}

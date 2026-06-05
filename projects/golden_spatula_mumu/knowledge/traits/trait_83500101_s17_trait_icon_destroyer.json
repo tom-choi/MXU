@@ -1,0 +1,54 @@
+{
+  "id": 83500101,
+  "slug": "trait_83500101_s17_trait_icon_destroyer",
+  "name": "根除者",
+  "aliases": ["根除者", "s17_trait_icon_destroyer", "422"],
+  "description": "敌人的护甲和魔抗降低10%。",
+  "effect": "敌人的护甲和魔抗降低10%。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15427,
+      "name": "烬",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_destroyer.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83500101_s17_trait_icon_destroyer.png",
+    "template_path": "resource_knowledge/image/trait/trait_83500101_s17_trait_icon_destroyer.png",
+    "template_resource_path": "trait/trait_83500101_s17_trait_icon_destroyer.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_destroyer.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83500101,
+    "name": "根除者",
+    "desc": "敌人的护甲和魔抗降低10%。",
+    "effect_desc": "敌人的护甲和魔抗降低10%。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_destroyer.png",
+    "level_info": "敌人的护甲和魔抗降低10%。",
+    "trait_id": 83500101,
+    "tft_trait_id": "422",
+    "type": 0,
+    "map_id": 23,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15427,
+        "name": "烬",
+        "price": 5
+      }
+    ]
+  }
+}

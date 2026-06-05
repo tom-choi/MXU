@@ -1,0 +1,40 @@
+{
+  "id": 6107,
+  "slug": "item_6107_ahrirhythm",
+  "name": "阿狸的光环",
+  "aliases": ["阿狸的光环", "ahrirhythm", "ahrirhythm"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "携带者被3团狐火环绕。每团狐火造成50(【法术加成】)魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。 携带者每消耗20法力值，狐火移动速度就会加快5%，持续至战斗结束。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ahrirhythm.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6107_ahrirhythm.png",
+    "template_path": "resource_knowledge/image/item/special/item_6107_ahrirhythm.png",
+    "template_resource_path": "item/special/item_6107_ahrirhythm.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ahrirhythm.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6107,
+    "tft_equip_id": null,
+    "name": "阿狸的光环",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ahrirhythm.png",
+    "icon": "ahrirhythm",
+    "desc": "携带者被3团狐火环绕。每团狐火造成50(【法术加成】)魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。  携带者每消耗20法力值，狐火移动速度就会加快5%，持续至战斗结束。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

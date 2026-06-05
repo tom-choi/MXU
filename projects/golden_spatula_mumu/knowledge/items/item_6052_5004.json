@@ -1,0 +1,40 @@
+{
+  "id": 6052,
+  "slug": "item_6052_5004",
+  "name": "大亨之铠",
+  "aliases": ["大亨之铠", "5004", "5004"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "在承受伤害时提供1护甲、1魔抗和8生命值，这个效果至多叠加35次。 在满层时，提供【金币】1金币并且每11秒继续提供【金币】1金币。 [唯一-每位英雄仅限1件]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5004.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6052_5004.png",
+    "template_path": "resource_knowledge/image/item/special/item_6052_5004.png",
+    "template_resource_path": "item/special/item_6052_5004.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5004.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6052,
+    "tft_equip_id": null,
+    "name": "大亨之铠",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5004.png",
+    "icon": "5004",
+    "desc": "在承受伤害时提供1护甲、1魔抗和8生命值，这个效果至多叠加35次。  在满层时，提供【金币】1金币并且每11秒继续提供【金币】1金币。  [唯一-每位英雄仅限1件]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

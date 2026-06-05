@@ -1,0 +1,40 @@
+{
+  "id": 9351,
+  "slug": "item_9351_radiantfield_up",
+  "name": "日蚀之刻",
+  "aliases": ["日蚀之刻", "radiantfield_up", "radiantfield_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "获得18%最大生命值。每秒，在2格半径内造成相当于携带者5%最大生命值的魔法伤害，并获得相当于20%造成伤害的最大生命值。半径每6秒增加一次。 推荐角色定位：物理坦克或魔法坦克",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantfield_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9351_radiantfield_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9351_radiantfield_up.png",
+    "template_resource_path": "item/special/item_9351_radiantfield_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantfield_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9351,
+    "tft_equip_id": null,
+    "name": "日蚀之刻",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantfield_up.png",
+    "icon": "radiantfield_up",
+    "desc": "获得18%最大生命值。每秒，在2格半径内造成相当于携带者5%最大生命值的魔法伤害，并获得相当于20%造成伤害的最大生命值。半径每6秒增加一次。  推荐角色定位：物理坦克或魔法坦克",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

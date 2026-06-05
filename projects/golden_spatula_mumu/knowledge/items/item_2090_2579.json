@@ -1,0 +1,40 @@
+{
+  "id": 2090,
+  "slug": "item_2090_2579",
+  "name": "光明版水银",
+  "aliases": ["光明版水银", "2579", "2579"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "战斗开始时：获得持续45秒的控制免疫效果。 每秒获得6%可叠加的攻击速度。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2579.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2090_2579.png",
+    "template_path": "resource_knowledge/image/item/special/item_2090_2579.png",
+    "template_resource_path": "item/special/item_2090_2579.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2579.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2090,
+    "tft_equip_id": null,
+    "name": "光明版水银",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2579.png",
+    "icon": "2579",
+    "desc": "战斗开始时：获得持续45秒的控制免疫效果。  每秒获得6%可叠加的攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

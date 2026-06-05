@@ -1,0 +1,40 @@
+{
+  "id": 9343,
+  "slug": "item_9343_tentacleslam",
+  "name": "触手重击",
+  "aliases": ["触手重击", "tentacleslam", "tentacleslam"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每5秒，召唤出一只触手向下猛击目标，造成150物理伤害并为携带者回复12%最大生命值。 【俄洛伊】加成：如果该装备由【俄洛伊】携带，则额外生成一只触手，对其技能吸取的目标进行效能为35%的猛击。 【俄洛伊】加成：如果该装备由【俄洛伊】携带，则额外生成一只触手，对其技能吸取的目标进行效能为35%的猛击。 伤害随阶段提升",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tentacleslam.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9343_tentacleslam.png",
+    "template_path": "resource_knowledge/image/item/special/item_9343_tentacleslam.png",
+    "template_resource_path": "item/special/item_9343_tentacleslam.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tentacleslam.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9343,
+    "tft_equip_id": null,
+    "name": "触手重击",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tentacleslam.png",
+    "icon": "tentacleslam",
+    "desc": "每5秒，召唤出一只触手向下猛击目标，造成150物理伤害并为携带者回复12%最大生命值。  【俄洛伊】加成：如果该装备由【俄洛伊】携带，则额外生成一只触手，对其技能吸取的目标进行效能为35%的猛击。  【俄洛伊】加成：如果该装备由【俄洛伊】携带，则额外生成一只触手，对其技能吸取的目标进行效能为35%的猛击。  伤害随阶段提升",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

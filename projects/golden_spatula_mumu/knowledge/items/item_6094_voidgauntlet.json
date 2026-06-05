@@ -1,0 +1,40 @@
+{
+  "id": 6094,
+  "slug": "item_6094_voidgauntlet",
+  "name": "虚空护手",
+  "aliases": ["虚空护手", "voidgauntlet", "voidgauntlet"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "战斗开始时：储存30%最大生命值并且每秒储存额外的2.5%。在倒下时，释放相当于生命值储量的魔法伤害，分摊给4格内的敌人们。 唯一：一个弈子仅限一件",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/voidgauntlet.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6094_voidgauntlet.png",
+    "template_path": "resource_knowledge/image/item/special/item_6094_voidgauntlet.png",
+    "template_resource_path": "item/special/item_6094_voidgauntlet.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/voidgauntlet.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6094,
+    "tft_equip_id": null,
+    "name": "虚空护手",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/voidgauntlet.png",
+    "icon": "voidgauntlet",
+    "desc": "战斗开始时：储存30%最大生命值并且每秒储存额外的2.5%。在倒下时，释放相当于生命值储量的魔法伤害，分摊给4格内的敌人们。  唯一：一个弈子仅限一件",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

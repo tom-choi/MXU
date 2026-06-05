@@ -1,0 +1,42 @@
+{
+  "id": 30599,
+  "slug": "augment_30599_awakenedsoul3",
+  "name": "灵魂唤醒",
+  "aliases": ["灵魂唤醒", "awakenedsoul3"],
+  "level": 3,
+  "description": "战斗开始时：你的队伍每秒获得1.5%物理加成和法术加成，持续10秒。在最大层数时，造成12%额外真实伤害。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/awakenedsoul3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_30599_awakenedsoul3.png",
+    "template_path": "resource_knowledge/image/augment/augment_30599_awakenedsoul3.png",
+    "template_resource_path": "augment/augment_30599_awakenedsoul3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/awakenedsoul3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 30599,
+    "name": "灵魂唤醒",
+    "description": "战斗开始时：你的队伍每秒获得1.5%物理加成和法术加成，持续10秒。在最大层数时，造成12%额外真实伤害。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/awakenedsoul3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": 13459,
+  "slug": "champion_13459_s17_head_rhaast",
+  "name": "拉亚斯特",
+  "aliases": ["拉亚斯特", "s17_rhaast", "s17_head_rhaast", "s17_rhaast"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["救世主"],
+  "trait_refs": [
+    {
+      "id": 418,
+      "name": "救世主"
+    }
+  ],
+  "skill": {
+    "name": "神圣镰刃",
+    "description": "获得持续2秒的20%伤害减免，持续期间回复500(【法术加成】)生命值。随后，向前斩击一个直线范围，对命中的敌人们造成120(【物理加成】)物理伤害和1秒击飞。",
+    "brief_value": "500/550/650|120/180/300",
+    "value_description": "治疗：500(【法术加成】) 500/550/650|伤害：120(【物理加成】) 120/180/300",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_rhaast.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1200,
+      "init_mp": 30,
+      "magic_resist": 60,
+      "max_mp": 90
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 2160,
+      "init_mp": 30,
+      "magic_resist": 60,
+      "max_mp": 90
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 3888,
+      "init_mp": 30,
+      "magic_resist": 60,
+      "max_mp": 90
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 5616,
+      "init_mp": 30,
+      "magic_resist": 60,
+      "max_mp": 90
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_rhaast.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13459_s17_head_rhaast.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13459_s17_head_rhaast.png",
+    "template_resource_path": "champion/3/champion_13459_s17_head_rhaast.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13459",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_rhaast.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "193",
+    "id": 13459,
+    "tft_hero_id": 13459,
+    "name": "拉亚斯特",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_rhaast.png",
+    "hero_paint": "s17_rhaast",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "500/550/650|120/180/300",
+    "skill_desc": "获得持续2秒的20%伤害减免，持续期间回复500(【法术加成】)生命值。随后，向前斩击一个直线范围，对命中的敌人们造成120(【物理加成】)物理伤害和1秒击飞。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_rhaast.png",
+    "skill_name": "神圣镰刃",
+    "skill_value_desc": "治疗：500(【法术加成】) 500/550/650|伤害：120(【物理加成】) 120/180/300",
+    "show_hero_tag": true,
+    "species": [418],
+    "class": ["-1"],
+    "races": [
+      {
+        "id": 418,
+        "name": "救世主"
+      }
+    ],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1200,
+        "init_mp": 30,
+        "magic_resist": 60,
+        "max_mp": 90
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 2160,
+        "init_mp": 30,
+        "magic_resist": 60,
+        "max_mp": 90
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 3888,
+        "init_mp": 30,
+        "magic_resist": 60,
+        "max_mp": 90
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 5616,
+        "init_mp": 30,
+        "magic_resist": 60,
+        "max_mp": 90
+      }
+    ]
+  }
+}

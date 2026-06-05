@@ -1,0 +1,113 @@
+[
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/left_menu_anchor.png",
+    "rect": [14, 137, 128, 404]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/nav_event.png",
+    "rect": [14, 137, 118, 48]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/nav_shop.png",
+    "rect": [14, 224, 112, 48]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/nav_treasure.png",
+    "rect": [14, 313, 124, 48]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/nav_codex.png",
+    "rect": [14, 402, 118, 48]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/nav_summon.png",
+    "rect": [14, 493, 118, 48]
+  },
+  {
+    "source": "samples/screenshots/source_lobby_main.png",
+    "output": "resource/image/lobby/red_dot_yellow.png",
+    "rect": [118, 217, 22, 22]
+  },
+  {
+    "source": "samples/screenshots/source_event_page.png",
+    "output": "resource/image/page/back_arrow.png",
+    "rect": [14, 20, 48, 42]
+  },
+  {
+    "source": "samples/screenshots/source_treasure_page.png",
+    "output": "resource/image/page/back_arrow_gold.png",
+    "rect": [28, 16, 52, 46],
+    "optional": true
+  },
+  {
+    "source": "samples/screenshots/source_event_page.png",
+    "output": "resource/image/page/event_title.png",
+    "rect": [66, 20, 82, 42]
+  },
+  {
+    "source": "samples/screenshots/source_shop_page.png",
+    "output": "resource/image/page/shop_title.png",
+    "rect": [60, 20, 92, 42]
+  },
+  {
+    "source": "samples/screenshots/source_treasure_page.png",
+    "output": "resource/image/page/treasure_title.png",
+    "rect": [76, 18, 92, 46]
+  },
+  {
+    "source": "samples/screenshots/source_codex_page.png",
+    "output": "resource/image/page/codex_title.png",
+    "rect": [60, 18, 92, 46]
+  },
+  {
+    "source": "samples/screenshots/source_summon_page.png",
+    "output": "resource/image/page/summon_title.png",
+    "rect": [60, 18, 92, 46]
+  },
+  {
+    "source": "samples/screenshots/source_start_screen.png",
+    "output": "resource/image/page/start_game_button.png",
+    "rect": [504, 568, 276, 70]
+  },
+  {
+    "source": "samples/screenshots/source_codex_rules_popup.png",
+    "output": "resource/image/popup/close_x.png",
+    "rect": [1116, 74, 44, 44]
+  },
+  {
+    "source": "samples/screenshots/source_recharge_popup.png",
+    "output": "resource/image/popup/recharge_close_x.png",
+    "rect": [1188, 18, 46, 46]
+  },
+  {
+    "source": "samples/screenshots/source_codex_rules_popup.png",
+    "output": "resource/image/popup/codex_rules_title.png",
+    "rect": [566, 78, 142, 42]
+  },
+  {
+    "source": "samples/screenshots/source_exit_confirm_popup.png",
+    "output": "resource/image/popup/exit_cancel_button.png",
+    "rect": [426, 421, 198, 68]
+  },
+  {
+    "source": "samples/screenshots/source_exit_confirm_popup.png",
+    "output": "resource/image/popup/exit_confirm_title.png",
+    "rect": [526, 321, 230, 42]
+  },
+  {
+    "source": "samples/screenshots/source_reward_popup.png",
+    "output": "resource/image/popup/reward_ok_button.png",
+    "rect": [428, 620, 198, 69]
+  },
+  {
+    "source": "samples/screenshots/source_reward_popup.png",
+    "output": "resource/image/popup/reward_title.png",
+    "rect": [563, 35, 156, 50]
+  }
+]

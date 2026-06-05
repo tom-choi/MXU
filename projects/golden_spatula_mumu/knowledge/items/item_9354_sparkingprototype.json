@@ -1,0 +1,40 @@
+{
+  "id": 9354,
+  "slug": "item_9354_sparkingprototype",
+  "name": "闪光原型",
+  "aliases": ["闪光原型", "sparkingprototype", "sparkingprototype"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每4秒，获得持续4秒的30%攻击速度。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sparkingprototype.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9354_sparkingprototype.png",
+    "template_path": "resource_knowledge/image/item/special/item_9354_sparkingprototype.png",
+    "template_resource_path": "item/special/item_9354_sparkingprototype.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sparkingprototype.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9354,
+    "tft_equip_id": null,
+    "name": "闪光原型",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sparkingprototype.png",
+    "icon": "sparkingprototype",
+    "desc": "每4秒，获得持续4秒的30%攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

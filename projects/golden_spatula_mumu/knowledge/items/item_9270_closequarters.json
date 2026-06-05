@@ -1,0 +1,40 @@
+{
+  "id": 9270,
+  "slug": "item_9270_closequarters",
+  "name": "进攻框架",
+  "aliases": ["进攻框架", "closequarters", "closequarters"],
+  "category": "special",
+  "type": "-1",
+  "description": "成为一个物理战士，拥有0距离。获得250基础生命值、10%全能汲取和25%攻击力。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/closequarters.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9270_closequarters.png",
+    "template_path": "resource_knowledge/image/item/special/item_9270_closequarters.png",
+    "template_resource_path": "item/special/item_9270_closequarters.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/closequarters.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9270,
+    "tft_equip_id": null,
+    "name": "进攻框架",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/closequarters.png",
+    "icon": "closequarters",
+    "desc": "成为一个物理战士，拥有0距离。获得250基础生命值、10%全能汲取和25%攻击力。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

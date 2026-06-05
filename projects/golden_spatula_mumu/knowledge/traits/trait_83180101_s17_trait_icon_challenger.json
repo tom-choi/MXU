@@ -1,0 +1,94 @@
+{
+  "id": 83180101,
+  "slug": "trait_83180101_s17_trait_icon_challenger",
+  "name": "挑战者",
+  "aliases": ["挑战者", "s17_trait_icon_challenger", "312"],
+  "description": "你的队伍获得10%攻击速度。【挑战者】获得额外攻击速度。当其目标倒下时，【挑战者】会冲刺向一个新的目标，并提高他们的攻击速度50%，持续2.5秒。",
+  "effect": "(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】",
+  "levels": [],
+  "members": [
+    {
+      "id": 12454,
+      "name": "卑尔维斯",
+      "cost": 2
+    },
+    {
+      "id": 12458,
+      "name": "金克丝",
+      "cost": 2
+    },
+    {
+      "id": 13458,
+      "name": "黛安娜",
+      "cost": 3
+    },
+    {
+      "id": 13466,
+      "name": "厄运小姐",
+      "cost": 3
+    },
+    {
+      "id": 14374,
+      "name": "千珏",
+      "cost": 4
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_challenger.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83180101_s17_trait_icon_challenger.png",
+    "template_path": "resource_knowledge/image/trait/trait_83180101_s17_trait_icon_challenger.png",
+    "template_resource_path": "trait/trait_83180101_s17_trait_icon_challenger.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_challenger.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83180101,
+    "name": "挑战者",
+    "desc": "你的队伍获得10%攻击速度。【挑战者】获得额外攻击速度。当其目标倒下时，【挑战者】会冲刺向一个新的目标，并提高他们的攻击速度50%，持续2.5秒。",
+    "effect_desc": "(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_challenger.png",
+    "level_info": "(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】|(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】|(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】|(2)15%【攻击速度】 |(3)28%【攻击速度】 |(4)42%【攻击速度】 |(5)55%【攻击速度】",
+    "trait_id": 83180101,
+    "tft_trait_id": "312",
+    "type": 1,
+    "map_id": 3,
+    "max_level": 4,
+    "num_list": "2|3|4|5",
+    "color": "1",
+    "members": [
+      {
+        "id": 12454,
+        "name": "卑尔维斯",
+        "price": 2
+      },
+      {
+        "id": 12458,
+        "name": "金克丝",
+        "price": 2
+      },
+      {
+        "id": 13458,
+        "name": "黛安娜",
+        "price": 3
+      },
+      {
+        "id": 13466,
+        "name": "厄运小姐",
+        "price": 3
+      },
+      {
+        "id": 14374,
+        "name": "千珏",
+        "price": 4
+      }
+    ]
+  }
+}

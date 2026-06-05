@@ -1,0 +1,40 @@
+{
+  "id": 9282,
+  "slug": "item_9282_choke",
+  "name": "阻塞",
+  "aliases": ["阻塞", "choke", "choke"],
+  "category": "special",
+  "type": "-1",
+  "description": "飞弹散射范围缩小75%。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/choke.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9282_choke.png",
+    "template_path": "resource_knowledge/image/item/special/item_9282_choke.png",
+    "template_resource_path": "item/special/item_9282_choke.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/choke.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9282,
+    "tft_equip_id": null,
+    "name": "阻塞",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/choke.png",
+    "icon": "choke",
+    "desc": "飞弹散射范围缩小75%。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

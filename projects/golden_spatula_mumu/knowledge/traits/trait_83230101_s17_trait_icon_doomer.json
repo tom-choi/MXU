@@ -1,0 +1,54 @@
+{
+  "id": 83230101,
+  "slug": "trait_83230101_s17_trait_icon_doomer",
+  "name": "末日使者",
+  "aliases": ["末日使者", "s17_trait_icon_doomer", "417"],
+  "description": "对战开始时：将所有敌人刻印上【末日】标记。 每场对战敌人首次受到伤害时，他们的【末日】标记将被消耗，你最强大的【薇古丝】会从他们身上窃取12%物理加成和法术加成。",
+  "effect": "对战开始时：将所有敌人刻印上【末日】标记。 每场对战敌人首次受到伤害时，他们的【末日】标记将被消耗，你最强大的【薇古丝】会从他们身上窃取12%物理加成和法术加成。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15422,
+      "name": "薇古丝",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_doomer.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83230101_s17_trait_icon_doomer.png",
+    "template_path": "resource_knowledge/image/trait/trait_83230101_s17_trait_icon_doomer.png",
+    "template_resource_path": "trait/trait_83230101_s17_trait_icon_doomer.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_doomer.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83230101,
+    "name": "末日使者",
+    "desc": "对战开始时：将所有敌人刻印上【末日】标记。  每场对战敌人首次受到伤害时，他们的【末日】标记将被消耗，你最强大的【薇古丝】会从他们身上窃取12%物理加成和法术加成。",
+    "effect_desc": "对战开始时：将所有敌人刻印上【末日】标记。  每场对战敌人首次受到伤害时，他们的【末日】标记将被消耗，你最强大的【薇古丝】会从他们身上窃取12%物理加成和法术加成。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_doomer.png",
+    "level_info": "对战开始时：将所有敌人刻印上【末日】标记。  每场对战敌人首次受到伤害时，他们的【末日】标记将被消耗，你最强大的【薇古丝】会从他们身上窃取12%物理加成和法术加成。",
+    "trait_id": 83230101,
+    "tft_trait_id": "417",
+    "type": 0,
+    "map_id": 18,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15422,
+        "name": "薇古丝",
+        "price": 5
+      }
+    ]
+  }
+}

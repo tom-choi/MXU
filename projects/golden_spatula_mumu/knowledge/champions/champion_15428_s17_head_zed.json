@@ -1,0 +1,174 @@
+{
+  "id": 15428,
+  "slug": "champion_15428_s17_head_zed",
+  "name": "劫",
+  "aliases": ["劫", "s17_zed", "s17_head_zed", "s17_zed"],
+  "cost": 5,
+  "buy_price": 0,
+  "traits": ["天煞"],
+  "trait_refs": [
+    {
+      "id": 413,
+      "name": "天煞"
+    }
+  ],
+  "skill": {
+    "name": "量子克隆",
+    "description": "在目标身后创造一个分身，其最大生命值降低33%且法力消耗提高30。分身会继承本尊的装备、属性和当前生命值，并且可以施放【量子克隆】。",
+    "brief_value": "33%/45%/45%",
+    "value_description": "额外生命值 33%/45%/45%",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_zed.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 5,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 85,
+      "init_hp": 1300,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 2,
+      "sell_price": 14,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 127,
+      "init_hp": 2340,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 3,
+      "sell_price": 44,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 191,
+      "init_hp": 8212,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 4,
+      "sell_price": 134,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 255,
+      "init_hp": 16082,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zed.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_15428_s17_head_zed.png",
+    "template_path": "resource_knowledge/image/champion/5/champion_15428_s17_head_zed.png",
+    "template_resource_path": "champion/5/champion_15428_s17_head_zed.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/15428",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zed.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "349",
+    "id": 15428,
+    "tft_hero_id": 15428,
+    "name": "劫",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zed.png",
+    "hero_paint": "s17_zed",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 5,
+    "skill_brief_value": "33%/45%/45%",
+    "skill_desc": "在目标身后创造一个分身，其最大生命值降低33%且法力消耗提高30。分身会继承本尊的装备、属性和当前生命值，并且可以施放【量子克隆】。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_zed.png",
+    "skill_name": "量子克隆",
+    "skill_value_desc": "额外生命值 33%/45%/45%",
+    "show_hero_tag": true,
+    "species": [413],
+    "class": ["-1"],
+    "races": [
+      {
+        "id": 413,
+        "name": "天煞"
+      }
+    ],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 5,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 85,
+        "init_hp": 1300,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 2,
+        "sell_price": 14,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 127,
+        "init_hp": 2340,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 3,
+        "sell_price": 44,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 191,
+        "init_hp": 8212,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 4,
+        "sell_price": 134,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 255,
+        "init_hp": 16082,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      }
+    ]
+  }
+}

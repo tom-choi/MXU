@@ -1,0 +1,40 @@
+{
+  "id": 41704,
+  "slug": "item_41704_41704",
+  "name": "暗星纹章",
+  "aliases": ["暗星纹章", "41704", "41704"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【暗星】羁绊。",
+  "synthesis": [1008, 1001],
+  "recommended_users": ["奥瑞利安·索尔"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41704.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41704_41704.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41704_41704.png",
+    "template_resource_path": "item/completed/item_41704_41704.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41704.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41704,
+    "tft_equip_id": null,
+    "name": "暗星纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41704.png",
+    "icon": "41704",
+    "desc": "携带者获得【暗星】羁绊。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1001,
+    "type": "转职纹章"
+  }
+}

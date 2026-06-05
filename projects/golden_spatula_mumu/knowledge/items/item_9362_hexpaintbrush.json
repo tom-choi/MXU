@@ -1,0 +1,40 @@
+{
+  "id": 9362,
+  "slug": "item_9362_hexpaintbrush",
+  "name": "冰晶格",
+  "aliases": ["冰晶格", "hexpaintbrush", "hexpaintbrush"],
+  "category": "special",
+  "type": "-1",
+  "description": "将这个格子放在一个弈子上。这个格子中的友方弈子在首次跌下40%生命值时，会被冻结1秒并治疗自身30%最大生命值。 [消耗品-这个装备会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9362_hexpaintbrush.png",
+    "template_path": "resource_knowledge/image/item/special/item_9362_hexpaintbrush.png",
+    "template_resource_path": "item/special/item_9362_hexpaintbrush.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9362,
+    "tft_equip_id": null,
+    "name": "冰晶格",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+    "icon": "hexpaintbrush",
+    "desc": "将这个格子放在一个弈子上。这个格子中的友方弈子在首次跌下40%生命值时，会被冻结1秒并治疗自身30%最大生命值。  [消耗品-这个装备会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

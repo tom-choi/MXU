@@ -1,0 +1,183 @@
+{
+  "id": 13455,
+  "slug": "champion_13455_s17_head_fizz",
+  "name": "菲兹",
+  "aliases": ["菲兹", "s17_fizz", "s17_head_fizz", "s17_fizz"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["木灵族", "游侠"],
+  "trait_refs": [
+    {
+      "id": 402,
+      "name": "木灵族"
+    },
+    {
+      "id": "317",
+      "name": "游侠"
+    }
+  ],
+  "skill": {
+    "name": "木灵诱饵",
+    "description": "冲刺穿过当前目标，造成120(【法术加成】)魔法伤害。每第三次施放还会在短暂延迟后召唤一个究极木灵，以短暂击飞目标并造成185(【法术加成】)魔法伤害。邻格的敌人们受到50%伤害。 木灵加成：朝诱饵再派出0()个木灵，以使究极木灵伤害提升0(【法术加成】)。木灵加成：朝诱饵再派出0()个木灵，以使究极木灵伤害提升0(【法术加成】)。",
+    "brief_value": "120/180/290|185/280/445|75/115/180",
+    "value_description": "冲刺伤害：120(【法术加成】) 120/180/290|撕咬伤害：185(【法术加成】) 185/280/445|额外伤害：0(【法术加成】)=75【法术加成】x 75/115/180",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_fizz.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 55,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 850,
+      "init_mp": 0,
+      "magic_resist": 55,
+      "max_mp": 20
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 55,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 1530,
+      "init_mp": 0,
+      "magic_resist": 55,
+      "max_mp": 20
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 55,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 2754,
+      "init_mp": 0,
+      "magic_resist": 55,
+      "max_mp": 20
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 55,
+      "attack_range": 1,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 3979,
+      "init_mp": 0,
+      "magic_resist": 55,
+      "max_mp": 20
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_fizz.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13455_s17_head_fizz.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13455_s17_head_fizz.png",
+    "template_resource_path": "champion/3/champion_13455_s17_head_fizz.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13455",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_fizz.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "177",
+    "id": 13455,
+    "tft_hero_id": 13455,
+    "name": "菲兹",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_fizz.png",
+    "hero_paint": "s17_fizz",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "120/180/290|185/280/445|75/115/180",
+    "skill_desc": "冲刺穿过当前目标，造成120(【法术加成】)魔法伤害。每第三次施放还会在短暂延迟后召唤一个究极木灵，以短暂击飞目标并造成185(【法术加成】)魔法伤害。邻格的敌人们受到50%伤害。  木灵加成：朝诱饵再派出0()个木灵，以使究极木灵伤害提升0(【法术加成】)。木灵加成：朝诱饵再派出0()个木灵，以使究极木灵伤害提升0(【法术加成】)。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_fizz.png",
+    "skill_name": "木灵诱饵",
+    "skill_value_desc": "冲刺伤害：120(【法术加成】) 120/180/290|撕咬伤害：185(【法术加成】) 185/280/445|额外伤害：0(【法术加成】)=75【法术加成】x 75/115/180",
+    "show_hero_tag": true,
+    "species": [402],
+    "class": ["317"],
+    "races": [
+      {
+        "id": 402,
+        "name": "木灵族"
+      }
+    ],
+    "traits": [
+      {
+        "id": "317",
+        "name": "游侠"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 55,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 850,
+        "init_mp": 0,
+        "magic_resist": 55,
+        "max_mp": 20
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 55,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 1530,
+        "init_mp": 0,
+        "magic_resist": 55,
+        "max_mp": 20
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 55,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 2754,
+        "init_mp": 0,
+        "magic_resist": 55,
+        "max_mp": 20
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 55,
+        "attack_range": 1,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 3979,
+        "init_mp": 0,
+        "magic_resist": 55,
+        "max_mp": 20
+      }
+    ]
+  }
+}

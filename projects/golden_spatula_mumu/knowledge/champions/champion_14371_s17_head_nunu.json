@@ -1,0 +1,183 @@
+{
+  "id": 14371,
+  "slug": "champion_14371_s17_head_nunu",
+  "name": "努努和威朗普",
+  "aliases": ["努努和威朗普", "s17_nunu", "s17_head_nunu", "s17_nunu"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["观星者", "重装战士"],
+  "trait_refs": [
+    {
+      "id": 409,
+      "name": "观星者"
+    },
+    {
+      "id": "320",
+      "name": "重装战士"
+    }
+  ],
+  "skill": {
+    "name": "祸患",
+    "description": "获得持续4秒的475(【法术加成】)护盾值。召唤一个星盘并砸落到一个附近的格子上，对2格内的敌人们造成120(【法术加成】)魔法伤害。随后，将星盘推向战场尽头，造成100(【法术加成】)魔法伤害。所有被星盘命中的敌人会被击飞1.50秒。",
+    "brief_value": "475/575/2000|1.5/1.75/8|120/180/2000|100/150/2000",
+    "value_description": "护盾值：475(【法术加成】) 475/575/2000|晕眩时长： 1.5/1.75/8|初始伤害：120(【法术加成】) 120/180/2000|碰撞伤害：100(【法术加成】) 100/150/2000",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_nunu.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1300,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 145
+    },
+    {
+      "level": 2,
+      "sell_price": 11,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 2340,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 145
+    },
+    {
+      "level": 3,
+      "sell_price": 35,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 5212,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 145
+    },
+    {
+      "level": 4,
+      "sell_price": 107,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 7084,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 145
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nunu.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14371_s17_head_nunu.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14371_s17_head_nunu.png",
+    "template_resource_path": "champion/4/champion_14371_s17_head_nunu.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14371",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nunu.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "261",
+    "id": 14371,
+    "tft_hero_id": 14371,
+    "name": "努努和威朗普",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nunu.png",
+    "hero_paint": "s17_nunu",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "475/575/2000|1.5/1.75/8|120/180/2000|100/150/2000",
+    "skill_desc": "获得持续4秒的475(【法术加成】)护盾值。召唤一个星盘并砸落到一个附近的格子上，对2格内的敌人们造成120(【法术加成】)魔法伤害。随后，将星盘推向战场尽头，造成100(【法术加成】)魔法伤害。所有被星盘命中的敌人会被击飞1.50秒。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_nunu.png",
+    "skill_name": "祸患",
+    "skill_value_desc": "护盾值：475(【法术加成】) 475/575/2000|晕眩时长： 1.5/1.75/8|初始伤害：120(【法术加成】) 120/180/2000|碰撞伤害：100(【法术加成】) 100/150/2000",
+    "show_hero_tag": true,
+    "species": [409],
+    "class": ["320"],
+    "races": [
+      {
+        "id": 409,
+        "name": "观星者"
+      }
+    ],
+    "traits": [
+      {
+        "id": "320",
+        "name": "重装战士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1300,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 145
+      },
+      {
+        "level": 2,
+        "sell_price": 11,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 2340,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 145
+      },
+      {
+        "level": 3,
+        "sell_price": 35,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 5212,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 145
+      },
+      {
+        "level": 4,
+        "sell_price": 107,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 7084,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 145
+      }
+    ]
+  }
+}

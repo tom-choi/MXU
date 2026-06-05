@@ -1,0 +1,287 @@
+{
+  "id": 11458,
+  "slug": "champion_11458_s17_head_aatrox",
+  "name": "亚托克斯",
+  "aliases": ["亚托克斯", "s17_aatrox", "s17_head_aatrox", "s17_aatrox"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": ["新星特攻队", "堡垒卫士"],
+  "trait_refs": [
+    {
+      "id": 405,
+      "name": "新星特攻队"
+    },
+    {
+      "id": "310",
+      "name": "堡垒卫士"
+    }
+  ],
+  "skill": {
+    "name": "星界斩击",
+    "description": "回复325(【法术加成】)生命值，随后对当前目标造成161(【物理加成】【护甲】)物理伤害。 【新星特攻队】特攻：顺劈整个战场，短暂击飞所有敌人，并造成105(【物理加成】【护甲】)物理伤害。 【新星特攻队】特攻：顺劈整个战场，短暂击飞所有敌人，并造成105(【物理加成】【护甲】)物理伤害。",
+    "brief_value": "325/400/650|180%/270%/405%|80/120/180",
+    "value_description": "治疗：325(【法术加成】) 325/400/650|伤害：【护甲】 180%/270%/405%|伤害：161=80【物理加成】+180%【护甲】 80/120/180|新星特攻伤害：105=65%x161(【物理加成】【护甲】)",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_aatrox.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 1,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 50,
+      "init_hp": 700,
+      "init_mp": 30,
+      "magic_resist": 45,
+      "max_mp": 90
+    },
+    {
+      "level": 2,
+      "sell_price": 1,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 50,
+      "init_hp": 700,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 20
+    },
+    {
+      "level": 3,
+      "sell_price": 3,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1260,
+      "init_mp": 30,
+      "magic_resist": 45,
+      "max_mp": 90
+    },
+    {
+      "level": 4,
+      "sell_price": 3,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1260,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 20
+    },
+    {
+      "level": 5,
+      "sell_price": 9,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2268,
+      "init_mp": 30,
+      "magic_resist": 45,
+      "max_mp": 90
+    },
+    {
+      "level": 6,
+      "sell_price": 9,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2268,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 20
+    },
+    {
+      "level": 7,
+      "sell_price": 27,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 150,
+      "init_hp": 3276,
+      "init_mp": 30,
+      "magic_resist": 45,
+      "max_mp": 90
+    },
+    {
+      "level": 8,
+      "sell_price": 27,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 150,
+      "init_hp": 3276,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 20
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aatrox.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_11458_s17_head_aatrox.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_11458_s17_head_aatrox.png",
+    "template_resource_path": "champion/1/champion_11458_s17_head_aatrox.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/11458",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aatrox.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "37",
+    "id": 11458,
+    "tft_hero_id": 11458,
+    "name": "亚托克斯",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aatrox.png",
+    "hero_paint": "s17_aatrox",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "325/400/650|180%/270%/405%|80/120/180",
+    "skill_desc": "回复325(【法术加成】)生命值，随后对当前目标造成161(【物理加成】【护甲】)物理伤害。  【新星特攻队】特攻：顺劈整个战场，短暂击飞所有敌人，并造成105(【物理加成】【护甲】)物理伤害。  【新星特攻队】特攻：顺劈整个战场，短暂击飞所有敌人，并造成105(【物理加成】【护甲】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_aatrox.png",
+    "skill_name": "星界斩击",
+    "skill_value_desc": "治疗：325(【法术加成】) 325/400/650|伤害：【护甲】 180%/270%/405%|伤害：161=80【物理加成】+180%【护甲】 80/120/180|新星特攻伤害：105=65%x161(【物理加成】【护甲】)",
+    "show_hero_tag": true,
+    "species": [405],
+    "class": ["310"],
+    "races": [
+      {
+        "id": 405,
+        "name": "新星特攻队"
+      }
+    ],
+    "traits": [
+      {
+        "id": "310",
+        "name": "堡垒卫士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 1,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 50,
+        "init_hp": 700,
+        "init_mp": 30,
+        "magic_resist": 45,
+        "max_mp": 90
+      },
+      {
+        "level": 2,
+        "sell_price": 1,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 50,
+        "init_hp": 700,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 20
+      },
+      {
+        "level": 3,
+        "sell_price": 3,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1260,
+        "init_mp": 30,
+        "magic_resist": 45,
+        "max_mp": 90
+      },
+      {
+        "level": 4,
+        "sell_price": 3,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1260,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 20
+      },
+      {
+        "level": 5,
+        "sell_price": 9,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2268,
+        "init_mp": 30,
+        "magic_resist": 45,
+        "max_mp": 90
+      },
+      {
+        "level": 6,
+        "sell_price": 9,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2268,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 20
+      },
+      {
+        "level": 7,
+        "sell_price": 27,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 150,
+        "init_hp": 3276,
+        "init_mp": 30,
+        "magic_resist": 45,
+        "max_mp": 90
+      },
+      {
+        "level": 8,
+        "sell_price": 27,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 150,
+        "init_hp": 3276,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 20
+      }
+    ]
+  }
+}

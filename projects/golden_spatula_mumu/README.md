@@ -8,9 +8,23 @@
 pnpm prepare:golden-spatula-mumu
 ```
 
-脚本会把本目录复制到 `src-tauri/target/debug`，MXU 本地开发运行时会从该目录读取 `interface.json` 和 `resource/`。
+脚本会把本目录复制到 `src-tauri/target/debug`，MXU 本地开发运行时会从该目录读取 `interface.json`、`resource/` 和按需加载的 `resource_knowledge/`。
 
 运行 MXU 前需要把 MaaFramework release binaries 放在 `src-tauri/target/debug/maafw`。准备脚本只检查 runtime 是否存在，不会自动下载。
+
+## 调试脚本
+
+```powershell
+pnpm golden:red-dot
+pnpm golden:analyze
+pnpm golden:crop-assets -- --dry-run
+pnpm golden:fetch-knowledge
+```
+
+- `golden:red-dot` 会准备资源、连接 MuMu、加载 bundle 并运行严格版 `RedDotPatrol`。脚本会自动探测 MXU 后端 `12701-12710` 端口；本轮必须产出完整巡检截图，且不能出现 fresh `failed` / `unverified` / `on_error` 诊断图才算通过。
+- `golden:analyze` 会列出最近截图、on_error 图和日志线索。
+- `golden:crop-assets` 会按 `tooling/crop-recipes.json` 重新裁剪模板；调试新截图时建议先用 `--dry-run` 检查 recipe。
+- `golden:fetch-knowledge` 会从 `jinchanchan.fun` 当前版本 API 抓取英雄、羁绊、装备、强化符文与热门阵容资料，下载 Tencent CDN 图标，并生成 `resource_knowledge/` Maa 模板与 `knowledge/` JSON。
 
 ## 任务
 
@@ -18,7 +32,13 @@ pnpm prepare:golden-spatula-mumu
 - `关闭常见弹窗`：按模板处理右上角关闭按钮和退出确认的取消按钮，然后保存截图。
 - `事件签到巡检`：进入事件页保存截图并返回主界面；当前版本仍不点击领取按钮。
 - `商城免费项巡检`：进入商城保存截图并返回主界面，不触碰购买按钮。
-- `红点巡检截图`：检测左侧红点并依次巡检主要入口，保存命名截图用于模板和 ROI 调整。
+- `红点巡检截图`：检测左侧红点并依次巡检主要入口；每个页面会先识别左上角标题模板，命中后才保存命名截图用于模板和 ROI 调整。
+- `知识库模板加载测试`：加载棋子、装备、羁绊和强化符文模板并保存截图，用于确认知识库资源可被 Maa 读取。
+- `识别商店棋子`：只截图并在商店区域尝试匹配当前版本棋子头像，不点击棋子或购买。
+- `识别基础装备`：只截图并匹配基础装备图标，作为装备识别的轻量入口。
+- `识别成装图标`：只截图并匹配常规成装图标。
+- `识别特殊装备`：只截图并匹配特殊装备、神器和机制装备图标；模板较多，建议按需调试。
+- `识别羁绊面板`：只截图并在左侧羁绊区域尝试匹配当前版本羁绊图标。
 - `连线截图测试`：保存一张截图，用于确认控制器和资源已准备好。
 - `仅截图`：保存当前模拟器画面。
 - `启动游戏`：启动 `com.tencent.jkchess`，然后进入主界面确认流程。
@@ -29,7 +49,19 @@ pnpm prepare:golden-spatula-mumu
 
 - `samples/screenshots/` 保存重新命名后的原始巡检截图，方便回看裁剪来源。
 - `resource/image/lobby/` 保存主界面左侧入口和红点模板。
-- `resource/image/page/` 保存页面返回箭头模板。
+- `resource/image/page/` 保存页面返回箭头、页面标题和开始游戏按钮模板。
 - `resource/image/popup/` 保存关闭、取消和奖励弹窗模板。
+- `resource_knowledge/image/champion/` 保存按费用分类的当前版本棋子头像模板。
+- `resource_knowledge/image/item/` 保存基础装、成装和特殊装备图标模板。
+- `resource_knowledge/image/trait/` 保存羁绊图标模板。
+- `resource_knowledge/image/augment/` 保存强化符文图标模板。
 
-当前版本只把模板用于导航、返回和截图巡检。事件与商城仍然是巡检任务，不会自动领取或购买。
+## 知识库
+
+`knowledge/seasons/current.json` 记录当前版本、抓取时间、来源 URL 和条目数量。`knowledge/champions/`、`knowledge/traits/`、`knowledge/items/`、`knowledge/augments/`、`knowledge/lineups/` 保存结构化条目；`raw/jinchanchan/<version>/` 保存原始 API 响应和 CDN 原图，方便以后核对来源或重新裁剪。
+
+MXU 默认的 `金铲铲资源` 只加载轻量基础 bundle。需要跑棋子、装备、羁绊识别调试时，请在连接设置里切到 `金铲铲资源 + 知识库`，它会先加载 `resource/`，再加载 `resource_knowledge/`。
+
+识别调试任务只做 `Screencap` 和 `TemplateMatch`。这些资料用于本地学习、模板验证和 UI 识别，不会产生对局决策、自动选秀、买卖棋子、上阵或购买确认。
+
+当前版本只把模板用于导航、页面标题确认、返回和截图巡检。事件与商城仍然是巡检任务，不会自动领取或购买。

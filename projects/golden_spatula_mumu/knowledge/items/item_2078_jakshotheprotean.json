@@ -1,0 +1,40 @@
+{
+  "id": 2078,
+  "slug": "item_2078_jakshotheprotean",
+  "name": "光明版适应性头盔",
+  "aliases": ["光明版适应性头盔", "jakshotheprotean", "jakshotheprotean"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "从所有来源中获得额外的30%法力值。携带者获得基于角色定位的一个额外加成： 坦克/战士：获得80护甲和魔抗。 其它角色定位：获得40%物理加成和法术加成。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/jakshotheprotean.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2078_jakshotheprotean.png",
+    "template_path": "resource_knowledge/image/item/special/item_2078_jakshotheprotean.png",
+    "template_resource_path": "item/special/item_2078_jakshotheprotean.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/jakshotheprotean.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2078,
+    "tft_equip_id": null,
+    "name": "光明版适应性头盔",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/jakshotheprotean.png",
+    "icon": "jakshotheprotean",
+    "desc": "从所有来源中获得额外的30%法力值。携带者获得基于角色定位的一个额外加成：  坦克/战士：获得80护甲和魔抗。  其它角色定位：获得40%物理加成和法术加成。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

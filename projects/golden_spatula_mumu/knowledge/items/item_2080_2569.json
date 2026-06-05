@@ -1,0 +1,40 @@
+{
+  "id": 2080,
+  "slug": "item_2080_2569",
+  "name": "光明版棘刺背心",
+  "aliases": ["光明版棘刺背心", "2569", "2569"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "获得12%最大生命值。 使来自攻击的伤害降低10%。在被任一攻击命中时，对邻格所有敌人造成200魔法伤害。 冷却时间：2秒",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2569.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2080_2569.png",
+    "template_path": "resource_knowledge/image/item/special/item_2080_2569.png",
+    "template_resource_path": "item/special/item_2080_2569.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2569.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2080,
+    "tft_equip_id": null,
+    "name": "光明版棘刺背心",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2569.png",
+    "icon": "2569",
+    "desc": "获得12%最大生命值。  使来自攻击的伤害降低10%。在被任一攻击命中时，对邻格所有敌人造成200魔法伤害。  冷却时间：2秒",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

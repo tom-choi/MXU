@@ -1,0 +1,40 @@
+{
+  "id": 2017,
+  "slug": "item_2017_2017",
+  "name": "大天使之杖",
+  "aliases": ["大天使之杖", "2017", "2017"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "战斗开始时：在战斗期间，每5秒获得20%法术加成。",
+  "synthesis": [1003, 1004],
+  "recommended_users": ["维迦", "维克托", "未解析棋子 14383", "莫德凯撒", "娜美"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2017.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2017_2017.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2017_2017.png",
+    "template_resource_path": "item/completed/item_2017_2017.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2017.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2017,
+    "tft_equip_id": null,
+    "name": "大天使之杖",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2017.png",
+    "icon": "2017",
+    "desc": "战斗开始时：在战斗期间，每5秒获得20%法术加成。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1003,
+    "synthesis2": 1004,
+    "type": "成型装备"
+  }
+}

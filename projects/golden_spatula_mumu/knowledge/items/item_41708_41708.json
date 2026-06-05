@@ -1,0 +1,40 @@
+{
+  "id": 41708,
+  "slug": "item_41708_41708",
+  "name": "灵能特工纹章",
+  "aliases": ["灵能特工纹章", "41708", "41708"],
+  "category": "special",
+  "type": "转职纹章",
+  "description": "携带者获得【灵能特工】羁绊。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41708.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41708_41708.png",
+    "template_path": "resource_knowledge/image/item/special/item_41708_41708.png",
+    "template_resource_path": "item/special/item_41708_41708.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41708.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41708,
+    "tft_equip_id": null,
+    "name": "灵能特工纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41708.png",
+    "icon": "41708",
+    "desc": "携带者获得【灵能特工】羁绊。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "转职纹章"
+  }
+}

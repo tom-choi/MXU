@@ -1,0 +1,42 @@
+{
+  "id": 10016,
+  "slug": "augment_10016_restartmission1",
+  "name": "重启任务",
+  "aliases": ["重启任务", "restartmission1"],
+  "level": 1,
+  "description": "移除你场上和备战席上的所有弈子。获得2个随机的2星3费弈子、3个2星2费弈子和1个2星1费弈子。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/restartmission1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_10016_restartmission1.png",
+    "template_path": "resource_knowledge/image/augment/augment_10016_restartmission1.png",
+    "template_resource_path": "augment/augment_10016_restartmission1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/restartmission1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 10016,
+    "name": "重启任务",
+    "description": "移除你场上和备战席上的所有弈子。获得2个随机的2星3费弈子、3个2星2费弈子和1个2星1费弈子。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/restartmission1.png",
+    "level": 1,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "id": 13458,
+  "slug": "champion_13458_s17_head_diana",
+  "name": "黛安娜",
+  "aliases": ["黛安娜", "s17_diana", "s17_head_diana", "s17_diana"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["法官", "挑战者"],
+  "trait_refs": [
+    {
+      "id": 401,
+      "name": "法官"
+    },
+    {
+      "id": "312",
+      "name": "挑战者"
+    }
+  ],
+  "skill": {
+    "name": "苍白之瀑",
+    "description": "被动：普攻造成52(【法术加成】)额外魔法伤害。 主动：获得275(【法术加成】)护盾并召唤3颗环绕法球，持续3秒。法球穿过敌人时造成60(【法术加成】)魔法伤害，并根据攻击速度加速旋转。",
+    "brief_value": "52/78/135|275/325/475|60/90/145",
+    "value_description": "攻击附带伤害：52(【法术加成】) 52/78/135|护盾值：275(【法术加成】) 275/325/475|法球伤害：60(【法术加成】) 60/90/145",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_diana.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 50,
+      "attack_range": 1,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 10,
+      "init_hp": 850,
+      "init_mp": 0,
+      "magic_resist": 50,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 50,
+      "attack_range": 1,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 15,
+      "init_hp": 1530,
+      "init_mp": 0,
+      "magic_resist": 50,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 50,
+      "attack_range": 1,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 22,
+      "init_hp": 2754,
+      "init_mp": 0,
+      "magic_resist": 50,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 50,
+      "attack_range": 1,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 3978,
+      "init_mp": 0,
+      "magic_resist": 50,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_diana.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13458_s17_head_diana.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13458_s17_head_diana.png",
+    "template_resource_path": "champion/3/champion_13458_s17_head_diana.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13458",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_diana.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "189",
+    "id": 13458,
+    "tft_hero_id": 13458,
+    "name": "黛安娜",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_diana.png",
+    "hero_paint": "s17_diana",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "52/78/135|275/325/475|60/90/145",
+    "skill_desc": "被动：普攻造成52(【法术加成】)额外魔法伤害。  主动：获得275(【法术加成】)护盾并召唤3颗环绕法球，持续3秒。法球穿过敌人时造成60(【法术加成】)魔法伤害，并根据攻击速度加速旋转。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_diana.png",
+    "skill_name": "苍白之瀑",
+    "skill_value_desc": "攻击附带伤害：52(【法术加成】) 52/78/135|护盾值：275(【法术加成】) 275/325/475|法球伤害：60(【法术加成】) 60/90/145",
+    "show_hero_tag": true,
+    "species": [401],
+    "class": ["312"],
+    "races": [
+      {
+        "id": 401,
+        "name": "法官"
+      }
+    ],
+    "traits": [
+      {
+        "id": "312",
+        "name": "挑战者"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 50,
+        "attack_range": 1,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 10,
+        "init_hp": 850,
+        "init_mp": 0,
+        "magic_resist": 50,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 50,
+        "attack_range": 1,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 15,
+        "init_hp": 1530,
+        "init_mp": 0,
+        "magic_resist": 50,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 50,
+        "attack_range": 1,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 22,
+        "init_hp": 2754,
+        "init_mp": 0,
+        "magic_resist": 50,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 50,
+        "attack_range": 1,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 3978,
+        "init_mp": 0,
+        "magic_resist": 50,
+        "max_mp": 50
+      }
+    ]
+  }
+}

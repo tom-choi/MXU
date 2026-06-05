@@ -1,0 +1,42 @@
+{
+  "id": 20649,
+  "slug": "augment_20649_combatgrace2",
+  "name": "精准而优雅",
+  "aliases": ["精准而优雅", "combatgrace2"],
+  "level": 2,
+  "description": "在战斗环节开始时，友军们会获得25%攻击速度，持续3秒。在参与击败后，友军们向他们的下一个目标冲刺，并再次获得此加成。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/combatgrace2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20649_combatgrace2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20649_combatgrace2.png",
+    "template_resource_path": "augment/augment_20649_combatgrace2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/combatgrace2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20649,
+    "name": "精准而优雅",
+    "description": "在战斗环节开始时，友军们会获得25%攻击速度，持续3秒。在参与击败后，友军们向他们的下一个目标冲刺，并再次获得此加成。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/combatgrace2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

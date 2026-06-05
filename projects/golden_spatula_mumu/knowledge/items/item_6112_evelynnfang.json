@@ -1,0 +1,40 @@
+{
+  "id": 6112,
+  "slug": "item_6112_evelynnfang",
+  "name": "伊芙琳的本能",
+  "aliases": ["伊芙琳的本能", "evelynnfang", "evelynnfang"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "当转换目标时，闪烁到下一个目标旁。攻击和技能将直接处决生命值低于12%的目标。 携带者可通过击败获得在3秒内持续衰减的50%攻击速度。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/evelynnfang.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6112_evelynnfang.png",
+    "template_path": "resource_knowledge/image/item/special/item_6112_evelynnfang.png",
+    "template_resource_path": "item/special/item_6112_evelynnfang.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/evelynnfang.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6112,
+    "tft_equip_id": null,
+    "name": "伊芙琳的本能",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/evelynnfang.png",
+    "icon": "evelynnfang",
+    "desc": "当转换目标时，闪烁到下一个目标旁。攻击和技能将直接处决生命值低于12%的目标。  携带者可通过击败获得在3秒内持续衰减的50%攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

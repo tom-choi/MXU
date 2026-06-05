@@ -1,0 +1,174 @@
+{
+  "id": 14378,
+  "slug": "champion_14378_s17_head_tahmkench",
+  "name": "塔姆",
+  "aliases": ["塔姆", "s17_tahmkench", "s17_head_tahmkench", "s17_tahmkench"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["斗士"],
+  "trait_refs": [
+    {
+      "id": "311",
+      "name": "斗士"
+    }
+  ],
+  "skill": {
+    "name": "巨舌鞭笞",
+    "description": "被动：每场战斗一次，在跌下35%生命值时，获得持续4秒的护盾，护盾值相当于40%本场战斗受到的治疗值。 主动：回复411(【生命上限】【法术加成】)生命值，然后用舌头鞭笞两格内的所有敌人，造成71(【法术加成】【生命上限】)魔法伤害。",
+    "brief_value": "300/360/1500|45/60/1500",
+    "value_description": "治疗：411=8.5%【生命上限】+300【法术加成】 300/360/1500|伤害：71=45【法术加成】+2%【生命上限】 45/60/1500",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_tahmkench.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.5,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1300,
+      "init_mp": 50,
+      "magic_resist": 60,
+      "max_mp": 110
+    },
+    {
+      "level": 2,
+      "sell_price": 11,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.5,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2340,
+      "init_mp": 50,
+      "magic_resist": 60,
+      "max_mp": 110
+    },
+    {
+      "level": 3,
+      "sell_price": 35,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.5,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 168,
+      "init_hp": 5212,
+      "init_mp": 50,
+      "magic_resist": 60,
+      "max_mp": 110
+    },
+    {
+      "level": 4,
+      "sell_price": 107,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.5,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 225,
+      "init_hp": 7084,
+      "init_mp": 50,
+      "magic_resist": 60,
+      "max_mp": 110
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_tahmkench.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14378_s17_head_tahmkench.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14378_s17_head_tahmkench.png",
+    "template_resource_path": "champion/4/champion_14378_s17_head_tahmkench.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14378",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_tahmkench.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "289",
+    "id": 14378,
+    "tft_hero_id": 14378,
+    "name": "塔姆",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_tahmkench.png",
+    "hero_paint": "s17_tahmkench",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "300/360/1500|45/60/1500",
+    "skill_desc": "被动：每场战斗一次，在跌下35%生命值时，获得持续4秒的护盾，护盾值相当于40%本场战斗受到的治疗值。  主动：回复411(【生命上限】【法术加成】)生命值，然后用舌头鞭笞两格内的所有敌人，造成71(【法术加成】【生命上限】)魔法伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_tahmkench.png",
+    "skill_name": "巨舌鞭笞",
+    "skill_value_desc": "治疗：411=8.5%【生命上限】+300【法术加成】 300/360/1500|伤害：71=45【法术加成】+2%【生命上限】 45/60/1500",
+    "show_hero_tag": true,
+    "species": [423],
+    "class": ["311"],
+    "races": [],
+    "traits": [
+      {
+        "id": "311",
+        "name": "斗士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.5,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1300,
+        "init_mp": 50,
+        "magic_resist": 60,
+        "max_mp": 110
+      },
+      {
+        "level": 2,
+        "sell_price": 11,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.5,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2340,
+        "init_mp": 50,
+        "magic_resist": 60,
+        "max_mp": 110
+      },
+      {
+        "level": 3,
+        "sell_price": 35,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.5,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 168,
+        "init_hp": 5212,
+        "init_mp": 50,
+        "magic_resist": 60,
+        "max_mp": 110
+      },
+      {
+        "level": 4,
+        "sell_price": 107,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.5,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 225,
+        "init_hp": 7084,
+        "init_mp": 50,
+        "magic_resist": 60,
+        "max_mp": 110
+      }
+    ]
+  }
+}

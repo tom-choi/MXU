@@ -1,0 +1,40 @@
+{
+  "id": 6086,
+  "slug": "item_6086_lich_bane",
+  "name": "巫妖之祸",
+  "aliases": ["巫妖之祸", "lich_bane", "lich_bane"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "携带者在每次技能施放后的第一次攻击造成250额外魔法伤害。 这个伤害基于阶段而提升。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lich_bane.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6086_lich_bane.png",
+    "template_path": "resource_knowledge/image/item/special/item_6086_lich_bane.png",
+    "template_resource_path": "item/special/item_6086_lich_bane.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lich_bane.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6086,
+    "tft_equip_id": null,
+    "name": "巫妖之祸",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lich_bane.png",
+    "icon": "lich_bane",
+    "desc": "携带者在每次技能施放后的第一次攻击造成250额外魔法伤害。  这个伤害基于阶段而提升。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

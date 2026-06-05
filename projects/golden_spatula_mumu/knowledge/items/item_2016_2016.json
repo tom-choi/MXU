@@ -1,0 +1,40 @@
+{
+  "id": 2016,
+  "slug": "item_2016_2016",
+  "name": "班克斯的魔法帽",
+  "aliases": ["班克斯的魔法帽", "2016", "2016"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "这顶不起眼的帽子可以帮助你创造，或毁灭，这个世界本身。 额外法术加成:0%",
+  "synthesis": [1003, 1003],
+  "recommended_users": ["提莫", "崔斯特", "薇古丝", "阿萝拉", "奥瑞利安·索尔", "古拉加斯"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2016.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2016_2016.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2016_2016.png",
+    "template_resource_path": "item/completed/item_2016_2016.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2016.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2016,
+    "tft_equip_id": null,
+    "name": "班克斯的魔法帽",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2016.png",
+    "icon": "2016",
+    "desc": "这顶不起眼的帽子可以帮助你创造，或毁灭，这个世界本身。  额外法术加成:0%",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1003,
+    "synthesis2": 1003,
+    "type": "成型装备"
+  }
+}

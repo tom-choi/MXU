@@ -1,0 +1,40 @@
+{
+  "id": 2003,
+  "slug": "item_2003_2003",
+  "name": "海克斯科技枪刃",
+  "aliases": ["海克斯科技枪刃", "2003", "2003"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "为生命值百分比最低的友军提供相当于20%造成伤害值的治疗。",
+  "synthesis": [1001, 1003],
+  "recommended_users": ["提莫", "未解析棋子 14383", "薇古丝"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2003.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2003_2003.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2003_2003.png",
+    "template_resource_path": "item/completed/item_2003_2003.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2003.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2003,
+    "tft_equip_id": null,
+    "name": "海克斯科技枪刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2003.png",
+    "icon": "2003",
+    "desc": "为生命值百分比最低的友军提供相当于20%造成伤害值的治疗。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1001,
+    "synthesis2": 1003,
+    "type": "成型装备"
+  }
+}

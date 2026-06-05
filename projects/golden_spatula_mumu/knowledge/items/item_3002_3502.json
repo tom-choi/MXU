@@ -1,0 +1,40 @@
+{
+  "id": 3002,
+  "slug": "item_3002_3502",
+  "name": "装备重铸器",
+  "aliases": ["装备重铸器", "3502", "3502"],
+  "category": "special",
+  "type": "-1",
+  "description": "拆卸所有装备并将它们随机变形为拥有相似类型和品质的全新装备。 [消耗品-这个物品会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3502.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3002_3502.png",
+    "template_path": "resource_knowledge/image/item/special/item_3002_3502.png",
+    "template_resource_path": "item/special/item_3002_3502.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3502.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3002,
+    "tft_equip_id": null,
+    "name": "装备重铸器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3502.png",
+    "icon": "3502",
+    "desc": "拆卸所有装备并将它们随机变形为拥有相似类型和品质的全新装备。  [消耗品-这个物品会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

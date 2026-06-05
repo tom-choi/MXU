@@ -1,0 +1,42 @@
+{
+  "id": 2189,
+  "slug": "augment_2189_dizzy2",
+  "name": "纷乱头脑",
+  "aliases": ["纷乱头脑", "dizzy2"],
+  "level": 2,
+  "description": "即刻获得4个随机的1费弈子。如果玩家对战回合结束时你的备战席已满，提供3经验。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/dizzy2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_2189_dizzy2.png",
+    "template_path": "resource_knowledge/image/augment/augment_2189_dizzy2.png",
+    "template_resource_path": "augment/augment_2189_dizzy2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/dizzy2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2189,
+    "name": "纷乱头脑",
+    "description": "即刻获得4个随机的1费弈子。如果玩家对战回合结束时你的备战席已满，提供3经验。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/dizzy2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

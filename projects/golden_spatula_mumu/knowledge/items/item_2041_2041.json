@@ -1,0 +1,40 @@
+{
+  "id": 2041,
+  "slug": "item_2041_2041",
+  "name": "水银",
+  "aliases": ["水银", "2041", "2041"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "战斗开始时：获得持续18秒的控制免疫效果。 每秒获得3%可叠加的攻击速度。",
+  "synthesis": [1006, 1009],
+  "recommended_users": ["格雷福斯", "卑尔维斯", "菲奥娜", "厄加特"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2041.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2041_2041.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2041_2041.png",
+    "template_resource_path": "item/completed/item_2041_2041.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2041.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2041,
+    "tft_equip_id": null,
+    "name": "水银",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2041.png",
+    "icon": "2041",
+    "desc": "战斗开始时：获得持续18秒的控制免疫效果。  每秒获得3%可叠加的攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1006,
+    "synthesis2": 1009,
+    "type": "成型装备"
+  }
+}

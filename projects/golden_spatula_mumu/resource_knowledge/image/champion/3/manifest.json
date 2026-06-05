@@ -1,0 +1,286 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "source": {
+    "defaultVersion": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=default_version",
+    "activeVersions": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=active_versions",
+    "versionsInfo": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=versions_info",
+    "chess": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "chessNameIndex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess_name_index&versionId=17_17.17.4_S18",
+    "equip": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "trait": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "hex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "lineup": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "category": "champion",
+  "entries": [
+    {
+      "id": 13450,
+      "name": "卡莎",
+      "slug": "champion_13450_s17_head_kaisa",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_kaisa.png",
+      "template_resource_path": "champion/3/champion_13450_s17_head_kaisa.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13450_s17_head_kaisa.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13451,
+      "name": "厄加特",
+      "slug": "champion_13451_s17_head_urgot",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_urgot.png",
+      "template_resource_path": "champion/3/champion_13451_s17_head_urgot.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13451_s17_head_urgot.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13452,
+      "name": "维克托",
+      "slug": "champion_13452_s17_head_viktor",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_viktor.png",
+      "template_resource_path": "champion/3/champion_13452_s17_head_viktor.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13452_s17_head_viktor.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13453,
+      "name": "奥恩",
+      "slug": "champion_13453_s17_head_ornn",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_ornn.png",
+      "template_resource_path": "champion/3/champion_13453_s17_head_ornn.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13453_s17_head_ornn.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13454,
+      "name": "璐璐",
+      "slug": "champion_13454_s17_head_lulu",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_lulu.png",
+      "template_resource_path": "champion/3/champion_13454_s17_head_lulu.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13454_s17_head_lulu.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13455,
+      "name": "菲兹",
+      "slug": "champion_13455_s17_head_fizz",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_fizz.png",
+      "template_resource_path": "champion/3/champion_13455_s17_head_fizz.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13455_s17_head_fizz.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13457,
+      "name": "茂凯",
+      "slug": "champion_13457_s17_head_maokai",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_maokai.png",
+      "template_resource_path": "champion/3/champion_13457_s17_head_maokai.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13457_s17_head_maokai.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13458,
+      "name": "黛安娜",
+      "slug": "champion_13458_s17_head_diana",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_diana.png",
+      "template_resource_path": "champion/3/champion_13458_s17_head_diana.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13458_s17_head_diana.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13459,
+      "name": "拉亚斯特",
+      "slug": "champion_13459_s17_head_rhaast",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_rhaast.png",
+      "template_resource_path": "champion/3/champion_13459_s17_head_rhaast.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13459_s17_head_rhaast.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13460,
+      "name": "俄洛伊",
+      "slug": "champion_13460_s17_head_illaoi",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_illaoi.png",
+      "template_resource_path": "champion/3/champion_13460_s17_head_illaoi.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13460_s17_head_illaoi.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13461,
+      "name": "莎弥拉",
+      "slug": "champion_13461_s17_head_samira",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_samira.png",
+      "template_resource_path": "champion/3/champion_13461_s17_head_samira.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13461_s17_head_samira.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13462,
+      "name": "阿萝拉",
+      "slug": "champion_13462_s17_head_aurora",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aurora.png",
+      "template_resource_path": "champion/3/champion_13462_s17_head_aurora.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13462_s17_head_aurora.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13464,
+      "name": "厄加特",
+      "slug": "champion_13464_s17_head_urgot_mecha",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_urgot_mecha.png",
+      "template_resource_path": "champion/3/champion_13464_s17_head_urgot_mecha.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13464_s17_head_urgot_mecha.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 13465,
+      "name": "厄运小姐",
+      "slug": "champion_13465_s17_head_missfortune",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_missfortune.png",
+      "template_resource_path": "champion/3/champion_13465_s17_head_missfortune.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13465_s17_head_missfortune.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    }
+  ],
+  "cost": 3
+}

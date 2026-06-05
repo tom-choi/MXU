@@ -1,0 +1,42 @@
+{
+  "id": 20216,
+  "slug": "augment_20216_noscoutnopivot2",
+  "name": "不侦察，不变阵",
+  "aliases": ["不侦察，不变阵", "noscoutnopivot2"],
+  "level": 2,
+  "description": "参与玩家对战回合后，弈子无法再回到备战席或出售。在玩家对战回合后，你的队伍获得1%生命值、1.0%物理加成和法术加成。 当前：0%【生命上限】，0.0%【物理加成】【法术加成】",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/noscoutnopivot2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20216_noscoutnopivot2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20216_noscoutnopivot2.png",
+    "template_resource_path": "augment/augment_20216_noscoutnopivot2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/noscoutnopivot2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20216,
+    "name": "不侦察，不变阵",
+    "description": "参与玩家对战回合后，弈子无法再回到备战席或出售。在玩家对战回合后，你的队伍获得1%生命值、1.0%物理加成和法术加成。  当前：0%【生命上限】，0.0%【物理加成】【法术加成】",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/noscoutnopivot2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

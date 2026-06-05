@@ -1,0 +1,620 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "version_id": "17_17.17.4_S18",
+  "season": "S18",
+  "count": 102,
+  "entries": [
+    {
+      "id": 10166,
+      "slug": "champion_10166_head_targetdummy",
+      "name": "木桩假人",
+      "path": "champion_10166_head_targetdummy.json"
+    },
+    {
+      "id": 10167,
+      "slug": "champion_10167_head_targetdummy",
+      "name": "木桩假人",
+      "path": "champion_10167_head_targetdummy.json"
+    },
+    {
+      "id": 10170,
+      "slug": "champion_10170_head_targetdummy",
+      "name": "木桩假人",
+      "path": "champion_10170_head_targetdummy.json"
+    },
+    {
+      "id": 12460,
+      "slug": "champion_ref_12460",
+      "name": "未解析棋子 12460",
+      "path": "champion_ref_12460.json"
+    },
+    {
+      "id": 12462,
+      "slug": "champion_ref_12462",
+      "name": "未解析棋子 12462",
+      "path": "champion_ref_12462.json"
+    },
+    {
+      "id": 13467,
+      "slug": "champion_ref_13467",
+      "name": "未解析棋子 13467",
+      "path": "champion_ref_13467.json"
+    },
+    {
+      "id": 13468,
+      "slug": "champion_ref_13468",
+      "name": "未解析棋子 13468",
+      "path": "champion_ref_13468.json"
+    },
+    {
+      "id": 14383,
+      "slug": "champion_ref_14383",
+      "name": "未解析棋子 14383",
+      "path": "champion_ref_14383.json"
+    },
+    {
+      "id": 14384,
+      "slug": "champion_ref_14384",
+      "name": "未解析棋子 14384",
+      "path": "champion_ref_14384.json"
+    },
+    {
+      "id": 18101,
+      "slug": "champion_18101_m_bluemonster",
+      "name": "雕纹魔像",
+      "path": "champion_18101_m_bluemonster.json"
+    },
+    {
+      "id": 18401,
+      "slug": "champion_18401_s17_head_primordian",
+      "name": "狂潮虫伤害",
+      "path": "champion_18401_s17_head_primordian.json"
+    },
+    {
+      "id": 18402,
+      "slug": "champion_18402_s17_head_primordian",
+      "name": "狂潮虫伤害",
+      "path": "champion_18402_s17_head_primordian.json"
+    },
+    {
+      "id": 18403,
+      "slug": "champion_18403_s17_head_primordian",
+      "name": "狂潮虫伤害",
+      "path": "champion_18403_s17_head_primordian.json"
+    },
+    {
+      "id": 18404,
+      "slug": "champion_18404_s17_head_primordian",
+      "name": "狂潮虫伤害",
+      "path": "champion_18404_s17_head_primordian.json"
+    },
+    {
+      "id": 18406,
+      "slug": "champion_18406_s17_head_shensword",
+      "name": "圣物",
+      "path": "champion_18406_s17_head_shensword.json"
+    },
+    {
+      "id": 18407,
+      "slug": "champion_18407_s17_head_bia",
+      "name": "羊咩咩 & 咩咩羊",
+      "path": "champion_18407_s17_head_bia.json"
+    },
+    {
+      "id": 18408,
+      "slug": "champion_18408_s17_head_bayin",
+      "name": "羊咩咩 & 咩咩羊",
+      "path": "champion_18408_s17_head_bayin.json"
+    },
+    {
+      "id": 18422,
+      "slug": "champion_18422_s17_head_bayin",
+      "name": "羊咩咩 & 咩咩羊",
+      "path": "champion_18422_s17_head_bayin.json"
+    },
+    {
+      "id": 18423,
+      "slug": "champion_18423_s17_head_gnarmeep_a",
+      "name": "纳尔召唤物a",
+      "path": "champion_18423_s17_head_gnarmeep_a.json"
+    },
+    {
+      "id": 18424,
+      "slug": "champion_18424_s17_head_gnarmeep_b",
+      "name": "纳尔召唤物b",
+      "path": "champion_18424_s17_head_gnarmeep_b.json"
+    },
+    {
+      "id": 18425,
+      "slug": "champion_18425_s17_head_gnarmeep_c",
+      "name": "纳尔召唤物c",
+      "path": "champion_18425_s17_head_gnarmeep_c.json"
+    },
+    {
+      "id": 18426,
+      "slug": "champion_18426_s17_head_gnarmeep_d",
+      "name": "纳尔召唤物d",
+      "path": "champion_18426_s17_head_gnarmeep_d.json"
+    },
+    {
+      "id": 18428,
+      "slug": "champion_18428_s17_h_darkstar_miniblackhole",
+      "name": "迷你黑洞",
+      "path": "champion_18428_s17_h_darkstar_miniblackhole.json"
+    },
+    {
+      "id": 18429,
+      "slug": "champion_18429_s17_head_meeple",
+      "name": "0",
+      "path": "champion_18429_s17_head_meeple.json"
+    },
+    {
+      "id": 18430,
+      "slug": "champion_18430_s17_head_meeple",
+      "name": "0",
+      "path": "champion_18430_s17_head_meeple.json"
+    },
+    {
+      "id": 18431,
+      "slug": "champion_18431_s17_head_meeple",
+      "name": "0",
+      "path": "champion_18431_s17_head_meeple.json"
+    },
+    {
+      "id": 18432,
+      "slug": "champion_18432_s17_head_meeple",
+      "name": "0",
+      "path": "champion_18432_s17_head_meeple.json"
+    },
+    {
+      "id": 18438,
+      "slug": "champion_18438_s17_head_zedshadow",
+      "name": "劫",
+      "path": "champion_18438_s17_head_zedshadow.json"
+    },
+    {
+      "id": 38427,
+      "slug": "champion_38427_head_targetdummy",
+      "name": "木桩假人",
+      "path": "champion_38427_head_targetdummy.json"
+    },
+    {
+      "id": 11450,
+      "slug": "champion_11450_s17_head_twistedfate",
+      "name": "崔斯特",
+      "path": "champion_11450_s17_head_twistedfate.json"
+    },
+    {
+      "id": 11451,
+      "slug": "champion_11451_s17_head_ezreal",
+      "name": "伊泽瑞尔",
+      "path": "champion_11451_s17_head_ezreal.json"
+    },
+    {
+      "id": 11452,
+      "slug": "champion_11452_s17_head_talon",
+      "name": "泰隆",
+      "path": "champion_11452_s17_head_talon.json"
+    },
+    {
+      "id": 11453,
+      "slug": "champion_11453_s17_head_nasus",
+      "name": "内瑟斯",
+      "path": "champion_11453_s17_head_nasus.json"
+    },
+    {
+      "id": 11454,
+      "slug": "champion_11454_s17_head_leona",
+      "name": "蕾欧娜",
+      "path": "champion_11454_s17_head_leona.json"
+    },
+    {
+      "id": 11455,
+      "slug": "champion_11455_s17_head_reksai",
+      "name": "雷克塞",
+      "path": "champion_11455_s17_head_reksai.json"
+    },
+    {
+      "id": 11456,
+      "slug": "champion_11456_s17_head_caitlyn",
+      "name": "凯特琳",
+      "path": "champion_11456_s17_head_caitlyn.json"
+    },
+    {
+      "id": 11457,
+      "slug": "champion_11457_s17_head_lissandra",
+      "name": "丽桑卓",
+      "path": "champion_11457_s17_head_lissandra.json"
+    },
+    {
+      "id": 11458,
+      "slug": "champion_11458_s17_head_aatrox",
+      "name": "亚托克斯",
+      "path": "champion_11458_s17_head_aatrox.json"
+    },
+    {
+      "id": 11459,
+      "slug": "champion_11459_s17_head_chogath",
+      "name": "科加斯",
+      "path": "champion_11459_s17_head_chogath.json"
+    },
+    {
+      "id": 11460,
+      "slug": "champion_11460_s17_head_teemo",
+      "name": "提莫",
+      "path": "champion_11460_s17_head_teemo.json"
+    },
+    {
+      "id": 11461,
+      "slug": "champion_11461_s17_head_veigar",
+      "name": "维迦",
+      "path": "champion_11461_s17_head_veigar.json"
+    },
+    {
+      "id": 11462,
+      "slug": "champion_11462_s17_head_poppy",
+      "name": "波比",
+      "path": "champion_11462_s17_head_poppy.json"
+    },
+    {
+      "id": 11463,
+      "slug": "champion_11463_s17_head_briar",
+      "name": "贝蕾亚",
+      "path": "champion_11463_s17_head_briar.json"
+    },
+    {
+      "id": 11468,
+      "slug": "champion_11468_s17_head_poppy",
+      "name": "波比",
+      "path": "champion_11468_s17_head_poppy.json"
+    },
+    {
+      "id": 18410,
+      "slug": "champion_18410_s17_head_temporalcore",
+      "name": "未来战士核心",
+      "path": "champion_18410_s17_head_temporalcore.json"
+    },
+    {
+      "id": 18437,
+      "slug": "champion_18437_m_head_elderdragon",
+      "name": "星界远古巨龙",
+      "path": "champion_18437_m_head_elderdragon.json"
+    },
+    {
+      "id": 28437,
+      "slug": "champion_28437_m_head_elderdragon",
+      "name": "星界远古巨龙",
+      "path": "champion_28437_m_head_elderdragon.json"
+    },
+    {
+      "id": 38437,
+      "slug": "champion_38437_m_head_elderdragon",
+      "name": "星界远古巨龙",
+      "path": "champion_38437_m_head_elderdragon.json"
+    },
+    {
+      "id": 48437,
+      "slug": "champion_48437_m_head_elderdragon",
+      "name": "星界远古巨龙",
+      "path": "champion_48437_m_head_elderdragon.json"
+    },
+    {
+      "id": 12450,
+      "slug": "champion_12450_s17_head_gnar",
+      "name": "纳尔",
+      "path": "champion_12450_s17_head_gnar.json"
+    },
+    {
+      "id": 12451,
+      "slug": "champion_12451_s17_head_gwen",
+      "name": "格温",
+      "path": "champion_12451_s17_head_gwen.json"
+    },
+    {
+      "id": 12452,
+      "slug": "champion_12452_s17_head_pyke",
+      "name": "派克",
+      "path": "champion_12452_s17_head_pyke.json"
+    },
+    {
+      "id": 12453,
+      "slug": "champion_12453_s17_head_zoe",
+      "name": "佐伊",
+      "path": "champion_12453_s17_head_zoe.json"
+    },
+    {
+      "id": 12454,
+      "slug": "champion_12454_s17_head_belveth",
+      "name": "卑尔维斯",
+      "path": "champion_12454_s17_head_belveth.json"
+    },
+    {
+      "id": 12455,
+      "slug": "champion_12455_s17_head_gragas",
+      "name": "古拉加斯",
+      "path": "champion_12455_s17_head_gragas.json"
+    },
+    {
+      "id": 12456,
+      "slug": "champion_12456_s17_head_milio",
+      "name": "米利欧",
+      "path": "champion_12456_s17_head_milio.json"
+    },
+    {
+      "id": 12457,
+      "slug": "champion_12457_s17_head_mordekaiser",
+      "name": "莫德凯撒",
+      "path": "champion_12457_s17_head_mordekaiser.json"
+    },
+    {
+      "id": 12458,
+      "slug": "champion_12458_s17_head_jinx",
+      "name": "金克丝",
+      "path": "champion_12458_s17_head_jinx.json"
+    },
+    {
+      "id": 12459,
+      "slug": "champion_12459_s17_head_pantheon",
+      "name": "潘森",
+      "path": "champion_12459_s17_head_pantheon.json"
+    },
+    {
+      "id": 12461,
+      "slug": "champion_12461_s17_head_akali",
+      "name": "阿卡丽",
+      "path": "champion_12461_s17_head_akali.json"
+    },
+    {
+      "id": 12466,
+      "slug": "champion_12466_s17_head_meepsie",
+      "name": "小木灵",
+      "path": "champion_12466_s17_head_meepsie.json"
+    },
+    {
+      "id": 12467,
+      "slug": "champion_12467_s17_head_jax",
+      "name": "贾克斯",
+      "path": "champion_12467_s17_head_jax.json"
+    },
+    {
+      "id": 13450,
+      "slug": "champion_13450_s17_head_kaisa",
+      "name": "卡莎",
+      "path": "champion_13450_s17_head_kaisa.json"
+    },
+    {
+      "id": 13451,
+      "slug": "champion_13451_s17_head_urgot",
+      "name": "厄加特",
+      "path": "champion_13451_s17_head_urgot.json"
+    },
+    {
+      "id": 13452,
+      "slug": "champion_13452_s17_head_viktor",
+      "name": "维克托",
+      "path": "champion_13452_s17_head_viktor.json"
+    },
+    {
+      "id": 13453,
+      "slug": "champion_13453_s17_head_ornn",
+      "name": "奥恩",
+      "path": "champion_13453_s17_head_ornn.json"
+    },
+    {
+      "id": 13454,
+      "slug": "champion_13454_s17_head_lulu",
+      "name": "璐璐",
+      "path": "champion_13454_s17_head_lulu.json"
+    },
+    {
+      "id": 13455,
+      "slug": "champion_13455_s17_head_fizz",
+      "name": "菲兹",
+      "path": "champion_13455_s17_head_fizz.json"
+    },
+    {
+      "id": 13457,
+      "slug": "champion_13457_s17_head_maokai",
+      "name": "茂凯",
+      "path": "champion_13457_s17_head_maokai.json"
+    },
+    {
+      "id": 13458,
+      "slug": "champion_13458_s17_head_diana",
+      "name": "黛安娜",
+      "path": "champion_13458_s17_head_diana.json"
+    },
+    {
+      "id": 13459,
+      "slug": "champion_13459_s17_head_rhaast",
+      "name": "拉亚斯特",
+      "path": "champion_13459_s17_head_rhaast.json"
+    },
+    {
+      "id": 13460,
+      "slug": "champion_13460_s17_head_illaoi",
+      "name": "俄洛伊",
+      "path": "champion_13460_s17_head_illaoi.json"
+    },
+    {
+      "id": 13461,
+      "slug": "champion_13461_s17_head_samira",
+      "name": "莎弥拉",
+      "path": "champion_13461_s17_head_samira.json"
+    },
+    {
+      "id": 13462,
+      "slug": "champion_13462_s17_head_aurora",
+      "name": "阿萝拉",
+      "path": "champion_13462_s17_head_aurora.json"
+    },
+    {
+      "id": 13464,
+      "slug": "champion_13464_s17_head_urgot_mecha",
+      "name": "厄加特",
+      "path": "champion_13464_s17_head_urgot_mecha.json"
+    },
+    {
+      "id": 13465,
+      "slug": "champion_13465_s17_head_missfortune",
+      "name": "厄运小姐",
+      "path": "champion_13465_s17_head_missfortune.json"
+    },
+    {
+      "id": 14370,
+      "slug": "champion_14370_s17_head_masteryi",
+      "name": "易",
+      "path": "champion_14370_s17_head_masteryi.json"
+    },
+    {
+      "id": 14371,
+      "slug": "champion_14371_s17_head_nunu",
+      "name": "努努和威朗普",
+      "path": "champion_14371_s17_head_nunu.json"
+    },
+    {
+      "id": 14372,
+      "slug": "champion_14372_s17_head_corki",
+      "name": "库奇",
+      "path": "champion_14372_s17_head_corki.json"
+    },
+    {
+      "id": 14373,
+      "slug": "champion_14373_s17_head_karma",
+      "name": "卡尔玛",
+      "path": "champion_14373_s17_head_karma.json"
+    },
+    {
+      "id": 14374,
+      "slug": "champion_14374_s17_head_kindred",
+      "name": "千珏",
+      "path": "champion_14374_s17_head_kindred.json"
+    },
+    {
+      "id": 14375,
+      "slug": "champion_14375_s17_head_riven",
+      "name": "锐雯",
+      "path": "champion_14375_s17_head_riven.json"
+    },
+    {
+      "id": 14376,
+      "slug": "champion_14376_s17_head_rammus",
+      "name": "拉莫斯",
+      "path": "champion_14376_s17_head_rammus.json"
+    },
+    {
+      "id": 14377,
+      "slug": "champion_14377_s17_head_nami",
+      "name": "娜美",
+      "path": "champion_14377_s17_head_nami.json"
+    },
+    {
+      "id": 14378,
+      "slug": "champion_14378_s17_head_tahmkench",
+      "name": "塔姆",
+      "path": "champion_14378_s17_head_tahmkench.json"
+    },
+    {
+      "id": 14379,
+      "slug": "champion_14379_s17_head_galio",
+      "name": "超级机甲",
+      "path": "champion_14379_s17_head_galio.json"
+    },
+    {
+      "id": 14380,
+      "slug": "champion_14380_s17_head_leblanc",
+      "name": "乐芙兰",
+      "path": "champion_14380_s17_head_leblanc.json"
+    },
+    {
+      "id": 14381,
+      "slug": "champion_14381_s17_head_xayah",
+      "name": "霞",
+      "path": "champion_14381_s17_head_xayah.json"
+    },
+    {
+      "id": 14382,
+      "slug": "champion_14382_s17_head_aurelionsol",
+      "name": "奥瑞利安·索尔",
+      "path": "champion_14382_s17_head_aurelionsol.json"
+    },
+    {
+      "id": 15434,
+      "slug": "champion_15434_s17_head_morgana",
+      "name": "莫甘娜",
+      "path": "champion_15434_s17_head_morgana.json"
+    },
+    {
+      "id": 15435,
+      "slug": "champion_15435_s17_head_morgana_darkform",
+      "name": "莫甘娜",
+      "path": "champion_15435_s17_head_morgana_darkform.json"
+    },
+    {
+      "id": 18409,
+      "slug": "champion_18409_s17_head_leblanc",
+      "name": "乐芙兰分身",
+      "path": "champion_18409_s17_head_leblanc.json"
+    },
+    {
+      "id": 15420,
+      "slug": "champion_15420_s17_head_bard",
+      "name": "巴德",
+      "path": "champion_15420_s17_head_bard.json"
+    },
+    {
+      "id": 15421,
+      "slug": "champion_15421_s17_head_blitzcrank",
+      "name": "布里茨",
+      "path": "champion_15421_s17_head_blitzcrank.json"
+    },
+    {
+      "id": 15422,
+      "slug": "champion_15422_s17_head_vex",
+      "name": "薇古丝",
+      "path": "champion_15422_s17_head_vex.json"
+    },
+    {
+      "id": 15423,
+      "slug": "champion_15423_s17_head_graves",
+      "name": "格雷福斯",
+      "path": "champion_15423_s17_head_graves.json"
+    },
+    {
+      "id": 15424,
+      "slug": "champion_15424_s17_head_shen",
+      "name": "慎",
+      "path": "champion_15424_s17_head_shen.json"
+    },
+    {
+      "id": 15425,
+      "slug": "champion_15425_s17_head_sona",
+      "name": "娑娜",
+      "path": "champion_15425_s17_head_sona.json"
+    },
+    {
+      "id": 15426,
+      "slug": "champion_15426_s17_head_fiora",
+      "name": "菲奥娜",
+      "path": "champion_15426_s17_head_fiora.json"
+    },
+    {
+      "id": 15427,
+      "slug": "champion_15427_s17_head_jhin",
+      "name": "烬",
+      "path": "champion_15427_s17_head_jhin.json"
+    },
+    {
+      "id": 15428,
+      "slug": "champion_15428_s17_head_zed",
+      "name": "劫",
+      "path": "champion_15428_s17_head_zed.json"
+    },
+    {
+      "id": 15433,
+      "slug": "champion_15433_s17_head_zedshadow",
+      "name": "劫",
+      "path": "champion_15433_s17_head_zedshadow.json"
+    }
+  ]
+}

@@ -1,0 +1,4048 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "source": {
+    "defaultVersion": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=default_version",
+    "activeVersions": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=active_versions",
+    "versionsInfo": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=versions_info",
+    "chess": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "chessNameIndex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess_name_index&versionId=17_17.17.4_S18",
+    "equip": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "trait": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "hex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "lineup": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "category": "item",
+  "entries": [
+    {
+      "id": 2058,
+      "name": "目标假人",
+      "slug": "item_2058_3611",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3611.png",
+      "template_resource_path": "item/special/item_2058_3611.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2058_3611.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2059,
+      "name": "光明版无尽之刃",
+      "slug": "item_2059_2548",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2548.png",
+      "template_resource_path": "item/special/item_2059_2548.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2059_2548.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2060,
+      "name": "光明版海克斯科技枪刃",
+      "slug": "item_2060_2549",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2549.png",
+      "template_resource_path": "item/special/item_2060_2549.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2060_2549.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2061,
+      "name": "光明版朔极之矛",
+      "slug": "item_2061_2550",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2550.png",
+      "template_resource_path": "item/special/item_2061_2550.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2061_2550.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2062,
+      "name": "光明版夜之锋刃",
+      "slug": "item_2062_2551",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2551.png",
+      "template_resource_path": "item/special/item_2062_2551.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2062_2551.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2063,
+      "name": "光明版汲取剑",
+      "slug": "item_2063_2552",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2552.png",
+      "template_resource_path": "item/special/item_2063_2552.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2063_2552.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2064,
+      "name": "光明版斯特拉克的挑战护手",
+      "slug": "item_2064_steraksmegashield",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/steraksmegashield.png",
+      "template_resource_path": "item/special/item_2064_steraksmegashield.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2064_steraksmegashield.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2065,
+      "name": "光明版红霸符",
+      "slug": "item_2065_2554",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2554.png",
+      "template_resource_path": "item/special/item_2065_2554.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2065_2554.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2066,
+      "name": "光明版鬼索的狂暴之刃",
+      "slug": "item_2066_2555",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2555.png",
+      "template_resource_path": "item/special/item_2066_2555.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2066_2555.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2067,
+      "name": "光明版虚空之杖",
+      "slug": "item_2067_icathiasrevenge",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/icathiasrevenge.png",
+      "template_resource_path": "item/special/item_2067_icathiasrevenge.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2067_icathiasrevenge.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2068,
+      "name": "光明版泰坦的坚决",
+      "slug": "item_2068_2557",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2557.png",
+      "template_resource_path": "item/special/item_2068_2557.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2068_2557.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2069,
+      "name": "光明版海妖之怒",
+      "slug": "item_2069_torrentialmaelstrom",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/torrentialmaelstrom.png",
+      "template_resource_path": "item/special/item_2069_torrentialmaelstrom.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2069_torrentialmaelstrom.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2070,
+      "name": "光明版纳什之牙",
+      "slug": "item_2070_thebaronsgift",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/thebaronsgift.png",
+      "template_resource_path": "item/special/item_2070_thebaronsgift.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2070_thebaronsgift.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2071,
+      "name": "光明版班克斯的魔法帽",
+      "slug": "item_2071_2560",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2560.png",
+      "template_resource_path": "item/special/item_2071_2560.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2071_2560.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2072,
+      "name": "光明版大天使之杖",
+      "slug": "item_2072_2561",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2561.png",
+      "template_resource_path": "item/special/item_2072_2561.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2072_2561.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2073,
+      "name": "光明版冕卫",
+      "slug": "item_2073_royalcrownshield",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/royalcrownshield.png",
+      "template_resource_path": "item/special/item_2073_royalcrownshield.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2073_royalcrownshield.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2074,
+      "name": "光明版离子火花",
+      "slug": "item_2074_2563",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2563.png",
+      "template_resource_path": "item/special/item_2074_2563.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2074_2563.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2075,
+      "name": "光明版莫雷洛秘典",
+      "slug": "item_2075_2564",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2564.png",
+      "template_resource_path": "item/special/item_2075_2564.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2075_2564.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2076,
+      "name": "光明版蓝霸符",
+      "slug": "item_2076_2565",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2565.png",
+      "template_resource_path": "item/special/item_2076_2565.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2076_2565.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2077,
+      "name": "光明版圣盾使的誓约",
+      "slug": "item_2077_2566",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2566.png",
+      "template_resource_path": "item/special/item_2077_2566.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2077_2566.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2078,
+      "name": "光明版适应性头盔",
+      "slug": "item_2078_jakshotheprotean",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/jakshotheprotean.png",
+      "template_resource_path": "item/special/item_2078_jakshotheprotean.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2078_jakshotheprotean.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2079,
+      "name": "光明版振奋盔甲",
+      "slug": "item_2079_morespiritedvisage",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/morespiritedvisage.png",
+      "template_resource_path": "item/special/item_2079_morespiritedvisage.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2079_morespiritedvisage.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2080,
+      "name": "光明版棘刺背心",
+      "slug": "item_2080_2569",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2569.png",
+      "template_resource_path": "item/special/item_2080_2569.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2080_2569.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2081,
+      "name": "光明版石像鬼石板甲",
+      "slug": "item_2081_2570",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2570.png",
+      "template_resource_path": "item/special/item_2081_2570.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2081_2570.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2082,
+      "name": "光明版日炎斗篷",
+      "slug": "item_2082_2571",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2571.png",
+      "template_resource_path": "item/special/item_2082_2571.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2082_2571.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2083,
+      "name": "光明版巨龙之爪",
+      "slug": "item_2083_2572",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2572.png",
+      "template_resource_path": "item/special/item_2083_2572.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2083_2572.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2084,
+      "name": "光明版薄暮法袍",
+      "slug": "item_2084_2573",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2573.png",
+      "template_resource_path": "item/special/item_2084_2573.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2084_2573.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2085,
+      "name": "光明版狂徒铠甲",
+      "slug": "item_2085_2574",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2574.png",
+      "template_resource_path": "item/special/item_2085_2574.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2085_2574.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2086,
+      "name": "光明版最后的轻语",
+      "slug": "item_2086_2575",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2575.png",
+      "template_resource_path": "item/special/item_2086_2575.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2086_2575.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2087,
+      "name": "光明版珠光护手",
+      "slug": "item_2087_2576",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2576.png",
+      "template_resource_path": "item/special/item_2087_2576.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2087_2576.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2088,
+      "name": "光明版正义之手",
+      "slug": "item_2088_2577",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2577.png",
+      "template_resource_path": "item/special/item_2088_2577.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2088_2577.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2089,
+      "name": "光明版坚定之心",
+      "slug": "item_2089_midnightreaper",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/midnightreaper.png",
+      "template_resource_path": "item/special/item_2089_midnightreaper.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2089_midnightreaper.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2090,
+      "name": "光明版水银",
+      "slug": "item_2090_2579",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2579.png",
+      "template_resource_path": "item/special/item_2090_2579.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2090_2579.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2091,
+      "name": "光明版强袭者的链枷",
+      "slug": "item_2091_chainstriker",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/chainstriker.png",
+      "template_resource_path": "item/special/item_2091_chainstriker.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2091_chainstriker.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2092,
+      "name": "光明版秘法手套",
+      "slug": "item_2092_2581",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2581.png",
+      "template_resource_path": "item/special/item_2092_2581.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2092_2581.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2093,
+      "name": "光明版锐利之刃",
+      "slug": "item_2093_2582",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2582.png",
+      "template_resource_path": "item/special/item_2093_2582.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2093_2582.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 2094,
+      "name": "光明版巨人捕手",
+      "slug": "item_2094_2583",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2583.png",
+      "template_resource_path": "item/special/item_2094_2583.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2094_2583.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3001,
+      "name": "英雄复制器",
+      "slug": "item_3001_3701",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3701.png",
+      "template_resource_path": "item/special/item_3001_3701.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3001_3701.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3002,
+      "name": "装备重铸器",
+      "slug": "item_3002_3502",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3502.png",
+      "template_resource_path": "item/special/item_3002_3502.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3002_3502.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3003,
+      "name": "装备拆卸器",
+      "slug": "item_3003_3503",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3503.png",
+      "template_resource_path": "item/special/item_3003_3503.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3003_3503.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3004,
+      "name": "灌铅骰子",
+      "slug": "item_3004_3504",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3504.png",
+      "template_resource_path": "item/special/item_3004_3504.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3004_3504.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3005,
+      "name": "纹章之书",
+      "slug": "item_3005_3505",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3505.png",
+      "template_resource_path": "item/special/item_3005_3505.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3005_3505.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3007,
+      "name": "基础装备锻造器",
+      "slug": "item_3007_3507",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3507.png",
+      "template_resource_path": "item/special/item_3007_3507.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3007_3507.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3008,
+      "name": "成装锻造器",
+      "slug": "item_3008_3508",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3508.png",
+      "template_resource_path": "item/special/item_3008_3508.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3008_3508.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3009,
+      "name": "神器装备锻造器",
+      "slug": "item_3009_3509",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3509.png",
+      "template_resource_path": "item/special/item_3009_3509.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3009_3509.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3010,
+      "name": "次级英雄复制器",
+      "slug": "item_3010_3710",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3710.png",
+      "template_resource_path": "item/special/item_3010_3710.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3010_3710.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3014,
+      "name": "商店回溯器",
+      "slug": "item_3014_3105",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3105.png",
+      "template_resource_path": "item/special/item_3014_3105.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3014_3105.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3015,
+      "name": "辅助装锻造器",
+      "slug": "item_3015_support_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/support_anvil.png",
+      "template_resource_path": "item/special/item_3015_support_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3015_support_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3016,
+      "name": "免费刷新道具",
+      "slug": "item_3016_3507",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3507.png",
+      "template_resource_path": "item/special/item_3016_3507.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3016_3507.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3017,
+      "name": "五费刷新道具",
+      "slug": "item_3017_3508",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3508.png",
+      "template_resource_path": "item/special/item_3017_3508.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3017_3508.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3018,
+      "name": "推荐装备选择器",
+      "slug": "item_3018_3508",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3508.png",
+      "template_resource_path": "item/special/item_3018_3508.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3018_3508.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3019,
+      "name": "金制拆卸器",
+      "slug": "item_3019_golden_remover",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/golden_remover.png",
+      "template_resource_path": "item/special/item_3019_golden_remover.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3019_golden_remover.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3020,
+      "name": "杰作升级",
+      "slug": "item_3020_masterwork_upgrade",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/masterwork_upgrade.png",
+      "template_resource_path": "item/special/item_3020_masterwork_upgrade.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3020_masterwork_upgrade.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3021,
+      "name": "战利品",
+      "slug": "item_3021_plunderequipment_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/plunderequipment_anvil.png",
+      "template_resource_path": "item/special/item_3021_plunderequipment_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3021_plunderequipment_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3022,
+      "name": "传承之物",
+      "slug": "item_3022_heritage_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heritage_anvil.png",
+      "template_resource_path": "item/special/item_3022_heritage_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3022_heritage_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3023,
+      "name": "皮城装备锻造器",
+      "slug": "item_3023_piltover_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/piltover_anvil.png",
+      "template_resource_path": "item/special/item_3023_piltover_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3023_piltover_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3024,
+      "name": "祖安装备锻造器",
+      "slug": "item_3024_zaun_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/zaun_anvil.png",
+      "template_resource_path": "item/special/item_3024_zaun_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3024_zaun_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3025,
+      "name": "古代装备锻造器",
+      "slug": "item_3025_ancient_anvil",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ancient_anvil.png",
+      "template_resource_path": "item/special/item_3025_ancient_anvil.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3025_ancient_anvil.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3028,
+      "name": "打捞术",
+      "slug": "item_3028_salvager",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/salvager.png",
+      "template_resource_path": "item/special/item_3028_salvager.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3028_salvager.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3029,
+      "name": "幸运装备宝箱",
+      "slug": "item_3029_luckyitemchest",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/luckyitemchest.png",
+      "template_resource_path": "item/special/item_3029_luckyitemchest.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3029_luckyitemchest.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3030,
+      "name": "光明版幸运装备宝箱",
+      "slug": "item_3030_radiantluckyitemchest",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantluckyitemchest.png",
+      "template_resource_path": "item/special/item_3030_radiantluckyitemchest.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3030_radiantluckyitemchest.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 3031,
+      "name": "金币神器装备锻造器",
+      "slug": "item_3031_3509",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3509.png",
+      "template_resource_path": "item/special/item_3031_3509.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3031_3509.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6052,
+      "name": "大亨之铠",
+      "slug": "item_6052_5004",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5004.png",
+      "template_resource_path": "item/special/item_6052_5004.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6052_5004.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6054,
+      "name": "死亡之蔑",
+      "slug": "item_6054_3609",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3609.png",
+      "template_resource_path": "item/special/item_6054_3609.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6054_3609.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6057,
+      "name": "三相之力",
+      "slug": "item_6057_3607",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3607.png",
+      "template_resource_path": "item/special/item_6057_3607.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6057_3607.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6059,
+      "name": "金币收集者",
+      "slug": "item_6059_3603",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3603.png",
+      "template_resource_path": "item/special/item_6059_3603.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6059_3603.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6060,
+      "name": "中娅悖论",
+      "slug": "item_6060_3610",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3610.png",
+      "template_resource_path": "item/special/item_6060_3610.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6060_3610.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6061,
+      "name": "碎舰者",
+      "slug": "item_6061_2098",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2098.png",
+      "template_resource_path": "item/special/item_6061_2098.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6061_2098.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6063,
+      "name": "狙击手的专注",
+      "slug": "item_6063_2097",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2097.png",
+      "template_resource_path": "item/special/item_6063_2097.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6063_2097.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6065,
+      "name": "投机者之刃",
+      "slug": "item_6065_5008",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5008.png",
+      "template_resource_path": "item/special/item_6065_5008.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6065_5008.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6067,
+      "name": "飞升护符",
+      "slug": "item_6067_talisman_of_ascension",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/talisman_of_ascension.png",
+      "template_resource_path": "item/special/item_6067_talisman_of_ascension.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6067_talisman_of_ascension.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6069,
+      "name": "鱼骨头",
+      "slug": "item_6069_fishbones",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fishbones.png",
+      "template_resource_path": "item/special/item_6069_fishbones.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6069_fishbones.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6070,
+      "name": "连指手套",
+      "slug": "item_6070_mittens",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/mittens.png",
+      "template_resource_path": "item/special/item_6070_mittens.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6070_mittens.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6071,
+      "name": "卢登的激荡",
+      "slug": "item_6071_luden_s_tempest",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/luden_s_tempest.png",
+      "template_resource_path": "item/special/item_6071_luden_s_tempest.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6071_luden_s_tempest.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6072,
+      "name": "密银黎明",
+      "slug": "item_6072_silvermere_dawn",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/silvermere_dawn.png",
+      "template_resource_path": "item/special/item_6072_silvermere_dawn.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6072_silvermere_dawn.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6073,
+      "name": "暗行者之爪",
+      "slug": "item_6073_chonccsprowlersclaw",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/chonccsprowlersclaw.png",
+      "template_resource_path": "item/special/item_6073_chonccsprowlersclaw.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6073_chonccsprowlersclaw.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6075,
+      "name": "智慧末刃",
+      "slug": "item_6075_wit_s_end",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/wit_s_end.png",
+      "template_resource_path": "item/special/item_6075_wit_s_end.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6075_wit_s_end.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6080,
+      "name": "疾射火炮",
+      "slug": "item_6080_rapid_firecannon",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/rapid_firecannon.png",
+      "template_resource_path": "item/special/item_6080_rapid_firecannon.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6080_rapid_firecannon.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6083,
+      "name": "枯萎珠宝",
+      "slug": "item_6083_blighting_jewel",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blighting_jewel.png",
+      "template_resource_path": "item/special/item_6083_blighting_jewel.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6083_blighting_jewel.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6084,
+      "name": "探索者的护臂",
+      "slug": "item_6084_seeker_s_armguard",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/seeker_s_armguard.png",
+      "template_resource_path": "item/special/item_6084_seeker_s_armguard.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6084_seeker_s_armguard.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6085,
+      "name": "光盾徽章",
+      "slug": "item_6085_lightshield_crest",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lightshield_crest.png",
+      "template_resource_path": "item/special/item_6085_lightshield_crest.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6085_lightshield_crest.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6086,
+      "name": "巫妖之祸",
+      "slug": "item_6086_lich_bane",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lich_bane.png",
+      "template_resource_path": "item/special/item_6086_lich_bane.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6086_lich_bane.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6087,
+      "name": "烁刃",
+      "slug": "item_6087_flickerblade",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/flickerblade.png",
+      "template_resource_path": "item/special/item_6087_flickerblade.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6087_flickerblade.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6088,
+      "name": "斯塔缇克电刃",
+      "slug": "item_6088_statikkshiv",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/statikkshiv.png",
+      "template_resource_path": "item/special/item_6088_statikkshiv.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6088_statikkshiv.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6089,
+      "name": "顽强不屈",
+      "slug": "item_6089_theindomitable",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theindomitable.png",
+      "template_resource_path": "item/special/item_6089_theindomitable.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6089_theindomitable.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6090,
+      "name": "巨型九头蛇",
+      "slug": "item_6090_titanichydra",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/titanichydra.png",
+      "template_resource_path": "item/special/item_6090_titanichydra.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6090_titanichydra.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6091,
+      "name": "黎明核心",
+      "slug": "item_6091_dawncore",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/dawncore.png",
+      "template_resource_path": "item/special/item_6091_dawncore.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6091_dawncore.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6092,
+      "name": "黎明圣盾",
+      "slug": "item_6092_aegisofdawn",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aegisofdawn.png",
+      "template_resource_path": "item/special/item_6092_aegisofdawn.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6092_aegisofdawn.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6093,
+      "name": "黄昏圣盾",
+      "slug": "item_6093_aegisofdusk",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aegisofdusk.png",
+      "template_resource_path": "item/special/item_6093_aegisofdusk.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6093_aegisofdusk.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6094,
+      "name": "虚空护手",
+      "slug": "item_6094_voidgauntlet",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/voidgauntlet.png",
+      "template_resource_path": "item/special/item_6094_voidgauntlet.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6094_voidgauntlet.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6095,
+      "name": "帽子饮品",
+      "slug": "item_6095_cappajuice",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cappajuice.png",
+      "template_resource_path": "item/special/item_6095_cappajuice.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6095_cappajuice.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6096,
+      "name": "恶火小斧",
+      "slug": "item_6096_hellfirehatchet",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hellfirehatchet.png",
+      "template_resource_path": "item/special/item_6096_hellfirehatchet.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6096_hellfirehatchet.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6098,
+      "name": "永恒契约",
+      "slug": "item_6098_eternalpact",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/eternalpact.png",
+      "template_resource_path": "item/special/item_6098_eternalpact.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6098_eternalpact.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6105,
+      "name": "凯尔的光明崇拜",
+      "slug": "item_6105_kaylesradiantexaltation",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/kaylesradiantexaltation.png",
+      "template_resource_path": "item/special/item_6105_kaylesradiantexaltation.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6105_kaylesradiantexaltation.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6106,
+      "name": "锤石的灯笼",
+      "slug": "item_6106_threshlantern",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/threshlantern.png",
+      "template_resource_path": "item/special/item_6106_threshlantern.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6106_threshlantern.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6107,
+      "name": "阿狸的光环",
+      "slug": "item_6107_ahrirhythm",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ahrirhythm.png",
+      "template_resource_path": "item/special/item_6107_ahrirhythm.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6107_ahrirhythm.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6108,
+      "name": "艾克的耐心",
+      "slug": "item_6108_ekkopatience",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ekkopatience.png",
+      "template_resource_path": "item/special/item_6108_ekkopatience.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6108_ekkopatience.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6109,
+      "name": "亚索的剑艺",
+      "slug": "item_6109_yasuobladework",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/yasuobladework.png",
+      "template_resource_path": "item/special/item_6109_yasuobladework.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6109_yasuobladework.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6110,
+      "name": "索拉卡的奇迹",
+      "slug": "item_6110_sorakamiracle",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sorakamiracle.png",
+      "template_resource_path": "item/special/item_6110_sorakamiracle.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6110_sorakamiracle.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6111,
+      "name": "韦鲁斯的执念",
+      "slug": "item_6111_varusobsession",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/varusobsession.png",
+      "template_resource_path": "item/special/item_6111_varusobsession.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6111_varusobsession.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 6112,
+      "name": "伊芙琳的本能",
+      "slug": "item_6112_evelynnfang",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/evelynnfang.png",
+      "template_resource_path": "item/special/item_6112_evelynnfang.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6112_evelynnfang.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9167,
+      "name": "德玛西亚王冠",
+      "slug": "item_9167_6901",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/6901.png",
+      "template_resource_path": "item/special/item_9167_6901.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9167_6901.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9241,
+      "name": "无人机上行链路",
+      "slug": "item_9241_droneuplink",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/droneuplink.png",
+      "template_resource_path": "item/special/item_9241_droneuplink.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9241_droneuplink.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9242,
+      "name": "恶意软件矩阵",
+      "slug": "item_9242_malwarematrix",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/malwarematrix.png",
+      "template_resource_path": "item/special/item_9242_malwarematrix.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9242_malwarematrix.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9243,
+      "name": "生物质维护器",
+      "slug": "item_9243_neutrongrenades3",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/neutrongrenades3.png",
+      "template_resource_path": "item/special/item_9243_neutrongrenades3.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9243_neutrongrenades3.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9245,
+      "name": "共感植入",
+      "slug": "item_9245_sympatheticimplant",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticimplant.png",
+      "template_resource_path": "item/special/item_9245_sympatheticimplant.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9245_sympatheticimplant.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9246,
+      "name": "锁敌光学设备",
+      "slug": "item_9246_scopedholobow",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/scopedholobow.png",
+      "template_resource_path": "item/special/item_9246_scopedholobow.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9246_scopedholobow.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9251,
+      "name": "无人机上行链路",
+      "slug": "item_9251_droneuplink",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/droneuplink.png",
+      "template_resource_path": "item/special/item_9251_droneuplink.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9251_droneuplink.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9252,
+      "name": "恶意软件矩阵",
+      "slug": "item_9252_malwarematrix",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/malwarematrix.png",
+      "template_resource_path": "item/special/item_9252_malwarematrix.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9252_malwarematrix.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9253,
+      "name": "生物质维护器",
+      "slug": "item_9253_neutrongrenades3",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/neutrongrenades3.png",
+      "template_resource_path": "item/special/item_9253_neutrongrenades3.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9253_neutrongrenades3.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9255,
+      "name": "共感植入",
+      "slug": "item_9255_sympatheticimplant",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticimplant.png",
+      "template_resource_path": "item/special/item_9255_sympatheticimplant.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9255_sympatheticimplant.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9256,
+      "name": "锁敌光学设备",
+      "slug": "item_9256_scopedholobow",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/scopedholobow.png",
+      "template_resource_path": "item/special/item_9256_scopedholobow.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9256_scopedholobow.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9257,
+      "name": "指令模块：分析",
+      "slug": "item_9257_analyze",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/analyze.png",
+      "template_resource_path": "item/special/item_9257_analyze.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9257_analyze.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9259,
+      "name": "指令模块：扰乱",
+      "slug": "item_9259_disrupt",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/disrupt.png",
+      "template_resource_path": "item/special/item_9259_disrupt.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9259_disrupt.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9260,
+      "name": "指令模块：双重打击",
+      "slug": "item_9260_doublestrike",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doublestrike.png",
+      "template_resource_path": "item/special/item_9260_doublestrike.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9260_doublestrike.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9261,
+      "name": "指令模块：装配",
+      "slug": "item_9261_fabricate",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fabricate.png",
+      "template_resource_path": "item/special/item_9261_fabricate.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9261_fabricate.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9262,
+      "name": "指令模块：加固",
+      "slug": "item_9262_brace",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/brace.png",
+      "template_resource_path": "item/special/item_9262_brace.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9262_brace.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9264,
+      "name": "指令模块：虚弱",
+      "slug": "item_9264_infect",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/infect.png",
+      "template_resource_path": "item/special/item_9264_infect.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9264_infect.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9265,
+      "name": "指令模块：优化",
+      "slug": "item_9265_optimize",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/optimize.png",
+      "template_resource_path": "item/special/item_9265_optimize.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9265_optimize.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9268,
+      "name": "指令模块：质变",
+      "slug": "item_9268_transmute",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/transmute.png",
+      "template_resource_path": "item/special/item_9268_transmute.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9268_transmute.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9270,
+      "name": "进攻框架",
+      "slug": "item_9270_closequarters",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/closequarters.png",
+      "template_resource_path": "item/special/item_9270_closequarters.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9270_closequarters.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9271,
+      "name": "重力助推器",
+      "slug": "item_9271_gravbooster",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/gravbooster.png",
+      "template_resource_path": "item/special/item_9271_gravbooster.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9271_gravbooster.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9272,
+      "name": "重力助推器+",
+      "slug": "item_9272_gravbooster1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/gravbooster1.png",
+      "template_resource_path": "item/special/item_9272_gravbooster1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9272_gravbooster1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9274,
+      "name": "紧急护盾",
+      "slug": "item_9274_emergencyshielding",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/emergencyshielding.png",
+      "template_resource_path": "item/special/item_9274_emergencyshielding.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9274_emergencyshielding.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9275,
+      "name": "紧急护盾+",
+      "slug": "item_9275_emergencyshielding1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/emergencyshielding1.png",
+      "template_resource_path": "item/special/item_9275_emergencyshielding1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9275_emergencyshielding1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9277,
+      "name": "重型镀层",
+      "slug": "item_9277_heavyplating",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heavyplating.png",
+      "template_resource_path": "item/special/item_9277_heavyplating.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9277_heavyplating.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9278,
+      "name": "纯粹质量",
+      "slug": "item_9278_sheermass",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sheermass.png",
+      "template_resource_path": "item/special/item_9278_sheermass.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9278_sheermass.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9279,
+      "name": "纳米机械",
+      "slug": "item_9279_nanomachines",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nanomachines.png",
+      "template_resource_path": "item/special/item_9279_nanomachines.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9279_nanomachines.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9281,
+      "name": "反应护甲",
+      "slug": "item_9281_reactivearmor",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/reactivearmor.png",
+      "template_resource_path": "item/special/item_9281_reactivearmor.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9281_reactivearmor.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9282,
+      "name": "阻塞",
+      "slug": "item_9282_choke",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/choke.png",
+      "template_resource_path": "item/special/item_9282_choke.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9282_choke.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9283,
+      "name": "冲击波",
+      "slug": "item_9283_shockwave",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/shockwave.png",
+      "template_resource_path": "item/special/item_9283_shockwave.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9283_shockwave.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9284,
+      "name": "铅弹",
+      "slug": "item_9284_buckshot",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot.png",
+      "template_resource_path": "item/special/item_9284_buckshot.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9284_buckshot.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9285,
+      "name": "铅弹+",
+      "slug": "item_9285_buckshot1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot1.png",
+      "template_resource_path": "item/special/item_9285_buckshot1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9285_buckshot1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9286,
+      "name": "铅弹++",
+      "slug": "item_9286_buckshot2",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot2.png",
+      "template_resource_path": "item/special/item_9286_buckshot2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9286_buckshot2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9288,
+      "name": "镭射弹道",
+      "slug": "item_9288_laserballistics",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/laserballistics.png",
+      "template_resource_path": "item/special/item_9288_laserballistics.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9288_laserballistics.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9289,
+      "name": "榨血植入",
+      "slug": "item_9289_leechingimplants",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leechingimplants.png",
+      "template_resource_path": "item/special/item_9289_leechingimplants.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9289_leechingimplants.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9290,
+      "name": "榨血植入+",
+      "slug": "item_9290_leechingimplants1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leechingimplants1.png",
+      "template_resource_path": "item/special/item_9290_leechingimplants1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9290_leechingimplants1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9291,
+      "name": "熔穿",
+      "slug": "item_9291_meltthrough",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/meltthrough.png",
+      "template_resource_path": "item/special/item_9291_meltthrough.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9291_meltthrough.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9292,
+      "name": "射手框架",
+      "slug": "item_9292_doubletap",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doubletap.png",
+      "template_resource_path": "item/special/item_9292_doubletap.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9292_doubletap.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9293,
+      "name": "双发快射",
+      "slug": "item_9293_doubletap1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doubletap1.png",
+      "template_resource_path": "item/special/item_9293_doubletap1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9293_doubletap1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9294,
+      "name": "三连轰",
+      "slug": "item_9294_tripletap",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tripletap.png",
+      "template_resource_path": "item/special/item_9294_tripletap.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9294_tripletap.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9296,
+      "name": "动力强化",
+      "slug": "item_9296_revup",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/revup.png",
+      "template_resource_path": "item/special/item_9296_revup.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9296_revup.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9297,
+      "name": "动力强化+",
+      "slug": "item_9297_revup1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/revup1.png",
+      "template_resource_path": "item/special/item_9297_revup1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9297_revup1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9298,
+      "name": "破甲弹",
+      "slug": "item_9298_ripperbullets",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ripperbullets.png",
+      "template_resource_path": "item/special/item_9298_ripperbullets.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9298_ripperbullets.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9300,
+      "name": "破甲弹+",
+      "slug": "item_9300_ripperbullets1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ripperbullets1.png",
+      "template_resource_path": "item/special/item_9300_ripperbullets1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9300_ripperbullets1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9301,
+      "name": "分裂弹",
+      "slug": "item_9301_fragmentationrounds",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fragmentationrounds.png",
+      "template_resource_path": "item/special/item_9301_fragmentationrounds.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9301_fragmentationrounds.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9302,
+      "name": "分裂弹+",
+      "slug": "item_9302_fragmentationrounds1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fragmentationrounds1.png",
+      "template_resource_path": "item/special/item_9302_fragmentationrounds1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9302_fragmentationrounds1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9303,
+      "name": "精密准镜",
+      "slug": "item_9303_precisionscope",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/precisionscope.png",
+      "template_resource_path": "item/special/item_9303_precisionscope.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9303_precisionscope.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9304,
+      "name": "精密准镜+",
+      "slug": "item_9304_precisionscope1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/precisionscope1.png",
+      "template_resource_path": "item/special/item_9304_precisionscope1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9304_precisionscope1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9305,
+      "name": "精密准镜++",
+      "slug": "item_9305_precisionscope2",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/precisionscope2.png",
+      "template_resource_path": "item/special/item_9305_precisionscope2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9305_precisionscope2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9306,
+      "name": "辅助瞄准",
+      "slug": "item_9306_aimassistant",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aimassistant.png",
+      "template_resource_path": "item/special/item_9306_aimassistant.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9306_aimassistant.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9308,
+      "name": "动力框架",
+      "slug": "item_9308_sharpshootermodule",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sharpshootermodule.png",
+      "template_resource_path": "item/special/item_9308_sharpshootermodule.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9308_sharpshootermodule.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9309,
+      "name": "觅心者",
+      "slug": "item_9309_heartseeker",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker.png",
+      "template_resource_path": "item/special/item_9309_heartseeker.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9309_heartseeker.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9310,
+      "name": "觅心者+",
+      "slug": "item_9310_heartseeker1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker1.png",
+      "template_resource_path": "item/special/item_9310_heartseeker1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9310_heartseeker1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9311,
+      "name": "觅心者++",
+      "slug": "item_9311_heartseeker2",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/heartseeker2.png",
+      "template_resource_path": "item/special/item_9311_heartseeker2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9311_heartseeker2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9313,
+      "name": "坦克克星",
+      "slug": "item_9313_tankbuster",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tankbuster.png",
+      "template_resource_path": "item/special/item_9313_tankbuster.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9313_tankbuster.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9314,
+      "name": "穿甲弹",
+      "slug": "item_9314_aprounds",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aprounds.png",
+      "template_resource_path": "item/special/item_9314_aprounds.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9314_aprounds.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9315,
+      "name": "穿甲弹+",
+      "slug": "item_9315_aprounds1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aprounds1.png",
+      "template_resource_path": "item/special/item_9315_aprounds1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9315_aprounds1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9316,
+      "name": "潜藏爆炸",
+      "slug": "item_9316_latentexplosion",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/latentexplosion.png",
+      "template_resource_path": "item/special/item_9316_latentexplosion.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9316_latentexplosion.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9317,
+      "name": "爆炸范围",
+      "slug": "item_9317_blastradius",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blastradius.png",
+      "template_resource_path": "item/special/item_9317_blastradius.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9317_blastradius.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9318,
+      "name": "爆炸范围+",
+      "slug": "item_9318_blastradius1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blastradius1.png",
+      "template_resource_path": "item/special/item_9318_blastradius1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9318_blastradius1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9319,
+      "name": "爆炸范围++",
+      "slug": "item_9319_blastradius2",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/blastradius2.png",
+      "template_resource_path": "item/special/item_9319_blastradius2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9319_blastradius2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9320,
+      "name": "共鸣引爆",
+      "slug": "item_9320_sympatheticdetonation",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticdetonation.png",
+      "template_resource_path": "item/special/item_9320_sympatheticdetonation.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9320_sympatheticdetonation.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9321,
+      "name": "冷却介质",
+      "slug": "item_9321_coolant",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/coolant.png",
+      "template_resource_path": "item/special/item_9321_coolant.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9321_coolant.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9322,
+      "name": "冷却介质+",
+      "slug": "item_9322_coolant1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/coolant1.png",
+      "template_resource_path": "item/special/item_9322_coolant1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9322_coolant1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9323,
+      "name": "虚空系数",
+      "slug": "item_9323_voidcoefficient",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/voidcoefficient.png",
+      "template_resource_path": "item/special/item_9323_voidcoefficient.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9323_voidcoefficient.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9324,
+      "name": "裂变",
+      "slug": "item_9324_fission",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fission.png",
+      "template_resource_path": "item/special/item_9324_fission.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9324_fission.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9325,
+      "name": "阻塞",
+      "slug": "item_9325_choke",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/choke.png",
+      "template_resource_path": "item/special/item_9325_choke.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9325_choke.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9326,
+      "name": "裂变+",
+      "slug": "item_9326_fission1",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fission1.png",
+      "template_resource_path": "item/special/item_9326_fission1.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9326_fission1.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9327,
+      "name": "裂变++",
+      "slug": "item_9327_fission2",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fission2.png",
+      "template_resource_path": "item/special/item_9327_fission2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9327_fission2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9328,
+      "name": "调试",
+      "slug": "item_9328_backup",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/backup.png",
+      "template_resource_path": "item/special/item_9328_backup.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9328_backup.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9329,
+      "name": "霸天机甲变形器",
+      "slug": "item_9329_mechselector",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/mechselector.png",
+      "template_resource_path": "item/special/item_9329_mechselector.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9329_mechselector.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9331,
+      "name": "冰爆护甲",
+      "slug": "item_9331_iceblastarmor",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/iceblastarmor.png",
+      "template_resource_path": "item/special/item_9331_iceblastarmor.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9331_iceblastarmor.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9332,
+      "name": "炽烈短弓",
+      "slug": "item_9332_searingshortbow",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow.png",
+      "template_resource_path": "item/special/item_9332_searingshortbow.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9332_searingshortbow.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9333,
+      "name": "无情砍削",
+      "slug": "item_9333_savageslicer",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/savageslicer.png",
+      "template_resource_path": "item/special/item_9333_savageslicer.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9333_savageslicer.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9335,
+      "name": "UwU魔爆炮",
+      "slug": "item_9335_uwublaster",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/uwublaster.png",
+      "template_resource_path": "item/special/item_9335_uwublaster.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9335_uwublaster.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9336,
+      "name": "歼灭者",
+      "slug": "item_9336_theannihilator",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator.png",
+      "template_resource_path": "item/special/item_9336_theannihilator.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9336_theannihilator.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9337,
+      "name": "战兔十字弩",
+      "slug": "item_9337_battlebunnycrossbow",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/battlebunnycrossbow.png",
+      "template_resource_path": "item/special/item_9337_battlebunnycrossbow.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9337_battlebunnycrossbow.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9338,
+      "name": "火箭狂潮",
+      "slug": "item_9338_rocketswarm",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/rocketswarm.png",
+      "template_resource_path": "item/special/item_9338_rocketswarm.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9338_rocketswarm.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9339,
+      "name": "旋风切割器",
+      "slug": "item_9339_cyclonicslicers",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cyclonicslicers.png",
+      "template_resource_path": "item/special/item_9339_cyclonicslicers.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9339_cyclonicslicers.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9340,
+      "name": "耀光力场",
+      "slug": "item_9340_radiantfield",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantfield.png",
+      "template_resource_path": "item/special/item_9340_radiantfield.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9340_radiantfield.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9341,
+      "name": "雌狮之怨",
+      "slug": "item_9341_lionessslament",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lionessslament.png",
+      "template_resource_path": "item/special/item_9341_lionessslament.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9341_lionessslament.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9342,
+      "name": "附灵飞弹",
+      "slug": "item_9342_guidinghex",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/guidinghex.png",
+      "template_resource_path": "item/special/item_9342_guidinghex.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9342_guidinghex.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9343,
+      "name": "触手重击",
+      "slug": "item_9343_tentacleslam",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tentacleslam.png",
+      "template_resource_path": "item/special/item_9343_tentacleslam.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9343_tentacleslam.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9344,
+      "name": "回响蝠刃",
+      "slug": "item_9344_echoingbatblades",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades.png",
+      "template_resource_path": "item/special/item_9344_echoingbatblades.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9344_echoingbatblades.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9345,
+      "name": "深度冻结",
+      "slug": "item_9345_iceblastarmor_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/iceblastarmor_up.png",
+      "template_resource_path": "item/special/item_9345_iceblastarmor_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9345_iceblastarmor_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9346,
+      "name": "进化余烬射击",
+      "slug": "item_9346_searingshortbow_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow_up.png",
+      "template_resource_path": "item/special/item_9346_searingshortbow_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9346_searingshortbow_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9347,
+      "name": "OwO魔爆炮",
+      "slug": "item_9347_uwublaster_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/uwublaster_up.png",
+      "template_resource_path": "item/special/item_9347_uwublaster_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9347_uwublaster_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9348,
+      "name": "幻灵启示录",
+      "slug": "item_9348_theannihilator_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator_up.png",
+      "template_resource_path": "item/special/item_9348_theannihilator_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9348_theannihilator_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9349,
+      "name": "战兔至尊弩炮",
+      "slug": "item_9349_battlebunnycrossbow_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/battlebunnycrossbow_up.png",
+      "template_resource_path": "item/special/item_9349_battlebunnycrossbow_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9349_battlebunnycrossbow_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9350,
+      "name": "不息气旋",
+      "slug": "item_9350_cyclonicslicers_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cyclonicslicers_up.png",
+      "template_resource_path": "item/special/item_9350_cyclonicslicers_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9350_cyclonicslicers_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9351,
+      "name": "日蚀之刻",
+      "slug": "item_9351_radiantfield_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/radiantfield_up.png",
+      "template_resource_path": "item/special/item_9351_radiantfield_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9351_radiantfield_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9352,
+      "name": "薇恩的炫彩战刃",
+      "slug": "item_9352_echoingbatblades_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades_up.png",
+      "template_resource_path": "item/special/item_9352_echoingbatblades_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9352_echoingbatblades_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9353,
+      "name": "全能武器",
+      "slug": "item_9353_omniweapon_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/omniweapon_up.png",
+      "template_resource_path": "item/special/item_9353_omniweapon_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9353_omniweapon_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9354,
+      "name": "闪光原型",
+      "slug": "item_9354_sparkingprototype",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sparkingprototype.png",
+      "template_resource_path": "item/special/item_9354_sparkingprototype.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9354_sparkingprototype.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9355,
+      "name": "破损原型",
+      "slug": "item_9355_clunkyprototype",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/clunkyprototype.png",
+      "template_resource_path": "item/special/item_9355_clunkyprototype.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9355_clunkyprototype.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9356,
+      "name": "泄露原型",
+      "slug": "item_9356_leakyprototype",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/leakyprototype.png",
+      "template_resource_path": "item/special/item_9356_leakyprototype.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9356_leakyprototype.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9357,
+      "name": "烈阳格",
+      "slug": "item_9357_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9357_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9357_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9358,
+      "name": "宇宙格",
+      "slug": "item_9358_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9358_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9358_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9359,
+      "name": "增速格",
+      "slug": "item_9359_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9359_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9359_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9360,
+      "name": "星光格",
+      "slug": "item_9360_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9360_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9360_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9361,
+      "name": "风暴格",
+      "slug": "item_9361_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9361_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9361_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9362,
+      "name": "冰晶格",
+      "slug": "item_9362_hexpaintbrush",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/hexpaintbrush.png",
+      "template_resource_path": "item/special/item_9362_hexpaintbrush.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9362_hexpaintbrush.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9363,
+      "name": "猛狮之殇",
+      "slug": "item_9363_lionesslament_up",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lionesslament_up.png",
+      "template_resource_path": "item/special/item_9363_lionesslament_up.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9363_lionesslament_up.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9364,
+      "name": "微型复制器",
+      "slug": "item_9364_championduplicator",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/championduplicator.png",
+      "template_resource_path": "item/special/item_9364_championduplicator.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9364_championduplicator.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9365,
+      "name": "异常突变",
+      "slug": "item_9365_anomaly",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/anomaly.png",
+      "template_resource_path": "item/special/item_9365_anomaly.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9365_anomaly.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9366,
+      "name": "口袋重组器",
+      "slug": "item_9366_pocketrecombobulator",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/pocketrecombobulator.png",
+      "template_resource_path": "item/special/item_9366_pocketrecombobulator.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9366_pocketrecombobulator.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9367,
+      "name": "特攻队员选择器",
+      "slug": "item_9367_strikeselector",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/strikeselector.png",
+      "template_resource_path": "item/special/item_9367_strikeselector.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9367_strikeselector.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 9851,
+      "name": "机械重组！",
+      "slug": "item_9851_junkyardtitan",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/junkyardtitan.png",
+      "template_resource_path": "item/special/item_9851_junkyardtitan.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9851_junkyardtitan.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 41701,
+      "name": "幻灵战队纹章",
+      "slug": "item_41701_41701",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41701.png",
+      "template_resource_path": "item/special/item_41701_41701.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41701_41701.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 41708,
+      "name": "灵能特工纹章",
+      "slug": "item_41708_41708",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41708.png",
+      "template_resource_path": "item/special/item_41708_41708.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41708_41708.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    },
+    {
+      "id": 41717,
+      "name": "狙神纹章",
+      "slug": "item_41717_41717",
+      "category": "special",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41717.png",
+      "template_resource_path": "item/special/item_41717_41717.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41717_41717.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "inventory_or_board_1280x720": [0, 400, 1280, 320],
+        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+      }
+    }
+  ],
+  "subcategory": "special"
+}

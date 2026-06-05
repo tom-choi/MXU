@@ -1,0 +1,40 @@
+{
+  "id": 9285,
+  "slug": "item_9285_buckshot1",
+  "name": "铅弹+",
+  "aliases": ["铅弹+", "buckshot1", "buckshot1"],
+  "category": "special",
+  "type": "-1",
+  "description": "攻击飞弹的数量增加4。散射范围扩大30%。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9285_buckshot1.png",
+    "template_path": "resource_knowledge/image/item/special/item_9285_buckshot1.png",
+    "template_resource_path": "item/special/item_9285_buckshot1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9285,
+    "tft_equip_id": null,
+    "name": "铅弹+",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/buckshot1.png",
+    "icon": "buckshot1",
+    "desc": "攻击飞弹的数量增加4。散射范围扩大30%。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

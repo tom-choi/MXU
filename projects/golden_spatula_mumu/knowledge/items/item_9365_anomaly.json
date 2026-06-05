@@ -1,0 +1,40 @@
+{
+  "id": 9365,
+  "slug": "item_9365_anomaly",
+  "name": "异常突变",
+  "aliases": ["异常突变", "anomaly", "anomaly"],
+  "category": "special",
+  "type": "-1",
+  "description": "使携带者进化，从而获得基于其角色定位的一个效果。 坦克：获得1100生命值且体型提升。坦克：获得1100生命值且体型提升。 射手：获得75%攻击速度。施放时，如果目标在其2格内，就将其击退。射手：获得75%攻击速度。施放时，如果目标在其2格内，就将其击退。 战士/突袭者：获得35%法术加成和35%物理加成。生命值低于85%时，此加成变为3倍。战士/突袭者：获得35%法术加成和35%物理加成。生命值低于85%时，此加成变为3倍。 术师：每花费50法力值，就会投掷一个半径2格的火球，在5秒里造成5%最大生命值的真实伤害和33%重伤和1%灼烧效果。术师：每花费50法力值，就会投掷一个半径2格的火球，在5秒里造成5%最大生命值的真实伤害和33%重伤和1%灼烧效果。 专家：获得6颗星星，环绕该弈子飞行。每颗星星造成70魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。专家：获得6颗星星，环绕该弈子飞行。每颗星星造成70魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/anomaly.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9365_anomaly.png",
+    "template_path": "resource_knowledge/image/item/special/item_9365_anomaly.png",
+    "template_resource_path": "item/special/item_9365_anomaly.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/anomaly.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9365,
+    "tft_equip_id": null,
+    "name": "异常突变",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/anomaly.png",
+    "icon": "anomaly",
+    "desc": "使携带者进化，从而获得基于其角色定位的一个效果。  坦克：获得1100生命值且体型提升。坦克：获得1100生命值且体型提升。  射手：获得75%攻击速度。施放时，如果目标在其2格内，就将其击退。射手：获得75%攻击速度。施放时，如果目标在其2格内，就将其击退。  战士/突袭者：获得35%法术加成和35%物理加成。生命值低于85%时，此加成变为3倍。战士/突袭者：获得35%法术加成和35%物理加成。生命值低于85%时，此加成变为3倍。  术师：每花费50法力值，就会投掷一个半径2格的火球，在5秒里造成5%最大生命值的真实伤害和33%重伤和1%灼烧效果。术师：每花费50法力值，就会投掷一个半径2格的火球，在5秒里造成5%最大生命值的真实伤害和33%重伤和1%灼烧效果。  专家：获得6颗星星，环绕该弈子飞行。每颗星星造成70魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。专家：获得6颗星星，环绕该弈子飞行。每颗星星造成70魔法伤害，并且环绕轨道会扩展以命中携带者的当前目标。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

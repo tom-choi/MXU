@@ -1,0 +1,40 @@
+{
+  "id": 9345,
+  "slug": "item_9345_iceblastarmor_up",
+  "name": "深度冻结",
+  "aliases": ["深度冻结", "iceblastarmor_up", "iceblastarmor_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "当生命值首次降至90%、60%、40%和20%时，获得一个20%最大生命值的护盾，持续4秒。当这个效果发生时，释放一个冰霜新星，将2格内的敌人晕眩2秒并造成相当于他们15%最大生命值的魔法伤害。 每次释放新星会使其半径提升1。 推荐角色定位：物理坦克或魔法坦克",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/iceblastarmor_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9345_iceblastarmor_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9345_iceblastarmor_up.png",
+    "template_resource_path": "item/special/item_9345_iceblastarmor_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/iceblastarmor_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9345,
+    "tft_equip_id": null,
+    "name": "深度冻结",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/iceblastarmor_up.png",
+    "icon": "iceblastarmor_up",
+    "desc": "当生命值首次降至90%、60%、40%和20%时，获得一个20%最大生命值的护盾，持续4秒。当这个效果发生时，释放一个冰霜新星，将2格内的敌人晕眩2秒并造成相当于他们15%最大生命值的魔法伤害。  每次释放新星会使其半径提升1。  推荐角色定位：物理坦克或魔法坦克",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

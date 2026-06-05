@@ -1,0 +1,62 @@
+{
+  "id": 2044,
+  "slug": "item_2044_2044",
+  "name": "秘法手套",
+  "aliases": ["秘法手套", "2044", "2044"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每一回合：装备2件随机装备。 [需要用掉3个装备格。]",
+  "synthesis": [1009, 1009],
+  "recommended_users": [
+    "巴德",
+    "茂凯",
+    "拉亚斯特",
+    "莫甘娜",
+    "慎",
+    "内瑟斯",
+    "厄加特",
+    "亚托克斯",
+    "泰隆",
+    "潘森",
+    "未解析棋子 12460",
+    "娑娜",
+    "超级机甲",
+    "俄洛伊",
+    "卡尔玛",
+    "拉莫斯",
+    "千珏",
+    "雷克塞",
+    "卑尔维斯",
+    "布里茨",
+    "烬"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2044.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2044_2044.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2044_2044.png",
+    "template_resource_path": "item/completed/item_2044_2044.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2044.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2044,
+    "tft_equip_id": null,
+    "name": "秘法手套",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2044.png",
+    "icon": "2044",
+    "desc": "每一回合：装备2件随机装备。  [需要用掉3个装备格。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1009,
+    "synthesis2": 1009,
+    "type": "成型装备"
+  }
+}

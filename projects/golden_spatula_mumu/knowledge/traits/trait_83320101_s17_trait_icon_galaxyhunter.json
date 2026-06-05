@@ -1,0 +1,54 @@
+{
+  "id": 83320101,
+  "slug": "trait_83320101_s17_trait_icon_galaxyhunter",
+  "name": "天煞",
+  "aliases": ["天煞", "s17_trait_icon_galaxyhunter", "413"],
+  "description": "【劫】仅可通过强化符文【天煞灭影：劫】获得。 当至少有1个影分身存活时，【劫】额外获得40%物理加成。",
+  "effect": "【劫】仅可通过强化符文【天煞灭影：劫】获得。 当至少有1个影分身存活时，【劫】额外获得40%物理加成。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15428,
+      "name": "劫",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_galaxyhunter.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83320101_s17_trait_icon_galaxyhunter.png",
+    "template_path": "resource_knowledge/image/trait/trait_83320101_s17_trait_icon_galaxyhunter.png",
+    "template_resource_path": "trait/trait_83320101_s17_trait_icon_galaxyhunter.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_galaxyhunter.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83320101,
+    "name": "天煞",
+    "desc": "【劫】仅可通过强化符文【天煞灭影：劫】获得。  当至少有1个影分身存活时，【劫】额外获得40%物理加成。",
+    "effect_desc": "【劫】仅可通过强化符文【天煞灭影：劫】获得。  当至少有1个影分身存活时，【劫】额外获得40%物理加成。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_galaxyhunter.png",
+    "level_info": "【劫】仅可通过强化符文【天煞灭影：劫】获得。  当至少有1个影分身存活时，【劫】额外获得40%物理加成。",
+    "trait_id": 83320101,
+    "tft_trait_id": "413",
+    "type": 0,
+    "map_id": 14,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15428,
+        "name": "劫",
+        "price": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 2058,
+  "slug": "item_2058_3611",
+  "name": "目标假人",
+  "aliases": ["目标假人", "3611", "3611"],
+  "category": "special",
+  "type": "-1",
+  "description": "用在一位英雄身上，即可在附近生成一个可移动的目标假人。 [无法在战斗环节中使用。 消耗品-这个物品会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3611.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2058_3611.png",
+    "template_path": "resource_knowledge/image/item/special/item_2058_3611.png",
+    "template_resource_path": "item/special/item_2058_3611.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3611.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2058,
+    "tft_equip_id": null,
+    "name": "目标假人",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3611.png",
+    "icon": "3611",
+    "desc": "用在一位英雄身上，即可在附近生成一个可移动的目标假人。  [无法在战斗环节中使用。 消耗品-这个物品会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

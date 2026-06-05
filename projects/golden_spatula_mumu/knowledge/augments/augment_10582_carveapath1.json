@@ -1,0 +1,42 @@
+{
+  "id": 10582,
+  "slug": "augment_10582_carveapath1",
+  "name": "战时补给：暴风大剑",
+  "aliases": ["战时补给：暴风大剑", "carveapath1"],
+  "level": 1,
+  "description": "获得1个【暴风大剑】。在你的队伍造成65000物理伤害后，额外获得2个。 已造成的伤害：0",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/carveapath1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_10582_carveapath1.png",
+    "template_path": "resource_knowledge/image/augment/augment_10582_carveapath1.png",
+    "template_resource_path": "augment/augment_10582_carveapath1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/carveapath1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 10582,
+    "name": "战时补给：暴风大剑",
+    "description": "获得1个【暴风大剑】。在你的队伍造成65000物理伤害后，额外获得2个。  已造成的伤害：0",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/carveapath1.png",
+    "level": 1,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

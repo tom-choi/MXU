@@ -1,0 +1,42 @@
+{
+  "id": 20700,
+  "slug": "augment_20700_selfdestruct2",
+  "name": "自我毁灭",
+  "aliases": ["自我毁灭", "selfdestruct2"],
+  "level": 2,
+  "description": "获得1个【古拉加斯】。你最强大的那个【古拉加斯】成为一名魔法战士，他可以引发巨大爆炸，但也会对其自身造成伤害。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/selfdestruct2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20700_selfdestruct2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20700_selfdestruct2.png",
+    "template_resource_path": "augment/augment_20700_selfdestruct2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/selfdestruct2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20700,
+    "name": "自我毁灭",
+    "description": "获得1个【古拉加斯】。你最强大的那个【古拉加斯】成为一名魔法战士，他可以引发巨大爆炸，但也会对其自身造成伤害。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/selfdestruct2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

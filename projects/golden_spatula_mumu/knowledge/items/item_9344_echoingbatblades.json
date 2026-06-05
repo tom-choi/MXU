@@ -1,0 +1,40 @@
+{
+  "id": 9344,
+  "slug": "item_9344_echoingbatblades",
+  "name": "回响蝠刃",
+  "aliases": ["回响蝠刃", "echoingbatblades", "echoingbatblades"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每3次攻击，发射10个蝙蝠战刃，由相距最近的3名敌人分摊。每个战刃造成50%【攻击力】物理伤害。 推荐角色定位：物理射手",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9344_echoingbatblades.png",
+    "template_path": "resource_knowledge/image/item/special/item_9344_echoingbatblades.png",
+    "template_resource_path": "item/special/item_9344_echoingbatblades.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9344,
+    "tft_equip_id": null,
+    "name": "回响蝠刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades.png",
+    "icon": "echoingbatblades",
+    "desc": "每3次攻击，发射10个蝙蝠战刃，由相距最近的3名敌人分摊。每个战刃造成50%【攻击力】物理伤害。  推荐角色定位：物理射手",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

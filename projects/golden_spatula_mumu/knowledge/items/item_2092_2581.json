@@ -1,0 +1,40 @@
+{
+  "id": 2092,
+  "slug": "item_2092_2581",
+  "name": "光明版秘法手套",
+  "aliases": ["光明版秘法手套", "2581", "2581"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "每一回合：装备2件随机光明武器。 [需要用掉3个装备格。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2581.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2092_2581.png",
+    "template_path": "resource_knowledge/image/item/special/item_2092_2581.png",
+    "template_resource_path": "item/special/item_2092_2581.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2581.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2092,
+    "tft_equip_id": null,
+    "name": "光明版秘法手套",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2581.png",
+    "icon": "2581",
+    "desc": "每一回合：装备2件随机光明武器。  [需要用掉3个装备格。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

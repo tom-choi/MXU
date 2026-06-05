@@ -1,0 +1,40 @@
+{
+  "id": 41706,
+  "slug": "item_41706_41706",
+  "name": "新星特攻队纹章",
+  "aliases": ["新星特攻队纹章", "41706", "41706"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【新星特攻队】羁绊。 【新星特攻队】特攻：获得25%攻击速度和10护甲与魔抗。其他友军获得10%攻击速度和10护甲与魔抗。 【新星特攻队】特攻：获得25%攻击速度和10护甲与魔抗。其他友军获得10%攻击速度和10护甲与魔抗。",
+  "synthesis": [1008, 1009],
+  "recommended_users": ["易"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41706.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41706_41706.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41706_41706.png",
+    "template_resource_path": "item/completed/item_41706_41706.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41706.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41706,
+    "tft_equip_id": null,
+    "name": "新星特攻队纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41706.png",
+    "icon": "41706",
+    "desc": "携带者获得【新星特攻队】羁绊。  【新星特攻队】特攻：获得25%攻击速度和10护甲与魔抗。其他友军获得10%攻击速度和10护甲与魔抗。  【新星特攻队】特攻：获得25%攻击速度和10护甲与魔抗。其他友军获得10%攻击速度和10护甲与魔抗。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1009,
+    "type": "转职纹章"
+  }
+}

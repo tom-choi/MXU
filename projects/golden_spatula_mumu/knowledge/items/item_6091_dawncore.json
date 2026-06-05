@@ -1,0 +1,40 @@
+{
+  "id": 6091,
+  "slug": "item_6091_dawncore",
+  "name": "黎明核心",
+  "aliases": ["黎明核心", "dawncore", "dawncore"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "携带者的最大法力值缩减10。后续的技能施放会使最大法力值缩减10%，直至最小值10。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/dawncore.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6091_dawncore.png",
+    "template_path": "resource_knowledge/image/item/special/item_6091_dawncore.png",
+    "template_resource_path": "item/special/item_6091_dawncore.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/dawncore.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6091,
+    "tft_equip_id": null,
+    "name": "黎明核心",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/dawncore.png",
+    "icon": "dawncore",
+    "desc": "携带者的最大法力值缩减10。后续的技能施放会使最大法力值缩减10%，直至最小值10。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

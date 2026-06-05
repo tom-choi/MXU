@@ -1,0 +1,40 @@
+{
+  "id": 2042,
+  "slug": "item_2042_strikersflail",
+  "name": "强袭者的链枷",
+  "aliases": ["强袭者的链枷", "strikersflail", "strikersflail"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "暴击提供持续5秒的5%伤害增幅，可叠加至多4次。",
+  "synthesis": [1007, 1009],
+  "recommended_users": ["厄运小姐", "薇古丝", "卡莎", "库奇"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/strikersflail.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2042_strikersflail.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2042_strikersflail.png",
+    "template_resource_path": "item/completed/item_2042_strikersflail.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/strikersflail.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2042,
+    "tft_equip_id": null,
+    "name": "强袭者的链枷",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/strikersflail.png",
+    "icon": "strikersflail",
+    "desc": "暴击提供持续5秒的5%伤害增幅，可叠加至多4次。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1007,
+    "synthesis2": 1009,
+    "type": "成型装备"
+  }
+}

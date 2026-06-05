@@ -1,0 +1,278 @@
+{
+  "id": 15423,
+  "slug": "champion_15423_s17_head_graves",
+  "name": "格雷福斯",
+  "aliases": ["格雷福斯", "s17_graves", "s17_head_graves", "s17_graves"],
+  "cost": 5,
+  "buy_price": 0,
+  "traits": ["军工1号"],
+  "trait_refs": [
+    {
+      "id": 412,
+      "name": "军工1号"
+    }
+  ],
+  "skill": {
+    "name": "终极爆弹",
+    "description": "被动：普攻会在锥形范围内发射5枚飞弹，每枚造成20(【攻击力】)物理伤害。 主动：发射一枚爆弹，对目标造成390(【物理加成】)物理伤害，并对半径一格内的所有敌人造成165【物理加成】【法术加成】)物理伤害。",
+    "brief_value": "|390/585/5555|30/45/777|135/200/3333",
+    "value_description": "被动伤害：20=33%x60【攻击力】 |伤害：390(【物理加成】) 390/585/5555|次要伤害：【法术加成】 30/45/777|次要伤害：165=135【物理加成】+30【法术加成】 135/200/3333",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_graves.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 5,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 900,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 2,
+      "sell_price": 5,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 900,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 3,
+      "sell_price": 14,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 1620,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 4,
+      "sell_price": 14,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 1620,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 5,
+      "sell_price": 44,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 6916,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 6,
+      "sell_price": 44,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 6916,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 7,
+      "sell_price": 134,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 14212,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    },
+    {
+      "level": 8,
+      "sell_price": 134,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 14212,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 60
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_graves.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_15423_s17_head_graves.png",
+    "template_path": "resource_knowledge/image/champion/5/champion_15423_s17_head_graves.png",
+    "template_resource_path": "champion/5/champion_15423_s17_head_graves.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/15423",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_graves.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "329",
+    "id": 15423,
+    "tft_hero_id": 15423,
+    "name": "格雷福斯",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_graves.png",
+    "hero_paint": "s17_graves",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 5,
+    "skill_brief_value": "|390/585/5555|30/45/777|135/200/3333",
+    "skill_desc": "被动：普攻会在锥形范围内发射5枚飞弹，每枚造成20(【攻击力】)物理伤害。  主动：发射一枚爆弹，对目标造成390(【物理加成】)物理伤害，并对半径一格内的所有敌人造成165【物理加成】【法术加成】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_graves.png",
+    "skill_name": "终极爆弹",
+    "skill_value_desc": "被动伤害：20=33%x60【攻击力】 |伤害：390(【物理加成】) 390/585/5555|次要伤害：【法术加成】 30/45/777|次要伤害：165=135【物理加成】+30【法术加成】 135/200/3333",
+    "show_hero_tag": true,
+    "species": [412],
+    "class": ["-1"],
+    "races": [
+      {
+        "id": 412,
+        "name": "军工1号"
+      }
+    ],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 5,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 900,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 2,
+        "sell_price": 5,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 900,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 3,
+        "sell_price": 14,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 1620,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 4,
+        "sell_price": 14,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 1620,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 5,
+        "sell_price": 44,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 6916,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 6,
+        "sell_price": 44,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 6916,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 7,
+        "sell_price": 134,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 14212,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      },
+      {
+        "level": 8,
+        "sell_price": 134,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 14212,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 60
+      }
+    ]
+  }
+}

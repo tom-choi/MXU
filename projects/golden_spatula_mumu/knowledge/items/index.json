@@ -1,0 +1,1670 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "version_id": "17_17.17.4_S18",
+  "season": "S18",
+  "count": 277,
+  "entries": [
+    {
+      "id": 1001,
+      "slug": "item_1001_1001",
+      "name": "暴风之剑",
+      "path": "item_1001_1001.json"
+    },
+    {
+      "id": 1002,
+      "slug": "item_1002_1002",
+      "name": "反曲之弓",
+      "path": "item_1002_1002.json"
+    },
+    {
+      "id": 1003,
+      "slug": "item_1003_1003",
+      "name": "无用大棒",
+      "path": "item_1003_1003.json"
+    },
+    {
+      "id": 1004,
+      "slug": "item_1004_1004",
+      "name": "女神之泪",
+      "path": "item_1004_1004.json"
+    },
+    {
+      "id": 1005,
+      "slug": "item_1005_1005",
+      "name": "锁子甲",
+      "path": "item_1005_1005.json"
+    },
+    {
+      "id": 1006,
+      "slug": "item_1006_1006",
+      "name": "负极斗篷",
+      "path": "item_1006_1006.json"
+    },
+    {
+      "id": 1007,
+      "slug": "item_1007_1007",
+      "name": "巨人腰带",
+      "path": "item_1007_1007.json"
+    },
+    {
+      "id": 1008,
+      "slug": "item_1008_1008",
+      "name": "金铲铲",
+      "path": "item_1008_1008.json"
+    },
+    {
+      "id": 1009,
+      "slug": "item_1009_1009",
+      "name": "拳套",
+      "path": "item_1009_1009.json"
+    },
+    {
+      "id": 1010,
+      "slug": "item_1010_frying_pan",
+      "name": "金锅锅",
+      "path": "item_1010_frying_pan.json"
+    },
+    {
+      "id": 2001,
+      "slug": "item_2001_2001",
+      "name": "无尽之刃",
+      "path": "item_2001_2001.json"
+    },
+    {
+      "id": 2003,
+      "slug": "item_2003_2003",
+      "name": "海克斯科技枪刃",
+      "path": "item_2003_2003.json"
+    },
+    {
+      "id": 2004,
+      "slug": "item_2004_2004",
+      "name": "朔极之矛",
+      "path": "item_2004_2004.json"
+    },
+    {
+      "id": 2005,
+      "slug": "item_2005_2005",
+      "name": "夜之锋刃",
+      "path": "item_2005_2005.json"
+    },
+    {
+      "id": 2006,
+      "slug": "item_2006_2006",
+      "name": "汲取剑",
+      "path": "item_2006_2006.json"
+    },
+    {
+      "id": 2007,
+      "slug": "item_2007_steraksgage",
+      "name": "斯特拉克的挑战护手",
+      "path": "item_2007_steraksgage.json"
+    },
+    {
+      "id": 2009,
+      "slug": "item_2009_2009",
+      "name": "红霸符",
+      "path": "item_2009_2009.json"
+    },
+    {
+      "id": 2010,
+      "slug": "item_2010_2010",
+      "name": "鬼索的狂暴之刃",
+      "path": "item_2010_2010.json"
+    },
+    {
+      "id": 2011,
+      "slug": "item_2011_voidstaff",
+      "name": "虚空之杖",
+      "path": "item_2011_voidstaff.json"
+    },
+    {
+      "id": 2012,
+      "slug": "item_2012_2052",
+      "name": "泰坦的坚决",
+      "path": "item_2012_2052.json"
+    },
+    {
+      "id": 2013,
+      "slug": "item_2013_krakensfury",
+      "name": "海妖之怒",
+      "path": "item_2013_krakensfury.json"
+    },
+    {
+      "id": 2014,
+      "slug": "item_2014_nashorstooth",
+      "name": "纳什之牙",
+      "path": "item_2014_nashorstooth.json"
+    },
+    {
+      "id": 2016,
+      "slug": "item_2016_2016",
+      "name": "班克斯的魔法帽",
+      "path": "item_2016_2016.json"
+    },
+    {
+      "id": 2017,
+      "slug": "item_2017_2017",
+      "name": "大天使之杖",
+      "path": "item_2017_2017.json"
+    },
+    {
+      "id": 2018,
+      "slug": "item_2018_crownguard",
+      "name": "冕卫",
+      "path": "item_2018_crownguard.json"
+    },
+    {
+      "id": 2019,
+      "slug": "item_2019_2019",
+      "name": "离子火花",
+      "path": "item_2019_2019.json"
+    },
+    {
+      "id": 2020,
+      "slug": "item_2020_2020",
+      "name": "莫雷洛秘典",
+      "path": "item_2020_2020.json"
+    },
+    {
+      "id": 2022,
+      "slug": "item_2022_2222",
+      "name": "蓝霸符",
+      "path": "item_2022_2222.json"
+    },
+    {
+      "id": 2023,
+      "slug": "item_2023_2023",
+      "name": "圣盾使的誓约",
+      "path": "item_2023_2023.json"
+    },
+    {
+      "id": 2024,
+      "slug": "item_2024_adaptivehelm",
+      "name": "适应性头盔",
+      "path": "item_2024_adaptivehelm.json"
+    },
+    {
+      "id": 2025,
+      "slug": "item_2025_spiritvisage",
+      "name": "振奋盔甲",
+      "path": "item_2025_spiritvisage.json"
+    },
+    {
+      "id": 2027,
+      "slug": "item_2027_2054",
+      "name": "棘刺背心",
+      "path": "item_2027_2054.json"
+    },
+    {
+      "id": 2028,
+      "slug": "item_2028_2248",
+      "name": "石像鬼石板甲",
+      "path": "item_2028_2248.json"
+    },
+    {
+      "id": 2029,
+      "slug": "item_2029_2329",
+      "name": "日炎斗篷",
+      "path": "item_2029_2329.json"
+    },
+    {
+      "id": 2031,
+      "slug": "item_2031_2031",
+      "name": "巨龙之爪",
+      "path": "item_2031_2031.json"
+    },
+    {
+      "id": 2032,
+      "slug": "item_2032_evenshroud",
+      "name": "薄暮法袍",
+      "path": "item_2032_evenshroud.json"
+    },
+    {
+      "id": 2034,
+      "slug": "item_2034_2034",
+      "name": "狂徒铠甲",
+      "path": "item_2034_2034.json"
+    },
+    {
+      "id": 2036,
+      "slug": "item_2036_2036",
+      "name": "金铲铲冠冕",
+      "path": "item_2036_2036.json"
+    },
+    {
+      "id": 2037,
+      "slug": "item_2037_2053",
+      "name": "最后的轻语",
+      "path": "item_2037_2053.json"
+    },
+    {
+      "id": 2038,
+      "slug": "item_2038_2038",
+      "name": "珠光护手",
+      "path": "item_2038_2038.json"
+    },
+    {
+      "id": 2039,
+      "slug": "item_2039_2039",
+      "name": "正义之手",
+      "path": "item_2039_2039.json"
+    },
+    {
+      "id": 2040,
+      "slug": "item_2040_nightharvester",
+      "name": "坚定之心",
+      "path": "item_2040_nightharvester.json"
+    },
+    {
+      "id": 2041,
+      "slug": "item_2041_2041",
+      "name": "水银",
+      "path": "item_2041_2041.json"
+    },
+    {
+      "id": 2042,
+      "slug": "item_2042_strikersflail",
+      "name": "强袭者的链枷",
+      "path": "item_2042_strikersflail.json"
+    },
+    {
+      "id": 2044,
+      "slug": "item_2044_2044",
+      "name": "秘法手套",
+      "path": "item_2044_2044.json"
+    },
+    {
+      "id": 2045,
+      "slug": "item_2045_2045",
+      "name": "锐利之刃",
+      "path": "item_2045_2045.json"
+    },
+    {
+      "id": 2046,
+      "slug": "item_2046_2046",
+      "name": "巨人捕手",
+      "path": "item_2046_2046.json"
+    },
+    {
+      "id": 2047,
+      "slug": "item_2047_tactician_s_shield",
+      "name": "金锅锅冠冕",
+      "path": "item_2047_tactician_s_shield.json"
+    },
+    {
+      "id": 2048,
+      "slug": "item_2048_tactician_s_cape",
+      "name": "金锅铲冠冕",
+      "path": "item_2048_tactician_s_cape.json"
+    },
+    {
+      "id": 2058,
+      "slug": "item_2058_3611",
+      "name": "目标假人",
+      "path": "item_2058_3611.json"
+    },
+    {
+      "id": 2059,
+      "slug": "item_2059_2548",
+      "name": "光明版无尽之刃",
+      "path": "item_2059_2548.json"
+    },
+    {
+      "id": 2060,
+      "slug": "item_2060_2549",
+      "name": "光明版海克斯科技枪刃",
+      "path": "item_2060_2549.json"
+    },
+    {
+      "id": 2061,
+      "slug": "item_2061_2550",
+      "name": "光明版朔极之矛",
+      "path": "item_2061_2550.json"
+    },
+    {
+      "id": 2062,
+      "slug": "item_2062_2551",
+      "name": "光明版夜之锋刃",
+      "path": "item_2062_2551.json"
+    },
+    {
+      "id": 2063,
+      "slug": "item_2063_2552",
+      "name": "光明版汲取剑",
+      "path": "item_2063_2552.json"
+    },
+    {
+      "id": 2064,
+      "slug": "item_2064_steraksmegashield",
+      "name": "光明版斯特拉克的挑战护手",
+      "path": "item_2064_steraksmegashield.json"
+    },
+    {
+      "id": 2065,
+      "slug": "item_2065_2554",
+      "name": "光明版红霸符",
+      "path": "item_2065_2554.json"
+    },
+    {
+      "id": 2066,
+      "slug": "item_2066_2555",
+      "name": "光明版鬼索的狂暴之刃",
+      "path": "item_2066_2555.json"
+    },
+    {
+      "id": 2067,
+      "slug": "item_2067_icathiasrevenge",
+      "name": "光明版虚空之杖",
+      "path": "item_2067_icathiasrevenge.json"
+    },
+    {
+      "id": 2068,
+      "slug": "item_2068_2557",
+      "name": "光明版泰坦的坚决",
+      "path": "item_2068_2557.json"
+    },
+    {
+      "id": 2069,
+      "slug": "item_2069_torrentialmaelstrom",
+      "name": "光明版海妖之怒",
+      "path": "item_2069_torrentialmaelstrom.json"
+    },
+    {
+      "id": 2070,
+      "slug": "item_2070_thebaronsgift",
+      "name": "光明版纳什之牙",
+      "path": "item_2070_thebaronsgift.json"
+    },
+    {
+      "id": 2071,
+      "slug": "item_2071_2560",
+      "name": "光明版班克斯的魔法帽",
+      "path": "item_2071_2560.json"
+    },
+    {
+      "id": 2072,
+      "slug": "item_2072_2561",
+      "name": "光明版大天使之杖",
+      "path": "item_2072_2561.json"
+    },
+    {
+      "id": 2073,
+      "slug": "item_2073_royalcrownshield",
+      "name": "光明版冕卫",
+      "path": "item_2073_royalcrownshield.json"
+    },
+    {
+      "id": 2074,
+      "slug": "item_2074_2563",
+      "name": "光明版离子火花",
+      "path": "item_2074_2563.json"
+    },
+    {
+      "id": 2075,
+      "slug": "item_2075_2564",
+      "name": "光明版莫雷洛秘典",
+      "path": "item_2075_2564.json"
+    },
+    {
+      "id": 2076,
+      "slug": "item_2076_2565",
+      "name": "光明版蓝霸符",
+      "path": "item_2076_2565.json"
+    },
+    {
+      "id": 2077,
+      "slug": "item_2077_2566",
+      "name": "光明版圣盾使的誓约",
+      "path": "item_2077_2566.json"
+    },
+    {
+      "id": 2078,
+      "slug": "item_2078_jakshotheprotean",
+      "name": "光明版适应性头盔",
+      "path": "item_2078_jakshotheprotean.json"
+    },
+    {
+      "id": 2079,
+      "slug": "item_2079_morespiritedvisage",
+      "name": "光明版振奋盔甲",
+      "path": "item_2079_morespiritedvisage.json"
+    },
+    {
+      "id": 2080,
+      "slug": "item_2080_2569",
+      "name": "光明版棘刺背心",
+      "path": "item_2080_2569.json"
+    },
+    {
+      "id": 2081,
+      "slug": "item_2081_2570",
+      "name": "光明版石像鬼石板甲",
+      "path": "item_2081_2570.json"
+    },
+    {
+      "id": 2082,
+      "slug": "item_2082_2571",
+      "name": "光明版日炎斗篷",
+      "path": "item_2082_2571.json"
+    },
+    {
+      "id": 2083,
+      "slug": "item_2083_2572",
+      "name": "光明版巨龙之爪",
+      "path": "item_2083_2572.json"
+    },
+    {
+      "id": 2084,
+      "slug": "item_2084_2573",
+      "name": "光明版薄暮法袍",
+      "path": "item_2084_2573.json"
+    },
+    {
+      "id": 2085,
+      "slug": "item_2085_2574",
+      "name": "光明版狂徒铠甲",
+      "path": "item_2085_2574.json"
+    },
+    {
+      "id": 2086,
+      "slug": "item_2086_2575",
+      "name": "光明版最后的轻语",
+      "path": "item_2086_2575.json"
+    },
+    {
+      "id": 2087,
+      "slug": "item_2087_2576",
+      "name": "光明版珠光护手",
+      "path": "item_2087_2576.json"
+    },
+    {
+      "id": 2088,
+      "slug": "item_2088_2577",
+      "name": "光明版正义之手",
+      "path": "item_2088_2577.json"
+    },
+    {
+      "id": 2089,
+      "slug": "item_2089_midnightreaper",
+      "name": "光明版坚定之心",
+      "path": "item_2089_midnightreaper.json"
+    },
+    {
+      "id": 2090,
+      "slug": "item_2090_2579",
+      "name": "光明版水银",
+      "path": "item_2090_2579.json"
+    },
+    {
+      "id": 2091,
+      "slug": "item_2091_chainstriker",
+      "name": "光明版强袭者的链枷",
+      "path": "item_2091_chainstriker.json"
+    },
+    {
+      "id": 2092,
+      "slug": "item_2092_2581",
+      "name": "光明版秘法手套",
+      "path": "item_2092_2581.json"
+    },
+    {
+      "id": 2093,
+      "slug": "item_2093_2582",
+      "name": "光明版锐利之刃",
+      "path": "item_2093_2582.json"
+    },
+    {
+      "id": 2094,
+      "slug": "item_2094_2583",
+      "name": "光明版巨人捕手",
+      "path": "item_2094_2583.json"
+    },
+    {
+      "id": 3001,
+      "slug": "item_3001_3701",
+      "name": "英雄复制器",
+      "path": "item_3001_3701.json"
+    },
+    {
+      "id": 3002,
+      "slug": "item_3002_3502",
+      "name": "装备重铸器",
+      "path": "item_3002_3502.json"
+    },
+    {
+      "id": 3003,
+      "slug": "item_3003_3503",
+      "name": "装备拆卸器",
+      "path": "item_3003_3503.json"
+    },
+    {
+      "id": 3004,
+      "slug": "item_3004_3504",
+      "name": "灌铅骰子",
+      "path": "item_3004_3504.json"
+    },
+    {
+      "id": 3005,
+      "slug": "item_3005_3505",
+      "name": "纹章之书",
+      "path": "item_3005_3505.json"
+    },
+    {
+      "id": 3007,
+      "slug": "item_3007_3507",
+      "name": "基础装备锻造器",
+      "path": "item_3007_3507.json"
+    },
+    {
+      "id": 3008,
+      "slug": "item_3008_3508",
+      "name": "成装锻造器",
+      "path": "item_3008_3508.json"
+    },
+    {
+      "id": 3009,
+      "slug": "item_3009_3509",
+      "name": "神器装备锻造器",
+      "path": "item_3009_3509.json"
+    },
+    {
+      "id": 3010,
+      "slug": "item_3010_3710",
+      "name": "次级英雄复制器",
+      "path": "item_3010_3710.json"
+    },
+    {
+      "id": 3014,
+      "slug": "item_3014_3105",
+      "name": "商店回溯器",
+      "path": "item_3014_3105.json"
+    },
+    {
+      "id": 3015,
+      "slug": "item_3015_support_anvil",
+      "name": "辅助装锻造器",
+      "path": "item_3015_support_anvil.json"
+    },
+    {
+      "id": 3016,
+      "slug": "item_3016_3507",
+      "name": "免费刷新道具",
+      "path": "item_3016_3507.json"
+    },
+    {
+      "id": 3017,
+      "slug": "item_3017_3508",
+      "name": "五费刷新道具",
+      "path": "item_3017_3508.json"
+    },
+    {
+      "id": 3018,
+      "slug": "item_3018_3508",
+      "name": "推荐装备选择器",
+      "path": "item_3018_3508.json"
+    },
+    {
+      "id": 3019,
+      "slug": "item_3019_golden_remover",
+      "name": "金制拆卸器",
+      "path": "item_3019_golden_remover.json"
+    },
+    {
+      "id": 3020,
+      "slug": "item_3020_masterwork_upgrade",
+      "name": "杰作升级",
+      "path": "item_3020_masterwork_upgrade.json"
+    },
+    {
+      "id": 3021,
+      "slug": "item_3021_plunderequipment_anvil",
+      "name": "战利品",
+      "path": "item_3021_plunderequipment_anvil.json"
+    },
+    {
+      "id": 3022,
+      "slug": "item_3022_heritage_anvil",
+      "name": "传承之物",
+      "path": "item_3022_heritage_anvil.json"
+    },
+    {
+      "id": 3023,
+      "slug": "item_3023_piltover_anvil",
+      "name": "皮城装备锻造器",
+      "path": "item_3023_piltover_anvil.json"
+    },
+    {
+      "id": 3024,
+      "slug": "item_3024_zaun_anvil",
+      "name": "祖安装备锻造器",
+      "path": "item_3024_zaun_anvil.json"
+    },
+    {
+      "id": 3025,
+      "slug": "item_3025_ancient_anvil",
+      "name": "古代装备锻造器",
+      "path": "item_3025_ancient_anvil.json"
+    },
+    {
+      "id": 3028,
+      "slug": "item_3028_salvager",
+      "name": "打捞术",
+      "path": "item_3028_salvager.json"
+    },
+    {
+      "id": 3029,
+      "slug": "item_3029_luckyitemchest",
+      "name": "幸运装备宝箱",
+      "path": "item_3029_luckyitemchest.json"
+    },
+    {
+      "id": 3030,
+      "slug": "item_3030_radiantluckyitemchest",
+      "name": "光明版幸运装备宝箱",
+      "path": "item_3030_radiantluckyitemchest.json"
+    },
+    {
+      "id": 3031,
+      "slug": "item_3031_3509",
+      "name": "金币神器装备锻造器",
+      "path": "item_3031_3509.json"
+    },
+    {
+      "id": 6052,
+      "slug": "item_6052_5004",
+      "name": "大亨之铠",
+      "path": "item_6052_5004.json"
+    },
+    {
+      "id": 6054,
+      "slug": "item_6054_3609",
+      "name": "死亡之蔑",
+      "path": "item_6054_3609.json"
+    },
+    {
+      "id": 6057,
+      "slug": "item_6057_3607",
+      "name": "三相之力",
+      "path": "item_6057_3607.json"
+    },
+    {
+      "id": 6059,
+      "slug": "item_6059_3603",
+      "name": "金币收集者",
+      "path": "item_6059_3603.json"
+    },
+    {
+      "id": 6060,
+      "slug": "item_6060_3610",
+      "name": "中娅悖论",
+      "path": "item_6060_3610.json"
+    },
+    {
+      "id": 6061,
+      "slug": "item_6061_2098",
+      "name": "碎舰者",
+      "path": "item_6061_2098.json"
+    },
+    {
+      "id": 6063,
+      "slug": "item_6063_2097",
+      "name": "狙击手的专注",
+      "path": "item_6063_2097.json"
+    },
+    {
+      "id": 6065,
+      "slug": "item_6065_5008",
+      "name": "投机者之刃",
+      "path": "item_6065_5008.json"
+    },
+    {
+      "id": 6067,
+      "slug": "item_6067_talisman_of_ascension",
+      "name": "飞升护符",
+      "path": "item_6067_talisman_of_ascension.json"
+    },
+    {
+      "id": 6069,
+      "slug": "item_6069_fishbones",
+      "name": "鱼骨头",
+      "path": "item_6069_fishbones.json"
+    },
+    {
+      "id": 6070,
+      "slug": "item_6070_mittens",
+      "name": "连指手套",
+      "path": "item_6070_mittens.json"
+    },
+    {
+      "id": 6071,
+      "slug": "item_6071_luden_s_tempest",
+      "name": "卢登的激荡",
+      "path": "item_6071_luden_s_tempest.json"
+    },
+    {
+      "id": 6072,
+      "slug": "item_6072_silvermere_dawn",
+      "name": "密银黎明",
+      "path": "item_6072_silvermere_dawn.json"
+    },
+    {
+      "id": 6073,
+      "slug": "item_6073_chonccsprowlersclaw",
+      "name": "暗行者之爪",
+      "path": "item_6073_chonccsprowlersclaw.json"
+    },
+    {
+      "id": 6075,
+      "slug": "item_6075_wit_s_end",
+      "name": "智慧末刃",
+      "path": "item_6075_wit_s_end.json"
+    },
+    {
+      "id": 6080,
+      "slug": "item_6080_rapid_firecannon",
+      "name": "疾射火炮",
+      "path": "item_6080_rapid_firecannon.json"
+    },
+    {
+      "id": 6083,
+      "slug": "item_6083_blighting_jewel",
+      "name": "枯萎珠宝",
+      "path": "item_6083_blighting_jewel.json"
+    },
+    {
+      "id": 6084,
+      "slug": "item_6084_seeker_s_armguard",
+      "name": "探索者的护臂",
+      "path": "item_6084_seeker_s_armguard.json"
+    },
+    {
+      "id": 6085,
+      "slug": "item_6085_lightshield_crest",
+      "name": "光盾徽章",
+      "path": "item_6085_lightshield_crest.json"
+    },
+    {
+      "id": 6086,
+      "slug": "item_6086_lich_bane",
+      "name": "巫妖之祸",
+      "path": "item_6086_lich_bane.json"
+    },
+    {
+      "id": 6087,
+      "slug": "item_6087_flickerblade",
+      "name": "烁刃",
+      "path": "item_6087_flickerblade.json"
+    },
+    {
+      "id": 6088,
+      "slug": "item_6088_statikkshiv",
+      "name": "斯塔缇克电刃",
+      "path": "item_6088_statikkshiv.json"
+    },
+    {
+      "id": 6089,
+      "slug": "item_6089_theindomitable",
+      "name": "顽强不屈",
+      "path": "item_6089_theindomitable.json"
+    },
+    {
+      "id": 6090,
+      "slug": "item_6090_titanichydra",
+      "name": "巨型九头蛇",
+      "path": "item_6090_titanichydra.json"
+    },
+    {
+      "id": 6091,
+      "slug": "item_6091_dawncore",
+      "name": "黎明核心",
+      "path": "item_6091_dawncore.json"
+    },
+    {
+      "id": 6092,
+      "slug": "item_6092_aegisofdawn",
+      "name": "黎明圣盾",
+      "path": "item_6092_aegisofdawn.json"
+    },
+    {
+      "id": 6093,
+      "slug": "item_6093_aegisofdusk",
+      "name": "黄昏圣盾",
+      "path": "item_6093_aegisofdusk.json"
+    },
+    {
+      "id": 6094,
+      "slug": "item_6094_voidgauntlet",
+      "name": "虚空护手",
+      "path": "item_6094_voidgauntlet.json"
+    },
+    {
+      "id": 6095,
+      "slug": "item_6095_cappajuice",
+      "name": "帽子饮品",
+      "path": "item_6095_cappajuice.json"
+    },
+    {
+      "id": 6096,
+      "slug": "item_6096_hellfirehatchet",
+      "name": "恶火小斧",
+      "path": "item_6096_hellfirehatchet.json"
+    },
+    {
+      "id": 6098,
+      "slug": "item_6098_eternalpact",
+      "name": "永恒契约",
+      "path": "item_6098_eternalpact.json"
+    },
+    {
+      "id": 6105,
+      "slug": "item_6105_kaylesradiantexaltation",
+      "name": "凯尔的光明崇拜",
+      "path": "item_6105_kaylesradiantexaltation.json"
+    },
+    {
+      "id": 6106,
+      "slug": "item_6106_threshlantern",
+      "name": "锤石的灯笼",
+      "path": "item_6106_threshlantern.json"
+    },
+    {
+      "id": 6107,
+      "slug": "item_6107_ahrirhythm",
+      "name": "阿狸的光环",
+      "path": "item_6107_ahrirhythm.json"
+    },
+    {
+      "id": 6108,
+      "slug": "item_6108_ekkopatience",
+      "name": "艾克的耐心",
+      "path": "item_6108_ekkopatience.json"
+    },
+    {
+      "id": 6109,
+      "slug": "item_6109_yasuobladework",
+      "name": "亚索的剑艺",
+      "path": "item_6109_yasuobladework.json"
+    },
+    {
+      "id": 6110,
+      "slug": "item_6110_sorakamiracle",
+      "name": "索拉卡的奇迹",
+      "path": "item_6110_sorakamiracle.json"
+    },
+    {
+      "id": 6111,
+      "slug": "item_6111_varusobsession",
+      "name": "韦鲁斯的执念",
+      "path": "item_6111_varusobsession.json"
+    },
+    {
+      "id": 6112,
+      "slug": "item_6112_evelynnfang",
+      "name": "伊芙琳的本能",
+      "path": "item_6112_evelynnfang.json"
+    },
+    {
+      "id": 9167,
+      "slug": "item_9167_6901",
+      "name": "德玛西亚王冠",
+      "path": "item_9167_6901.json"
+    },
+    {
+      "id": 9241,
+      "slug": "item_9241_droneuplink",
+      "name": "无人机上行链路",
+      "path": "item_9241_droneuplink.json"
+    },
+    {
+      "id": 9242,
+      "slug": "item_9242_malwarematrix",
+      "name": "恶意软件矩阵",
+      "path": "item_9242_malwarematrix.json"
+    },
+    {
+      "id": 9243,
+      "slug": "item_9243_neutrongrenades3",
+      "name": "生物质维护器",
+      "path": "item_9243_neutrongrenades3.json"
+    },
+    {
+      "id": 9245,
+      "slug": "item_9245_sympatheticimplant",
+      "name": "共感植入",
+      "path": "item_9245_sympatheticimplant.json"
+    },
+    {
+      "id": 9246,
+      "slug": "item_9246_scopedholobow",
+      "name": "锁敌光学设备",
+      "path": "item_9246_scopedholobow.json"
+    },
+    {
+      "id": 9251,
+      "slug": "item_9251_droneuplink",
+      "name": "无人机上行链路",
+      "path": "item_9251_droneuplink.json"
+    },
+    {
+      "id": 9252,
+      "slug": "item_9252_malwarematrix",
+      "name": "恶意软件矩阵",
+      "path": "item_9252_malwarematrix.json"
+    },
+    {
+      "id": 9253,
+      "slug": "item_9253_neutrongrenades3",
+      "name": "生物质维护器",
+      "path": "item_9253_neutrongrenades3.json"
+    },
+    {
+      "id": 9255,
+      "slug": "item_9255_sympatheticimplant",
+      "name": "共感植入",
+      "path": "item_9255_sympatheticimplant.json"
+    },
+    {
+      "id": 9256,
+      "slug": "item_9256_scopedholobow",
+      "name": "锁敌光学设备",
+      "path": "item_9256_scopedholobow.json"
+    },
+    {
+      "id": 9257,
+      "slug": "item_9257_analyze",
+      "name": "指令模块：分析",
+      "path": "item_9257_analyze.json"
+    },
+    {
+      "id": 9259,
+      "slug": "item_9259_disrupt",
+      "name": "指令模块：扰乱",
+      "path": "item_9259_disrupt.json"
+    },
+    {
+      "id": 9260,
+      "slug": "item_9260_doublestrike",
+      "name": "指令模块：双重打击",
+      "path": "item_9260_doublestrike.json"
+    },
+    {
+      "id": 9261,
+      "slug": "item_9261_fabricate",
+      "name": "指令模块：装配",
+      "path": "item_9261_fabricate.json"
+    },
+    {
+      "id": 9262,
+      "slug": "item_9262_brace",
+      "name": "指令模块：加固",
+      "path": "item_9262_brace.json"
+    },
+    {
+      "id": 9264,
+      "slug": "item_9264_infect",
+      "name": "指令模块：虚弱",
+      "path": "item_9264_infect.json"
+    },
+    {
+      "id": 9265,
+      "slug": "item_9265_optimize",
+      "name": "指令模块：优化",
+      "path": "item_9265_optimize.json"
+    },
+    {
+      "id": 9268,
+      "slug": "item_9268_transmute",
+      "name": "指令模块：质变",
+      "path": "item_9268_transmute.json"
+    },
+    {
+      "id": 9270,
+      "slug": "item_9270_closequarters",
+      "name": "进攻框架",
+      "path": "item_9270_closequarters.json"
+    },
+    {
+      "id": 9271,
+      "slug": "item_9271_gravbooster",
+      "name": "重力助推器",
+      "path": "item_9271_gravbooster.json"
+    },
+    {
+      "id": 9272,
+      "slug": "item_9272_gravbooster1",
+      "name": "重力助推器+",
+      "path": "item_9272_gravbooster1.json"
+    },
+    {
+      "id": 9274,
+      "slug": "item_9274_emergencyshielding",
+      "name": "紧急护盾",
+      "path": "item_9274_emergencyshielding.json"
+    },
+    {
+      "id": 9275,
+      "slug": "item_9275_emergencyshielding1",
+      "name": "紧急护盾+",
+      "path": "item_9275_emergencyshielding1.json"
+    },
+    {
+      "id": 9277,
+      "slug": "item_9277_heavyplating",
+      "name": "重型镀层",
+      "path": "item_9277_heavyplating.json"
+    },
+    {
+      "id": 9278,
+      "slug": "item_9278_sheermass",
+      "name": "纯粹质量",
+      "path": "item_9278_sheermass.json"
+    },
+    {
+      "id": 9279,
+      "slug": "item_9279_nanomachines",
+      "name": "纳米机械",
+      "path": "item_9279_nanomachines.json"
+    },
+    {
+      "id": 9281,
+      "slug": "item_9281_reactivearmor",
+      "name": "反应护甲",
+      "path": "item_9281_reactivearmor.json"
+    },
+    {
+      "id": 9282,
+      "slug": "item_9282_choke",
+      "name": "阻塞",
+      "path": "item_9282_choke.json"
+    },
+    {
+      "id": 9283,
+      "slug": "item_9283_shockwave",
+      "name": "冲击波",
+      "path": "item_9283_shockwave.json"
+    },
+    {
+      "id": 9284,
+      "slug": "item_9284_buckshot",
+      "name": "铅弹",
+      "path": "item_9284_buckshot.json"
+    },
+    {
+      "id": 9285,
+      "slug": "item_9285_buckshot1",
+      "name": "铅弹+",
+      "path": "item_9285_buckshot1.json"
+    },
+    {
+      "id": 9286,
+      "slug": "item_9286_buckshot2",
+      "name": "铅弹++",
+      "path": "item_9286_buckshot2.json"
+    },
+    {
+      "id": 9288,
+      "slug": "item_9288_laserballistics",
+      "name": "镭射弹道",
+      "path": "item_9288_laserballistics.json"
+    },
+    {
+      "id": 9289,
+      "slug": "item_9289_leechingimplants",
+      "name": "榨血植入",
+      "path": "item_9289_leechingimplants.json"
+    },
+    {
+      "id": 9290,
+      "slug": "item_9290_leechingimplants1",
+      "name": "榨血植入+",
+      "path": "item_9290_leechingimplants1.json"
+    },
+    {
+      "id": 9291,
+      "slug": "item_9291_meltthrough",
+      "name": "熔穿",
+      "path": "item_9291_meltthrough.json"
+    },
+    {
+      "id": 9292,
+      "slug": "item_9292_doubletap",
+      "name": "射手框架",
+      "path": "item_9292_doubletap.json"
+    },
+    {
+      "id": 9293,
+      "slug": "item_9293_doubletap1",
+      "name": "双发快射",
+      "path": "item_9293_doubletap1.json"
+    },
+    {
+      "id": 9294,
+      "slug": "item_9294_tripletap",
+      "name": "三连轰",
+      "path": "item_9294_tripletap.json"
+    },
+    {
+      "id": 9296,
+      "slug": "item_9296_revup",
+      "name": "动力强化",
+      "path": "item_9296_revup.json"
+    },
+    {
+      "id": 9297,
+      "slug": "item_9297_revup1",
+      "name": "动力强化+",
+      "path": "item_9297_revup1.json"
+    },
+    {
+      "id": 9298,
+      "slug": "item_9298_ripperbullets",
+      "name": "破甲弹",
+      "path": "item_9298_ripperbullets.json"
+    },
+    {
+      "id": 9300,
+      "slug": "item_9300_ripperbullets1",
+      "name": "破甲弹+",
+      "path": "item_9300_ripperbullets1.json"
+    },
+    {
+      "id": 9301,
+      "slug": "item_9301_fragmentationrounds",
+      "name": "分裂弹",
+      "path": "item_9301_fragmentationrounds.json"
+    },
+    {
+      "id": 9302,
+      "slug": "item_9302_fragmentationrounds1",
+      "name": "分裂弹+",
+      "path": "item_9302_fragmentationrounds1.json"
+    },
+    {
+      "id": 9303,
+      "slug": "item_9303_precisionscope",
+      "name": "精密准镜",
+      "path": "item_9303_precisionscope.json"
+    },
+    {
+      "id": 9304,
+      "slug": "item_9304_precisionscope1",
+      "name": "精密准镜+",
+      "path": "item_9304_precisionscope1.json"
+    },
+    {
+      "id": 9305,
+      "slug": "item_9305_precisionscope2",
+      "name": "精密准镜++",
+      "path": "item_9305_precisionscope2.json"
+    },
+    {
+      "id": 9306,
+      "slug": "item_9306_aimassistant",
+      "name": "辅助瞄准",
+      "path": "item_9306_aimassistant.json"
+    },
+    {
+      "id": 9308,
+      "slug": "item_9308_sharpshootermodule",
+      "name": "动力框架",
+      "path": "item_9308_sharpshootermodule.json"
+    },
+    {
+      "id": 9309,
+      "slug": "item_9309_heartseeker",
+      "name": "觅心者",
+      "path": "item_9309_heartseeker.json"
+    },
+    {
+      "id": 9310,
+      "slug": "item_9310_heartseeker1",
+      "name": "觅心者+",
+      "path": "item_9310_heartseeker1.json"
+    },
+    {
+      "id": 9311,
+      "slug": "item_9311_heartseeker2",
+      "name": "觅心者++",
+      "path": "item_9311_heartseeker2.json"
+    },
+    {
+      "id": 9313,
+      "slug": "item_9313_tankbuster",
+      "name": "坦克克星",
+      "path": "item_9313_tankbuster.json"
+    },
+    {
+      "id": 9314,
+      "slug": "item_9314_aprounds",
+      "name": "穿甲弹",
+      "path": "item_9314_aprounds.json"
+    },
+    {
+      "id": 9315,
+      "slug": "item_9315_aprounds1",
+      "name": "穿甲弹+",
+      "path": "item_9315_aprounds1.json"
+    },
+    {
+      "id": 9316,
+      "slug": "item_9316_latentexplosion",
+      "name": "潜藏爆炸",
+      "path": "item_9316_latentexplosion.json"
+    },
+    {
+      "id": 9317,
+      "slug": "item_9317_blastradius",
+      "name": "爆炸范围",
+      "path": "item_9317_blastradius.json"
+    },
+    {
+      "id": 9318,
+      "slug": "item_9318_blastradius1",
+      "name": "爆炸范围+",
+      "path": "item_9318_blastradius1.json"
+    },
+    {
+      "id": 9319,
+      "slug": "item_9319_blastradius2",
+      "name": "爆炸范围++",
+      "path": "item_9319_blastradius2.json"
+    },
+    {
+      "id": 9320,
+      "slug": "item_9320_sympatheticdetonation",
+      "name": "共鸣引爆",
+      "path": "item_9320_sympatheticdetonation.json"
+    },
+    {
+      "id": 9321,
+      "slug": "item_9321_coolant",
+      "name": "冷却介质",
+      "path": "item_9321_coolant.json"
+    },
+    {
+      "id": 9322,
+      "slug": "item_9322_coolant1",
+      "name": "冷却介质+",
+      "path": "item_9322_coolant1.json"
+    },
+    {
+      "id": 9323,
+      "slug": "item_9323_voidcoefficient",
+      "name": "虚空系数",
+      "path": "item_9323_voidcoefficient.json"
+    },
+    {
+      "id": 9324,
+      "slug": "item_9324_fission",
+      "name": "裂变",
+      "path": "item_9324_fission.json"
+    },
+    {
+      "id": 9325,
+      "slug": "item_9325_choke",
+      "name": "阻塞",
+      "path": "item_9325_choke.json"
+    },
+    {
+      "id": 9326,
+      "slug": "item_9326_fission1",
+      "name": "裂变+",
+      "path": "item_9326_fission1.json"
+    },
+    {
+      "id": 9327,
+      "slug": "item_9327_fission2",
+      "name": "裂变++",
+      "path": "item_9327_fission2.json"
+    },
+    {
+      "id": 9328,
+      "slug": "item_9328_backup",
+      "name": "调试",
+      "path": "item_9328_backup.json"
+    },
+    {
+      "id": 9329,
+      "slug": "item_9329_mechselector",
+      "name": "霸天机甲变形器",
+      "path": "item_9329_mechselector.json"
+    },
+    {
+      "id": 9331,
+      "slug": "item_9331_iceblastarmor",
+      "name": "冰爆护甲",
+      "path": "item_9331_iceblastarmor.json"
+    },
+    {
+      "id": 9332,
+      "slug": "item_9332_searingshortbow",
+      "name": "炽烈短弓",
+      "path": "item_9332_searingshortbow.json"
+    },
+    {
+      "id": 9333,
+      "slug": "item_9333_savageslicer",
+      "name": "无情砍削",
+      "path": "item_9333_savageslicer.json"
+    },
+    {
+      "id": 9335,
+      "slug": "item_9335_uwublaster",
+      "name": "UwU魔爆炮",
+      "path": "item_9335_uwublaster.json"
+    },
+    {
+      "id": 9336,
+      "slug": "item_9336_theannihilator",
+      "name": "歼灭者",
+      "path": "item_9336_theannihilator.json"
+    },
+    {
+      "id": 9337,
+      "slug": "item_9337_battlebunnycrossbow",
+      "name": "战兔十字弩",
+      "path": "item_9337_battlebunnycrossbow.json"
+    },
+    {
+      "id": 9338,
+      "slug": "item_9338_rocketswarm",
+      "name": "火箭狂潮",
+      "path": "item_9338_rocketswarm.json"
+    },
+    {
+      "id": 9339,
+      "slug": "item_9339_cyclonicslicers",
+      "name": "旋风切割器",
+      "path": "item_9339_cyclonicslicers.json"
+    },
+    {
+      "id": 9340,
+      "slug": "item_9340_radiantfield",
+      "name": "耀光力场",
+      "path": "item_9340_radiantfield.json"
+    },
+    {
+      "id": 9341,
+      "slug": "item_9341_lionessslament",
+      "name": "雌狮之怨",
+      "path": "item_9341_lionessslament.json"
+    },
+    {
+      "id": 9342,
+      "slug": "item_9342_guidinghex",
+      "name": "附灵飞弹",
+      "path": "item_9342_guidinghex.json"
+    },
+    {
+      "id": 9343,
+      "slug": "item_9343_tentacleslam",
+      "name": "触手重击",
+      "path": "item_9343_tentacleslam.json"
+    },
+    {
+      "id": 9344,
+      "slug": "item_9344_echoingbatblades",
+      "name": "回响蝠刃",
+      "path": "item_9344_echoingbatblades.json"
+    },
+    {
+      "id": 9345,
+      "slug": "item_9345_iceblastarmor_up",
+      "name": "深度冻结",
+      "path": "item_9345_iceblastarmor_up.json"
+    },
+    {
+      "id": 9346,
+      "slug": "item_9346_searingshortbow_up",
+      "name": "进化余烬射击",
+      "path": "item_9346_searingshortbow_up.json"
+    },
+    {
+      "id": 9347,
+      "slug": "item_9347_uwublaster_up",
+      "name": "OwO魔爆炮",
+      "path": "item_9347_uwublaster_up.json"
+    },
+    {
+      "id": 9348,
+      "slug": "item_9348_theannihilator_up",
+      "name": "幻灵启示录",
+      "path": "item_9348_theannihilator_up.json"
+    },
+    {
+      "id": 9349,
+      "slug": "item_9349_battlebunnycrossbow_up",
+      "name": "战兔至尊弩炮",
+      "path": "item_9349_battlebunnycrossbow_up.json"
+    },
+    {
+      "id": 9350,
+      "slug": "item_9350_cyclonicslicers_up",
+      "name": "不息气旋",
+      "path": "item_9350_cyclonicslicers_up.json"
+    },
+    {
+      "id": 9351,
+      "slug": "item_9351_radiantfield_up",
+      "name": "日蚀之刻",
+      "path": "item_9351_radiantfield_up.json"
+    },
+    {
+      "id": 9352,
+      "slug": "item_9352_echoingbatblades_up",
+      "name": "薇恩的炫彩战刃",
+      "path": "item_9352_echoingbatblades_up.json"
+    },
+    {
+      "id": 9353,
+      "slug": "item_9353_omniweapon_up",
+      "name": "全能武器",
+      "path": "item_9353_omniweapon_up.json"
+    },
+    {
+      "id": 9354,
+      "slug": "item_9354_sparkingprototype",
+      "name": "闪光原型",
+      "path": "item_9354_sparkingprototype.json"
+    },
+    {
+      "id": 9355,
+      "slug": "item_9355_clunkyprototype",
+      "name": "破损原型",
+      "path": "item_9355_clunkyprototype.json"
+    },
+    {
+      "id": 9356,
+      "slug": "item_9356_leakyprototype",
+      "name": "泄露原型",
+      "path": "item_9356_leakyprototype.json"
+    },
+    {
+      "id": 9357,
+      "slug": "item_9357_hexpaintbrush",
+      "name": "烈阳格",
+      "path": "item_9357_hexpaintbrush.json"
+    },
+    {
+      "id": 9358,
+      "slug": "item_9358_hexpaintbrush",
+      "name": "宇宙格",
+      "path": "item_9358_hexpaintbrush.json"
+    },
+    {
+      "id": 9359,
+      "slug": "item_9359_hexpaintbrush",
+      "name": "增速格",
+      "path": "item_9359_hexpaintbrush.json"
+    },
+    {
+      "id": 9360,
+      "slug": "item_9360_hexpaintbrush",
+      "name": "星光格",
+      "path": "item_9360_hexpaintbrush.json"
+    },
+    {
+      "id": 9361,
+      "slug": "item_9361_hexpaintbrush",
+      "name": "风暴格",
+      "path": "item_9361_hexpaintbrush.json"
+    },
+    {
+      "id": 9362,
+      "slug": "item_9362_hexpaintbrush",
+      "name": "冰晶格",
+      "path": "item_9362_hexpaintbrush.json"
+    },
+    {
+      "id": 9363,
+      "slug": "item_9363_lionesslament_up",
+      "name": "猛狮之殇",
+      "path": "item_9363_lionesslament_up.json"
+    },
+    {
+      "id": 9364,
+      "slug": "item_9364_championduplicator",
+      "name": "微型复制器",
+      "path": "item_9364_championduplicator.json"
+    },
+    {
+      "id": 9365,
+      "slug": "item_9365_anomaly",
+      "name": "异常突变",
+      "path": "item_9365_anomaly.json"
+    },
+    {
+      "id": 9366,
+      "slug": "item_9366_pocketrecombobulator",
+      "name": "口袋重组器",
+      "path": "item_9366_pocketrecombobulator.json"
+    },
+    {
+      "id": 9367,
+      "slug": "item_9367_strikeselector",
+      "name": "特攻队员选择器",
+      "path": "item_9367_strikeselector.json"
+    },
+    {
+      "id": 9851,
+      "slug": "item_9851_junkyardtitan",
+      "name": "机械重组！",
+      "path": "item_9851_junkyardtitan.json"
+    },
+    {
+      "id": 41701,
+      "slug": "item_41701_41701",
+      "name": "幻灵战队纹章",
+      "path": "item_41701_41701.json"
+    },
+    {
+      "id": 41702,
+      "slug": "item_41702_41702",
+      "name": "法官纹章",
+      "path": "item_41702_41702.json"
+    },
+    {
+      "id": 41703,
+      "slug": "item_41703_41703",
+      "name": "木灵族纹章",
+      "path": "item_41703_41703.json"
+    },
+    {
+      "id": 41704,
+      "slug": "item_41704_41704",
+      "name": "暗星纹章",
+      "path": "item_41704_41704.json"
+    },
+    {
+      "id": 41706,
+      "slug": "item_41706_41706",
+      "name": "新星特攻队纹章",
+      "path": "item_41706_41706.json"
+    },
+    {
+      "id": 41707,
+      "slug": "item_41707_41707",
+      "name": "海魔人纹章",
+      "path": "item_41707_41707.json"
+    },
+    {
+      "id": 41708,
+      "slug": "item_41708_41708",
+      "name": "灵能特工纹章",
+      "path": "item_41708_41708.json"
+    },
+    {
+      "id": 41709,
+      "slug": "item_41709_41709",
+      "name": "太空律动纹章",
+      "path": "item_41709_41709.json"
+    },
+    {
+      "id": 41710,
+      "slug": "item_41710_41710",
+      "name": "观星者纹章",
+      "path": "item_41710_41710.json"
+    },
+    {
+      "id": 41711,
+      "slug": "item_41711_41711",
+      "name": "未来战士纹章",
+      "path": "item_41711_41711.json"
+    },
+    {
+      "id": 41712,
+      "slug": "item_41712_41712",
+      "name": "堡垒卫士纹章",
+      "path": "item_41712_41712.json"
+    },
+    {
+      "id": 41713,
+      "slug": "item_41713_41713",
+      "name": "斗士纹章",
+      "path": "item_41713_41713.json"
+    },
+    {
+      "id": 41714,
+      "slug": "item_41714_41714",
+      "name": "挑战者纹章",
+      "path": "item_41714_41714.json"
+    },
+    {
+      "id": 41715,
+      "slug": "item_41715_41715",
+      "name": "狂战士纹章",
+      "path": "item_41715_41715.json"
+    },
+    {
+      "id": 41716,
+      "slug": "item_41716_41716",
+      "name": "游侠纹章",
+      "path": "item_41716_41716.json"
+    },
+    {
+      "id": 41717,
+      "slug": "item_41717_41717",
+      "name": "狙神纹章",
+      "path": "item_41717_41717.json"
+    },
+    {
+      "id": 41718,
+      "slug": "item_41718_41718",
+      "name": "牧羊人纹章",
+      "path": "item_41718_41718.json"
+    },
+    {
+      "id": 41719,
+      "slug": "item_41719_41719",
+      "name": "重装战士纹章",
+      "path": "item_41719_41719.json"
+    },
+    {
+      "id": 41720,
+      "slug": "item_41720_41720",
+      "name": "旅人纹章",
+      "path": "item_41720_41720.json"
+    }
+  ]
+}

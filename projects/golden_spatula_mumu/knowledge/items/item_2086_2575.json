@@ -1,0 +1,40 @@
+{
+  "id": 2086,
+  "slug": "item_2086_2575",
+  "name": "光明版最后的轻语",
+  "aliases": ["光明版最后的轻语", "2575", "2575"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "来自攻击和技能的伤害会对目标施加持续到战斗环节结束的30%护甲击碎。这个效果不会叠加。 护甲击碎：降低护甲值",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2575.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2086_2575.png",
+    "template_path": "resource_knowledge/image/item/special/item_2086_2575.png",
+    "template_resource_path": "item/special/item_2086_2575.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2575.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2086,
+    "tft_equip_id": null,
+    "name": "光明版最后的轻语",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2575.png",
+    "icon": "2575",
+    "desc": "来自攻击和技能的伤害会对目标施加持续到战斗环节结束的30%护甲击碎。这个效果不会叠加。  护甲击碎：降低护甲值",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

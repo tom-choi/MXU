@@ -1,0 +1,40 @@
+{
+  "id": 3004,
+  "slug": "item_3004_3504",
+  "name": "灌铅骰子",
+  "aliases": ["灌铅骰子", "3504", "3504"],
+  "category": "special",
+  "type": "-1",
+  "description": "对一个英雄使用这个，即可使商店进行一次特殊刷新且该次刷新仅包含与该英雄拥有一个相同羁绊的英雄。 [消耗品-这个物品会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3504.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3004_3504.png",
+    "template_path": "resource_knowledge/image/item/special/item_3004_3504.png",
+    "template_resource_path": "item/special/item_3004_3504.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3504.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3004,
+    "tft_equip_id": null,
+    "name": "灌铅骰子",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3504.png",
+    "icon": "3504",
+    "desc": "对一个英雄使用这个，即可使商店进行一次特殊刷新且该次刷新仅包含与该英雄拥有一个相同羁绊的英雄。  [消耗品-这个物品会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

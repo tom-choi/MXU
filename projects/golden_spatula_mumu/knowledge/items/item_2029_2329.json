@@ -1,0 +1,57 @@
+{
+  "id": 2029,
+  "slug": "item_2029_2329",
+  "name": "日炎斗篷",
+  "aliases": ["日炎斗篷", "2329", "2329"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "获得8%最大生命值。 每过2秒，对2格内的一名敌人施加持续10秒的1%灼烧效果和33%重伤效果。 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+  "synthesis": [1005, 1007],
+  "recommended_users": [
+    "波比",
+    "奥恩",
+    "努努和威朗普",
+    "蕾欧娜",
+    "未解析棋子 12462",
+    "莫甘娜",
+    "俄洛伊",
+    "超级机甲",
+    "拉莫斯",
+    "塔姆",
+    "雷克塞",
+    "茂凯",
+    "古拉加斯",
+    "拉亚斯特",
+    "未解析棋子 12460",
+    "科加斯"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2329.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2029_2329.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2029_2329.png",
+    "template_resource_path": "item/completed/item_2029_2329.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2329.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2029,
+    "tft_equip_id": null,
+    "name": "日炎斗篷",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2329.png",
+    "icon": "2329",
+    "desc": "获得8%最大生命值。  每过2秒，对2格内的一名敌人施加持续10秒的1%灼烧效果和33%重伤效果。  灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1005,
+    "synthesis2": 1007,
+    "type": "成型装备"
+  }
+}

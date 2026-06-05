@@ -1,0 +1,54 @@
+{
+  "id": 83380101,
+  "slug": "trait_83380101_s17_trait_icon_partyanimal",
+  "name": "狗狗机器人",
+  "aliases": ["狗狗机器人", "s17_trait_icon_partyanimal", "419"],
+  "description": "每场战斗仅一次，在生命值降至45%后，变得不可被选取并且每秒回复15%最大生命值。生命值回满或没有其他友军存活时，返回战斗。如果生命已值回满，【布里茨】进入~太~空~律~动~状态，并且【派对破坏王】的被动会以四倍速召唤雷电，持续至战斗结束。",
+  "effect": "每场战斗仅一次，在生命值降至45%后，变得不可被选取并且每秒回复15%最大生命值。生命值回满或没有其他友军存活时，返回战斗。如果生命已值回满，【布里茨】进入~太~空~律~动~状态，并且【派对破坏王】的被动会以四倍速召唤雷电，持续至战斗结束。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15421,
+      "name": "布里茨",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_partyanimal.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83380101_s17_trait_icon_partyanimal.png",
+    "template_path": "resource_knowledge/image/trait/trait_83380101_s17_trait_icon_partyanimal.png",
+    "template_resource_path": "trait/trait_83380101_s17_trait_icon_partyanimal.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_partyanimal.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83380101,
+    "name": "狗狗机器人",
+    "desc": "每场战斗仅一次，在生命值降至45%后，变得不可被选取并且每秒回复15%最大生命值。生命值回满或没有其他友军存活时，返回战斗。如果生命已值回满，【布里茨】进入~太~空~律~动~状态，并且【派对破坏王】的被动会以四倍速召唤雷电，持续至战斗结束。",
+    "effect_desc": "每场战斗仅一次，在生命值降至45%后，变得不可被选取并且每秒回复15%最大生命值。生命值回满或没有其他友军存活时，返回战斗。如果生命已值回满，【布里茨】进入~太~空~律~动~状态，并且【派对破坏王】的被动会以四倍速召唤雷电，持续至战斗结束。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_partyanimal.png",
+    "level_info": "每场战斗仅一次，在生命值降至45%后，变得不可被选取并且每秒回复15%最大生命值。生命值回满或没有其他友军存活时，返回战斗。如果生命已值回满，【布里茨】进入~太~空~律~动~状态，并且【派对破坏王】的被动会以四倍速召唤雷电，持续至战斗结束。",
+    "trait_id": 83380101,
+    "tft_trait_id": "419",
+    "type": 0,
+    "map_id": 20,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15421,
+        "name": "布里茨",
+        "price": 5
+      }
+    ]
+  }
+}

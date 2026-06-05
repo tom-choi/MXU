@@ -1,0 +1,42 @@
+{
+  "id": 3851,
+  "slug": "augment_3851_calltochaos3",
+  "name": "混沌召唤",
+  "aliases": ["混沌召唤", "calltochaos3"],
+  "level": 3,
+  "description": "获得一个强大的随机奖励。(58金币，64经验值，1件成装锻造器和金蛋，40次免费刷新，3件幸运装备推荐器和1件装备拆卸器，金铲铲和金锅锅和2件基础装备锻造器，光明版幸运装备宝箱和15金币和1件装备拆卸器，3个秘法手套和1个拆卸器，6件不同的基础装备，带1件光明装备、神器装备、成装的魔像)",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/calltochaos3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_3851_calltochaos3.png",
+    "template_path": "resource_knowledge/image/augment/augment_3851_calltochaos3.png",
+    "template_resource_path": "augment/augment_3851_calltochaos3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/calltochaos3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3851,
+    "name": "混沌召唤",
+    "description": "获得一个强大的随机奖励。(58金币，64经验值，1件成装锻造器和金蛋，40次免费刷新，3件幸运装备推荐器和1件装备拆卸器，金铲铲和金锅锅和2件基础装备锻造器，光明版幸运装备宝箱和15金币和1件装备拆卸器，3个秘法手套和1个拆卸器，6件不同的基础装备，带1件光明装备、神器装备、成装的魔像)",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/calltochaos3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

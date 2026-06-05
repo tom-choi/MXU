@@ -1,0 +1,40 @@
+{
+  "id": 9364,
+  "slug": "item_9364_championduplicator",
+  "name": "微型复制器",
+  "aliases": ["微型复制器", "championduplicator", "championduplicator"],
+  "category": "special",
+  "type": "-1",
+  "description": "用在一位1费的英雄身上，即可生成一个该英雄的1星版本到你的备战区。 [消耗品-这个物品会在使用后消失]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/championduplicator.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9364_championduplicator.png",
+    "template_path": "resource_knowledge/image/item/special/item_9364_championduplicator.png",
+    "template_resource_path": "item/special/item_9364_championduplicator.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/championduplicator.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9364,
+    "tft_equip_id": null,
+    "name": "微型复制器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/championduplicator.png",
+    "icon": "championduplicator",
+    "desc": "用在一位1费的英雄身上，即可生成一个该英雄的1星版本到你的备战区。  [消耗品-这个物品会在使用后消失]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "id": 15420,
+  "slug": "champion_15420_s17_head_bard",
+  "name": "巴德",
+  "aliases": ["巴德", "s17_bard", "s17_head_bard", "s17_bard"],
+  "cost": 5,
+  "buy_price": 0,
+  "traits": ["木灵族", "神谕"],
+  "trait_refs": [
+    {
+      "id": 402,
+      "name": "木灵族"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    }
+  ],
+  "skill": {
+    "name": "超友好飞碟",
+    "description": "在当前目标头上召唤一个持续544秒的飞碟。每秒，它对该目标造成220(【法术加成】)魔法伤害，外加由半径1格内的所有敌人们分摊的135(【法术加成】)魔法伤害。飞碟对坦克造成30%额外伤害。 如果飞碟下方的一个敌人倒下，那么【巴德】有15%几率吸引这个敌人并在你的备战席上生成该敌人的一个1星版本。 木灵加成：在对战开始时，为相距最近的0()个【木灵族】提供一个额外的木灵。 已吸引的朋友数量：0木灵加成：在对战开始时，为相距最近的0()个【木灵族】提供一个额外的木灵。 已吸引的朋友数量：0",
+    "brief_value": "220/330/3000|135/205/1500|15/20/100",
+    "value_description": "每秒伤害：220=220【法术加成】 220/330/3000|每秒伤害：135=135【法术加成】 135/205/1500|吸引几率：15% 15/20/100|提供木灵数量：1x0()",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_bard.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 5,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 900,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 65
+    },
+    {
+      "level": 2,
+      "sell_price": 14,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 1620,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 65
+    },
+    {
+      "level": 3,
+      "sell_price": 44,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 6916,
+      "init_mp": 50,
+      "magic_resist": 40,
+      "max_mp": 65
+    },
+    {
+      "level": 4,
+      "sell_price": 134,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.85,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 14212,
+      "init_mp": 50,
+      "magic_resist": 40,
+      "max_mp": 65
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bard.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_15420_s17_head_bard.png",
+    "template_path": "resource_knowledge/image/champion/5/champion_15420_s17_head_bard.png",
+    "template_resource_path": "champion/5/champion_15420_s17_head_bard.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/15420",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bard.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "317",
+    "id": 15420,
+    "tft_hero_id": 15420,
+    "name": "巴德",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bard.png",
+    "hero_paint": "s17_bard",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 5,
+    "skill_brief_value": "220/330/3000|135/205/1500|15/20/100",
+    "skill_desc": "在当前目标头上召唤一个持续544秒的飞碟。每秒，它对该目标造成220(【法术加成】)魔法伤害，外加由半径1格内的所有敌人们分摊的135(【法术加成】)魔法伤害。飞碟对坦克造成30%额外伤害。  如果飞碟下方的一个敌人倒下，那么【巴德】有15%几率吸引这个敌人并在你的备战席上生成该敌人的一个1星版本。  木灵加成：在对战开始时，为相距最近的0()个【木灵族】提供一个额外的木灵。  已吸引的朋友数量：0木灵加成：在对战开始时，为相距最近的0()个【木灵族】提供一个额外的木灵。  已吸引的朋友数量：0",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_bard.png",
+    "skill_name": "超友好飞碟",
+    "skill_value_desc": "每秒伤害：220=220【法术加成】 220/330/3000|每秒伤害：135=135【法术加成】 135/205/1500|吸引几率：15% 15/20/100|提供木灵数量：1x0()",
+    "show_hero_tag": true,
+    "species": [402],
+    "class": ["313"],
+    "races": [
+      {
+        "id": 402,
+        "name": "木灵族"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 5,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 900,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 65
+      },
+      {
+        "level": 2,
+        "sell_price": 14,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 1620,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 65
+      },
+      {
+        "level": 3,
+        "sell_price": 44,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 6916,
+        "init_mp": 50,
+        "magic_resist": 40,
+        "max_mp": 65
+      },
+      {
+        "level": 4,
+        "sell_price": 134,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.85,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 14212,
+        "init_mp": 50,
+        "magic_resist": 40,
+        "max_mp": 65
+      }
+    ]
+  }
+}

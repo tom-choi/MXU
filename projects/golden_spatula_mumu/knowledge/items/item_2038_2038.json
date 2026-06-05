@@ -1,0 +1,57 @@
+{
+  "id": 2038,
+  "slug": "item_2038_2038",
+  "name": "珠光护手",
+  "aliases": ["珠光护手", "2038", "2038"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "获得【技能暴击】。 技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+  "synthesis": [1003, 1009],
+  "recommended_users": [
+    "维迦",
+    "维克托",
+    "布里茨",
+    "丽桑卓",
+    "未解析棋子 14383",
+    "卡尔玛",
+    "乐芙兰",
+    "菲兹",
+    "娜美",
+    "未解析棋子 13468",
+    "薇古丝",
+    "未解析棋子 12460",
+    "莫德凯撒",
+    "奥瑞利安·索尔",
+    "巴德",
+    "古拉加斯"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2038.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2038_2038.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2038_2038.png",
+    "template_resource_path": "item/completed/item_2038_2038.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2038.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2038,
+    "tft_equip_id": null,
+    "name": "珠光护手",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2038.png",
+    "icon": "2038",
+    "desc": "获得【技能暴击】。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1003,
+    "synthesis2": 1009,
+    "type": "成型装备"
+  }
+}

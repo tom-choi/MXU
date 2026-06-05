@@ -1,0 +1,40 @@
+{
+  "id": 3028,
+  "slug": "item_3028_salvager",
+  "name": "打捞术",
+  "aliases": ["打捞术", "salvager", "salvager"],
+  "category": "special",
+  "type": "-1",
+  "description": "对一个弈子使用，即可移除其所有装备并将它们拆解为基础装备。 [消耗品-这个装备会在使用后消失。]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/salvager.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3028_salvager.png",
+    "template_path": "resource_knowledge/image/item/special/item_3028_salvager.png",
+    "template_resource_path": "item/special/item_3028_salvager.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/salvager.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3028,
+    "tft_equip_id": null,
+    "name": "打捞术",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/salvager.png",
+    "icon": "salvager",
+    "desc": "对一个弈子使用，即可移除其所有装备并将它们拆解为基础装备。  [消耗品-这个装备会在使用后消失。]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

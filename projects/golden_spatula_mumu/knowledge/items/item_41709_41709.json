@@ -1,0 +1,40 @@
+{
+  "id": 41709,
+  "slug": "item_41709_41709",
+  "name": "太空律动纹章",
+  "aliases": ["太空律动纹章", "41709", "41709"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【太空律动】羁绊。施放技能时，携带者会进入~太~空~律~动~，持续2.5秒。",
+  "synthesis": [1008, 1004],
+  "recommended_users": ["锐雯"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41709.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41709_41709.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41709_41709.png",
+    "template_resource_path": "item/completed/item_41709_41709.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41709.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41709,
+    "tft_equip_id": null,
+    "name": "太空律动纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41709.png",
+    "icon": "41709",
+    "desc": "携带者获得【太空律动】羁绊。施放技能时，携带者会进入~太~空~律~动~，持续2.5秒。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1004,
+    "type": "转职纹章"
+  }
+}

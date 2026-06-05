@@ -1,0 +1,40 @@
+{
+  "id": 9333,
+  "slug": "item_9333_savageslicer",
+  "name": "无情砍削",
+  "aliases": ["无情砍削", "savageslicer", "savageslicer"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "攻击会命中目标和所有邻格的敌人，造成相当于30%攻击力的伤害。该伤害的全能汲取效能为150%。 【贝蕾亚】加成：如果该装备由【贝蕾亚】携带，施放技能时会发生10次该效果。 【贝蕾亚】加成：如果该装备由【贝蕾亚】携带，施放技能时会发生10次该效果。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/savageslicer.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9333_savageslicer.png",
+    "template_path": "resource_knowledge/image/item/special/item_9333_savageslicer.png",
+    "template_resource_path": "item/special/item_9333_savageslicer.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/savageslicer.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9333,
+    "tft_equip_id": null,
+    "name": "无情砍削",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/savageslicer.png",
+    "icon": "savageslicer",
+    "desc": "攻击会命中目标和所有邻格的敌人，造成相当于30%攻击力的伤害。该伤害的全能汲取效能为150%。  【贝蕾亚】加成：如果该装备由【贝蕾亚】携带，施放技能时会发生10次该效果。  【贝蕾亚】加成：如果该装备由【贝蕾亚】携带，施放技能时会发生10次该效果。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

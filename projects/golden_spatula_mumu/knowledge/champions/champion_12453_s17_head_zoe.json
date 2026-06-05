@@ -1,0 +1,183 @@
+{
+  "id": 12453,
+  "slug": "champion_12453_s17_head_zoe",
+  "name": "佐伊",
+  "aliases": ["佐伊", "s17_zoe", "s17_head_zoe", "s17_zoe"],
+  "cost": 2,
+  "buy_price": 0,
+  "traits": ["法官", "神谕"],
+  "trait_refs": [
+    {
+      "id": 401,
+      "name": "法官"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    }
+  ],
+  "skill": {
+    "name": "飞星乱入！",
+    "description": "对当前目标发射一颗飞星，对命中的首个目标造成73(【法术加成】)魔法伤害，并对途经的其他敌人造成34(【法术加成】)魔法伤害。飞星到达目的地时，会转向至一个远处的敌人，同时提升飞星的速度并重复造成该伤害。此转向效果可重复544次。",
+    "brief_value": "73/110/180|34/51/77",
+    "value_description": "伤害：73(【法术加成】) 73/110/180|次要伤害：34(【法术加成】) 34/51/77",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_zoe.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 2,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 550,
+      "init_mp": 0,
+      "magic_resist": 20,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 5,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 990,
+      "init_mp": 0,
+      "magic_resist": 20,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 17,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 1782,
+      "init_mp": 0,
+      "magic_resist": 20,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 53,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 2574,
+      "init_mp": 0,
+      "magic_resist": 20,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zoe.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_12453_s17_head_zoe.png",
+    "template_path": "resource_knowledge/image/champion/2/champion_12453_s17_head_zoe.png",
+    "template_resource_path": "champion/2/champion_12453_s17_head_zoe.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/12453",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zoe.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "101",
+    "id": 12453,
+    "tft_hero_id": 12453,
+    "name": "佐伊",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zoe.png",
+    "hero_paint": "s17_zoe",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 2,
+    "skill_brief_value": "73/110/180|34/51/77",
+    "skill_desc": "对当前目标发射一颗飞星，对命中的首个目标造成73(【法术加成】)魔法伤害，并对途经的其他敌人造成34(【法术加成】)魔法伤害。飞星到达目的地时，会转向至一个远处的敌人，同时提升飞星的速度并重复造成该伤害。此转向效果可重复544次。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_zoe.png",
+    "skill_name": "飞星乱入！",
+    "skill_value_desc": "伤害：73(【法术加成】) 73/110/180|次要伤害：34(【法术加成】) 34/51/77",
+    "show_hero_tag": true,
+    "species": [401],
+    "class": ["313"],
+    "races": [
+      {
+        "id": 401,
+        "name": "法官"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 2,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 550,
+        "init_mp": 0,
+        "magic_resist": 20,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 5,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 990,
+        "init_mp": 0,
+        "magic_resist": 20,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 17,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 1782,
+        "init_mp": 0,
+        "magic_resist": 20,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 53,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 2574,
+        "init_mp": 0,
+        "magic_resist": 20,
+        "max_mp": 50
+      }
+    ]
+  }
+}

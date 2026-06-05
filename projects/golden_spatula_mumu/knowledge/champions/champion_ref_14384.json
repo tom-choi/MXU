@@ -1,0 +1,38 @@
+{
+  "id": 14384,
+  "slug": "champion_ref_14384",
+  "name": "未解析棋子 14384",
+  "aliases": ["未解析棋子 14384", "14384"],
+  "cost": 0,
+  "buy_price": 0,
+  "traits": [],
+  "trait_refs": [],
+  "skill": {
+    "name": "",
+    "description": "",
+    "brief_value": "",
+    "value_description": "",
+    "icon": ""
+  },
+  "stats": [],
+  "needs_review": true,
+  "source_kind": "lineup_reference",
+  "image": {
+    "source_url": "",
+    "raw_path": "",
+    "template_path": "",
+    "template_resource_path": "",
+    "template_available": false,
+    "needs_review": true,
+    "download_error": "Lineup references this hero id, but the current chess table has no matching row."
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/lineup/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18",
+    "cdn_url": ""
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": null
+}

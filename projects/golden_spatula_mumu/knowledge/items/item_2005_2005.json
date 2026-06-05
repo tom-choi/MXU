@@ -1,0 +1,40 @@
+{
+  "id": 2005,
+  "slug": "item_2005_2005",
+  "name": "夜之锋刃",
+  "aliases": ["夜之锋刃", "2005", "2005"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "救主灵刃：在60%生命值时，短暂变为不可被选取状态、摆脱负面效果、并治疗20%已损失生命值。",
+  "synthesis": [1001, 1005],
+  "recommended_users": ["菲奥娜", "阿卡丽", "锐雯", "易", "派克", "未解析棋子 12460"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2005.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2005_2005.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2005_2005.png",
+    "template_resource_path": "item/completed/item_2005_2005.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2005.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2005,
+    "tft_equip_id": null,
+    "name": "夜之锋刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2005.png",
+    "icon": "2005",
+    "desc": "救主灵刃：在60%生命值时，短暂变为不可被选取状态、摆脱负面效果、并治疗20%已损失生命值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1001,
+    "synthesis2": 1005,
+    "type": "成型装备"
+  }
+}

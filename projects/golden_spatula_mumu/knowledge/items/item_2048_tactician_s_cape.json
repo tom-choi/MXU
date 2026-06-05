@@ -1,0 +1,40 @@
+{
+  "id": 2048,
+  "slug": "item_2048_tactician_s_cape",
+  "name": "金锅铲冠冕",
+  "aliases": ["金锅铲冠冕", "tactician_s_cape", "tactician_s_cape"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "你的队伍获得+1最大队伍规模。 在战斗10秒后，有10%几率掉落1金币。 “……以及一点运气。”",
+  "synthesis": [1010, 1008],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_cape.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2048_tactician_s_cape.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2048_tactician_s_cape.png",
+    "template_resource_path": "item/completed/item_2048_tactician_s_cape.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_cape.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2048,
+    "tft_equip_id": null,
+    "name": "金锅铲冠冕",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_cape.png",
+    "icon": "tactician_s_cape",
+    "desc": "你的队伍获得+1最大队伍规模。  在战斗10秒后，有10%几率掉落1金币。  “……以及一点运气。”",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1010,
+    "synthesis2": 1008,
+    "type": "成型装备"
+  }
+}

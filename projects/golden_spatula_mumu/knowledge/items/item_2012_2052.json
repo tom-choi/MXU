@@ -1,0 +1,40 @@
+{
+  "id": 2012,
+  "slug": "item_2012_2052",
+  "name": "泰坦的坚决",
+  "aliases": ["泰坦的坚决", "2052", "2052"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "在攻击或承受伤害时获得2%物理加成和2%法术加成，至多可叠加25次。 在叠满层数后，获得10%伤害增幅，并获得控制免疫。",
+  "synthesis": [1002, 1005],
+  "recommended_users": ["未解析棋子 14384", "锐雯", "黛安娜", "派克", "亚托克斯", "贝蕾亚"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2052.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2012_2052.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2012_2052.png",
+    "template_resource_path": "item/completed/item_2012_2052.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2052.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2012,
+    "tft_equip_id": null,
+    "name": "泰坦的坚决",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2052.png",
+    "icon": "2052",
+    "desc": "在攻击或承受伤害时获得2%物理加成和2%法术加成，至多可叠加25次。  在叠满层数后，获得10%伤害增幅，并获得控制免疫。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1002,
+    "synthesis2": 1005,
+    "type": "成型装备"
+  }
+}

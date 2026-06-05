@@ -1,0 +1,49 @@
+{
+  "id": 2023,
+  "slug": "item_2023_2023",
+  "name": "圣盾使的誓约",
+  "aliases": ["圣盾使的誓约", "2023", "2023"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "战斗开始时：获得20法力值。 在40%生命值时，获得15法力值和相当于20%最大生命值的护盾值。",
+  "synthesis": [1004, 1005],
+  "recommended_users": [
+    "波比",
+    "莫甘娜",
+    "努努和威朗普",
+    "超级机甲",
+    "拉莫斯",
+    "科加斯",
+    "俄洛伊",
+    "茂凯"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2023.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2023_2023.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2023_2023.png",
+    "template_resource_path": "item/completed/item_2023_2023.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2023.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2023,
+    "tft_equip_id": null,
+    "name": "圣盾使的誓约",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2023.png",
+    "icon": "2023",
+    "desc": "战斗开始时：获得20法力值。  在40%生命值时，获得15法力值和相当于20%最大生命值的护盾值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1004,
+    "synthesis2": 1005,
+    "type": "成型装备"
+  }
+}

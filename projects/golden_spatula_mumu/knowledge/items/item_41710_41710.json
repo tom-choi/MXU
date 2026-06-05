@@ -1,0 +1,40 @@
+{
+  "id": 41710,
+  "slug": "item_41710_41710",
+  "name": "观星者纹章",
+  "aliases": ["观星者纹章", "41710", "41710"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【观星者】羁绊。",
+  "synthesis": [1008, 1003],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41710.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41710_41710.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41710_41710.png",
+    "template_resource_path": "item/completed/item_41710_41710.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41710.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41710,
+    "tft_equip_id": null,
+    "name": "观星者纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41710.png",
+    "icon": "41710",
+    "desc": "携带者获得【观星者】羁绊。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1003,
+    "type": "转职纹章"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9243,
+  "slug": "item_9243_neutrongrenades3",
+  "name": "生物质维护器",
+  "aliases": ["生物质维护器", "neutrongrenades3", "neutrongrenades3"],
+  "category": "special",
+  "type": "-1",
+  "description": "获得5%最大生命值，并部署3个【生命法球】。战斗中每经过8秒，1个【生命法球】就会掉落以治疗携带者18%的已损失生命值。 推荐使用者：【古拉加斯】。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/neutrongrenades3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9243_neutrongrenades3.png",
+    "template_path": "resource_knowledge/image/item/special/item_9243_neutrongrenades3.png",
+    "template_resource_path": "item/special/item_9243_neutrongrenades3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/neutrongrenades3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9243,
+    "tft_equip_id": null,
+    "name": "生物质维护器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/neutrongrenades3.png",
+    "icon": "neutrongrenades3",
+    "desc": "获得5%最大生命值，并部署3个【生命法球】。战斗中每经过8秒，1个【生命法球】就会掉落以治疗携带者18%的已损失生命值。  推荐使用者：【古拉加斯】。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": 30186,
+  "slug": "augment_30186_onebufftwobuff3",
+  "name": "1个霸符，2个霸符",
+  "aliases": ["1个霸符，2个霸符", "onebufftwobuff3"],
+  "level": 3,
+  "description": "获得1个【红霸符】、1个【蓝霸符】和1个【英雄复制器】。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onebufftwobuff3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_30186_onebufftwobuff3.png",
+    "template_path": "resource_knowledge/image/augment/augment_30186_onebufftwobuff3.png",
+    "template_resource_path": "augment/augment_30186_onebufftwobuff3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onebufftwobuff3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 30186,
+    "name": "1个霸符，2个霸符",
+    "description": "获得1个【红霸符】、1个【蓝霸符】和1个【英雄复制器】。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onebufftwobuff3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9341,
+  "slug": "item_9341_lionessslament",
+  "name": "雌狮之怨",
+  "aliases": ["雌狮之怨", "lionessslament", "lionessslament"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每失去15%最大生命值，对一条直线发射新月形飞弹，造成相当于携带者50%护甲与魔抗的物理伤害。从命中的所有敌人处窃取4护甲和魔抗。 推荐角色定位：物理坦克或魔法坦克",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lionessslament.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9341_lionessslament.png",
+    "template_path": "resource_knowledge/image/item/special/item_9341_lionessslament.png",
+    "template_resource_path": "item/special/item_9341_lionessslament.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lionessslament.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9341,
+    "tft_equip_id": null,
+    "name": "雌狮之怨",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lionessslament.png",
+    "icon": "lionessslament",
+    "desc": "每失去15%最大生命值，对一条直线发射新月形飞弹，造成相当于携带者50%护甲与魔抗的物理伤害。从命中的所有敌人处窃取4护甲和魔抗。  推荐角色定位：物理坦克或魔法坦克",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

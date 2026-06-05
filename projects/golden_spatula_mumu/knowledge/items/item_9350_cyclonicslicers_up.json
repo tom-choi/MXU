@@ -1,0 +1,40 @@
+{
+  "id": 9350,
+  "slug": "item_9350_cyclonicslicers_up",
+  "name": "不息气旋",
+  "aliases": ["不息气旋", "cyclonicslicers_up", "cyclonicslicers_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "获得6个环身剃刀。剃刀造成75真实伤害，并对敌人造成持续至战斗环节结束的30%魔抗击碎和护甲击碎。对受到魔抗击碎或护甲击碎的敌人造成30%额外伤害。 伤害随阶段提升 推荐角色定位：物理战士或魔法战士",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cyclonicslicers_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9350_cyclonicslicers_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9350_cyclonicslicers_up.png",
+    "template_resource_path": "item/special/item_9350_cyclonicslicers_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cyclonicslicers_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9350,
+    "tft_equip_id": null,
+    "name": "不息气旋",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/cyclonicslicers_up.png",
+    "icon": "cyclonicslicers_up",
+    "desc": "获得6个环身剃刀。剃刀造成75真实伤害，并对敌人造成持续至战斗环节结束的30%魔抗击碎和护甲击碎。对受到魔抗击碎或护甲击碎的敌人造成30%额外伤害。  伤害随阶段提升 推荐角色定位：物理战士或魔法战士",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

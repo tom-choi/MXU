@@ -1,0 +1,183 @@
+{
+  "id": 13452,
+  "slug": "champion_13452_s17_head_viktor",
+  "name": "维克托",
+  "aliases": ["维克托", "s17_viktor", "s17_head_viktor", "s17_viktor"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["灵能特工", "神谕"],
+  "trait_refs": [
+    {
+      "id": 407,
+      "name": "灵能特工"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    }
+  ],
+  "skill": {
+    "name": "灵能风暴",
+    "description": "在战场上引导一个半径1格的灵能风暴跟随敌人544秒。每秒，它会变得更大并且对其中的敌人们造成190(【法术加成】)魔法伤害，这个伤害每与中心相距1格就会衰减60%。",
+    "brief_value": "190/290/500",
+    "value_description": "伤害：190(【法术加成】) 190/290/500",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_viktor.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 650,
+      "init_mp": 20,
+      "magic_resist": 25,
+      "max_mp": 80
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 1170,
+      "init_mp": 20,
+      "magic_resist": 25,
+      "max_mp": 80
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 2106,
+      "init_mp": 20,
+      "magic_resist": 25,
+      "max_mp": 80
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 3042,
+      "init_mp": 20,
+      "magic_resist": 25,
+      "max_mp": 80
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_viktor.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13452_s17_head_viktor.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13452_s17_head_viktor.png",
+    "template_resource_path": "champion/3/champion_13452_s17_head_viktor.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13452",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_viktor.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "165",
+    "id": 13452,
+    "tft_hero_id": 13452,
+    "name": "维克托",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_viktor.png",
+    "hero_paint": "s17_viktor",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "190/290/500",
+    "skill_desc": "在战场上引导一个半径1格的灵能风暴跟随敌人544秒。每秒，它会变得更大并且对其中的敌人们造成190(【法术加成】)魔法伤害，这个伤害每与中心相距1格就会衰减60%。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_viktor.png",
+    "skill_name": "灵能风暴",
+    "skill_value_desc": "伤害：190(【法术加成】) 190/290/500",
+    "show_hero_tag": true,
+    "species": [407],
+    "class": ["313"],
+    "races": [
+      {
+        "id": 407,
+        "name": "灵能特工"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 650,
+        "init_mp": 20,
+        "magic_resist": 25,
+        "max_mp": 80
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 1170,
+        "init_mp": 20,
+        "magic_resist": 25,
+        "max_mp": 80
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 2106,
+        "init_mp": 20,
+        "magic_resist": 25,
+        "max_mp": 80
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 3042,
+        "init_mp": 20,
+        "magic_resist": 25,
+        "max_mp": 80
+      }
+    ]
+  }
+}

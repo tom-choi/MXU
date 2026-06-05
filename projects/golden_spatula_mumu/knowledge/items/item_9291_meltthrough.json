@@ -1,0 +1,40 @@
+{
+  "id": 9291,
+  "slug": "item_9291_meltthrough",
+  "name": "熔穿",
+  "aliases": ["熔穿", "meltthrough", "meltthrough"],
+  "category": "special",
+  "type": "-1",
+  "description": "每秒，使2格内敌人的护甲降低4，对邻格敌人的效果翻倍。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/meltthrough.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9291_meltthrough.png",
+    "template_path": "resource_knowledge/image/item/special/item_9291_meltthrough.png",
+    "template_resource_path": "item/special/item_9291_meltthrough.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/meltthrough.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9291,
+    "tft_equip_id": null,
+    "name": "熔穿",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/meltthrough.png",
+    "icon": "meltthrough",
+    "desc": "每秒，使2格内敌人的护甲降低4，对邻格敌人的效果翻倍。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

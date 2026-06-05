@@ -1,0 +1,40 @@
+{
+  "id": 2025,
+  "slug": "item_2025_spiritvisage",
+  "name": "振奋盔甲",
+  "aliases": ["振奋盔甲", "spiritvisage", "spiritvisage"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每秒回复2%已损失生命值。",
+  "synthesis": [1004, 1007],
+  "recommended_users": ["蕾欧娜", "未解析棋子 12462", "拉莫斯", "奥恩", "科加斯", "塔姆"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/spiritvisage.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2025_spiritvisage.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2025_spiritvisage.png",
+    "template_resource_path": "item/completed/item_2025_spiritvisage.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/spiritvisage.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2025,
+    "tft_equip_id": null,
+    "name": "振奋盔甲",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/spiritvisage.png",
+    "icon": "spiritvisage",
+    "desc": "每秒回复2%已损失生命值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1004,
+    "synthesis2": 1007,
+    "type": "成型装备"
+  }
+}

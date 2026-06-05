@@ -1,0 +1,40 @@
+{
+  "id": 6071,
+  "slug": "item_6071_luden_s_tempest",
+  "name": "卢登的激荡",
+  "aliases": ["卢登的激荡", "luden_s_tempest", "luden_s_tempest"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "在击败目标时，会对与目标相距最近的两个敌人造成魔法伤害，伤害值为过量伤害的100%外加100。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/luden_s_tempest.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6071_luden_s_tempest.png",
+    "template_path": "resource_knowledge/image/item/special/item_6071_luden_s_tempest.png",
+    "template_resource_path": "item/special/item_6071_luden_s_tempest.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/luden_s_tempest.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6071,
+    "tft_equip_id": null,
+    "name": "卢登的激荡",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/luden_s_tempest.png",
+    "icon": "luden_s_tempest",
+    "desc": "在击败目标时，会对与目标相距最近的两个敌人造成魔法伤害，伤害值为过量伤害的100%外加100。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

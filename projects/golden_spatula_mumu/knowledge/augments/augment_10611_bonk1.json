@@ -1,0 +1,42 @@
+{
+  "id": 10611,
+  "slug": "augment_10611_bonk1",
+  "name": "邦！",
+  "aliases": ["邦！", "bonk1"],
+  "level": 1,
+  "description": "获得1个【内瑟斯】。你最强大的那个【内瑟斯】成为一名物理战士，他的技能现在是单体目标技能，每完成一次击败都会变得更强。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/bonk1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_10611_bonk1.png",
+    "template_path": "resource_knowledge/image/augment/augment_10611_bonk1.png",
+    "template_resource_path": "augment/augment_10611_bonk1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/bonk1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 10611,
+    "name": "邦！",
+    "description": "获得1个【内瑟斯】。你最强大的那个【内瑟斯】成为一名物理战士，他的技能现在是单体目标技能，每完成一次击败都会变得更强。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/bonk1.png",
+    "level": 1,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

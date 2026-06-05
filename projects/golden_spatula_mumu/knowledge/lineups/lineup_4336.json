@@ -1,0 +1,487 @@
+{
+  "id": 4336,
+  "slug": "lineup_4336",
+  "name": "【六机甲龙王索尔】6霸天机甲2斗士2暗星",
+  "quality": "A",
+  "rating": "A",
+  "tags": ["1"],
+  "mode": "17",
+  "season": "S18",
+  "version": "17.17.4",
+  "main_carries": [
+    {
+      "hero_id": 14383,
+      "hero_name": "",
+      "equipment_ids": [2038, 2017, 2003],
+      "equipment_names": ["珠光护手", "大天使之杖", "海克斯科技枪刃"],
+      "location": "4,1"
+    }
+  ],
+  "frontliners": [
+    {
+      "hero_id": 14384,
+      "hero_name": "",
+      "location": "1,4"
+    }
+  ],
+  "units": [
+    {
+      "id_in_lineup": 352,
+      "type": "hero",
+      "hero_id": 14384,
+      "hero_name": "未解析棋子 14384",
+      "equipment_ids": [2028, 2007, 2012],
+      "equipment_names": ["石像鬼石板甲", "斯特拉克的挑战护手", "泰坦的坚决"],
+      "is_carry": false,
+      "location": "1,4",
+      "needs_review": true
+    },
+    {
+      "id_in_lineup": 353,
+      "type": "hero",
+      "hero_id": 13464,
+      "hero_name": "厄加特",
+      "equipment_ids": [2044],
+      "equipment_names": ["秘法手套"],
+      "is_carry": false,
+      "location": "2,4",
+      "needs_review": false
+    },
+    {
+      "id_in_lineup": 354,
+      "type": "hero",
+      "hero_id": 15434,
+      "hero_name": "莫甘娜",
+      "equipment_ids": [2023, 2018, 2034],
+      "equipment_names": ["圣盾使的誓约", "冕卫", "狂徒铠甲"],
+      "is_carry": false,
+      "location": "2,6",
+      "needs_review": false
+    },
+    {
+      "id_in_lineup": 355,
+      "type": "hero",
+      "hero_id": 14378,
+      "hero_name": "塔姆",
+      "equipment_ids": [],
+      "equipment_names": [],
+      "is_carry": false,
+      "location": "3,6",
+      "needs_review": false
+    },
+    {
+      "id_in_lineup": 356,
+      "type": "hero",
+      "hero_id": 12457,
+      "hero_name": "莫德凯撒",
+      "equipment_ids": [],
+      "equipment_names": [],
+      "is_carry": false,
+      "location": "3,7",
+      "needs_review": false
+    },
+    {
+      "id_in_lineup": 357,
+      "type": "hero",
+      "hero_id": 14383,
+      "hero_name": "未解析棋子 14383",
+      "equipment_ids": [2038, 2017, 2003],
+      "equipment_names": ["珠光护手", "大天使之杖", "海克斯科技枪刃"],
+      "is_carry": true,
+      "location": "4,1",
+      "needs_review": true
+    },
+    {
+      "id_in_lineup": 358,
+      "type": "hero",
+      "hero_id": 14373,
+      "hero_name": "卡尔玛",
+      "equipment_ids": [2011, 2020, 2004],
+      "equipment_names": ["虚空之杖", "莫雷洛秘典", "朔极之矛"],
+      "is_carry": false,
+      "location": "4,7",
+      "needs_review": false
+    }
+  ],
+  "traits_summary": "【六机甲龙王索尔】6霸天机甲2斗士2暗星",
+  "recommended_equipment": {
+    "note": "法爆必备，索尔自带法穿效果（但是副c一样可以补法穿）；塔姆与卡尔玛有一个补重伤即可。加里奥必备板甲。",
+    "order_ids": [1004, 1003, 1009, 1001, 1007],
+    "order_names": ["女神之泪", "无用大棒", "拳套", "暴风之剑", "巨人腰带"]
+  },
+  "augment_recommendations": {
+    "ids": [30621, 2021, 1895, 20009, 4069, 30599, 2128, 20141],
+    "note": "2经济1战力，优先拿推荐的"
+  },
+  "notes": {
+    "early": "前期根据来牌判断连胜或者连败；核心是不要主动d牌，保证经济良好。",
+    "economy": "经济够好4杠1上8，经济不够就4杠2上8，大抽，4阶段索尔与加里奥都未2星之前不吃利息，都要打干；全2之后即可考虑上9补巴德/机器人/莫甘娜或者8级追三星4费。",
+    "positioning": "此84运营阵容装备偏法系即可 加里奥单顶，后排分边站角落即可",
+    "matchup": "目前比较简单的84阵容，简单但是有不弱的战力。厄加特能三星的话可以开新星补斗士与狂战士当c位"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/lineup/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18"
+  },
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": "4336",
+    "pid": "0",
+    "bid": "",
+    "author": "398",
+    "status": "5",
+    "lineupauthor_data": {
+      "id": "398",
+      "authorId": "0",
+      "name": "掌盟阵容推荐小助手",
+      "platId": "1",
+      "gender": "1",
+      "uuid": "6c56d536-3d5c-4797-940e-ccbb82310c43",
+      "introduce": "",
+      "imgUrl": "https://game.gtimg.cn/images/lol/act/jkzlk/author/eb.png",
+      "status": "2",
+      "isDelete": "0",
+      "updateTime": "2025-04-14 14:51:42",
+      "updateMan": "hermanhao",
+      "creater": "hermanhao",
+      "createTime": "2021-08-22 18:08:59",
+      "plat_anchor_uid": "6c56d536-3d5c-4797-940e-ccbb82310c43",
+      "room_number": "",
+      "socialUrl": ""
+    },
+    "channel": "11",
+    "quality": "A",
+    "sortID": "3693",
+    "rel_time": "2026-05-29 10:56:52",
+    "sub_time": "2026-04-14 17:11:25",
+    "edition": "192",
+    "season": "18",
+    "simulator_edition": "17.17.4",
+    "simulator_season": "S18",
+    "like": "0",
+    "video_author_uuid": "",
+    "mode": "17",
+    "versionId": "192",
+    "mode_type": "1",
+    "detail": {
+      "line_name": "【六机甲龙王索尔】6霸天机甲2斗士2暗星",
+      "line_tag": "1",
+      "line_feature": "5",
+      "early_info": "前期根据来牌判断连胜或者连败；核心是不要主动d牌，保证经济良好。",
+      "d_time": "经济够好4杠1上8，经济不够就4杠2上8，大抽，4阶段索尔与加里奥都未2星之前不吃利息，都要打干；全2之后即可考虑上9补巴德/机器人/莫甘娜或者8级追三星4费。",
+      "location_info": "此84运营阵容装备偏法系即可 加里奥单顶，后排分边站角落即可",
+      "enemy_info": "目前比较简单的84阵容，简单但是有不弱的战力。厄加特能三星的话可以开新星补斗士与狂战士当c位",
+      "hex_info": "2经济1战力，优先拿推荐的",
+      "hexbuff": {
+        "recomm": "30621,2021,1895",
+        "replace": "20009,4069,30599,2128,20141"
+      },
+      "equipment_info": "法爆必备，索尔自带法穿效果（但是副c一样可以补法穿）；塔姆与卡尔玛有一个补重伤即可。加里奥必备板甲。",
+      "equipment_order": "1004,1003,1009,1001,1007",
+      "levelMap": {
+        "4": [],
+        "5": [],
+        "6": [
+          {
+            "idInLineup": 343,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "13464",
+            "is_carry_hero": false,
+            "location": "1,4"
+          },
+          {
+            "idInLineup": 344,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "11455",
+            "is_carry_hero": false,
+            "location": "1,5"
+          },
+          {
+            "idInLineup": 345,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "11463",
+            "is_carry_hero": false,
+            "location": "1,6"
+          },
+          {
+            "idInLineup": 346,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "12454",
+            "is_carry_hero": false,
+            "location": "2,4"
+          }
+        ],
+        "7": [],
+        "8": [
+          {
+            "idInLineup": 347,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "13451",
+            "is_carry_hero": false,
+            "location": "1,3"
+          },
+          {
+            "idInLineup": 348,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "14384",
+            "is_carry_hero": false,
+            "location": "1,4"
+          },
+          {
+            "idInLineup": 349,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "11455",
+            "is_carry_hero": false,
+            "location": "1,5"
+          },
+          {
+            "idInLineup": 350,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "11463",
+            "is_carry_hero": false,
+            "location": "1,6"
+          },
+          {
+            "idInLineup": 351,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "12454",
+            "is_carry_hero": false,
+            "location": "2,4"
+          }
+        ],
+        "9": [
+          {
+            "idInLineup": 352,
+            "chess_type": "hero",
+            "equipment_id": "2028,2007,2012",
+            "hero_id": "14384",
+            "is_carry_hero": false,
+            "location": "1,4"
+          },
+          {
+            "idInLineup": 353,
+            "chess_type": "hero",
+            "equipment_id": "2044",
+            "hero_id": "13464",
+            "is_carry_hero": false,
+            "location": "2,4"
+          },
+          {
+            "idInLineup": 354,
+            "chess_type": "hero",
+            "equipment_id": "2023,2018,2034",
+            "hero_id": "15434",
+            "is_carry_hero": false,
+            "location": "2,6"
+          },
+          {
+            "idInLineup": 355,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "14378",
+            "is_carry_hero": false,
+            "location": "3,6"
+          },
+          {
+            "idInLineup": 356,
+            "chess_type": "hero",
+            "equipment_id": "",
+            "hero_id": "12457",
+            "is_carry_hero": false,
+            "location": "3,7"
+          },
+          {
+            "idInLineup": 357,
+            "chess_type": "hero",
+            "equipment_id": "2038,2017,2003",
+            "hero_id": "14383",
+            "is_carry_hero": true,
+            "location": "4,1"
+          },
+          {
+            "idInLineup": 358,
+            "chess_type": "hero",
+            "equipment_id": "2011,2020,2004",
+            "hero_id": "14373",
+            "is_carry_hero": false,
+            "location": "4,7"
+          }
+        ],
+        "10": []
+      },
+      "hero_location": [
+        {
+          "idInLineup": 352,
+          "chess_type": "hero",
+          "equipment_id": "2028,2007,2012",
+          "hero_id": "14384",
+          "is_carry_hero": false,
+          "location": "1,4"
+        },
+        {
+          "idInLineup": 353,
+          "chess_type": "hero",
+          "equipment_id": "2044",
+          "hero_id": "13464",
+          "is_carry_hero": false,
+          "location": "2,4"
+        },
+        {
+          "idInLineup": 354,
+          "chess_type": "hero",
+          "equipment_id": "2023,2018,2034",
+          "hero_id": "15434",
+          "is_carry_hero": false,
+          "location": "2,6"
+        },
+        {
+          "idInLineup": 355,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "14378",
+          "is_carry_hero": false,
+          "location": "3,6"
+        },
+        {
+          "idInLineup": 356,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "12457",
+          "is_carry_hero": false,
+          "location": "3,7"
+        },
+        {
+          "idInLineup": 357,
+          "chess_type": "hero",
+          "equipment_id": "2038,2017,2003",
+          "hero_id": "14383",
+          "is_carry_hero": true,
+          "location": "4,1"
+        },
+        {
+          "idInLineup": 358,
+          "chess_type": "hero",
+          "equipment_id": "2011,2020,2004",
+          "hero_id": "14373",
+          "is_carry_hero": false,
+          "location": "4,7"
+        }
+      ],
+      "y21_early_heros": [
+        {
+          "idInLineup": 343,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "13464",
+          "is_carry_hero": false,
+          "location": "1,4"
+        },
+        {
+          "idInLineup": 344,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "11455",
+          "is_carry_hero": false,
+          "location": "1,5"
+        },
+        {
+          "idInLineup": 345,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "11463",
+          "is_carry_hero": false,
+          "location": "1,6"
+        },
+        {
+          "idInLineup": 346,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "12454",
+          "is_carry_hero": false,
+          "location": "2,4"
+        }
+      ],
+      "y21_metaphase_heros": [
+        {
+          "idInLineup": 347,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "13451",
+          "is_carry_hero": false,
+          "location": "1,3"
+        },
+        {
+          "idInLineup": 348,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "14384",
+          "is_carry_hero": false,
+          "location": "1,4"
+        },
+        {
+          "idInLineup": 349,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "11455",
+          "is_carry_hero": false,
+          "location": "1,5"
+        },
+        {
+          "idInLineup": 350,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "11463",
+          "is_carry_hero": false,
+          "location": "1,6"
+        },
+        {
+          "idInLineup": 351,
+          "chess_type": "hero",
+          "equipment_id": "",
+          "hero_id": "12454",
+          "is_carry_hero": false,
+          "location": "2,4"
+        }
+      ],
+      "hero_replace": [
+        {
+          "hero_id": "15434",
+          "replace_heros": "15421"
+        }
+      ],
+      "carry_hero_equip_replace": {
+        "main": "2038,2017",
+        "backup": "2003,2017,2016"
+      },
+      "level_3_heros": "14378,14383,14384",
+      "god_list": [
+        {
+          "stage_num": 2,
+          "god_id": 3,
+          "wishes": [1703010, 1703020]
+        },
+        {
+          "stage_num": 3,
+          "god_id": 4,
+          "wishes": [1704023, 1704010]
+        },
+        {
+          "stage_num": 4,
+          "god_id": 5,
+          "wishes": [1705050, 1705012]
+        }
+      ],
+      "godreward_info": "优先考虑艾克迅捷蟹，索拉卡回复12血量，锤石5金币的额外随机，没有好的就保底是阿狸的经济或者亚索的宇宙格或烈阳格（缺核心装备拿凯尔也可以）"
+    }
+  }
+}

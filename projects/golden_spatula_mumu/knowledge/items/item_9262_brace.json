@@ -1,0 +1,40 @@
+{
+  "id": 9262,
+  "slug": "item_9262_brace",
+  "name": "指令模块：加固",
+  "aliases": ["指令模块：加固", "brace", "brace"],
+  "category": "special",
+  "type": "-1",
+  "description": "指定一个单位，对战开始时，其获得一个持续8秒的20%生命值的护盾。 (适合坦克弈子)",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/brace.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9262_brace.png",
+    "template_path": "resource_knowledge/image/item/special/item_9262_brace.png",
+    "template_resource_path": "item/special/item_9262_brace.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/brace.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9262,
+    "tft_equip_id": null,
+    "name": "指令模块：加固",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/brace.png",
+    "icon": "brace",
+    "desc": "指定一个单位，对战开始时，其获得一个持续8秒的20%生命值的护盾。  (适合坦克弈子)",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

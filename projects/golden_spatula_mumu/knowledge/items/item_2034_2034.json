@@ -1,0 +1,54 @@
+{
+  "id": 2034,
+  "slug": "item_2034_2034",
+  "name": "狂徒铠甲",
+  "aliases": ["狂徒铠甲", "2034", "2034"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "获得18%最大生命值。",
+  "synthesis": [1007, 1007],
+  "recommended_users": [
+    "未解析棋子 12460",
+    "奥恩",
+    "努努和威朗普",
+    "莫甘娜",
+    "波比",
+    "拉莫斯",
+    "雷克塞",
+    "茂凯",
+    "俄洛伊",
+    "塔姆",
+    "古拉加斯",
+    "潘森",
+    "未解析棋子 14384"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2034.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2034_2034.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2034_2034.png",
+    "template_resource_path": "item/completed/item_2034_2034.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2034.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2034,
+    "tft_equip_id": null,
+    "name": "狂徒铠甲",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2034.png",
+    "icon": "2034",
+    "desc": "获得18%最大生命值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1007,
+    "synthesis2": 1007,
+    "type": "成型装备"
+  }
+}

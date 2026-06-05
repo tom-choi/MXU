@@ -1,0 +1,40 @@
+{
+  "id": 3005,
+  "slug": "item_3005_3505",
+  "name": "纹章之书",
+  "aliases": ["纹章之书", "3505", "3505"],
+  "category": "special",
+  "type": "-1",
+  "description": "将这本书拖拽到商店处可开启一个全是纹章的武器库！你将有30秒的时间来做出选择！",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3505.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3005_3505.png",
+    "template_path": "resource_knowledge/image/item/special/item_3005_3505.png",
+    "template_resource_path": "item/special/item_3005_3505.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3505.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3005,
+    "tft_equip_id": null,
+    "name": "纹章之书",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3505.png",
+    "icon": "3505",
+    "desc": "将这本书拖拽到商店处可开启一个全是纹章的武器库！你将有30秒的时间来做出选择！",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

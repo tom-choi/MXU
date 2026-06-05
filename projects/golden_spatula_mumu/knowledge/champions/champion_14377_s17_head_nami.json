@@ -1,0 +1,183 @@
+{
+  "id": 14377,
+  "slug": "champion_14377_s17_head_nami",
+  "name": "娜美",
+  "aliases": ["娜美", "s17_nami", "s17_head_nami", "s17_nami"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["太空律动", "魔术师"],
+  "trait_refs": [
+    {
+      "id": 408,
+      "name": "太空律动"
+    },
+    {
+      "id": "316",
+      "name": "魔术师"
+    }
+  ],
+  "skill": {
+    "name": "泡泡弹跳",
+    "description": "朝目标投掷一个迪斯科泡泡，造成440(【法术加成】)伤害，由半径1格内的敌人们分摊。这个爆炸会朝附近的敌人们射出3团黏液，黏液造成110(【法术加成】)魔法伤害。施放技能时，娜美进入~太~空~律~动~状态，持续3秒。",
+    "brief_value": "440/660/5000|110/165/1000",
+    "value_description": "伤害：440(【法术加成】) 440/660/5000|弹跳伤害：110(【法术加成】) 110/165/1000",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_nami.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 30,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 40,
+      "init_hp": 850,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 2,
+      "sell_price": 11,
+      "armor": 30,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1530,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 3,
+      "sell_price": 35,
+      "armor": 30,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 3754,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 4,
+      "sell_price": 107,
+      "armor": 30,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 120,
+      "init_hp": 4978,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nami.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14377_s17_head_nami.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14377_s17_head_nami.png",
+    "template_resource_path": "champion/4/champion_14377_s17_head_nami.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14377",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nami.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "285",
+    "id": 14377,
+    "tft_hero_id": 14377,
+    "name": "娜美",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_nami.png",
+    "hero_paint": "s17_nami",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "440/660/5000|110/165/1000",
+    "skill_desc": "朝目标投掷一个迪斯科泡泡，造成440(【法术加成】)伤害，由半径1格内的敌人们分摊。这个爆炸会朝附近的敌人们射出3团黏液，黏液造成110(【法术加成】)魔法伤害。施放技能时，娜美进入~太~空~律~动~状态，持续3秒。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_nami.png",
+    "skill_name": "泡泡弹跳",
+    "skill_value_desc": "伤害：440(【法术加成】) 440/660/5000|弹跳伤害：110(【法术加成】) 110/165/1000",
+    "show_hero_tag": true,
+    "species": [408],
+    "class": ["316"],
+    "races": [
+      {
+        "id": 408,
+        "name": "太空律动"
+      }
+    ],
+    "traits": [
+      {
+        "id": "316",
+        "name": "魔术师"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 30,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 40,
+        "init_hp": 850,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 2,
+        "sell_price": 11,
+        "armor": 30,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1530,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 3,
+        "sell_price": 35,
+        "armor": 30,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 3754,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 4,
+        "sell_price": 107,
+        "armor": 30,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 120,
+        "init_hp": 4978,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      }
+    ]
+  }
+}

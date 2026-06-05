@@ -1,0 +1,40 @@
+{
+  "id": 2006,
+  "slug": "item_2006_2006",
+  "name": "汲取剑",
+  "aliases": ["汲取剑", "2006", "2006"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每场战斗仅触发1次：在40%生命值时，获得一个护盾，护盾值相当于携带者25%的最大生命值，至多持续5秒。",
+  "synthesis": [1001, 1006],
+  "recommended_users": ["锐雯", "黛安娜", "易", "派克", "亚托克斯", "贝蕾亚", "莫德凯撒"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2006.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2006_2006.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2006_2006.png",
+    "template_resource_path": "item/completed/item_2006_2006.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2006.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2006,
+    "tft_equip_id": null,
+    "name": "汲取剑",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2006.png",
+    "icon": "2006",
+    "desc": "每场战斗仅触发1次：在40%生命值时，获得一个护盾，护盾值相当于携带者25%的最大生命值，至多持续5秒。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1001,
+    "synthesis2": 1006,
+    "type": "成型装备"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 6085,
+  "slug": "item_6085_lightshield_crest",
+  "name": "光盾徽章",
+  "aliases": ["光盾徽章", "lightshield_crest", "lightshield_crest"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "每3秒，为生命值百分比最低的那个友军提供护盾，护盾值相当于携带者70%的护甲与魔抗总和，持续5秒。 在倒下时，将这个护盾效果提供给所有友军。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lightshield_crest.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6085_lightshield_crest.png",
+    "template_path": "resource_knowledge/image/item/special/item_6085_lightshield_crest.png",
+    "template_resource_path": "item/special/item_6085_lightshield_crest.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lightshield_crest.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6085,
+    "tft_equip_id": null,
+    "name": "光盾徽章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/lightshield_crest.png",
+    "icon": "lightshield_crest",
+    "desc": "每3秒，为生命值百分比最低的那个友军提供护盾，护盾值相当于携带者70%的护甲与魔抗总和，持续5秒。  在倒下时，将这个护盾效果提供给所有友军。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

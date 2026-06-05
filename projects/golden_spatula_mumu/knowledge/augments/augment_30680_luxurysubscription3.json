@@ -1,0 +1,42 @@
+{
+  "id": 30680,
+  "slug": "augment_30680_luxurysubscription3",
+  "name": "奢侈品订购",
+  "aliases": ["奢侈品订购", "luxurysubscription3"],
+  "level": 3,
+  "description": "获得1个包裹，包含1个5费弈子、1个2星1费弈子和5金币。 在接下来的2个阶段开始时，再次获得该包裹。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/luxurysubscription3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_30680_luxurysubscription3.png",
+    "template_path": "resource_knowledge/image/augment/augment_30680_luxurysubscription3.png",
+    "template_resource_path": "augment/augment_30680_luxurysubscription3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/luxurysubscription3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 30680,
+    "name": "奢侈品订购",
+    "description": "获得1个包裹，包含1个5费弈子、1个2星1费弈子和5金币。  在接下来的2个阶段开始时，再次获得该包裹。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/luxurysubscription3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

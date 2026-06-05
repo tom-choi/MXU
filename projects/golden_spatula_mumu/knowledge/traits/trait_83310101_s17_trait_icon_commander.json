@@ -1,0 +1,54 @@
+{
+  "id": 83310101,
+  "slug": "trait_83310101_s17_trait_icon_commander",
+  "name": "最高指挥官",
+  "aliases": ["最高指挥官", "s17_trait_icon_commander", "411"],
+  "description": "(1)每2个回合，【娑娜】都会给你一个随机的【指令模块】，它可允许你变更一个友军在战斗期间的行为方式。【指令模块】持续2场玩家对战，即使未被使用也依然如此。 选择一把武器。",
+  "effect": "(1)每2个回合，【娑娜】都会给你一个随机的【指令模块】，它可允许你变更一个友军在战斗期间的行为方式。【指令模块】持续2场玩家对战，即使未被使用也依然如此。 选择一把武器。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15425,
+      "name": "娑娜",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_commander.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83310101_s17_trait_icon_commander.png",
+    "template_path": "resource_knowledge/image/trait/trait_83310101_s17_trait_icon_commander.png",
+    "template_resource_path": "trait/trait_83310101_s17_trait_icon_commander.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_commander.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83310101,
+    "name": "最高指挥官",
+    "desc": "(1)每2个回合，【娑娜】都会给你一个随机的【指令模块】，它可允许你变更一个友军在战斗期间的行为方式。【指令模块】持续2场玩家对战，即使未被使用也依然如此。  选择一把武器。",
+    "effect_desc": "(1)每2个回合，【娑娜】都会给你一个随机的【指令模块】，它可允许你变更一个友军在战斗期间的行为方式。【指令模块】持续2场玩家对战，即使未被使用也依然如此。  选择一把武器。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_commander.png",
+    "level_info": "(1)每2个回合，【娑娜】都会给你一个随机的【指令模块】，它可允许你变更一个友军在战斗期间的行为方式。【指令模块】持续2场玩家对战，即使未被使用也依然如此。  选择一把武器。",
+    "trait_id": 83310101,
+    "tft_trait_id": "411",
+    "type": 0,
+    "map_id": 12,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15425,
+        "name": "娑娜",
+        "price": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "id": 13464,
+  "slug": "champion_13464_s17_head_urgot_mecha",
+  "name": "厄加特",
+  "aliases": ["厄加特", "s17_urgot_mecha", "s17_head_urgot_mecha", "s17_urgot_mecha"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["霸天机甲", "狂战士", "斗士"],
+  "trait_refs": [
+    {
+      "id": 404,
+      "name": "霸天机甲"
+    },
+    {
+      "id": "315",
+      "name": "狂战士"
+    },
+    {
+      "id": "311",
+      "name": "斗士"
+    }
+  ],
+  "skill": {
+    "name": "末日浩劫",
+    "description": "被动-迫击炮弹：普攻速度降低50%，但生成的法力值翻倍。这类攻击造成135(【攻击力】)物理伤害，外加对邻格敌人们的20%伤害。 被动-感应轰击：当有敌人进入半径2(【攻击范围】)格内时，以锥形范围向最近的相邻格子射出一道轰击，造成90(【物理加成】)物理伤害，这个伤害每相距1格衰减30%。每个相邻格子各有5秒冷却时间，并且在战斗开始时处于未冷却状态。 主动：获得持续3秒的150(【法术加成】)护盾值并进行至多一格的走位，以最大化【感应轰击】半径内的目标数量。重置【感应轰击】的冷却时间。",
+    "brief_value": "225%/225%/225%|90/135/215|150/175/200",
+    "value_description": "普攻伤害：135=225%【攻击力】 225%/225%/225%|霰弹枪伤害：90(【物理加成】) 90/135/215|护盾值：150(【法术加成】) 150/175/200",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_urgot_mecha.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 45,
+      "attack_range": 2,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 600,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 45,
+      "attack_range": 2,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 1080,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 45,
+      "attack_range": 2,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 1944,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 45,
+      "attack_range": 2,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 180,
+      "init_hp": 2808,
+      "init_mp": 0,
+      "magic_resist": 45,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_urgot_mecha.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13464_s17_head_urgot_mecha.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13464_s17_head_urgot_mecha.png",
+    "template_resource_path": "champion/3/champion_13464_s17_head_urgot_mecha.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13464",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_urgot_mecha.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "213",
+    "id": 13464,
+    "tft_hero_id": 13464,
+    "name": "厄加特",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_urgot_mecha.png",
+    "hero_paint": "s17_urgot_mecha",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "225%/225%/225%|90/135/215|150/175/200",
+    "skill_desc": "被动-迫击炮弹：普攻速度降低50%，但生成的法力值翻倍。这类攻击造成135(【攻击力】)物理伤害，外加对邻格敌人们的20%伤害。  被动-感应轰击：当有敌人进入半径2(【攻击范围】)格内时，以锥形范围向最近的相邻格子射出一道轰击，造成90(【物理加成】)物理伤害，这个伤害每相距1格衰减30%。每个相邻格子各有5秒冷却时间，并且在战斗开始时处于未冷却状态。  主动：获得持续3秒的150(【法术加成】)护盾值并进行至多一格的走位，以最大化【感应轰击】半径内的目标数量。重置【感应轰击】的冷却时间。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_urgot_mecha.png",
+    "skill_name": "末日浩劫",
+    "skill_value_desc": "普攻伤害：135=225%【攻击力】 225%/225%/225%|霰弹枪伤害：90(【物理加成】) 90/135/215|护盾值：150(【法术加成】) 150/175/200",
+    "show_hero_tag": true,
+    "species": [404],
+    "class": ["315", "311"],
+    "races": [
+      {
+        "id": 404,
+        "name": "霸天机甲"
+      }
+    ],
+    "traits": [
+      {
+        "id": "315",
+        "name": "狂战士"
+      },
+      {
+        "id": "311",
+        "name": "斗士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 45,
+        "attack_range": 2,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 600,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 45,
+        "attack_range": 2,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 1080,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 45,
+        "attack_range": 2,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 1944,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 45,
+        "attack_range": 2,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 180,
+        "init_hp": 2808,
+        "init_mp": 0,
+        "magic_resist": 45,
+        "max_mp": 50
+      }
+    ],
+    "enabled": false
+  }
+}

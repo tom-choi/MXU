@@ -1,0 +1,40 @@
+{
+  "id": 9256,
+  "slug": "item_9256_scopedholobow",
+  "name": "锁敌光学设备",
+  "aliases": ["锁敌光学设备", "scopedholobow", "scopedholobow"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "当携带者在每场战斗中对每个敌人第一次造成伤害时，获得： 物理弈子：9%物理加成 魔法弈子：7%法术加成 在(4)层级时：如果携带者是【灵能特工】，会在其目标阵亡时回复自身20%最大生命值。 推荐使用者：【派克】和【易】。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/scopedholobow.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9256_scopedholobow.png",
+    "template_path": "resource_knowledge/image/item/special/item_9256_scopedholobow.png",
+    "template_resource_path": "item/special/item_9256_scopedholobow.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/scopedholobow.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9256,
+    "tft_equip_id": null,
+    "name": "锁敌光学设备",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/scopedholobow.png",
+    "icon": "scopedholobow",
+    "desc": "当携带者在每场战斗中对每个敌人第一次造成伤害时，获得：  物理弈子：9%物理加成 魔法弈子：7%法术加成  在(4)层级时：如果携带者是【灵能特工】，会在其目标阵亡时回复自身20%最大生命值。  推荐使用者：【派克】和【易】。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9308,
+  "slug": "item_9308_sharpshootermodule",
+  "name": "动力框架",
+  "aliases": ["动力框架", "sharpshootermodule", "sharpshootermodule"],
+  "category": "special",
+  "type": "-1",
+  "description": "获得技能暴击，并且技能伤害提升5%。 技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sharpshootermodule.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9308_sharpshootermodule.png",
+    "template_path": "resource_knowledge/image/item/special/item_9308_sharpshootermodule.png",
+    "template_resource_path": "item/special/item_9308_sharpshootermodule.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sharpshootermodule.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9308,
+    "tft_equip_id": null,
+    "name": "动力框架",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sharpshootermodule.png",
+    "icon": "sharpshootermodule",
+    "desc": "获得技能暴击，并且技能伤害提升5%。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

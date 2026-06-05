@@ -1,0 +1,40 @@
+{
+  "id": 9301,
+  "slug": "item_9301_fragmentationrounds",
+  "name": "分裂弹",
+  "aliases": ["分裂弹", "fragmentationrounds", "fragmentationrounds"],
+  "category": "special",
+  "type": "-1",
+  "description": "攻击命中时向附近的敌人射出2块碎片，造成15%伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fragmentationrounds.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9301_fragmentationrounds.png",
+    "template_path": "resource_knowledge/image/item/special/item_9301_fragmentationrounds.png",
+    "template_resource_path": "item/special/item_9301_fragmentationrounds.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fragmentationrounds.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9301,
+    "tft_equip_id": null,
+    "name": "分裂弹",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/fragmentationrounds.png",
+    "icon": "fragmentationrounds",
+    "desc": "攻击命中时向附近的敌人射出2块碎片，造成15%伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": 83140101,
+  "slug": "trait_83140101_s17_trait_icon_vanguard",
+  "name": "重装战士",
+  "aliases": ["重装战士", "s17_trait_icon_vanguard", "320"],
+  "description": "【重装战士】在拥有护盾时获得5%伤害减免。 对战开始时以及50%生命值时：获得一个最大生命值护盾，持续10秒。",
+  "effect": "(2)16%最大生命值 |(4)30%最大生命值 |(6)40%最大生命值； 拥有护盾时：8%【伤害减免】",
+  "levels": [],
+  "members": [
+    {
+      "id": 11453,
+      "name": "内瑟斯",
+      "cost": 1
+    },
+    {
+      "id": 11454,
+      "name": "蕾欧娜",
+      "cost": 1
+    },
+    {
+      "id": 12457,
+      "name": "莫德凯撒",
+      "cost": 2
+    },
+    {
+      "id": 13460,
+      "name": "俄洛伊",
+      "cost": 3
+    },
+    {
+      "id": 14371,
+      "name": "努努和威朗普",
+      "cost": 4
+    },
+    {
+      "id": 15421,
+      "name": "布里茨",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_vanguard.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83140101_s17_trait_icon_vanguard.png",
+    "template_path": "resource_knowledge/image/trait/trait_83140101_s17_trait_icon_vanguard.png",
+    "template_resource_path": "trait/trait_83140101_s17_trait_icon_vanguard.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_vanguard.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83140101,
+    "name": "重装战士",
+    "desc": "【重装战士】在拥有护盾时获得5%伤害减免。  对战开始时以及50%生命值时：获得一个最大生命值护盾，持续10秒。",
+    "effect_desc": "(2)16%最大生命值 |(4)30%最大生命值 |(6)40%最大生命值； 拥有护盾时：8%【伤害减免】",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_vanguard.png",
+    "level_info": "(2)16%最大生命值 |(4)30%最大生命值 |(6)40%最大生命值； 拥有护盾时：8%【伤害减免】|(2)16%最大生命值 |(4)30%最大生命值 |(6)40%最大生命值； 拥有护盾时：8%【伤害减免】|(2)16%最大生命值 |(4)30%最大生命值 |(6)40%最大生命值； 拥有护盾时：8%【伤害减免】",
+    "trait_id": 83140101,
+    "tft_trait_id": "320",
+    "type": 1,
+    "map_id": 11,
+    "max_level": 3,
+    "num_list": "2|4|6",
+    "color": "1",
+    "members": [
+      {
+        "id": 11453,
+        "name": "内瑟斯",
+        "price": 1
+      },
+      {
+        "id": 11454,
+        "name": "蕾欧娜",
+        "price": 1
+      },
+      {
+        "id": 12457,
+        "name": "莫德凯撒",
+        "price": 2
+      },
+      {
+        "id": 13460,
+        "name": "俄洛伊",
+        "price": 3
+      },
+      {
+        "id": 14371,
+        "name": "努努和威朗普",
+        "price": 4
+      },
+      {
+        "id": 15421,
+        "name": "布里茨",
+        "price": 5
+      }
+    ]
+  }
+}

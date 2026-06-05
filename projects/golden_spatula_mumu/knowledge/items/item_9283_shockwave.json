@@ -1,0 +1,40 @@
+{
+  "id": 9283,
+  "slug": "item_9283_shockwave",
+  "name": "冲击波",
+  "aliases": ["冲击波", "shockwave", "shockwave"],
+  "category": "special",
+  "type": "-1",
+  "description": "对战开始时：向前方释放冲击波，造成相当于【格雷福斯】15%最大生命值的魔法伤害，同时晕眩命中的敌人2秒。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/shockwave.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9283_shockwave.png",
+    "template_path": "resource_knowledge/image/item/special/item_9283_shockwave.png",
+    "template_resource_path": "item/special/item_9283_shockwave.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/shockwave.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9283,
+    "tft_equip_id": null,
+    "name": "冲击波",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/shockwave.png",
+    "icon": "shockwave",
+    "desc": "对战开始时：向前方释放冲击波，造成相当于【格雷福斯】15%最大生命值的魔法伤害，同时晕眩命中的敌人2秒。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

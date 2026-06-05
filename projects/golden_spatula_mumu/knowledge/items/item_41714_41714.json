@@ -1,0 +1,40 @@
+{
+  "id": 41714,
+  "slug": "item_41714_41714",
+  "name": "挑战者纹章",
+  "aliases": ["挑战者纹章", "41714", "41714"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【挑战者】羁绊。参与击败后，携带者的下3次攻击每次会治疗其5%最大生命值。",
+  "synthesis": [1010, 1002],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41714.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41714_41714.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41714_41714.png",
+    "template_resource_path": "item/completed/item_41714_41714.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41714.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41714,
+    "tft_equip_id": null,
+    "name": "挑战者纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41714.png",
+    "icon": "41714",
+    "desc": "携带者获得【挑战者】羁绊。参与击败后，携带者的下3次攻击每次会治疗其5%最大生命值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1010,
+    "synthesis2": 1002,
+    "type": "转职纹章"
+  }
+}

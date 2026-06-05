@@ -1,0 +1,74 @@
+{
+  "id": 83130101,
+  "slug": "trait_83130101_s17_trait_icon_primordian",
+  "name": "海魔人",
+  "aliases": ["海魔人", "s17_trait_icon_primordian", "406"],
+  "description": "(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。 8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。",
+  "effect": "(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。 8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。",
+  "levels": [],
+  "members": [
+    {
+      "id": 11455,
+      "name": "雷克塞",
+      "cost": 1
+    },
+    {
+      "id": 11463,
+      "name": "贝蕾亚",
+      "cost": 1
+    },
+    {
+      "id": 12454,
+      "name": "卑尔维斯",
+      "cost": 2
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_primordian.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83130101_s17_trait_icon_primordian.png",
+    "template_path": "resource_knowledge/image/trait/trait_83130101_s17_trait_icon_primordian.png",
+    "template_resource_path": "trait/trait_83130101_s17_trait_icon_primordian.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_primordian.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83130101,
+    "name": "海魔人",
+    "desc": "(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。  8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。",
+    "effect_desc": "(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。  8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_primordian.png",
+    "level_info": "(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。  8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。|(2)造成伤害时会基于独特【海魔人】的星级召唤【狂潮虫】。 |(3)召唤额外的45%【狂潮虫】！在每场玩家对战后，获得1个随机的1费或2费弈子。  8%承受伤害会被计算至召唤【狂潮虫】的所需伤害。",
+    "trait_id": 83130101,
+    "tft_trait_id": "406",
+    "type": 0,
+    "map_id": 7,
+    "max_level": 2,
+    "num_list": "2|3",
+    "color": "1",
+    "members": [
+      {
+        "id": 11455,
+        "name": "雷克塞",
+        "price": 1
+      },
+      {
+        "id": 11463,
+        "name": "贝蕾亚",
+        "price": 1
+      },
+      {
+        "id": 12454,
+        "name": "卑尔维斯",
+        "price": 2
+      }
+    ]
+  }
+}

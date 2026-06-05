@@ -1,0 +1,124 @@
+{
+  "id": 83100101,
+  "slug": "trait_83100101_s17_trait_icon_astronaut",
+  "name": "木灵族",
+  "aliases": ["木灵族", "s17_trait_icon_astronaut", "402"],
+  "description": "【木灵族】吸引木灵，木灵会以木灵的方式强化【木灵族】的技能。他们还会获得额外生命值。",
+  "effect": "(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！ 克隆时间=弈子费用",
+  "levels": [],
+  "members": [
+    {
+      "id": 11461,
+      "name": "维迦",
+      "cost": 1
+    },
+    {
+      "id": 11462,
+      "name": "波比",
+      "cost": 1
+    },
+    {
+      "id": 12450,
+      "name": "纳尔",
+      "cost": 2
+    },
+    {
+      "id": 12460,
+      "name": "小木灵",
+      "cost": 2
+    },
+    {
+      "id": 13455,
+      "name": "菲兹",
+      "cost": 3
+    },
+    {
+      "id": 14372,
+      "name": "库奇",
+      "cost": 4
+    },
+    {
+      "id": 14376,
+      "name": "拉莫斯",
+      "cost": 4
+    },
+    {
+      "id": 15420,
+      "name": "巴德",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_astronaut.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83100101_s17_trait_icon_astronaut.png",
+    "template_path": "resource_knowledge/image/trait/trait_83100101_s17_trait_icon_astronaut.png",
+    "template_resource_path": "trait/trait_83100101_s17_trait_icon_astronaut.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_astronaut.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83100101,
+    "name": "木灵族",
+    "desc": "【木灵族】吸引木灵，木灵会以木灵的方式强化【木灵族】的技能。他们还会获得额外生命值。",
+    "effect_desc": "(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！  克隆时间=弈子费用",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_astronaut.png",
+    "level_info": "(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！  克隆时间=弈子费用|(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！  克隆时间=弈子费用|(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！  克隆时间=弈子费用|(3)2，100【生命上限】 |(5)3，400【生命上限】 |(7)4，400【生命上限】。在你的备战席上生成一个克隆栏位。在克隆完成时，获得放置在该栏位的弈子的一个1星版本以及金币。 |(10)6，500【生命上限】。召唤四大木灵领主！  克隆时间=弈子费用",
+    "trait_id": 83100101,
+    "tft_trait_id": "402",
+    "type": 0,
+    "map_id": 3,
+    "max_level": 4,
+    "num_list": "3|5|7|10",
+    "color": "1",
+    "members": [
+      {
+        "id": 11461,
+        "name": "维迦",
+        "price": 1
+      },
+      {
+        "id": 11462,
+        "name": "波比",
+        "price": 1
+      },
+      {
+        "id": 12450,
+        "name": "纳尔",
+        "price": 2
+      },
+      {
+        "id": 12460,
+        "name": "小木灵",
+        "price": 2
+      },
+      {
+        "id": 13455,
+        "name": "菲兹",
+        "price": 3
+      },
+      {
+        "id": 14372,
+        "name": "库奇",
+        "price": 4
+      },
+      {
+        "id": 14376,
+        "name": "拉莫斯",
+        "price": 4
+      },
+      {
+        "id": 15420,
+        "name": "巴德",
+        "price": 5
+      }
+    ]
+  }
+}

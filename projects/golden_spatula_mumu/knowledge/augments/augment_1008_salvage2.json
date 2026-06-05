@@ -1,0 +1,42 @@
+{
+  "id": 1008,
+  "slug": "augment_1008_salvage2",
+  "name": "打捞桶",
+  "aliases": ["打捞桶", "salvage2"],
+  "level": 2,
+  "description": "立刻获得1件随机成装，并在8个玩家对战回合之后提供1个基础装备。出售弈子会将其携带的成装拆分成基础装备(冠冕系装备和纹章除外)。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/salvage2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_1008_salvage2.png",
+    "template_path": "resource_knowledge/image/augment/augment_1008_salvage2.png",
+    "template_resource_path": "augment/augment_1008_salvage2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/salvage2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 1008,
+    "name": "打捞桶",
+    "description": "立刻获得1件随机成装，并在8个玩家对战回合之后提供1个基础装备。出售弈子会将其携带的成装拆分成基础装备(冠冕系装备和纹章除外)。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/salvage2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

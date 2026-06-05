@@ -1,0 +1,104 @@
+{
+  "id": 83290101,
+  "slug": "trait_83290101_s17_trait_icon_bastion",
+  "name": "堡垒卫士",
+  "aliases": ["堡垒卫士", "s17_trait_icon_bastion", "310"],
+  "description": "你的队伍获得15护甲和魔抗。 【堡垒卫士】们获得更多，并且该加成在对战的最初10秒内翻倍。",
+  "effect": "(2)16【护甲】【魔法抗性】 |(4)40【护甲】【魔法抗性】 |(6)60【护甲】【魔法抗性】；非【堡垒卫士】单位额外获得20【护甲】【魔法抗性】。",
+  "levels": [],
+  "members": [
+    {
+      "id": 11458,
+      "name": "亚托克斯",
+      "cost": 1
+    },
+    {
+      "id": 11462,
+      "name": "波比",
+      "cost": 1
+    },
+    {
+      "id": 12462,
+      "name": "贾克斯",
+      "cost": 2
+    },
+    {
+      "id": 13453,
+      "name": "奥恩",
+      "cost": 3
+    },
+    {
+      "id": 14376,
+      "name": "拉莫斯",
+      "cost": 4
+    },
+    {
+      "id": 15424,
+      "name": "慎",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bastion.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83290101_s17_trait_icon_bastion.png",
+    "template_path": "resource_knowledge/image/trait/trait_83290101_s17_trait_icon_bastion.png",
+    "template_resource_path": "trait/trait_83290101_s17_trait_icon_bastion.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bastion.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83290101,
+    "name": "堡垒卫士",
+    "desc": "你的队伍获得15护甲和魔抗。  【堡垒卫士】们获得更多，并且该加成在对战的最初10秒内翻倍。",
+    "effect_desc": "(2)16【护甲】【魔法抗性】 |(4)40【护甲】【魔法抗性】 |(6)60【护甲】【魔法抗性】；非【堡垒卫士】单位额外获得20【护甲】【魔法抗性】。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bastion.png",
+    "level_info": "(2)16【护甲】【魔法抗性】 |(4)40【护甲】【魔法抗性】 |(6)60【护甲】【魔法抗性】；非【堡垒卫士】单位额外获得20【护甲】【魔法抗性】。|(2)16【护甲】【魔法抗性】 |(4)40【护甲】【魔法抗性】 |(6)60【护甲】【魔法抗性】；非【堡垒卫士】单位额外获得20【护甲】【魔法抗性】。|(2)16【护甲】【魔法抗性】 |(4)40【护甲】【魔法抗性】 |(6)60【护甲】【魔法抗性】；非【堡垒卫士】单位额外获得20【护甲】【魔法抗性】。",
+    "trait_id": 83290101,
+    "tft_trait_id": "310",
+    "type": 1,
+    "map_id": 1,
+    "max_level": 3,
+    "num_list": "2|4|6",
+    "color": "1",
+    "members": [
+      {
+        "id": 11458,
+        "name": "亚托克斯",
+        "price": 1
+      },
+      {
+        "id": 11462,
+        "name": "波比",
+        "price": 1
+      },
+      {
+        "id": 12462,
+        "name": "贾克斯",
+        "price": 2
+      },
+      {
+        "id": 13453,
+        "name": "奥恩",
+        "price": 3
+      },
+      {
+        "id": 14376,
+        "name": "拉莫斯",
+        "price": 4
+      },
+      {
+        "id": 15424,
+        "name": "慎",
+        "price": 5
+      }
+    ]
+  }
+}

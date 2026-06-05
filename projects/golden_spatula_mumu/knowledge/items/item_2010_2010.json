@@ -1,0 +1,52 @@
+{
+  "id": 2010,
+  "slug": "item_2010_2010",
+  "name": "鬼索的狂暴之刃",
+  "aliases": ["鬼索的狂暴之刃", "2010", "2010"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每秒获得7%可叠加的攻击速度。",
+  "synthesis": [1002, 1003],
+  "recommended_users": [
+    "提莫",
+    "凯特琳",
+    "菲奥娜",
+    "薇古丝",
+    "乐芙兰",
+    "伊泽瑞尔",
+    "黛安娜",
+    "千珏",
+    "烬",
+    "霞",
+    "波比"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2010.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2010_2010.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2010_2010.png",
+    "template_resource_path": "item/completed/item_2010_2010.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2010.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2010,
+    "tft_equip_id": null,
+    "name": "鬼索的狂暴之刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2010.png",
+    "icon": "2010",
+    "desc": "每秒获得7%可叠加的攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1002,
+    "synthesis2": 1003,
+    "type": "成型装备"
+  }
+}

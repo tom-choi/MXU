@@ -1,0 +1,457 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "source": {
+    "defaultVersion": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=default_version",
+    "activeVersions": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=active_versions",
+    "versionsInfo": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=versions_info",
+    "chess": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "chessNameIndex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess_name_index&versionId=17_17.17.4_S18",
+    "equip": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "trait": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "hex": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "lineup": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "category": "champion",
+  "entries": [
+    {
+      "id": 10166,
+      "name": "木桩假人",
+      "slug": "champion_10166_head_targetdummy",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "template_resource_path": "champion/0/champion_10166_head_targetdummy.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_10166_head_targetdummy.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 10167,
+      "name": "木桩假人",
+      "slug": "champion_10167_head_targetdummy",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "template_resource_path": "champion/0/champion_10167_head_targetdummy.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_10167_head_targetdummy.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 10170,
+      "name": "木桩假人",
+      "slug": "champion_10170_head_targetdummy",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "template_resource_path": "champion/0/champion_10170_head_targetdummy.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_10170_head_targetdummy.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18101,
+      "name": "雕纹魔像",
+      "slug": "champion_18101_m_bluemonster",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/m_bluemonster.png",
+      "template_resource_path": "champion/0/champion_18101_m_bluemonster.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18101_m_bluemonster.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18401,
+      "name": "狂潮虫伤害",
+      "slug": "champion_18401_s17_head_primordian",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+      "template_resource_path": "champion/0/champion_18401_s17_head_primordian.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18401_s17_head_primordian.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18402,
+      "name": "狂潮虫伤害",
+      "slug": "champion_18402_s17_head_primordian",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+      "template_resource_path": "champion/0/champion_18402_s17_head_primordian.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18402_s17_head_primordian.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18403,
+      "name": "狂潮虫伤害",
+      "slug": "champion_18403_s17_head_primordian",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+      "template_resource_path": "champion/0/champion_18403_s17_head_primordian.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18403_s17_head_primordian.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18404,
+      "name": "狂潮虫伤害",
+      "slug": "champion_18404_s17_head_primordian",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+      "template_resource_path": "champion/0/champion_18404_s17_head_primordian.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18404_s17_head_primordian.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18406,
+      "name": "圣物",
+      "slug": "champion_18406_s17_head_shensword",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_shensword.png",
+      "template_resource_path": "champion/0/champion_18406_s17_head_shensword.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18406_s17_head_shensword.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18407,
+      "name": "羊咩咩 & 咩咩羊",
+      "slug": "champion_18407_s17_head_bia",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bia.png",
+      "template_resource_path": "champion/0/champion_18407_s17_head_bia.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18407_s17_head_bia.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18408,
+      "name": "羊咩咩 & 咩咩羊",
+      "slug": "champion_18408_s17_head_bayin",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bayin.png",
+      "template_resource_path": "champion/0/champion_18408_s17_head_bayin.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18408_s17_head_bayin.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18422,
+      "name": "羊咩咩 & 咩咩羊",
+      "slug": "champion_18422_s17_head_bayin",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_bayin.png",
+      "template_resource_path": "champion/0/champion_18422_s17_head_bayin.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18422_s17_head_bayin.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18423,
+      "name": "纳尔召唤物a",
+      "slug": "champion_18423_s17_head_gnarmeep_a",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_a.png",
+      "template_resource_path": "champion/0/champion_18423_s17_head_gnarmeep_a.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_a.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18423_s17_head_gnarmeep_a.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18424,
+      "name": "纳尔召唤物b",
+      "slug": "champion_18424_s17_head_gnarmeep_b",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_b.png",
+      "template_resource_path": "champion/0/champion_18424_s17_head_gnarmeep_b.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_b.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18424_s17_head_gnarmeep_b.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18425,
+      "name": "纳尔召唤物c",
+      "slug": "champion_18425_s17_head_gnarmeep_c",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_c.png",
+      "template_resource_path": "champion/0/champion_18425_s17_head_gnarmeep_c.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_c.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18425_s17_head_gnarmeep_c.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18426,
+      "name": "纳尔召唤物d",
+      "slug": "champion_18426_s17_head_gnarmeep_d",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_d.png",
+      "template_resource_path": "champion/0/champion_18426_s17_head_gnarmeep_d.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_gnarmeep_d.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18426_s17_head_gnarmeep_d.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18428,
+      "name": "迷你黑洞",
+      "slug": "champion_18428_s17_h_darkstar_miniblackhole",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_h_darkstar_miniblackhole.png",
+      "template_resource_path": "champion/0/champion_18428_s17_h_darkstar_miniblackhole.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18428_s17_h_darkstar_miniblackhole.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18429,
+      "name": "0",
+      "slug": "champion_18429_s17_head_meeple",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meeple.png",
+      "template_resource_path": "champion/0/champion_18429_s17_head_meeple.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18429_s17_head_meeple.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18430,
+      "name": "0",
+      "slug": "champion_18430_s17_head_meeple",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meeple.png",
+      "template_resource_path": "champion/0/champion_18430_s17_head_meeple.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18430_s17_head_meeple.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18431,
+      "name": "0",
+      "slug": "champion_18431_s17_head_meeple",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meeple.png",
+      "template_resource_path": "champion/0/champion_18431_s17_head_meeple.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18431_s17_head_meeple.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18432,
+      "name": "0",
+      "slug": "champion_18432_s17_head_meeple",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_meeple.png",
+      "template_resource_path": "champion/0/champion_18432_s17_head_meeple.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18432_s17_head_meeple.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 18438,
+      "name": "劫",
+      "slug": "champion_18438_s17_head_zedshadow",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_zedshadow.png",
+      "template_resource_path": "champion/0/champion_18438_s17_head_zedshadow.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18438_s17_head_zedshadow.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    },
+    {
+      "id": 38427,
+      "name": "木桩假人",
+      "slug": "champion_38427_head_targetdummy",
+      "category": "champion",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "template_resource_path": "champion/0/champion_38427_head_targetdummy.png",
+      "template_available": false,
+      "needs_review": true,
+      "download_error": "Image fetch failed 404: https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/head_targetdummy.png",
+      "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_38427_head_targetdummy.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "shop_slots_1280x720": [150, 500, 980, 220],
+        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+      }
+    }
+  ],
+  "cost": 0
+}

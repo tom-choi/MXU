@@ -1,0 +1,51 @@
+{
+  "id": 2004,
+  "slug": "item_2004_2004",
+  "name": "朔极之矛",
+  "aliases": ["朔极之矛", "2004", "2004"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每次普攻提供5额外法力值。",
+  "synthesis": [1001, 1004],
+  "recommended_users": [
+    "维迦",
+    "丽桑卓",
+    "卡尔玛",
+    "崔斯特",
+    "厄运小姐",
+    "阿萝拉",
+    "娜美",
+    "伊泽瑞尔",
+    "卡莎",
+    "未解析棋子 13467"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2004.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2004_2004.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2004_2004.png",
+    "template_resource_path": "item/completed/item_2004_2004.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2004.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2004,
+    "tft_equip_id": null,
+    "name": "朔极之矛",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2004.png",
+    "icon": "2004",
+    "desc": "每次普攻提供5额外法力值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1001,
+    "synthesis2": 1004,
+    "type": "成型装备"
+  }
+}

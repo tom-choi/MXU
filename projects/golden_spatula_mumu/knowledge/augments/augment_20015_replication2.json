@@ -1,0 +1,42 @@
+{
+  "id": 20015,
+  "slug": "augment_20015_replication2",
+  "name": "反响",
+  "aliases": ["反响", "replication2"],
+  "level": 2,
+  "description": "在3件基础装备中选择1件。在接下来的2回合，获得1件该基础装备。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/replication2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20015_replication2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20015_replication2.png",
+    "template_resource_path": "augment/augment_20015_replication2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/replication2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20015,
+    "name": "反响",
+    "description": "在3件基础装备中选择1件。在接下来的2回合，获得1件该基础装备。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/replication2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

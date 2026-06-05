@@ -1,0 +1,391 @@
+{
+  "id": 13465,
+  "slug": "champion_13465_s17_head_missfortune",
+  "name": "厄运小姐",
+  "aliases": ["厄运小姐", "s17_missfortune", "s17_head_missfortune", "s17_missfortune"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["武装战姬", "神谕"],
+  "trait_refs": [
+    {
+      "id": 415,
+      "name": "武装战姬"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    }
+  ],
+  "skill": {
+    "name": "神谕模式",
+    "description": "朝最近的两名敌人引导一连串子弹，持续3.252.52.5秒，每颗子弹每秒造成90（【物理加成】【法术加成】）物理伤害。",
+    "brief_value": "10/15/25|80/120/190",
+    "value_description": "每秒伤害：【法术加成】 10/15/25|每秒伤害：90=80（【物理加成】）+10（【法术加成】） 80/120/190",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_missfortune.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 50,
+      "init_hp": 650,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 70
+    },
+    {
+      "level": 2,
+      "sell_price": 3,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 50,
+      "init_hp": 650,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 30
+    },
+    {
+      "level": 3,
+      "sell_price": 3,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 50,
+      "init_hp": 650,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 4,
+      "sell_price": 8,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1170,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 70
+    },
+    {
+      "level": 5,
+      "sell_price": 8,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1170,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 30
+    },
+    {
+      "level": 6,
+      "sell_price": 8,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 75,
+      "init_hp": 1170,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 7,
+      "sell_price": 26,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2106,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 70
+    },
+    {
+      "level": 8,
+      "sell_price": 26,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2106,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 30
+    },
+    {
+      "level": 9,
+      "sell_price": 26,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 112,
+      "init_hp": 2106,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    },
+    {
+      "level": 10,
+      "sell_price": 80,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 150,
+      "init_hp": 3042,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 70
+    },
+    {
+      "level": 11,
+      "sell_price": 80,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 150,
+      "init_hp": 3042,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 30
+    },
+    {
+      "level": 12,
+      "sell_price": 80,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 150,
+      "init_hp": 3042,
+      "init_mp": 20,
+      "magic_resist": 30,
+      "max_mp": 65
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_missfortune.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13465_s17_head_missfortune.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13465_s17_head_missfortune.png",
+    "template_resource_path": "champion/3/champion_13465_s17_head_missfortune.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13465",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_missfortune.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "217",
+    "id": 13465,
+    "tft_hero_id": 13465,
+    "name": "厄运小姐",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_missfortune.png",
+    "hero_paint": "s17_missfortune",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "10/15/25|80/120/190",
+    "skill_desc": "朝最近的两名敌人引导一连串子弹，持续3.252.52.5秒，每颗子弹每秒造成90（【物理加成】【法术加成】）物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_missfortune.png",
+    "skill_name": "神谕模式",
+    "skill_value_desc": "每秒伤害：【法术加成】 10/15/25|每秒伤害：90=80（【物理加成】）+10（【法术加成】） 80/120/190",
+    "show_hero_tag": true,
+    "species": [415],
+    "class": ["313"],
+    "races": [
+      {
+        "id": 415,
+        "name": "武装战姬"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 50,
+        "init_hp": 650,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 70
+      },
+      {
+        "level": 2,
+        "sell_price": 3,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 50,
+        "init_hp": 650,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 30
+      },
+      {
+        "level": 3,
+        "sell_price": 3,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 50,
+        "init_hp": 650,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 4,
+        "sell_price": 8,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1170,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 70
+      },
+      {
+        "level": 5,
+        "sell_price": 8,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1170,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 30
+      },
+      {
+        "level": 6,
+        "sell_price": 8,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 75,
+        "init_hp": 1170,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 7,
+        "sell_price": 26,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2106,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 70
+      },
+      {
+        "level": 8,
+        "sell_price": 26,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2106,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 30
+      },
+      {
+        "level": 9,
+        "sell_price": 26,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 112,
+        "init_hp": 2106,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      },
+      {
+        "level": 10,
+        "sell_price": 80,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 150,
+        "init_hp": 3042,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 70
+      },
+      {
+        "level": 11,
+        "sell_price": 80,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 150,
+        "init_hp": 3042,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 30
+      },
+      {
+        "level": 12,
+        "sell_price": 80,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 150,
+        "init_hp": 3042,
+        "init_mp": 20,
+        "magic_resist": 30,
+        "max_mp": 65
+      }
+    ]
+  }
+}

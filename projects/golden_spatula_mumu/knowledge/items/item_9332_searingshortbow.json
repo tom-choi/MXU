@@ -1,0 +1,40 @@
+{
+  "id": 9332,
+  "slug": "item_9332_searingshortbow",
+  "name": "炽烈短弓",
+  "aliases": ["炽烈短弓", "searingshortbow", "searingshortbow"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每消耗20法力值，对1名附近的敌人发射1个飞弹，造成相当于100+携带者75%法术加成的魔法伤害，并对敌人施加持续3秒的1%灼烧效果和33%重伤效果。 伤害随阶段提升 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果 推荐角色定位：魔法术师",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9332_searingshortbow.png",
+    "template_path": "resource_knowledge/image/item/special/item_9332_searingshortbow.png",
+    "template_resource_path": "item/special/item_9332_searingshortbow.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9332,
+    "tft_equip_id": null,
+    "name": "炽烈短弓",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/searingshortbow.png",
+    "icon": "searingshortbow",
+    "desc": "每消耗20法力值，对1名附近的敌人发射1个飞弹，造成相当于100+携带者75%法术加成的魔法伤害，并对敌人施加持续3秒的1%灼烧效果和33%重伤效果。  伤害随阶段提升 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果 推荐角色定位：魔法术师",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

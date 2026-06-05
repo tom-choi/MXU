@@ -1,0 +1,42 @@
+{
+  "id": 3158,
+  "slug": "augment_3158_learningfromexperience2",
+  "name": "耐心学习",
+  "aliases": ["耐心学习", "learningfromexperience2"],
+  "level": 2,
+  "description": "在与玩家的战斗后，如果你赢了则获得2经验，如果你输了则获得3经验。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/learningfromexperience2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_3158_learningfromexperience2.png",
+    "template_path": "resource_knowledge/image/augment/augment_3158_learningfromexperience2.png",
+    "template_resource_path": "augment/augment_3158_learningfromexperience2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/learningfromexperience2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3158,
+    "name": "耐心学习",
+    "description": "在与玩家的战斗后，如果你赢了则获得2经验，如果你输了则获得3经验。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/learningfromexperience2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 2087,
+  "slug": "item_2087_2576",
+  "name": "光明版珠光护手",
+  "aliases": ["光明版珠光护手", "2576", "2576"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "获得【技能暴击】。 技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2576.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2087_2576.png",
+    "template_path": "resource_knowledge/image/item/special/item_2087_2576.png",
+    "template_resource_path": "item/special/item_2087_2576.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2576.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2087,
+    "tft_equip_id": null,
+    "name": "光明版珠光护手",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2576.png",
+    "icon": "2576",
+    "desc": "获得【技能暴击】。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

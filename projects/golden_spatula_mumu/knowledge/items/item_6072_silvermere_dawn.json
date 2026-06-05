@@ -1,0 +1,40 @@
+{
+  "id": 6072,
+  "slug": "item_6072_silvermere_dawn",
+  "name": "密银黎明",
+  "aliases": ["密银黎明", "silvermere_dawn", "silvermere_dawn"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "为携带者提供免疫晕眩的效果，并且携带者的攻击可以使目标晕眩0.8秒。 携带者的攻击速度锁定为0.5。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/silvermere_dawn.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6072_silvermere_dawn.png",
+    "template_path": "resource_knowledge/image/item/special/item_6072_silvermere_dawn.png",
+    "template_resource_path": "item/special/item_6072_silvermere_dawn.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/silvermere_dawn.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6072,
+    "tft_equip_id": null,
+    "name": "密银黎明",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/silvermere_dawn.png",
+    "icon": "silvermere_dawn",
+    "desc": "为携带者提供免疫晕眩的效果，并且携带者的攻击可以使目标晕眩0.8秒。  携带者的攻击速度锁定为0.5。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

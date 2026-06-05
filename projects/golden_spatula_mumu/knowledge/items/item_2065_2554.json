@@ -1,0 +1,40 @@
+{
+  "id": 2065,
+  "slug": "item_2065_2554",
+  "name": "光明版红霸符",
+  "aliases": ["光明版红霸符", "2554", "2554"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "攻击和技能的伤害对敌人们造成持续5秒的2%灼烧效果和33%重伤效果。 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2554.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2065_2554.png",
+    "template_path": "resource_knowledge/image/item/special/item_2065_2554.png",
+    "template_resource_path": "item/special/item_2065_2554.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2554.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2065,
+    "tft_equip_id": null,
+    "name": "光明版红霸符",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2554.png",
+    "icon": "2554",
+    "desc": "攻击和技能的伤害对敌人们造成持续5秒的2%灼烧效果和33%重伤效果。  灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

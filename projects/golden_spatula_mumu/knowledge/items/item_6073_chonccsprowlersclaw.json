@@ -1,0 +1,40 @@
+{
+  "id": 6073,
+  "slug": "item_6073_chonccsprowlersclaw",
+  "name": "暗行者之爪",
+  "aliases": ["暗行者之爪", "chonccsprowlersclaw", "chonccsprowlersclaw"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "在击败一个目标后，摆脱负面效果并冲刺到4格内相距最远的那个目标处。下两次暴击攻击造成50%额外暴击伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/chonccsprowlersclaw.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6073_chonccsprowlersclaw.png",
+    "template_path": "resource_knowledge/image/item/special/item_6073_chonccsprowlersclaw.png",
+    "template_resource_path": "item/special/item_6073_chonccsprowlersclaw.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/chonccsprowlersclaw.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6073,
+    "tft_equip_id": null,
+    "name": "暗行者之爪",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/chonccsprowlersclaw.png",
+    "icon": "chonccsprowlersclaw",
+    "desc": "在击败一个目标后，摆脱负面效果并冲刺到4格内相距最远的那个目标处。下两次暴击攻击造成50%额外暴击伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

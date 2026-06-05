@@ -1,0 +1,40 @@
+{
+  "id": 6070,
+  "slug": "item_6070_mittens",
+  "name": "连指手套",
+  "aliases": ["连指手套", "mittens", "mittens"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "将携带者缩小，为其提供移动速度提升并免疫减速、灼烧、以及重伤。 减速：降低攻击速度 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/mittens.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6070_mittens.png",
+    "template_path": "resource_knowledge/image/item/special/item_6070_mittens.png",
+    "template_resource_path": "item/special/item_6070_mittens.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/mittens.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6070,
+    "tft_equip_id": null,
+    "name": "连指手套",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/mittens.png",
+    "icon": "mittens",
+    "desc": "将携带者缩小，为其提供移动速度提升并免疫减速、灼烧、以及重伤。  减速：降低攻击速度 灼烧：每秒造成目标一部分最大生命值的真实伤害 重伤：降低受到的治疗效果",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

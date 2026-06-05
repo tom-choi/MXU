@@ -1,0 +1,40 @@
+{
+  "id": 41702,
+  "slug": "item_41702_41702",
+  "name": "法官纹章",
+  "aliases": ["法官纹章", "41702", "41702"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【法官】羁绊。",
+  "synthesis": [1008, 1006],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41702.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41702_41702.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41702_41702.png",
+    "template_resource_path": "item/completed/item_41702_41702.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41702.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41702,
+    "tft_equip_id": null,
+    "name": "法官纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41702.png",
+    "icon": "41702",
+    "desc": "携带者获得【法官】羁绊。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1006,
+    "type": "转职纹章"
+  }
+}

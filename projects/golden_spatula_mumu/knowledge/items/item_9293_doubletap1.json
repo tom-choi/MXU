@@ -1,0 +1,40 @@
+{
+  "id": 9293,
+  "slug": "item_9293_doubletap1",
+  "name": "双发快射",
+  "aliases": ["双发快射", "doubletap1", "doubletap1"],
+  "category": "special",
+  "type": "-1",
+  "description": "有35%几率攻击两次。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doubletap1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9293_doubletap1.png",
+    "template_path": "resource_knowledge/image/item/special/item_9293_doubletap1.png",
+    "template_resource_path": "item/special/item_9293_doubletap1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doubletap1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9293,
+    "tft_equip_id": null,
+    "name": "双发快射",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/doubletap1.png",
+    "icon": "doubletap1",
+    "desc": "有35%几率攻击两次。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

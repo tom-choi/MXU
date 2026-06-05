@@ -1,0 +1,40 @@
+{
+  "id": 2022,
+  "slug": "item_2022_2222",
+  "name": "蓝霸符",
+  "aliases": ["蓝霸符", "2222", "2222"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "从所有来源中获得10%额外物理加成和法术加成。",
+  "synthesis": [1004, 1004],
+  "recommended_users": ["厄运小姐", "卡莎", "库奇", "卡尔玛"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2222.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2022_2222.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2022_2222.png",
+    "template_resource_path": "item/completed/item_2022_2222.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2222.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2022,
+    "tft_equip_id": null,
+    "name": "蓝霸符",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2222.png",
+    "icon": "2222",
+    "desc": "从所有来源中获得10%额外物理加成和法术加成。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1004,
+    "synthesis2": 1004,
+    "type": "成型装备"
+  }
+}

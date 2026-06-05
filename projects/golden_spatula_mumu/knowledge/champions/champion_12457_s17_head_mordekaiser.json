@@ -1,0 +1,295 @@
+{
+  "id": 12457,
+  "slug": "champion_12457_s17_head_mordekaiser",
+  "name": "莫德凯撒",
+  "aliases": ["莫德凯撒", "s17_mordekaiser", "s17_head_mordekaiser", "s17_mordekaiser"],
+  "cost": 2,
+  "buy_price": 0,
+  "traits": ["暗星", "神谕", "重装战士"],
+  "trait_refs": [
+    {
+      "id": 403,
+      "name": "暗星"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    },
+    {
+      "id": "320",
+      "name": "重装战士"
+    }
+  ],
+  "skill": {
+    "name": "不坏之身",
+    "description": "获得300(【法术加成】)护盾值。接下来的644秒内，每秒获得75(【法术加成】)额外护盾值，并对所有邻格敌人造成45(【法术加成】)魔法伤害。当这个技能结束时，消耗剩余所有护盾值然后回复相当于40%该数值的生命值。",
+    "brief_value": "300/375/500|75/90/105|45/70/100",
+    "value_description": "初始护盾值：300(【法术加成】) 300/375/500|引导护盾值：75(【法术加成】) 75/90/105|引导伤害：45(【法术加成】) 45/70/100",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_mordekaiser.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 2,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 40,
+      "init_hp": 950,
+      "init_mp": 40,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 2,
+      "sell_price": 2,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.66,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 40,
+      "init_hp": 950,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 40
+    },
+    {
+      "level": 3,
+      "sell_price": 5,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1710,
+      "init_mp": 40,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 4,
+      "sell_price": 5,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.66,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 60,
+      "init_hp": 1710,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 40
+    },
+    {
+      "level": 5,
+      "sell_price": 17,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 3078,
+      "init_mp": 40,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 6,
+      "sell_price": 17,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.66,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 3078,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 40
+    },
+    {
+      "level": 7,
+      "sell_price": 53,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.6,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 120,
+      "init_hp": 4447,
+      "init_mp": 40,
+      "magic_resist": 45,
+      "max_mp": 100
+    },
+    {
+      "level": 8,
+      "sell_price": 53,
+      "armor": 45,
+      "attack_range": 1,
+      "attack_speed": 0.66,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 120,
+      "init_hp": 4447,
+      "init_mp": 10,
+      "magic_resist": 45,
+      "max_mp": 40
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_mordekaiser.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_12457_s17_head_mordekaiser.png",
+    "template_path": "resource_knowledge/image/champion/2/champion_12457_s17_head_mordekaiser.png",
+    "template_resource_path": "champion/2/champion_12457_s17_head_mordekaiser.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/12457",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_mordekaiser.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "121",
+    "id": 12457,
+    "tft_hero_id": 12457,
+    "name": "莫德凯撒",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_mordekaiser.png",
+    "hero_paint": "s17_mordekaiser",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 2,
+    "skill_brief_value": "300/375/500|75/90/105|45/70/100",
+    "skill_desc": "获得300(【法术加成】)护盾值。接下来的644秒内，每秒获得75(【法术加成】)额外护盾值，并对所有邻格敌人造成45(【法术加成】)魔法伤害。当这个技能结束时，消耗剩余所有护盾值然后回复相当于40%该数值的生命值。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_mordekaiser.png",
+    "skill_name": "不坏之身",
+    "skill_value_desc": "初始护盾值：300(【法术加成】) 300/375/500|引导护盾值：75(【法术加成】) 75/90/105|引导伤害：45(【法术加成】) 45/70/100",
+    "show_hero_tag": true,
+    "species": [403],
+    "class": ["313", "320"],
+    "races": [
+      {
+        "id": 403,
+        "name": "暗星"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      },
+      {
+        "id": "320",
+        "name": "重装战士"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 2,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 40,
+        "init_hp": 950,
+        "init_mp": 40,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 2,
+        "sell_price": 2,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.66,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 40,
+        "init_hp": 950,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 40
+      },
+      {
+        "level": 3,
+        "sell_price": 5,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1710,
+        "init_mp": 40,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 4,
+        "sell_price": 5,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.66,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 60,
+        "init_hp": 1710,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 40
+      },
+      {
+        "level": 5,
+        "sell_price": 17,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 3078,
+        "init_mp": 40,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 6,
+        "sell_price": 17,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.66,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 3078,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 40
+      },
+      {
+        "level": 7,
+        "sell_price": 53,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.6,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 120,
+        "init_hp": 4447,
+        "init_mp": 40,
+        "magic_resist": 45,
+        "max_mp": 100
+      },
+      {
+        "level": 8,
+        "sell_price": 53,
+        "armor": 45,
+        "attack_range": 1,
+        "attack_speed": 0.66,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 120,
+        "init_hp": 4447,
+        "init_mp": 10,
+        "magic_resist": 45,
+        "max_mp": 40
+      }
+    ]
+  }
+}

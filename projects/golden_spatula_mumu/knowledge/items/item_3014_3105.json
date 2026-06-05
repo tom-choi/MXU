@@ -1,0 +1,40 @@
+{
+  "id": 3014,
+  "slug": "item_3014_3105",
+  "name": "商店回溯器",
+  "aliases": ["商店回溯器", "3105", "3105"],
+  "category": "special",
+  "type": "-1",
+  "description": "在一位英雄身上使用，使用后可使商店进行一次特殊刷新，该次刷新会刷新出与上次商店相同的5张棋子 [消耗品-这个装备会在被使用后消失]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3105.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3014_3105.png",
+    "template_path": "resource_knowledge/image/item/special/item_3014_3105.png",
+    "template_resource_path": "item/special/item_3014_3105.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3105.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3014,
+    "tft_equip_id": null,
+    "name": "商店回溯器",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3105.png",
+    "icon": "3105",
+    "desc": "在一位英雄身上使用，使用后可使商店进行一次特殊刷新，该次刷新会刷新出与上次商店相同的5张棋子  [消耗品-这个装备会在被使用后消失]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

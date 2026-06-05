@@ -1,0 +1,40 @@
+{
+  "id": 1008,
+  "slug": "item_1008_1008",
+  "name": "金铲铲",
+  "aliases": ["金铲铲", "1008", "1008"],
+  "category": "basic",
+  "type": "基础装备",
+  "description": "它必须做点什么…",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1008.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1008_1008.png",
+    "template_path": "resource_knowledge/image/item/basic/item_1008_1008.png",
+    "template_resource_path": "item/basic/item_1008_1008.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1008.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 1008,
+    "tft_equip_id": null,
+    "name": "金铲铲",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1008.png",
+    "icon": "1008",
+    "desc": "它必须做点什么…",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "基础装备"
+  }
+}

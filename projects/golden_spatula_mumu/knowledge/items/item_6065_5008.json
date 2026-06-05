@@ -1,0 +1,40 @@
+{
+  "id": 6065,
+  "slug": "item_6065_5008",
+  "name": "投机者之刃",
+  "aliases": ["投机者之刃", "5008", "5008"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "获得【攻击速度】1%x你的【金币】金币存款的攻击速度(在【金币】30金币时达到最大值)。 每次攻击有6%几率掉落【金币】1金币。 [唯一-每位英雄仅限1件]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5008.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6065_5008.png",
+    "template_path": "resource_knowledge/image/item/special/item_6065_5008.png",
+    "template_resource_path": "item/special/item_6065_5008.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5008.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6065,
+    "tft_equip_id": null,
+    "name": "投机者之刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/5008.png",
+    "icon": "5008",
+    "desc": "获得【攻击速度】1%x你的【金币】金币存款的攻击速度(在【金币】30金币时达到最大值)。  每次攻击有6%几率掉落【金币】1金币。  [唯一-每位英雄仅限1件]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

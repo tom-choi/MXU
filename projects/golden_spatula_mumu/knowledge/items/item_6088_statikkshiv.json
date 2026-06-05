@@ -1,0 +1,40 @@
+{
+  "id": 6088,
+  "slug": "item_6088_statikkshiv",
+  "name": "斯塔缇克电刃",
+  "aliases": ["斯塔缇克电刃", "statikkshiv", "statikkshiv"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "每第3次攻击对4名敌人造成30+40%携带者额外法术加成的额外魔法伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/statikkshiv.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6088_statikkshiv.png",
+    "template_path": "resource_knowledge/image/item/special/item_6088_statikkshiv.png",
+    "template_resource_path": "item/special/item_6088_statikkshiv.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/statikkshiv.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6088,
+    "tft_equip_id": null,
+    "name": "斯塔缇克电刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/statikkshiv.png",
+    "icon": "statikkshiv",
+    "desc": "每第3次攻击对4名敌人造成30+40%携带者额外法术加成的额外魔法伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

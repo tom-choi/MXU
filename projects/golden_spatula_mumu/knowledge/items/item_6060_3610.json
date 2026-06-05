@@ -1,0 +1,40 @@
+{
+  "id": 6060,
+  "slug": "item_6060_3610",
+  "name": "中娅悖论",
+  "aliases": ["中娅悖论", "3610", "3610"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "每场战斗一次：在40%生命值时，携带者进入持续3秒的免疫伤害和无法被选取状态。 [唯一-每位英雄仅限1件]",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3610.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6060_3610.png",
+    "template_path": "resource_knowledge/image/item/special/item_6060_3610.png",
+    "template_resource_path": "item/special/item_6060_3610.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3610.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6060,
+    "tft_equip_id": null,
+    "name": "中娅悖论",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3610.png",
+    "icon": "3610",
+    "desc": "每场战斗一次：在40%生命值时，携带者进入持续3秒的免疫伤害和无法被选取状态。  [唯一-每位英雄仅限1件]",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": 30234,
+  "slug": "augment_30234_trifecta3",
+  "name": "三项赛 II",
+  "aliases": ["三项赛 II", "trifecta3"],
+  "level": 3,
+  "description": "获得3个3费英雄。友军获得5%攻击速度。战斗开始时：3个随机3费英雄获得300生命值和25%攻击速度。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/trifecta3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_30234_trifecta3.png",
+    "template_path": "resource_knowledge/image/augment/augment_30234_trifecta3.png",
+    "template_resource_path": "augment/augment_30234_trifecta3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/trifecta3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 30234,
+    "name": "三项赛 II",
+    "description": "获得3个3费英雄。友军获得5%攻击速度。战斗开始时：3个随机3费英雄获得300生命值和25%攻击速度。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/trifecta3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

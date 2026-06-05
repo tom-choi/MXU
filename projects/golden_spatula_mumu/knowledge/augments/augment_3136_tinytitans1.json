@@ -1,0 +1,42 @@
+{
+  "id": 3136,
+  "slug": "augment_3136_tinytitans1",
+  "name": "小巨人",
+  "aliases": ["小巨人", "tinytitans1"],
+  "level": 1,
+  "description": "你的小小英雄回复20生命值、变得更大并且拥有120最大生命值。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/tinytitans1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_3136_tinytitans1.png",
+    "template_path": "resource_knowledge/image/augment/augment_3136_tinytitans1.png",
+    "template_resource_path": "augment/augment_3136_tinytitans1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/tinytitans1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3136,
+    "name": "小巨人",
+    "description": "你的小小英雄回复20生命值、变得更大并且拥有120最大生命值。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/tinytitans1.png",
+    "level": 1,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

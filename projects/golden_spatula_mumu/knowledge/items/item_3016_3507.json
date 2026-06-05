@@ -1,0 +1,40 @@
+{
+  "id": 3016,
+  "slug": "item_3016_3507",
+  "name": "免费刷新道具",
+  "aliases": ["免费刷新道具", "3507", "3507"],
+  "category": "special",
+  "type": "-1",
+  "description": "将此物拖拽至商店，即可刷新免费刷新一次你的商店。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3507.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3016_3507.png",
+    "template_path": "resource_knowledge/image/item/special/item_3016_3507.png",
+    "template_resource_path": "item/special/item_3016_3507.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3507.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 3016,
+    "tft_equip_id": null,
+    "name": "免费刷新道具",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/3507.png",
+    "icon": "3507",
+    "desc": "将此物拖拽至商店，即可刷新免费刷新一次你的商店。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

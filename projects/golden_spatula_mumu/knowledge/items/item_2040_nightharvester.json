@@ -1,0 +1,40 @@
+{
+  "id": 2040,
+  "slug": "item_2040_nightharvester",
+  "name": "坚定之心",
+  "aliases": ["坚定之心", "nightharvester", "nightharvester"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "获得5%伤害减免。在高于50%生命值时，转而获得15%伤害减免。",
+  "synthesis": [1005, 1009],
+  "recommended_users": ["努努和威朗普"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nightharvester.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2040_nightharvester.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2040_nightharvester.png",
+    "template_resource_path": "item/completed/item_2040_nightharvester.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nightharvester.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2040,
+    "tft_equip_id": null,
+    "name": "坚定之心",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nightharvester.png",
+    "icon": "nightharvester",
+    "desc": "获得5%伤害减免。在高于50%生命值时，转而获得15%伤害减免。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1005,
+    "synthesis2": 1009,
+    "type": "成型装备"
+  }
+}

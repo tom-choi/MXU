@@ -1,0 +1,49 @@
+{
+  "id": 2014,
+  "slug": "item_2014_nashorstooth",
+  "name": "纳什之牙",
+  "aliases": ["纳什之牙", "nashorstooth", "nashorstooth"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "每次普攻提供2额外法力值，如果暴击则提供额外的4法力值。",
+  "synthesis": [1002, 1007],
+  "recommended_users": [
+    "崔斯特",
+    "菲兹",
+    "未解析棋子 13468",
+    "娜美",
+    "丽桑卓",
+    "卡尔玛",
+    "维克托",
+    "阿萝拉"
+  ],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nashorstooth.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2014_nashorstooth.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2014_nashorstooth.png",
+    "template_resource_path": "item/completed/item_2014_nashorstooth.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nashorstooth.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2014,
+    "tft_equip_id": null,
+    "name": "纳什之牙",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/nashorstooth.png",
+    "icon": "nashorstooth",
+    "desc": "每次普攻提供2额外法力值，如果暴击则提供额外的4法力值。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1002,
+    "synthesis2": 1007,
+    "type": "成型装备"
+  }
+}

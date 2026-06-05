@@ -1,0 +1,40 @@
+{
+  "id": 2036,
+  "slug": "item_2036_2036",
+  "name": "金铲铲冠冕",
+  "aliases": ["金铲铲冠冕", "2036", "2036"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "你的队伍获得+1最大队伍规模。 在你赢下战斗时，有10%几率掉落1金币。 “……某位英雄的心……”",
+  "synthesis": [1008, 1008],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2036.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2036_2036.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2036_2036.png",
+    "template_resource_path": "item/completed/item_2036_2036.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2036.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2036,
+    "tft_equip_id": null,
+    "name": "金铲铲冠冕",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2036.png",
+    "icon": "2036",
+    "desc": "你的队伍获得+1最大队伍规模。  在你赢下战斗时，有10%几率掉落1金币。  “……某位英雄的心……”",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1008,
+    "synthesis2": 1008,
+    "type": "成型装备"
+  }
+}

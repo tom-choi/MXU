@@ -1,0 +1,42 @@
+{
+  "id": 20739,
+  "slug": "augment_20739_whitehole2",
+  "name": "战利品奇点",
+  "aliases": ["战利品奇点", "whitehole2"],
+  "level": 2,
+  "description": "当【黑洞】吞噬敌人时，它会将其转变成太空物质。在获取了足够数量之后，【黑洞】会将它转变为战利品！获得1个【科加斯】和1个【丽桑卓】。太空物质和战利品的品质每次都会提升。获得2/3/4太空物质，基于【暗星】的层级。 太空物质：0/0",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/whitehole2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20739_whitehole2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20739_whitehole2.png",
+    "template_resource_path": "augment/augment_20739_whitehole2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/whitehole2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20739,
+    "name": "战利品奇点",
+    "description": "当【黑洞】吞噬敌人时，它会将其转变成太空物质。在获取了足够数量之后，【黑洞】会将它转变为战利品！获得1个【科加斯】和1个【丽桑卓】。太空物质和战利品的品质每次都会提升。获得2/3/4太空物质，基于【暗星】的层级。 太空物质：0/0",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/whitehole2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": 20624,
+  "slug": "augment_20624_birthdayreunion2",
+  "name": "生日聚会",
+  "aliases": ["生日聚会", "birthdayreunion2"],
+  "level": 2,
+  "description": "获得1个随机2星2费弈子。在你到达7级时，获得1个【秘法手套】。在你到达9级时，获得1个随机2星5费弈子。 2024【画中灵】全球总决赛",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/birthdayreunion2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20624_birthdayreunion2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20624_birthdayreunion2.png",
+    "template_resource_path": "augment/augment_20624_birthdayreunion2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/birthdayreunion2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20624,
+    "name": "生日聚会",
+    "description": "获得1个随机2星2费弈子。在你到达7级时，获得1个【秘法手套】。在你到达9级时，获得1个随机2星5费弈子。  2024【画中灵】全球总决赛",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/birthdayreunion2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

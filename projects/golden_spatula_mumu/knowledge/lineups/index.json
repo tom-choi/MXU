@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-06-05T05:03:27.069Z",
+  "version_id": "17_17.17.4_S18",
+  "season": "S18",
+  "count": 41,
+  "entries": [
+    {
+      "id": 4331,
+      "slug": "lineup_4331",
+      "name": "【木灵小法维迦】5木灵族3牧羊人2魔术师",
+      "path": "lineup_4331.json"
+    },
+    {
+      "id": 4332,
+      "slug": "lineup_4332",
+      "name": "【拼多多神谕女枪】2新星特攻队2灵能特工2斗士",
+      "path": "lineup_4332.json"
+    },
+    {
+      "id": 4333,
+      "slug": "lineup_4333",
+      "name": "【秀山观星九五烬】3观星者2暗星2狙神",
+      "path": "lineup_4333.json"
+    },
+    {
+      "id": 4335,
+      "slug": "lineup_4335",
+      "name": "【重装提莫】6重装战士3太空律动3牧羊人",
+      "path": "lineup_4335.json"
+    },
+    {
+      "id": 4336,
+      "slug": "lineup_4336",
+      "name": "【六机甲龙王索尔】6霸天机甲2斗士2暗星",
+      "path": "lineup_4336.json"
+    },
+    {
+      "id": 4337,
+      "slug": "lineup_4337",
+      "name": "【观星崔斯特】4织命人3观星者2游侠",
+      "path": "lineup_4337.json"
+    },
+    {
+      "id": 4338,
+      "slug": "lineup_4338",
+      "name": "【织命卡牌女警双c】4堡垒卫士4织命人3木灵族",
+      "path": "lineup_4338.json"
+    },
+    {
+      "id": 4339,
+      "slug": "lineup_4339",
+      "name": "【新星薇古丝九五】3新星特攻队2堡垒卫士2斗士",
+      "path": "lineup_4339.json"
+    },
+    {
+      "id": 4340,
+      "slug": "lineup_4340",
+      "name": "【重装妖姬乐芙兰】4重装战士3法官2暗星",
+      "path": "lineup_4340.json"
+    },
+    {
+      "id": 4341,
+      "slug": "lineup_4341",
+      "name": "【木灵薇古丝九五】3旅人3木灵族2暗星",
+      "path": "lineup_4341.json"
+    },
+    {
+      "id": 4343,
+      "slug": "lineup_4343",
+      "name": "【拼多多卡莎小鱼人】3木灵族2堡垒卫士2游侠2旅人",
+      "path": "lineup_4343.json"
+    },
+    {
+      "id": 4344,
+      "slug": "lineup_4344",
+      "name": "【6斗科加斯】6斗士2暗星2未来战士",
+      "path": "lineup_4344.json"
+    },
+    {
+      "id": 4345,
+      "slug": "lineup_4345",
+      "name": "【新星海魔卑尔维斯】5新星特攻队3海魔人",
+      "path": "lineup_4345.json"
+    },
+    {
+      "id": 4346,
+      "slug": "lineup_4346",
+      "name": "【拼多多魔术师女枪】2新星特攻队2游侠2斗士",
+      "path": "lineup_4346.json"
+    },
+    {
+      "id": 4347,
+      "slug": "lineup_4347",
+      "name": "【幻灵皎月黛安娜】3幻灵战队3牧羊人3法官",
+      "path": "lineup_4347.json"
+    },
+    {
+      "id": 4348,
+      "slug": "lineup_4348",
+      "name": "【八四飞机库奇】5木灵族2堡垒卫士2织命人",
+      "path": "lineup_4348.json"
+    },
+    {
+      "id": 4350,
+      "slug": "lineup_4350",
+      "name": "【八四太空律动】5太空律动2魔术师2未来战士",
+      "path": "lineup_4350.json"
+    },
+    {
+      "id": 4351,
+      "slug": "lineup_4351",
+      "name": "【新星千珏剑圣】5新星特攻队2堡垒卫士2斗士",
+      "path": "lineup_4351.json"
+    },
+    {
+      "id": 4352,
+      "slug": "lineup_4352",
+      "name": "【拼多多露露】3观星者2魔术师2堡垒卫士",
+      "path": "lineup_4352.json"
+    },
+    {
+      "id": 4353,
+      "slug": "lineup_4353",
+      "name": "【开门派克】3未来战士2灵能特攻2斗士",
+      "path": "lineup_4353.json"
+    },
+    {
+      "id": 4355,
+      "slug": "lineup_4355",
+      "name": "【新星特工剑圣易】5新星特攻队4狂战士2堡垒卫士",
+      "path": "lineup_4355.json"
+    },
+    {
+      "id": 4356,
+      "slug": "lineup_4356",
+      "name": "【木灵九五烬】3木灵族2暗星2狙神",
+      "path": "lineup_4356.json"
+    },
+    {
+      "id": 4429,
+      "slug": "lineup_4429",
+      "name": "【重装薇古丝九五】4重装战士3牧羊人2暗星",
+      "path": "lineup_4429.json"
+    },
+    {
+      "id": 4452,
+      "slug": "lineup_4452",
+      "name": "【观星狙霞烬95】3木灵族3观星者3狙神",
+      "path": "lineup_4452.json"
+    },
+    {
+      "id": 4481,
+      "slug": "lineup_4481",
+      "name": "【牧羊人维克托】3牧羊人2魔术师2暗星2灵能特攻",
+      "path": "lineup_4481.json"
+    },
+    {
+      "id": 4487,
+      "slug": "lineup_4487",
+      "name": "【斗士伊泽瑞尔】4暗星4斗士2魔术师",
+      "path": "lineup_4487.json"
+    },
+    {
+      "id": 4488,
+      "slug": "lineup_4488",
+      "name": "【观星璐璐】3观星者2魔术师2新星特攻队",
+      "path": "lineup_4488.json"
+    },
+    {
+      "id": 4491,
+      "slug": "lineup_4491",
+      "name": "【八四牧羊人娜美】5牧羊人2魔术师2重装战士",
+      "path": "lineup_4491.json"
+    },
+    {
+      "id": 4492,
+      "slug": "lineup_4492",
+      "name": "【派克专属赏金杀手】5旅人4灵能特工2斗士",
+      "path": "lineup_4492.json"
+    },
+    {
+      "id": 4495,
+      "slug": "lineup_4495",
+      "name": "【宇宙大爆炸专属】3牧羊人3木灵族2堡垒卫士",
+      "path": "lineup_4495.json"
+    },
+    {
+      "id": 4496,
+      "slug": "lineup_4496",
+      "name": "【波比专属飙速木灵】7木灵族2堡垒卫士2游侠",
+      "path": "lineup_4496.json"
+    },
+    {
+      "id": 4497,
+      "slug": "lineup_4497",
+      "name": "【亚托克斯专属星界连招】5新星特攻队4堡垒卫士1太空律动",
+      "path": "lineup_4497.json"
+    },
+    {
+      "id": 4498,
+      "slug": "lineup_4498",
+      "name": "【单顶贝蕾亚】3海魔人2斗士2暗星",
+      "path": "lineup_4498.json"
+    },
+    {
+      "id": 4500,
+      "slug": "lineup_4500",
+      "name": "【莫德凯撒专属热寂】4重装战士4暗星3牧羊人",
+      "path": "lineup_4500.json"
+    },
+    {
+      "id": 4502,
+      "slug": "lineup_4502",
+      "name": "【机甲厄加特】4霸天机甲2斗士2狂战士",
+      "path": "lineup_4502.json"
+    },
+    {
+      "id": 4506,
+      "slug": "lineup_4506",
+      "name": "【6暗星卡莎】6暗星2斗士2重装战士",
+      "path": "lineup_4506.json"
+    },
+    {
+      "id": 4507,
+      "slug": "lineup_4507",
+      "name": "【4魔术师女枪】4魔术师2斗士2堡垒卫士",
+      "path": "lineup_4507.json"
+    },
+    {
+      "id": 4511,
+      "slug": "lineup_4511",
+      "name": "【暗星龙王】6暗星2神谕2重装战士",
+      "path": "lineup_4511.json"
+    },
+    {
+      "id": 4514,
+      "slug": "lineup_4514",
+      "name": "【神谕龙王】3牧羊人3霸天机甲3神谕",
+      "path": "lineup_4514.json"
+    },
+    {
+      "id": 4515,
+      "slug": "lineup_4515",
+      "name": "【重装龙王】4重装战士3牧羊人2暗星",
+      "path": "lineup_4515.json"
+    },
+    {
+      "id": 4516,
+      "slug": "lineup_4516",
+      "name": "【古拉加斯专属自我毁灭】4灵能特工4斗士2暗星",
+      "path": "lineup_4516.json"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": 18402,
+  "slug": "champion_18402_s17_head_primordian",
+  "name": "狂潮虫伤害",
+  "aliases": ["狂潮虫伤害", "s17_hunter", "s17_head_primordian", "s17_primordian"],
+  "cost": 0,
+  "buy_price": 0,
+  "traits": [],
+  "trait_refs": [],
+  "skill": {
+    "name": "",
+    "description": "",
+    "brief_value": "",
+    "value_description": "",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_primordian.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 0,
+      "armor": 0,
+      "attack_range": 1,
+      "attack_speed": 1,
+      "critical_strike_chance": 0,
+      "init_attack_damage": 37,
+      "init_hp": 100,
+      "init_mp": 0,
+      "magic_resist": 0,
+      "max_mp": 0
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_18402_s17_head_primordian.png",
+    "template_path": "resource_knowledge/image/champion/0/champion_18402_s17_head_primordian.png",
+    "template_resource_path": "champion/0/champion_18402_s17_head_primordian.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/18402",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "382",
+    "id": 18402,
+    "tft_hero_id": 18402,
+    "name": "狂潮虫伤害",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_primordian.png",
+    "hero_paint": "s17_hunter",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 0,
+    "skill_brief_value": "",
+    "skill_desc": "",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_primordian.png",
+    "skill_name": "",
+    "skill_value_desc": "",
+    "show_hero_tag": true,
+    "species": [-1],
+    "class": ["-1"],
+    "races": [],
+    "traits": [],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 0,
+        "armor": 0,
+        "attack_range": 1,
+        "attack_speed": 1,
+        "critical_strike_chance": 0,
+        "init_attack_damage": 37,
+        "init_hp": 100,
+        "init_mp": 0,
+        "magic_resist": 0,
+        "max_mp": 0
+      }
+    ],
+    "enabled": false
+  }
+}

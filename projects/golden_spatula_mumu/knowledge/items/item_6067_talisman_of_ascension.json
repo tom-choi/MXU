@@ -1,0 +1,40 @@
+{
+  "id": 6067,
+  "slug": "item_6067_talisman_of_ascension",
+  "name": "飞升护符",
+  "aliases": ["飞升护符", "talisman_of_ascension", "talisman_of_ascension"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "在22秒后，获得100%最大生命值和120%伤害增幅，持续到战斗环节结束。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/talisman_of_ascension.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6067_talisman_of_ascension.png",
+    "template_path": "resource_knowledge/image/item/special/item_6067_talisman_of_ascension.png",
+    "template_resource_path": "item/special/item_6067_talisman_of_ascension.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/talisman_of_ascension.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6067,
+    "tft_equip_id": null,
+    "name": "飞升护符",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/talisman_of_ascension.png",
+    "icon": "talisman_of_ascension",
+    "desc": "在22秒后，获得100%最大生命值和120%伤害增幅，持续到战斗环节结束。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

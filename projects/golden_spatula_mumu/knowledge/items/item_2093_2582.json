@@ -1,0 +1,40 @@
+{
+  "id": 2093,
+  "slug": "item_2093_2582",
+  "name": "光明版锐利之刃",
+  "aliases": ["光明版锐利之刃", "2582", "2582"],
+  "category": "special",
+  "type": "光明武器",
+  "description": "它在敌人面前发光。或在朋友面前。或在任何活着的东西面前，真的。 额外物理加成:0%",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2582.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2093_2582.png",
+    "template_path": "resource_knowledge/image/item/special/item_2093_2582.png",
+    "template_resource_path": "item/special/item_2093_2582.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2582.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2093,
+    "tft_equip_id": null,
+    "name": "光明版锐利之刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2582.png",
+    "icon": "2582",
+    "desc": "它在敌人面前发光。或在朋友面前。或在任何活着的东西面前，真的。  额外物理加成:0%",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "光明武器"
+  }
+}

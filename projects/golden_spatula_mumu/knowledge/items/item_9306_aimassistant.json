@@ -1,0 +1,40 @@
+{
+  "id": 9306,
+  "slug": "item_9306_aimassistant",
+  "name": "辅助瞄准",
+  "aliases": ["辅助瞄准", "aimassistant", "aimassistant"],
+  "category": "special",
+  "type": "-1",
+  "description": "每与目标相距1格，造成5%额外伤害。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aimassistant.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9306_aimassistant.png",
+    "template_path": "resource_knowledge/image/item/special/item_9306_aimassistant.png",
+    "template_resource_path": "item/special/item_9306_aimassistant.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aimassistant.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9306,
+    "tft_equip_id": null,
+    "name": "辅助瞄准",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aimassistant.png",
+    "icon": "aimassistant",
+    "desc": "每与目标相距1格，造成5%额外伤害。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

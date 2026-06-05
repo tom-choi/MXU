@@ -1,0 +1,287 @@
+{
+  "id": 14379,
+  "slug": "champion_14379_s17_head_galio",
+  "name": "超级机甲",
+  "aliases": ["超级机甲", "s17_galio", "s17_head_galio", "s17_galio"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["霸天机甲", "旅人"],
+  "trait_refs": [
+    {
+      "id": 404,
+      "name": "霸天机甲"
+    },
+    {
+      "id": "321",
+      "name": "旅人"
+    }
+  ],
+  "skill": {
+    "name": "引力矩阵",
+    "description": "进入持续4秒的防御姿态，从而获得20%伤害减免。处于防御姿态时，吸引附近的敌方投射物并持续回复900(【法术加成】)生命值。当这个效果结束时，释放一道冲击波，在一个半径2格的范围内造成96(【护甲】【魔法抗性】)物理伤害。",
+    "brief_value": "900/1300/3000|80%/120%/3000%",
+    "value_description": "治疗：900(【法术加成】) 900/1300/3000|伤害：96=80%【护甲】+80%【魔法抗性】 80%/120%/3000%",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_galio.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 70,
+      "init_hp": 1300,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 2,
+      "sell_price": 4,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 70,
+      "init_hp": 1300,
+      "init_mp": 15,
+      "magic_resist": 60,
+      "max_mp": 75
+    },
+    {
+      "level": 3,
+      "sell_price": 11,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 105,
+      "init_hp": 2340,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 4,
+      "sell_price": 11,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 105,
+      "init_hp": 2340,
+      "init_mp": 15,
+      "magic_resist": 60,
+      "max_mp": 75
+    },
+    {
+      "level": 5,
+      "sell_price": 35,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 157,
+      "init_hp": 5212,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 6,
+      "sell_price": 35,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 157,
+      "init_hp": 5212,
+      "init_mp": 15,
+      "magic_resist": 60,
+      "max_mp": 75
+    },
+    {
+      "level": 7,
+      "sell_price": 107,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 210,
+      "init_hp": 7084,
+      "init_mp": 40,
+      "magic_resist": 60,
+      "max_mp": 100
+    },
+    {
+      "level": 8,
+      "sell_price": 107,
+      "armor": 60,
+      "attack_range": 1,
+      "attack_speed": 0.65,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 210,
+      "init_hp": 7084,
+      "init_mp": 15,
+      "magic_resist": 60,
+      "max_mp": 75
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_galio.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14379_s17_head_galio.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14379_s17_head_galio.png",
+    "template_resource_path": "champion/4/champion_14379_s17_head_galio.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14379",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_galio.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "293",
+    "id": 14379,
+    "tft_hero_id": 14379,
+    "name": "超级机甲",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_galio.png",
+    "hero_paint": "s17_galio",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "900/1300/3000|80%/120%/3000%",
+    "skill_desc": "进入持续4秒的防御姿态，从而获得20%伤害减免。处于防御姿态时，吸引附近的敌方投射物并持续回复900(【法术加成】)生命值。当这个效果结束时，释放一道冲击波，在一个半径2格的范围内造成96(【护甲】【魔法抗性】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_galio.png",
+    "skill_name": "引力矩阵",
+    "skill_value_desc": "治疗：900(【法术加成】) 900/1300/3000|伤害：96=80%【护甲】+80%【魔法抗性】 80%/120%/3000%",
+    "show_hero_tag": true,
+    "species": [404],
+    "class": ["321"],
+    "races": [
+      {
+        "id": 404,
+        "name": "霸天机甲"
+      }
+    ],
+    "traits": [
+      {
+        "id": "321",
+        "name": "旅人"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 70,
+        "init_hp": 1300,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 2,
+        "sell_price": 4,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 70,
+        "init_hp": 1300,
+        "init_mp": 15,
+        "magic_resist": 60,
+        "max_mp": 75
+      },
+      {
+        "level": 3,
+        "sell_price": 11,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 105,
+        "init_hp": 2340,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 4,
+        "sell_price": 11,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 105,
+        "init_hp": 2340,
+        "init_mp": 15,
+        "magic_resist": 60,
+        "max_mp": 75
+      },
+      {
+        "level": 5,
+        "sell_price": 35,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 157,
+        "init_hp": 5212,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 6,
+        "sell_price": 35,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 157,
+        "init_hp": 5212,
+        "init_mp": 15,
+        "magic_resist": 60,
+        "max_mp": 75
+      },
+      {
+        "level": 7,
+        "sell_price": 107,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 210,
+        "init_hp": 7084,
+        "init_mp": 40,
+        "magic_resist": 60,
+        "max_mp": 100
+      },
+      {
+        "level": 8,
+        "sell_price": 107,
+        "armor": 60,
+        "attack_range": 1,
+        "attack_speed": 0.65,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 210,
+        "init_hp": 7084,
+        "init_mp": 15,
+        "magic_resist": 60,
+        "max_mp": 75
+      }
+    ]
+  }
+}

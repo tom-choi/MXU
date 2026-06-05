@@ -1,0 +1,40 @@
+{
+  "id": 6093,
+  "slug": "item_6093_aegisofdusk",
+  "name": "黄昏圣盾",
+  "aliases": ["黄昏圣盾", "aegisofdusk", "aegisofdusk"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "每2.5秒，从1格内的敌人们处获取3魔抗，并造成相当于携带者15%魔抗值的魔法伤害。 如果还携带了【黎明圣盾】，则转而每1.25秒触发这件装备的效果。 伤害基于阶段提升。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aegisofdusk.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6093_aegisofdusk.png",
+    "template_path": "resource_knowledge/image/item/special/item_6093_aegisofdusk.png",
+    "template_resource_path": "item/special/item_6093_aegisofdusk.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aegisofdusk.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6093,
+    "tft_equip_id": null,
+    "name": "黄昏圣盾",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/aegisofdusk.png",
+    "icon": "aegisofdusk",
+    "desc": "每2.5秒，从1格内的敌人们处获取3魔抗，并造成相当于携带者15%魔抗值的魔法伤害。  如果还携带了【黎明圣盾】，则转而每1.25秒触发这件装备的效果。  伤害基于阶段提升。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

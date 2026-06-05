@@ -1,0 +1,40 @@
+{
+  "id": 9298,
+  "slug": "item_9298_ripperbullets",
+  "name": "破甲弹",
+  "aliases": ["破甲弹", "ripperbullets", "ripperbullets"],
+  "category": "special",
+  "type": "-1",
+  "description": "攻击使敌人的护甲和魔抗降低1。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ripperbullets.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9298_ripperbullets.png",
+    "template_path": "resource_knowledge/image/item/special/item_9298_ripperbullets.png",
+    "template_resource_path": "item/special/item_9298_ripperbullets.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ripperbullets.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9298,
+    "tft_equip_id": null,
+    "name": "破甲弹",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/ripperbullets.png",
+    "icon": "ripperbullets",
+    "desc": "攻击使敌人的护甲和魔抗降低1。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

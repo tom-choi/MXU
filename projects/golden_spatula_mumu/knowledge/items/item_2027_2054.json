@@ -1,0 +1,40 @@
+{
+  "id": 2027,
+  "slug": "item_2027_2054",
+  "name": "棘刺背心",
+  "aliases": ["棘刺背心", "2054", "2054"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "获得6%最大生命值。 使来自攻击的伤害降低5%。在被任一攻击命中时，对邻格所有敌人造成100魔法伤害。 冷却时间：2秒",
+  "synthesis": [1005, 1005],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2054.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2027_2054.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2027_2054.png",
+    "template_resource_path": "item/completed/item_2027_2054.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2054.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2027,
+    "tft_equip_id": null,
+    "name": "棘刺背心",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/2054.png",
+    "icon": "2054",
+    "desc": "获得6%最大生命值。  使来自攻击的伤害降低5%。在被任一攻击命中时，对邻格所有敌人造成100魔法伤害。  冷却时间：2秒",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1005,
+    "synthesis2": 1005,
+    "type": "成型装备"
+  }
+}

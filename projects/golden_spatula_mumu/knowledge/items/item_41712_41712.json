@@ -1,0 +1,40 @@
+{
+  "id": 41712,
+  "slug": "item_41712_41712",
+  "name": "堡垒卫士纹章",
+  "aliases": ["堡垒卫士纹章", "41712", "41712"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【堡垒卫士】羁绊。在战斗开始的最初10秒之后，携带者获得70%攻击速度。",
+  "synthesis": [1010, 1005],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41712.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41712_41712.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41712_41712.png",
+    "template_resource_path": "item/completed/item_41712_41712.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41712.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41712,
+    "tft_equip_id": null,
+    "name": "堡垒卫士纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41712.png",
+    "icon": "41712",
+    "desc": "携带者获得【堡垒卫士】羁绊。在战斗开始的最初10秒之后，携带者获得70%攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1010,
+    "synthesis2": 1005,
+    "type": "转职纹章"
+  }
+}

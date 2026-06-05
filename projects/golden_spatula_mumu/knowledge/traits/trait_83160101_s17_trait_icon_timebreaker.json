@@ -1,0 +1,84 @@
+{
+  "id": 83160101,
+  "slug": "trait_83160101_s17_trait_icon_timebreaker",
+  "name": "未来战士",
+  "aliases": ["未来战士", "s17_trait_icon_timebreaker", "410"],
+  "description": "(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度 从失败中获得的刷新次数：0 从胜利中获得的经验值：0",
+  "effect": "(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度 从失败中获得的刷新次数：0 从胜利中获得的经验值：0",
+  "levels": [],
+  "members": [
+    {
+      "id": 11451,
+      "name": "伊泽瑞尔",
+      "cost": 1
+    },
+    {
+      "id": 12456,
+      "name": "米利欧",
+      "cost": 2
+    },
+    {
+      "id": 12459,
+      "name": "潘森",
+      "cost": 2
+    },
+    {
+      "id": 14375,
+      "name": "锐雯",
+      "cost": 4
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_timebreaker.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83160101_s17_trait_icon_timebreaker.png",
+    "template_path": "resource_knowledge/image/trait/trait_83160101_s17_trait_icon_timebreaker.png",
+    "template_resource_path": "trait/trait_83160101_s17_trait_icon_timebreaker.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_timebreaker.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83160101,
+    "name": "未来战士",
+    "desc": "(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度  从失败中获得的刷新次数：0 从胜利中获得的经验值：0",
+    "effect_desc": "(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度  从失败中获得的刷新次数：0 从胜利中获得的经验值：0",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_timebreaker.png",
+    "level_info": "(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度  从失败中获得的刷新次数：0 从胜利中获得的经验值：0|(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度  从失败中获得的刷新次数：0 从胜利中获得的经验值：0|(2)友军获得15%攻击速度。 |(3)并且当你输掉对战时，获得免费刷新次数。当你赢下对战时，将经验值储存至【时空核心】中(随阶段提升)。 |(4)并且【未来战士】们额外获得40%攻击速度  从失败中获得的刷新次数：0 从胜利中获得的经验值：0",
+    "trait_id": 83160101,
+    "tft_trait_id": "410",
+    "type": 0,
+    "map_id": 11,
+    "max_level": 3,
+    "num_list": "2|3|4",
+    "color": "1",
+    "members": [
+      {
+        "id": 11451,
+        "name": "伊泽瑞尔",
+        "price": 1
+      },
+      {
+        "id": 12456,
+        "name": "米利欧",
+        "price": 2
+      },
+      {
+        "id": 12459,
+        "name": "潘森",
+        "price": 2
+      },
+      {
+        "id": 14375,
+        "name": "锐雯",
+        "price": 4
+      }
+    ]
+  }
+}

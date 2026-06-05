@@ -1,0 +1,42 @@
+{
+  "id": 30647,
+  "slug": "augment_30647_museumheist3",
+  "name": "散件丰收日",
+  "aliases": ["散件丰收日", "museumheist3"],
+  "level": 3,
+  "description": "在6场玩家对战回合后，获得所有的基础装备各一件。 即刻获得一件随机的基础装备。 剩余战斗数：6",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/museumheist3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_30647_museumheist3.png",
+    "template_path": "resource_knowledge/image/augment/augment_30647_museumheist3.png",
+    "template_resource_path": "augment/augment_30647_museumheist3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/museumheist3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 30647,
+    "name": "散件丰收日",
+    "description": "在6场玩家对战回合后，获得所有的基础装备各一件。 即刻获得一件随机的基础装备。  剩余战斗数：6",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/museumheist3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

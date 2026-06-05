@@ -1,0 +1,40 @@
+{
+  "id": 9294,
+  "slug": "item_9294_tripletap",
+  "name": "三连轰",
+  "aliases": ["三连轰", "tripletap", "tripletap"],
+  "category": "special",
+  "type": "-1",
+  "description": "有18%几率攻击三次。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tripletap.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9294_tripletap.png",
+    "template_path": "resource_knowledge/image/item/special/item_9294_tripletap.png",
+    "template_resource_path": "item/special/item_9294_tripletap.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tripletap.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9294,
+    "tft_equip_id": null,
+    "name": "三连轰",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tripletap.png",
+    "icon": "tripletap",
+    "desc": "有18%几率攻击三次。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

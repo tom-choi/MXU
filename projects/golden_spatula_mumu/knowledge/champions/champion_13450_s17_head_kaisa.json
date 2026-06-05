@@ -1,0 +1,183 @@
+{
+  "id": 13450,
+  "slug": "champion_13450_s17_head_kaisa",
+  "name": "卡莎",
+  "aliases": ["卡莎", "s17_kaisa", "s17_head_kaisa", "s17_kaisa"],
+  "cost": 3,
+  "buy_price": 0,
+  "traits": ["暗星", "游侠"],
+  "trait_refs": [
+    {
+      "id": 403,
+      "name": "暗星"
+    },
+    {
+      "id": "317",
+      "name": "游侠"
+    }
+  ],
+  "skill": {
+    "name": "子弹星团",
+    "description": "被动：参与击败后，获得10法力值。 主动：对当前目标附近的一个半径2格的范围发射16颗飞弹，每颗造成33(【物理加成】)物理伤害。",
+    "brief_value": "30/45/72|3/5/7",
+    "value_description": "伤害：33=30(【物理加成】)+3(【法术加成】) 30/45/72",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_kaisa.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 3,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 650,
+      "init_mp": 0,
+      "magic_resist": 25,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 8,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 1170,
+      "init_mp": 0,
+      "magic_resist": 25,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 26,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 100,
+      "init_hp": 2106,
+      "init_mp": 0,
+      "magic_resist": 25,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 80,
+      "armor": 25,
+      "attack_range": 4,
+      "attack_speed": 0.8,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 135,
+      "init_hp": 3042,
+      "init_mp": 0,
+      "magic_resist": 25,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_kaisa.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13450_s17_head_kaisa.png",
+    "template_path": "resource_knowledge/image/champion/3/champion_13450_s17_head_kaisa.png",
+    "template_resource_path": "champion/3/champion_13450_s17_head_kaisa.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/13450",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_kaisa.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "157",
+    "id": 13450,
+    "tft_hero_id": 13450,
+    "name": "卡莎",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_kaisa.png",
+    "hero_paint": "s17_kaisa",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 3,
+    "skill_brief_value": "30/45/72|3/5/7",
+    "skill_desc": "被动：参与击败后，获得10法力值。  主动：对当前目标附近的一个半径2格的范围发射16颗飞弹，每颗造成33(【物理加成】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_kaisa.png",
+    "skill_name": "子弹星团",
+    "skill_value_desc": "伤害：33=30(【物理加成】)+3(【法术加成】) 30/45/72",
+    "show_hero_tag": true,
+    "species": [403],
+    "class": ["317"],
+    "races": [
+      {
+        "id": 403,
+        "name": "暗星"
+      }
+    ],
+    "traits": [
+      {
+        "id": "317",
+        "name": "游侠"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 3,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 650,
+        "init_mp": 0,
+        "magic_resist": 25,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 8,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 1170,
+        "init_mp": 0,
+        "magic_resist": 25,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 26,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 100,
+        "init_hp": 2106,
+        "init_mp": 0,
+        "magic_resist": 25,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 80,
+        "armor": 25,
+        "attack_range": 4,
+        "attack_speed": 0.8,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 135,
+        "init_hp": 3042,
+        "init_mp": 0,
+        "magic_resist": 25,
+        "max_mp": 50
+      }
+    ]
+  }
+}

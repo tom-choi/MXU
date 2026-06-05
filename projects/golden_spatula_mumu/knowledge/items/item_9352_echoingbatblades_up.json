@@ -1,0 +1,40 @@
+{
+  "id": 9352,
+  "slug": "item_9352_echoingbatblades_up",
+  "name": "薇恩的炫彩战刃",
+  "aliases": ["薇恩的炫彩战刃", "echoingbatblades_up", "echoingbatblades_up"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每5次攻击，发射30个炫彩战刃，由所有敌人分摊。每个战刃造成50%【攻击力】物理伤害。 推荐角色定位：物理射手",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades_up.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9352_echoingbatblades_up.png",
+    "template_path": "resource_knowledge/image/item/special/item_9352_echoingbatblades_up.png",
+    "template_resource_path": "item/special/item_9352_echoingbatblades_up.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades_up.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9352,
+    "tft_equip_id": null,
+    "name": "薇恩的炫彩战刃",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/echoingbatblades_up.png",
+    "icon": "echoingbatblades_up",
+    "desc": "每5次攻击，发射30个炫彩战刃，由所有敌人分摊。每个战刃造成50%【攻击力】物理伤害。  推荐角色定位：物理射手",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 2047,
+  "slug": "item_2047_tactician_s_shield",
+  "name": "金锅锅冠冕",
+  "aliases": ["金锅锅冠冕", "tactician_s_shield", "tactician_s_shield"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "你的队伍获得+1最大队伍规模。 在携带者倒下时，有10%几率掉落1金币。 “充满了某位哲学家的智慧……”",
+  "synthesis": [1010, 1010],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_shield.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2047_tactician_s_shield.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2047_tactician_s_shield.png",
+    "template_resource_path": "item/completed/item_2047_tactician_s_shield.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_shield.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2047,
+    "tft_equip_id": null,
+    "name": "金锅锅冠冕",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/tactician_s_shield.png",
+    "icon": "tactician_s_shield",
+    "desc": "你的队伍获得+1最大队伍规模。  在携带者倒下时，有10%几率掉落1金币。  “充满了某位哲学家的智慧……”",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1010,
+    "synthesis2": 1010,
+    "type": "成型装备"
+  }
+}

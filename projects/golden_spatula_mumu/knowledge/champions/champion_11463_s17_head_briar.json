@@ -1,0 +1,191 @@
+{
+  "id": 11463,
+  "slug": "champion_11463_s17_head_briar",
+  "name": "贝蕾亚",
+  "aliases": ["贝蕾亚", "s17_briar", "s17_head_briar", "s17_briar"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": ["幻灵战队", "海魔人", "游侠"],
+  "trait_refs": [
+    {
+      "id": 400,
+      "name": "幻灵战队"
+    },
+    {
+      "id": 406,
+      "name": "海魔人"
+    },
+    {
+      "id": "317",
+      "name": "游侠"
+    }
+  ],
+  "skill": {
+    "name": "鱼群狂欢",
+    "description": "被动：每损失1%生命值，获得2.0%(【法术加成】)攻击速度。 主动：对目标造成120(【物理加成】)物理伤害，如果目标是坦克，则此伤害提升50%。",
+    "brief_value": "2/2/2.5|120/180/285",
+    "value_description": "攻击速度：【法术加成】 2/2/2.5|伤害：120(【物理加成】) 120/180/285|额外坦克伤害=50%x120(【物理加成】)",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_briar.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 1,
+      "armor": 35,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 35,
+      "init_hp": 650,
+      "init_mp": 0,
+      "magic_resist": 35,
+      "max_mp": 40
+    },
+    {
+      "level": 2,
+      "sell_price": 3,
+      "armor": 35,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 52,
+      "init_hp": 1170,
+      "init_mp": 0,
+      "magic_resist": 35,
+      "max_mp": 40
+    },
+    {
+      "level": 3,
+      "sell_price": 9,
+      "armor": 35,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 78,
+      "init_hp": 2106,
+      "init_mp": 0,
+      "magic_resist": 35,
+      "max_mp": 40
+    },
+    {
+      "level": 4,
+      "sell_price": 27,
+      "armor": 35,
+      "attack_range": 1,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 105,
+      "init_hp": 3042,
+      "init_mp": 0,
+      "magic_resist": 35,
+      "max_mp": 40
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_briar.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_11463_s17_head_briar.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_11463_s17_head_briar.png",
+    "template_resource_path": "champion/1/champion_11463_s17_head_briar.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/11463",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_briar.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "65",
+    "id": 11463,
+    "tft_hero_id": 11463,
+    "name": "贝蕾亚",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_briar.png",
+    "hero_paint": "s17_briar",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "2/2/2.5|120/180/285",
+    "skill_desc": "被动：每损失1%生命值，获得2.0%(【法术加成】)攻击速度。  主动：对目标造成120(【物理加成】)物理伤害，如果目标是坦克，则此伤害提升50%。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_briar.png",
+    "skill_name": "鱼群狂欢",
+    "skill_value_desc": "攻击速度：【法术加成】 2/2/2.5|伤害：120(【物理加成】) 120/180/285|额外坦克伤害=50%x120(【物理加成】)",
+    "show_hero_tag": true,
+    "species": [400, 406],
+    "class": ["317"],
+    "races": [
+      {
+        "id": 400,
+        "name": "幻灵战队"
+      },
+      {
+        "id": 406,
+        "name": "海魔人"
+      }
+    ],
+    "traits": [
+      {
+        "id": "317",
+        "name": "游侠"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 1,
+        "armor": 35,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 35,
+        "init_hp": 650,
+        "init_mp": 0,
+        "magic_resist": 35,
+        "max_mp": 40
+      },
+      {
+        "level": 2,
+        "sell_price": 3,
+        "armor": 35,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 52,
+        "init_hp": 1170,
+        "init_mp": 0,
+        "magic_resist": 35,
+        "max_mp": 40
+      },
+      {
+        "level": 3,
+        "sell_price": 9,
+        "armor": 35,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 78,
+        "init_hp": 2106,
+        "init_mp": 0,
+        "magic_resist": 35,
+        "max_mp": 40
+      },
+      {
+        "level": 4,
+        "sell_price": 27,
+        "armor": 35,
+        "attack_range": 1,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 105,
+        "init_hp": 3042,
+        "init_mp": 0,
+        "magic_resist": 35,
+        "max_mp": 40
+      }
+    ]
+  }
+}

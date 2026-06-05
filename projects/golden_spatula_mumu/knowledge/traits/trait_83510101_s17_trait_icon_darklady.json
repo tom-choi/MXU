@@ -1,0 +1,54 @@
+{
+  "id": 83510101,
+  "slug": "trait_83510101_s17_trait_icon_darklady",
+  "name": "黑暗魔女",
+  "aliases": ["黑暗魔女", "s17_trait_icon_darklady", "420"],
+  "description": "你的队伍获得4%伤害减免，在【莫甘娜】处于她的【黑暗形态】之中时，该数值提升至10%。",
+  "effect": "你的队伍获得4%伤害减免，在【莫甘娜】处于她的【黑暗形态】之中时，该数值提升至10%。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15434,
+      "name": "莫甘娜",
+      "cost": 4
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_darklady.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83510101_s17_trait_icon_darklady.png",
+    "template_path": "resource_knowledge/image/trait/trait_83510101_s17_trait_icon_darklady.png",
+    "template_resource_path": "trait/trait_83510101_s17_trait_icon_darklady.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_darklady.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83510101,
+    "name": "黑暗魔女",
+    "desc": "你的队伍获得4%伤害减免，在【莫甘娜】处于她的【黑暗形态】之中时，该数值提升至10%。",
+    "effect_desc": "你的队伍获得4%伤害减免，在【莫甘娜】处于她的【黑暗形态】之中时，该数值提升至10%。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_darklady.png",
+    "level_info": "你的队伍获得4%伤害减免，在【莫甘娜】处于她的【黑暗形态】之中时，该数值提升至10%。",
+    "trait_id": 83510101,
+    "tft_trait_id": "420",
+    "type": 0,
+    "map_id": 21,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15434,
+        "name": "莫甘娜",
+        "price": 4
+      }
+    ]
+  }
+}

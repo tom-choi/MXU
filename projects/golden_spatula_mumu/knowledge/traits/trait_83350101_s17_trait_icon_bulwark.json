@@ -1,0 +1,54 @@
+{
+  "id": 83350101,
+  "slug": "trait_83350101_s17_trait_icon_bulwark",
+  "name": "暮光铁壁",
+  "aliases": ["暮光铁壁", "s17_trait_icon_bulwark", "416"],
+  "description": "召唤一个可放置的【圣物】。对战开始时，【圣物】可为邻格友军提供一个15%最大生命值的护盾和10%攻击速度。",
+  "effect": "召唤一个可放置的【圣物】。对战开始时，【圣物】可为邻格友军提供一个15%最大生命值的护盾和10%攻击速度。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15424,
+      "name": "慎",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bulwark.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83350101_s17_trait_icon_bulwark.png",
+    "template_path": "resource_knowledge/image/trait/trait_83350101_s17_trait_icon_bulwark.png",
+    "template_resource_path": "trait/trait_83350101_s17_trait_icon_bulwark.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bulwark.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83350101,
+    "name": "暮光铁壁",
+    "desc": "召唤一个可放置的【圣物】。对战开始时，【圣物】可为邻格友军提供一个15%最大生命值的护盾和10%攻击速度。",
+    "effect_desc": "召唤一个可放置的【圣物】。对战开始时，【圣物】可为邻格友军提供一个15%最大生命值的护盾和10%攻击速度。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_bulwark.png",
+    "level_info": "召唤一个可放置的【圣物】。对战开始时，【圣物】可为邻格友军提供一个15%最大生命值的护盾和10%攻击速度。",
+    "trait_id": 83350101,
+    "tft_trait_id": "416",
+    "type": 0,
+    "map_id": 17,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15424,
+        "name": "慎",
+        "price": 5
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9336,
+  "slug": "item_9336_theannihilator",
+  "name": "歼灭者",
+  "aliases": ["歼灭者", "theannihilator", "theannihilator"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "储存造成伤害的20%。倒下时或者对战开始16秒后，对所有敌人造成相当于储存伤害的真实伤害，每远离中心一格，这个伤害降低15%。 推荐角色定位：物理术师或魔法术师",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9336_theannihilator.png",
+    "template_path": "resource_knowledge/image/item/special/item_9336_theannihilator.png",
+    "template_resource_path": "item/special/item_9336_theannihilator.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9336,
+    "tft_equip_id": null,
+    "name": "歼灭者",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/theannihilator.png",
+    "icon": "theannihilator",
+    "desc": "储存造成伤害的20%。倒下时或者对战开始16秒后，对所有敌人造成相当于储存伤害的真实伤害，每远离中心一格，这个伤害降低15%。  推荐角色定位：物理术师或魔法术师",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

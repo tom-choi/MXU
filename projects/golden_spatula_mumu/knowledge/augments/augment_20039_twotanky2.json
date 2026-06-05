@@ -1,0 +1,42 @@
+{
+  "id": 20039,
+  "slug": "augment_20039_twotanky2",
+  "name": "坦度成双",
+  "aliases": ["坦度成双", "twotanky2"],
+  "level": 2,
+  "description": "如果你恰好登场了相同英雄的2个弈子，那么他们都会获得500生命值。在其中一个弈子倒下时，另一个获得持续12秒的相当于40%最大生命值的护盾值。当你将弈子升到3星时，获得该英雄的1个2星弈子。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/twotanky2.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20039_twotanky2.png",
+    "template_path": "resource_knowledge/image/augment/augment_20039_twotanky2.png",
+    "template_resource_path": "augment/augment_20039_twotanky2.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/twotanky2.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20039,
+    "name": "坦度成双",
+    "description": "如果你恰好登场了相同英雄的2个弈子，那么他们都会获得500生命值。在其中一个弈子倒下时，另一个获得持续12秒的相当于40%最大生命值的护盾值。当你将弈子升到3星时，获得该英雄的1个2星弈子。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/twotanky2.png",
+    "level": 2,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

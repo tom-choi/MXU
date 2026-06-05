@@ -1,0 +1,287 @@
+{
+  "id": 14382,
+  "slug": "champion_14382_s17_head_aurelionsol",
+  "name": "奥瑞利安·索尔",
+  "aliases": ["奥瑞利安·索尔", "s17_aurelionsol", "s17_head_aurelionsol", "s17_aurelionsol"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["霸天机甲", "神谕"],
+  "trait_refs": [
+    {
+      "id": 404,
+      "name": "霸天机甲"
+    },
+    {
+      "id": "313",
+      "name": "神谕"
+    }
+  ],
+  "skill": {
+    "name": "究极射线",
+    "description": "朝当前目标沿直线引导一道究极射线，持续433秒。射线每秒造成320(【法术加成】)魔法伤害，每穿过一名敌人，伤害降低80%。究极射线无视敌人30%的魔抗。",
+    "brief_value": "320/480/2000",
+    "value_description": "伤害：320(【法术加成】) 320/480/2000",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_aurelionsol.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 850,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 2,
+      "sell_price": 4,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 850,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 3,
+      "sell_price": 11,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 1530,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 4,
+      "sell_price": 11,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 1530,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 5,
+      "sell_price": 35,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 3754,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 6,
+      "sell_price": 35,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 3754,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 7,
+      "sell_price": 107,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 4978,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    },
+    {
+      "level": 8,
+      "sell_price": 107,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 4978,
+      "init_mp": 15,
+      "magic_resist": 30,
+      "max_mp": 75
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aurelionsol.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14382_s17_head_aurelionsol.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14382_s17_head_aurelionsol.png",
+    "template_resource_path": "champion/4/champion_14382_s17_head_aurelionsol.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14382",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aurelionsol.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "309",
+    "id": 14382,
+    "tft_hero_id": 14382,
+    "name": "奥瑞利安·索尔",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_aurelionsol.png",
+    "hero_paint": "s17_aurelionsol",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "320/480/2000",
+    "skill_desc": "朝当前目标沿直线引导一道究极射线，持续433秒。射线每秒造成320(【法术加成】)魔法伤害，每穿过一名敌人，伤害降低80%。究极射线无视敌人30%的魔抗。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_aurelionsol.png",
+    "skill_name": "究极射线",
+    "skill_value_desc": "伤害：320(【法术加成】) 320/480/2000",
+    "show_hero_tag": true,
+    "species": [404],
+    "class": ["313"],
+    "races": [
+      {
+        "id": 404,
+        "name": "霸天机甲"
+      }
+    ],
+    "traits": [
+      {
+        "id": "313",
+        "name": "神谕"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 850,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 2,
+        "sell_price": 4,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 850,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 3,
+        "sell_price": 11,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 1530,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 4,
+        "sell_price": 11,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 1530,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 5,
+        "sell_price": 35,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 3754,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 6,
+        "sell_price": 35,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 3754,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 7,
+        "sell_price": 107,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 4978,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      },
+      {
+        "level": 8,
+        "sell_price": 107,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 4978,
+        "init_mp": 15,
+        "magic_resist": 30,
+        "max_mp": 75
+      }
+    ]
+  }
+}

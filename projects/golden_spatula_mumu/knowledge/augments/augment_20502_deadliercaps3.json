@@ -1,0 +1,42 @@
+{
+  "id": 20502,
+  "slug": "augment_20502_deadliercaps3",
+  "name": "更要命的帽子",
+  "aliases": ["更要命的帽子", "deadliercaps3"],
+  "level": 3,
+  "description": "获得1个【班克斯的魔法帽】。【班克斯的魔法帽】的携带者每参与1次击败，【班克斯的魔法帽】永久获得1%法术加成。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/deadliercaps3.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_20502_deadliercaps3.png",
+    "template_path": "resource_knowledge/image/augment/augment_20502_deadliercaps3.png",
+    "template_resource_path": "augment/augment_20502_deadliercaps3.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/deadliercaps3.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 20502,
+    "name": "更要命的帽子",
+    "description": "获得1个【班克斯的魔法帽】。【班克斯的魔法帽】的携带者每参与1次击败，【班克斯的魔法帽】永久获得1%法术加成。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/deadliercaps3.png",
+    "level": 3,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

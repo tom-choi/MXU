@@ -1,0 +1,183 @@
+{
+  "id": 12458,
+  "slug": "champion_12458_s17_head_jinx",
+  "name": "金克丝",
+  "aliases": ["金克丝", "s17_jinx", "s17_head_jinx", "s17_jinx"],
+  "cost": 2,
+  "buy_price": 0,
+  "traits": ["幻灵战队", "挑战者"],
+  "trait_refs": [
+    {
+      "id": 400,
+      "name": "幻灵战队"
+    },
+    {
+      "id": "312",
+      "name": "挑战者"
+    }
+  ],
+  "skill": {
+    "name": "易爆态势",
+    "description": "在一个锥形范围内发射一道由15(【攻击速度】)颗火箭组成的弹幕，每颗火箭对命中的第一个目标造成32(【物理加成】)物理伤害。",
+    "brief_value": "|3/5/7|29/44/70",
+    "value_description": "火箭数量：15+1每35%【攻击速度】 |伤害【法术加成】 3/5/7|伤害：32=29【物理加成】+3【法术加成】 29/44/70",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_jinx.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 2,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 55,
+      "init_hp": 550,
+      "init_mp": 20,
+      "magic_resist": 20,
+      "max_mp": 80
+    },
+    {
+      "level": 2,
+      "sell_price": 5,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 82,
+      "init_hp": 990,
+      "init_mp": 20,
+      "magic_resist": 20,
+      "max_mp": 80
+    },
+    {
+      "level": 3,
+      "sell_price": 17,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 123,
+      "init_hp": 1782,
+      "init_mp": 20,
+      "magic_resist": 20,
+      "max_mp": 80
+    },
+    {
+      "level": 4,
+      "sell_price": 53,
+      "armor": 20,
+      "attack_range": 4,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 165,
+      "init_hp": 2574,
+      "init_mp": 20,
+      "magic_resist": 20,
+      "max_mp": 80
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_jinx.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_12458_s17_head_jinx.png",
+    "template_path": "resource_knowledge/image/champion/2/champion_12458_s17_head_jinx.png",
+    "template_resource_path": "champion/2/champion_12458_s17_head_jinx.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/12458",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_jinx.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "129",
+    "id": 12458,
+    "tft_hero_id": 12458,
+    "name": "金克丝",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_jinx.png",
+    "hero_paint": "s17_jinx",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 2,
+    "skill_brief_value": "|3/5/7|29/44/70",
+    "skill_desc": "在一个锥形范围内发射一道由15(【攻击速度】)颗火箭组成的弹幕，每颗火箭对命中的第一个目标造成32(【物理加成】)物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_jinx.png",
+    "skill_name": "易爆态势",
+    "skill_value_desc": "火箭数量：15+1每35%【攻击速度】 |伤害【法术加成】 3/5/7|伤害：32=29【物理加成】+3【法术加成】 29/44/70",
+    "show_hero_tag": true,
+    "species": [400],
+    "class": ["312"],
+    "races": [
+      {
+        "id": 400,
+        "name": "幻灵战队"
+      }
+    ],
+    "traits": [
+      {
+        "id": "312",
+        "name": "挑战者"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 2,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 55,
+        "init_hp": 550,
+        "init_mp": 20,
+        "magic_resist": 20,
+        "max_mp": 80
+      },
+      {
+        "level": 2,
+        "sell_price": 5,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 82,
+        "init_hp": 990,
+        "init_mp": 20,
+        "magic_resist": 20,
+        "max_mp": 80
+      },
+      {
+        "level": 3,
+        "sell_price": 17,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 123,
+        "init_hp": 1782,
+        "init_mp": 20,
+        "magic_resist": 20,
+        "max_mp": 80
+      },
+      {
+        "level": 4,
+        "sell_price": 53,
+        "armor": 20,
+        "attack_range": 4,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 165,
+        "init_hp": 2574,
+        "init_mp": 20,
+        "magic_resist": 20,
+        "max_mp": 80
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9335,
+  "slug": "item_9335_uwublaster",
+  "name": "UwU魔爆炮",
+  "aliases": ["UwU魔爆炮", "uwublaster", "uwublaster"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每次攻击，对距离内的1名随机敌人发射3道激光冲击波，造成相当于携带者40%物理加成的物理伤害。 推荐角色定位：物理射手",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/uwublaster.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9335_uwublaster.png",
+    "template_path": "resource_knowledge/image/item/special/item_9335_uwublaster.png",
+    "template_resource_path": "item/special/item_9335_uwublaster.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/uwublaster.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9335,
+    "tft_equip_id": null,
+    "name": "UwU魔爆炮",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/uwublaster.png",
+    "icon": "uwublaster",
+    "desc": "每次攻击，对距离内的1名随机敌人发射3道激光冲击波，造成相当于携带者40%物理加成的物理伤害。  推荐角色定位：物理射手",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 9255,
+  "slug": "item_9255_sympatheticimplant",
+  "name": "共感植入",
+  "aliases": ["共感植入", "sympatheticimplant", "sympatheticimplant"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每5秒，获得： 魔法弈子：1法力回复。 物理弈子：15%攻击速度。 在(4)层级时：如果携带者是【灵能特工】，其技能会转而造成25%原本技能伤害的真实伤害。 推荐使用者：【娑娜】和【维克托】。",
+  "synthesis": [],
+  "recommended_users": ["古拉加斯"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticimplant.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9255_sympatheticimplant.png",
+    "template_path": "resource_knowledge/image/item/special/item_9255_sympatheticimplant.png",
+    "template_resource_path": "item/special/item_9255_sympatheticimplant.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticimplant.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9255,
+    "tft_equip_id": null,
+    "name": "共感植入",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sympatheticimplant.png",
+    "icon": "sympatheticimplant",
+    "desc": "每5秒，获得：  魔法弈子：1法力回复。 物理弈子：15%攻击速度。  在(4)层级时：如果携带者是【灵能特工】，其技能会转而造成25%原本技能伤害的真实伤害。  推荐使用者：【娑娜】和【维克托】。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

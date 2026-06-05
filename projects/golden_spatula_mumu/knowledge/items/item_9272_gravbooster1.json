@@ -1,0 +1,40 @@
+{
+  "id": 9272,
+  "slug": "item_9272_gravbooster1",
+  "name": "重力助推器+",
+  "aliases": ["重力助推器+", "gravbooster1", "gravbooster1"],
+  "category": "special",
+  "type": "-1",
+  "description": "参与击败时，冲向下一个目标，下3次攻击的速度加快40%。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/gravbooster1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9272_gravbooster1.png",
+    "template_path": "resource_knowledge/image/item/special/item_9272_gravbooster1.png",
+    "template_resource_path": "item/special/item_9272_gravbooster1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/gravbooster1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9272,
+    "tft_equip_id": null,
+    "name": "重力助推器+",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/gravbooster1.png",
+    "icon": "gravbooster1",
+    "desc": "参与击败时，冲向下一个目标，下3次攻击的速度加快40%。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

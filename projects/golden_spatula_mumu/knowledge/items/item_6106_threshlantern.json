@@ -1,0 +1,40 @@
+{
+  "id": 6106,
+  "slug": "item_6106_threshlantern",
+  "name": "锤石的灯笼",
+  "aliases": ["锤石的灯笼", "threshlantern", "threshlantern"],
+  "category": "special",
+  "type": "神器装备",
+  "description": "战斗开始6秒后，让备战席的最左侧的那个弈子上阵作战。该弈子存活期间，将摊分持有者所受全部伤害的20%。 强制上阵的弈子不会激活羁绊",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/threshlantern.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6106_threshlantern.png",
+    "template_path": "resource_knowledge/image/item/special/item_6106_threshlantern.png",
+    "template_resource_path": "item/special/item_6106_threshlantern.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/threshlantern.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 6106,
+    "tft_equip_id": null,
+    "name": "锤石的灯笼",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/threshlantern.png",
+    "icon": "threshlantern",
+    "desc": "战斗开始6秒后，让备战席的最左侧的那个弈子上阵作战。该弈子存活期间，将摊分持有者所受全部伤害的20%。  强制上阵的弈子不会激活羁绊",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "神器装备"
+  }
+}

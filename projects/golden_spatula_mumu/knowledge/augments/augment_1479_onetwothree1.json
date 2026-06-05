@@ -1,0 +1,42 @@
+{
+  "id": 1479,
+  "slug": "augment_1479_onetwothree1",
+  "name": "一，二，三",
+  "aliases": ["一，二，三", "onetwothree1"],
+  "level": 1,
+  "description": "获得2个1费弈子、1个2费弈子和1个3费弈子。",
+  "is_legend": false,
+  "hero_enhancement_type": "0",
+  "fetter_id": "",
+  "fetter_type": "0",
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onetwothree1.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/augment/augment_1479_onetwothree1.png",
+    "template_path": "resource_knowledge/image/augment/augment_1479_onetwothree1.png",
+    "template_resource_path": "augment/augment_1479_onetwothree1.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=hex&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onetwothree1.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 1479,
+    "name": "一，二，三",
+    "description": "获得2个1费弈子、1个2费弈子和1个3费弈子。",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/hex/onetwothree1.png",
+    "level": 1,
+    "is_legend": false,
+    "hero_enhancement_type": "0",
+    "fetter_id": "",
+    "fetter_type": "0",
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "17",
+    "version_id": "17_17.17.4_S18"
+  }
+}

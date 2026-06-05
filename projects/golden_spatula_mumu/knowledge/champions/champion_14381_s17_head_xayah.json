@@ -1,0 +1,183 @@
+{
+  "id": 14381,
+  "slug": "champion_14381_s17_head_xayah",
+  "name": "霞",
+  "aliases": ["霞", "s17_xayah", "s17_head_xayah", "s17_xayah"],
+  "cost": 4,
+  "buy_price": 0,
+  "traits": ["观星者", "狙神"],
+  "trait_refs": [
+    {
+      "id": 409,
+      "name": "观星者"
+    },
+    {
+      "id": "318",
+      "name": "狙神"
+    }
+  ],
+  "skill": {
+    "name": "星界弹射",
+    "description": "被动：普攻会造成弹跳，打击3次，每命中一次目标造成的伤害降低60%，并在最终目标处留下一柄羽刃。 主动：获得75%攻击速度，持续下6次攻击。最终，从相距最近的3名敌人处召回所有羽刃，每支羽刃造成51(【物理加成】)物理伤害。每支羽刃对霞的当前目标造成25(【物理加成】)额外物理伤害。",
+    "brief_value": "3/3/5|60%/60%/30%|6/9/60|45/68/900|25/40/200",
+    "value_description": "打击次数： 3/3/5|伤害减免： 60%/60%/30%|伤害：【法术加成】 6/9/60|伤害：51=45【物理加成】+6【法术加成】 45/68/900|主要目标伤害：【物理加成】 25/40/200",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_xayah.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 4,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 52,
+      "init_hp": 850,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 11,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 78,
+      "init_hp": 1530,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 35,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 117,
+      "init_hp": 3754,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 107,
+      "armor": 30,
+      "attack_range": 5,
+      "attack_speed": 0.75,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 156,
+      "init_hp": 4978,
+      "init_mp": 0,
+      "magic_resist": 30,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_xayah.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_14381_s17_head_xayah.png",
+    "template_path": "resource_knowledge/image/champion/4/champion_14381_s17_head_xayah.png",
+    "template_resource_path": "champion/4/champion_14381_s17_head_xayah.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/14381",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_xayah.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "305",
+    "id": 14381,
+    "tft_hero_id": 14381,
+    "name": "霞",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_xayah.png",
+    "hero_paint": "s17_xayah",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 4,
+    "skill_brief_value": "3/3/5|60%/60%/30%|6/9/60|45/68/900|25/40/200",
+    "skill_desc": "被动：普攻会造成弹跳，打击3次，每命中一次目标造成的伤害降低60%，并在最终目标处留下一柄羽刃。  主动：获得75%攻击速度，持续下6次攻击。最终，从相距最近的3名敌人处召回所有羽刃，每支羽刃造成51(【物理加成】)物理伤害。每支羽刃对霞的当前目标造成25(【物理加成】)额外物理伤害。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_xayah.png",
+    "skill_name": "星界弹射",
+    "skill_value_desc": "打击次数： 3/3/5|伤害减免： 60%/60%/30%|伤害：【法术加成】 6/9/60|伤害：51=45【物理加成】+6【法术加成】 45/68/900|主要目标伤害：【物理加成】 25/40/200",
+    "show_hero_tag": true,
+    "species": [409],
+    "class": ["318"],
+    "races": [
+      {
+        "id": 409,
+        "name": "观星者"
+      }
+    ],
+    "traits": [
+      {
+        "id": "318",
+        "name": "狙神"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 4,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 52,
+        "init_hp": 850,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 11,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 78,
+        "init_hp": 1530,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 35,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 117,
+        "init_hp": 3754,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 107,
+        "armor": 30,
+        "attack_range": 5,
+        "attack_speed": 0.75,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 156,
+        "init_hp": 4978,
+        "init_mp": 0,
+        "magic_resist": 30,
+        "max_mp": 50
+      }
+    ]
+  }
+}

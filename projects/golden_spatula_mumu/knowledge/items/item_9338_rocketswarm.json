@@ -1,0 +1,40 @@
+{
+  "id": 9338,
+  "slug": "item_9338_rocketswarm",
+  "name": "火箭狂潮",
+  "aliases": ["火箭狂潮", "rocketswarm", "rocketswarm"],
+  "category": "special",
+  "type": "特殊装备",
+  "description": "每消耗30法力值，对目标发射一连串的4个火箭，每个造成30%【攻击力】物理伤害。 【金克丝】加成：如果该装备由【金克丝】携带，则将所有技能子弹替换为造成35%额外伤害的火箭。 【金克丝】加成：如果该装备由【金克丝】携带，则将所有技能子弹替换为造成35%额外伤害的火箭。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/rocketswarm.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9338_rocketswarm.png",
+    "template_path": "resource_knowledge/image/item/special/item_9338_rocketswarm.png",
+    "template_resource_path": "item/special/item_9338_rocketswarm.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/rocketswarm.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9338,
+    "tft_equip_id": null,
+    "name": "火箭狂潮",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/rocketswarm.png",
+    "icon": "rocketswarm",
+    "desc": "每消耗30法力值，对目标发射一连串的4个火箭，每个造成30%【攻击力】物理伤害。  【金克丝】加成：如果该装备由【金克丝】携带，则将所有技能子弹替换为造成35%额外伤害的火箭。  【金克丝】加成：如果该装备由【金克丝】携带，则将所有技能子弹替换为造成35%额外伤害的火箭。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "特殊装备"
+  }
+}

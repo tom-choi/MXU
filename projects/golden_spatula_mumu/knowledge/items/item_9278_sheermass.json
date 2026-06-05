@@ -1,0 +1,40 @@
+{
+  "id": 9278,
+  "slug": "item_9278_sheermass",
+  "name": "纯粹质量",
+  "aliases": ["纯粹质量", "sheermass", "sheermass"],
+  "category": "special",
+  "type": "-1",
+  "description": "获得25%最大生命值和体型提升。",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sheermass.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9278_sheermass.png",
+    "template_path": "resource_knowledge/image/item/special/item_9278_sheermass.png",
+    "template_resource_path": "item/special/item_9278_sheermass.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sheermass.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 9278,
+    "tft_equip_id": null,
+    "name": "纯粹质量",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/sheermass.png",
+    "icon": "sheermass",
+    "desc": "获得25%最大生命值和体型提升。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "-1"
+  }
+}

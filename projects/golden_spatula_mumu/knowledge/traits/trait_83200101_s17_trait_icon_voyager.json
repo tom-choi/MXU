@@ -1,0 +1,94 @@
+{
+  "id": 83200101,
+  "slug": "trait_83200101_s17_trait_icon_voyager",
+  "name": "旅人",
+  "aliases": ["旅人", "s17_trait_icon_voyager", "321"],
+  "description": "战斗开始时：你的坦克获得持续15秒的护盾。你的其他友军获得伤害增幅。 【旅人】获得两倍此加成。",
+  "effect": "(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】",
+  "levels": [],
+  "members": [
+    {
+      "id": 12452,
+      "name": "派克",
+      "cost": 2
+    },
+    {
+      "id": 12460,
+      "name": "小木灵",
+      "cost": 2
+    },
+    {
+      "id": 13462,
+      "name": "阿萝拉",
+      "cost": 3
+    },
+    {
+      "id": 14373,
+      "name": "卡尔玛",
+      "cost": 4
+    },
+    {
+      "id": 14379,
+      "name": "超级机甲",
+      "cost": 4
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_voyager.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83200101_s17_trait_icon_voyager.png",
+    "template_path": "resource_knowledge/image/trait/trait_83200101_s17_trait_icon_voyager.png",
+    "template_resource_path": "trait/trait_83200101_s17_trait_icon_voyager.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_voyager.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83200101,
+    "name": "旅人",
+    "desc": "战斗开始时：你的坦克获得持续15秒的护盾。你的其他友军获得伤害增幅。 【旅人】获得两倍此加成。",
+    "effect_desc": "(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_voyager.png",
+    "level_info": "(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】|(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】|(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】|(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】|(2)175护盾；9%【伤害加成】|(3)250护盾；15%【伤害加成】|(4)350护盾；18%【伤害加成】|(5)500护盾；22%【伤害加成】|(6)700护盾；27%【伤害加成】",
+    "trait_id": 83200101,
+    "tft_trait_id": "321",
+    "type": 1,
+    "map_id": 12,
+    "max_level": 5,
+    "num_list": "2|3|4|5|6",
+    "color": "1",
+    "members": [
+      {
+        "id": 12452,
+        "name": "派克",
+        "price": 2
+      },
+      {
+        "id": 12460,
+        "name": "小木灵",
+        "price": 2
+      },
+      {
+        "id": 13462,
+        "name": "阿萝拉",
+        "price": 3
+      },
+      {
+        "id": 14373,
+        "name": "卡尔玛",
+        "price": 4
+      },
+      {
+        "id": 14379,
+        "name": "超级机甲",
+        "price": 4
+      }
+    ]
+  }
+}

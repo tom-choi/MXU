@@ -1,0 +1,54 @@
+{
+  "id": 83330101,
+  "slug": "trait_83330101_s17_trait_icon_factorynew",
+  "name": "军工1号",
+  "aliases": ["军工1号", "s17_trait_icon_factorynew", "412"],
+  "description": "参与对战后，打开一个武器库为你最强大的【格雷福斯】购买永久【升级】。 每有3个【升级】，后续【升级】都将多需要1回合。 下一个【升级】回合。",
+  "effect": "参与对战后，打开一个武器库为你最强大的【格雷福斯】购买永久【升级】。 每有3个【升级】，后续【升级】都将多需要1回合。 下一个【升级】回合。",
+  "levels": [1],
+  "members": [
+    {
+      "id": 15423,
+      "name": "格雷福斯",
+      "cost": 5
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_factorynew.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83330101_s17_trait_icon_factorynew.png",
+    "template_path": "resource_knowledge/image/trait/trait_83330101_s17_trait_icon_factorynew.png",
+    "template_resource_path": "trait/trait_83330101_s17_trait_icon_factorynew.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_factorynew.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83330101,
+    "name": "军工1号",
+    "desc": "参与对战后，打开一个武器库为你最强大的【格雷福斯】购买永久【升级】。  每有3个【升级】，后续【升级】都将多需要1回合。  下一个【升级】回合。",
+    "effect_desc": "参与对战后，打开一个武器库为你最强大的【格雷福斯】购买永久【升级】。  每有3个【升级】，后续【升级】都将多需要1回合。  下一个【升级】回合。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_factorynew.png",
+    "level_info": "参与对战后，打开一个武器库为你最强大的【格雷福斯】购买永久【升级】。  每有3个【升级】，后续【升级】都将多需要1回合。  下一个【升级】回合。",
+    "trait_id": 83330101,
+    "tft_trait_id": "412",
+    "type": 0,
+    "map_id": 13,
+    "max_level": 1,
+    "num_list": "1",
+    "color": "5",
+    "members": [
+      {
+        "id": 15423,
+        "name": "格雷福斯",
+        "price": 5
+      }
+    ]
+  }
+}

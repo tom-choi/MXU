@@ -1,0 +1,183 @@
+{
+  "id": 11450,
+  "slug": "champion_11450_s17_head_twistedfate",
+  "name": "崔斯特",
+  "aliases": ["崔斯特", "s17_twistedfate", "s17_head_twistedfate", "s17_twistedfate"],
+  "cost": 1,
+  "buy_price": 0,
+  "traits": ["观星者", "织命人"],
+  "trait_refs": [
+    {
+      "id": 409,
+      "name": "观星者"
+    },
+    {
+      "id": "314",
+      "name": "织命人"
+    }
+  ],
+  "skill": {
+    "name": "命运的断言",
+    "description": "按幸运几率随机抽取一张数值在1到9之间的卡牌，然后将其扔向目标。基于抽到的卡牌，造成190(【法术加成】)到380(【法术加成】)魔法伤害。过量击败伤害将弹跳至相距最近的那个敌人。 3星加成：如果扔出一张9，则生成1金币。 幸运：进行两次判定，选择较优的结果。",
+    "brief_value": "190/285/430|380/570/860",
+    "value_description": "最小伤害：190(【法术加成】) 190/285/430|最大伤害：380(【法术加成】) 380/570/860",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_twistedfate.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 1,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 30,
+      "init_hp": 500,
+      "init_mp": 0,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 2,
+      "sell_price": 3,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 45,
+      "init_hp": 900,
+      "init_mp": 0,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 3,
+      "sell_price": 9,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 67,
+      "init_hp": 1620,
+      "init_mp": 0,
+      "magic_resist": 15,
+      "max_mp": 50
+    },
+    {
+      "level": 4,
+      "sell_price": 27,
+      "armor": 15,
+      "attack_range": 4,
+      "attack_speed": 0.7,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 90,
+      "init_hp": 2340,
+      "init_mp": 0,
+      "magic_resist": 15,
+      "max_mp": 50
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_twistedfate.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_11450_s17_head_twistedfate.png",
+    "template_path": "resource_knowledge/image/champion/1/champion_11450_s17_head_twistedfate.png",
+    "template_resource_path": "champion/1/champion_11450_s17_head_twistedfate.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/11450",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_twistedfate.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "1",
+    "id": 11450,
+    "tft_hero_id": 11450,
+    "name": "崔斯特",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_twistedfate.png",
+    "hero_paint": "s17_twistedfate",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 1,
+    "skill_brief_value": "190/285/430|380/570/860",
+    "skill_desc": "按幸运几率随机抽取一张数值在1到9之间的卡牌，然后将其扔向目标。基于抽到的卡牌，造成190(【法术加成】)到380(【法术加成】)魔法伤害。过量击败伤害将弹跳至相距最近的那个敌人。  3星加成：如果扔出一张9，则生成1金币。  幸运：进行两次判定，选择较优的结果。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_twistedfate.png",
+    "skill_name": "命运的断言",
+    "skill_value_desc": "最小伤害：190(【法术加成】) 190/285/430|最大伤害：380(【法术加成】) 380/570/860",
+    "show_hero_tag": true,
+    "species": [409],
+    "class": ["314"],
+    "races": [
+      {
+        "id": 409,
+        "name": "观星者"
+      }
+    ],
+    "traits": [
+      {
+        "id": "314",
+        "name": "织命人"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 1,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 30,
+        "init_hp": 500,
+        "init_mp": 0,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 2,
+        "sell_price": 3,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 45,
+        "init_hp": 900,
+        "init_mp": 0,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 3,
+        "sell_price": 9,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 67,
+        "init_hp": 1620,
+        "init_mp": 0,
+        "magic_resist": 15,
+        "max_mp": 50
+      },
+      {
+        "level": 4,
+        "sell_price": 27,
+        "armor": 15,
+        "attack_range": 4,
+        "attack_speed": 0.7,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 90,
+        "init_hp": 2340,
+        "init_mp": 0,
+        "magic_resist": 15,
+        "max_mp": 50
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": 41718,
+  "slug": "item_41718_41718",
+  "name": "牧羊人纹章",
+  "aliases": ["牧羊人纹章", "41718", "41718"],
+  "category": "completed",
+  "type": "转职纹章",
+  "description": "携带者获得【牧羊人】羁绊。在施放技能时，提供8%最大法力值至【群星誓约】。",
+  "synthesis": [1010, 1004],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41718.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41718_41718.png",
+    "template_path": "resource_knowledge/image/item/completed/item_41718_41718.png",
+    "template_resource_path": "item/completed/item_41718_41718.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41718.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 41718,
+    "tft_equip_id": null,
+    "name": "牧羊人纹章",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/41718.png",
+    "icon": "41718",
+    "desc": "携带者获得【牧羊人】羁绊。在施放技能时，提供8%最大法力值至【群星誓约】。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1010,
+    "synthesis2": 1004,
+    "type": "转职纹章"
+  }
+}

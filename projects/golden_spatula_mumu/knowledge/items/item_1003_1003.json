@@ -1,0 +1,40 @@
+{
+  "id": 1003,
+  "slug": "item_1003_1003",
+  "name": "无用大棒",
+  "aliases": ["无用大棒", "1003", "1003"],
+  "category": "basic",
+  "type": "基础装备",
+  "description": "",
+  "synthesis": [],
+  "recommended_users": [],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1003.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1003_1003.png",
+    "template_path": "resource_knowledge/image/item/basic/item_1003_1003.png",
+    "template_resource_path": "item/basic/item_1003_1003.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1003.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 1003,
+    "tft_equip_id": null,
+    "name": "无用大棒",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/1003.png",
+    "icon": "1003",
+    "desc": "",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 0,
+    "synthesis2": 0,
+    "type": "基础装备"
+  }
+}

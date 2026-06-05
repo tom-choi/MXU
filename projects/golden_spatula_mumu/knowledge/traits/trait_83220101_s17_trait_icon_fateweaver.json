@@ -1,0 +1,84 @@
+{
+  "id": 83220101,
+  "slug": "trait_83220101_s17_trait_icon_fateweaver",
+  "name": "织命人",
+  "aliases": ["织命人", "s17_trait_icon_fateweaver", "314"],
+  "description": "固有能力：【织命人】拥有技能暴击.",
+  "effect": "(2)技能中几率触发的效果拥有幸运。 |(4)获得20%暴击几率和20%暴击伤害。暴击也会拥有幸运。 技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 幸运：触发时进行两次判定，取最优结果输出。",
+  "levels": [],
+  "members": [
+    {
+      "id": 11450,
+      "name": "崔斯特",
+      "cost": 1
+    },
+    {
+      "id": 11456,
+      "name": "凯特琳",
+      "cost": 1
+    },
+    {
+      "id": 12456,
+      "name": "米利欧",
+      "cost": 2
+    },
+    {
+      "id": 14372,
+      "name": "库奇",
+      "cost": 4
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_fateweaver.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/trait/trait_83220101_s17_trait_icon_fateweaver.png",
+    "template_path": "resource_knowledge/image/trait/trait_83220101_s17_trait_icon_fateweaver.png",
+    "template_resource_path": "trait/trait_83220101_s17_trait_icon_fateweaver.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/trait/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=trait&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_fateweaver.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 83220101,
+    "name": "织命人",
+    "desc": "固有能力：【织命人】拥有技能暴击.",
+    "effect_desc": "(2)技能中几率触发的效果拥有幸运。 |(4)获得20%暴击几率和20%暴击伤害。暴击也会拥有幸运。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 幸运：触发时进行两次判定，取最优结果输出。",
+    "icon": null,
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/trait/s17_trait_icon_fateweaver.png",
+    "level_info": "(2)技能中几率触发的效果拥有幸运。 |(4)获得20%暴击几率和20%暴击伤害。暴击也会拥有幸运。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 幸运：触发时进行两次判定，取最优结果输出。|(2)技能中几率触发的效果拥有幸运。 |(4)获得20%暴击几率和20%暴击伤害。暴击也会拥有幸运。  技能暴击：技能伤害可产生暴击。额外的【技能暴击】提供10%暴击伤害。 幸运：触发时进行两次判定，取最优结果输出。",
+    "trait_id": 83220101,
+    "tft_trait_id": "314",
+    "type": 1,
+    "map_id": 5,
+    "max_level": 2,
+    "num_list": "2|4",
+    "color": "1",
+    "members": [
+      {
+        "id": 11450,
+        "name": "崔斯特",
+        "price": 1
+      },
+      {
+        "id": 11456,
+        "name": "凯特琳",
+        "price": 1
+      },
+      {
+        "id": 12456,
+        "name": "米利欧",
+        "price": 2
+      },
+      {
+        "id": 14372,
+        "name": "库奇",
+        "price": 4
+      }
+    ]
+  }
+}

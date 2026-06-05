@@ -1,0 +1,40 @@
+{
+  "id": 2013,
+  "slug": "item_2013_krakensfury",
+  "name": "海妖之怒",
+  "aliases": ["海妖之怒", "krakensfury", "krakensfury"],
+  "category": "completed",
+  "type": "成型装备",
+  "description": "攻击提供3.5%可叠加的物理加成，至多至15次攻击。在15次攻击后，获得15%攻击速度。",
+  "synthesis": [1002, 1006],
+  "recommended_users": ["卑尔维斯", "千珏", "霞"],
+  "needs_review": false,
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/krakensfury.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2013_krakensfury.png",
+    "template_path": "resource_knowledge/image/item/completed/item_2013_krakensfury.png",
+    "template_resource_path": "item/completed/item_2013_krakensfury.png",
+    "size": "48x48"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/equip/v/17_17.17.4_S18",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=equip&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/krakensfury.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "id": 2013,
+    "tft_equip_id": null,
+    "name": "海妖之怒",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/gamedata/equip/krakensfury.png",
+    "icon": "krakensfury",
+    "desc": "攻击提供3.5%可叠加的物理加成，至多至15次攻击。在15次攻击后，获得15%攻击速度。",
+    "effect_type": null,
+    "plan_id": null,
+    "synthesis1": 1002,
+    "synthesis2": 1006,
+    "type": "成型装备"
+  }
+}

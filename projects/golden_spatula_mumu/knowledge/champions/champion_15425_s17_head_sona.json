@@ -1,0 +1,191 @@
+{
+  "id": 15425,
+  "slug": "champion_15425_s17_head_sona",
+  "name": "娑娜",
+  "aliases": ["娑娜", "s17_sona", "s17_head_sona", "s17_sona"],
+  "cost": 5,
+  "buy_price": 0,
+  "traits": ["最高指挥官", "灵能特工", "牧羊人"],
+  "trait_refs": [
+    {
+      "id": 411,
+      "name": "最高指挥官"
+    },
+    {
+      "id": 407,
+      "name": "灵能特工"
+    },
+    {
+      "id": "319",
+      "name": "牧羊人"
+    }
+  ],
+  "skill": {
+    "name": "灵能碾压",
+    "description": "对距离最近且没有磁性残片的目标投掷一大块残片，造成300(【法术加成】)魔法伤害并将它附着在其身上。如果带有残片的敌人倒下，则会把残片传递给相距最近且没有残片的敌人。 每5次施放，转而将所有残片撕扯下来，造成120(【法术加成】)魔法伤害，然后将所有残片碾向目标，造成720(【法术加成】)魔法伤害，并将其短暂晕眩。",
+    "brief_value": "300/450/999|120/180/999|720/1100/9999",
+    "value_description": "伤害：300(【法术加成】) 300/450/999|撕扯伤害：120(【法术加成】) 120/180/999|猛砸伤害：720(【法术加成】) 720/1100/9999",
+    "icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_sona.png"
+  },
+  "stats": [
+    {
+      "level": 1,
+      "sell_price": 5,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.9,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 35,
+      "init_hp": 900,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 25
+    },
+    {
+      "level": 2,
+      "sell_price": 14,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.9,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 52,
+      "init_hp": 1620,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 25
+    },
+    {
+      "level": 3,
+      "sell_price": 44,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.9,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 78,
+      "init_hp": 6916,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 25
+    },
+    {
+      "level": 4,
+      "sell_price": 134,
+      "armor": 40,
+      "attack_range": 4,
+      "attack_speed": 0.9,
+      "critical_strike_chance": 25,
+      "init_attack_damage": 105,
+      "init_hp": 14212,
+      "init_mp": 0,
+      "magic_resist": 40,
+      "max_mp": 25
+    }
+  ],
+  "image": {
+    "source_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_sona.png",
+    "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_15425_s17_head_sona.png",
+    "template_path": "resource_knowledge/image/champion/5/champion_15425_s17_head_sona.png",
+    "template_resource_path": "champion/5/champion_15425_s17_head_sona.png",
+    "size": "64x64"
+  },
+  "source": {
+    "page_url": "https://www.jinchanchan.fun/hero/17_17.17.4_S18/15425",
+    "api_url": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=chess&versionId=17_17.17.4_S18",
+    "cdn_url": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_sona.png"
+  },
+  "season": "S18",
+  "version_id": "17_17.17.4_S18",
+  "fetched_at": "2026-06-05T05:03:27.069Z",
+  "_raw": {
+    "version": "17.17.4",
+    "season": "S18",
+    "set_id": "",
+    "map_id": "337",
+    "id": 15425,
+    "tft_hero_id": 15425,
+    "name": "娑娜",
+    "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/hero/s17_head_sona.png",
+    "hero_paint": "s17_sona",
+    "hero_type": 0,
+    "buy_price": 0,
+    "price": 5,
+    "skill_brief_value": "300/450/999|120/180/999|720/1100/9999",
+    "skill_desc": "对距离最近且没有磁性残片的目标投掷一大块残片，造成300(【法术加成】)魔法伤害并将它附着在其身上。如果带有残片的敌人倒下，则会把残片传递给相距最近且没有残片的敌人。  每5次施放，转而将所有残片撕扯下来，造成120(【法术加成】)魔法伤害，然后将所有残片碾向目标，造成720(【法术加成】)魔法伤害，并将其短暂晕眩。",
+    "skill_icon": "https://game.gtimg.cn/images/lol/act/jkzlk/mode17s18/skill/s17_sona.png",
+    "skill_name": "灵能碾压",
+    "skill_value_desc": "伤害：300(【法术加成】) 300/450/999|撕扯伤害：120(【法术加成】) 120/180/999|猛砸伤害：720(【法术加成】) 720/1100/9999",
+    "show_hero_tag": true,
+    "species": [411, 407],
+    "class": ["319"],
+    "races": [
+      {
+        "id": 411,
+        "name": "最高指挥官"
+      },
+      {
+        "id": 407,
+        "name": "灵能特工"
+      }
+    ],
+    "traits": [
+      {
+        "id": "319",
+        "name": "牧羊人"
+      }
+    ],
+    "star_levels": [
+      {
+        "level": 1,
+        "sell_price": 5,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.9,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 35,
+        "init_hp": 900,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 25
+      },
+      {
+        "level": 2,
+        "sell_price": 14,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.9,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 52,
+        "init_hp": 1620,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 25
+      },
+      {
+        "level": 3,
+        "sell_price": 44,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.9,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 78,
+        "init_hp": 6916,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 25
+      },
+      {
+        "level": 4,
+        "sell_price": 134,
+        "armor": 40,
+        "attack_range": 4,
+        "attack_speed": 0.9,
+        "critical_strike_chance": 25,
+        "init_attack_damage": 105,
+        "init_hp": 14212,
+        "init_mp": 0,
+        "magic_resist": 40,
+        "max_mp": 25
+      }
+    ]
+  }
+}

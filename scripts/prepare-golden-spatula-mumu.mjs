@@ -47,10 +47,27 @@ async function copyProject(targetDir) {
     path.join(projectDir, 'interface.json'),
     path.join(targetDir, 'interface.json'),
   );
+  await fs.rm(path.join(targetDir, 'resource'), { recursive: true, force: true });
   await fs.cp(path.join(projectDir, 'resource'), path.join(targetDir, 'resource'), {
     recursive: true,
     force: true,
   });
+  const knowledgeResourceDir = path.join(projectDir, 'resource_knowledge');
+  await fs.rm(path.join(targetDir, 'resource_knowledge'), { recursive: true, force: true });
+  if (await exists(knowledgeResourceDir)) {
+    await fs.cp(knowledgeResourceDir, path.join(targetDir, 'resource_knowledge'), {
+      recursive: true,
+      force: true,
+    });
+  }
+  const knowledgeDir = path.join(projectDir, 'knowledge');
+  await fs.rm(path.join(targetDir, 'knowledge'), { recursive: true, force: true });
+  if (await exists(knowledgeDir)) {
+    await fs.cp(knowledgeDir, path.join(targetDir, 'knowledge'), {
+      recursive: true,
+      force: true,
+    });
+  }
 }
 
 async function checkMaaFw(targetDir, strictMaaFw) {
