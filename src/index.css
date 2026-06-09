@@ -28,7 +28,14 @@ body,
 
 body {
   font-family:
+    'Segoe UI Variable',
     'Segoe UI',
+    'Microsoft YaHei UI',
+    'Microsoft YaHei',
+    'PingFang SC',
+    'Noto Sans CJK SC',
+    'Noto Sans CJK TC',
+    'Hiragino Sans GB',
     -apple-system,
     BlinkMacSystemFont,
     'Roboto',

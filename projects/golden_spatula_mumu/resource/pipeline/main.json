@@ -742,5 +742,451 @@
     "target": [50, 36],
     "post_delay": 900,
     "next": ["Lobby_Screencap"]
+  },
+
+  "AutoRollShopOnce": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_before_1",
+    "next": ["AutoRollShopOnce_Click1"]
+  },
+  "AutoRollShopOnce_Click1": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopOnce_After"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopOnce_After": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_after_1"
+  },
+
+  "AutoRollShopThree": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_before_3",
+    "next": ["AutoRollShopThree_Click1"]
+  },
+  "AutoRollShopThree_Click1": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopThree_Click2"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopThree_Click2": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopThree_Click3"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopThree_Click3": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopThree_After"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopThree_After": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_after_3"
+  },
+
+  "AutoRollShopFive": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_before_5",
+    "next": ["AutoRollShopFive_Click1"]
+  },
+  "AutoRollShopFive_Click1": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopFive_Click2"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopFive_Click2": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopFive_Click3"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopFive_Click3": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopFive_Click4"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopFive_Click4": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopFive_Click5"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopFive_Click5": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 681, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoRollShopFive_After"],
+    "on_error": ["AutoRollShopRefreshNotReady"]
+  },
+  "AutoRollShopFive_After": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_after_5"
+  },
+
+  "AutoRollShopRefreshNotReady": {
+    "action": "Screencap",
+    "filename": "auto_roll_shop_refresh_not_ready"
+  },
+
+  "AutoBuyExperienceOnce": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_before_1",
+    "next": ["AutoBuyExperienceOnce_Click"],
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy started: 1",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "started",
+        "total": 1
+      }
+    }
+  },
+  "AutoBuyExperienceOnce_Click": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceOnce_After"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 1/1",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 1,
+        "total": 1
+      }
+    }
+  },
+  "AutoBuyExperienceOnce_After": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_after_1",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy completed: 1",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "completed",
+        "total": 1
+      }
+    }
+  },
+
+  "AutoBuyExperienceThree": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_before_3",
+    "next": ["AutoBuyExperienceThree_Click1"],
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy started: 3",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "started",
+        "total": 3
+      }
+    }
+  },
+  "AutoBuyExperienceThree_Click1": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceThree_Click2"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 1/3",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 1,
+        "total": 3
+      }
+    }
+  },
+  "AutoBuyExperienceThree_Click2": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceThree_Click3"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 2/3",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 2,
+        "total": 3
+      }
+    }
+  },
+  "AutoBuyExperienceThree_Click3": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceThree_After"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 3/3",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 3,
+        "total": 3
+      }
+    }
+  },
+  "AutoBuyExperienceThree_After": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_after_3",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy completed: 3",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "completed",
+        "total": 3
+      }
+    }
+  },
+
+  "AutoBuyExperienceFive": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_before_5",
+    "next": ["AutoBuyExperienceFive_Click1"],
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy started: 5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "started",
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_Click1": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceFive_Click2"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 1/5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 1,
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_Click2": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceFive_Click3"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 2/5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 2,
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_Click3": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceFive_Click4"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 3/5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 3,
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_Click4": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceFive_Click5"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 4/5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 4,
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_Click5": {
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
+    "action": "Click",
+    "target": [286, 615, 2, 2],
+    "post_delay": 900,
+    "next": ["AutoBuyExperienceFive_After"],
+    "on_error": ["AutoBuyExperienceNotReady"],
+    "focus": {
+      "Node.Action.Succeeded": {
+        "content": "Auto XP buy clicked: 5/5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "clicked",
+        "current": 5,
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceFive_After": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_after_5",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy completed: 5",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "completed",
+        "total": 5
+      }
+    }
+  },
+  "AutoBuyExperienceNotReady": {
+    "action": "Screencap",
+    "filename": "auto_buy_xp_not_ready",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "Auto XP buy skipped: button not ready",
+        "display": "log",
+        "scope": "goldenSpatula.xp",
+        "event": "notReady"
+      }
+    }
+  },
+
+  "AutoRollAndBuyTargets": {
+    "action": "Screencap",
+    "filename": "auto_roll_buy_not_configured"
+  },
+  "AutoLevelRollAndBuyTargets": {
+    "action": "Screencap",
+    "filename": "auto_level_roll_buy_not_configured"
   }
 }

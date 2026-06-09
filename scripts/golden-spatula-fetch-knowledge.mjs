@@ -698,7 +698,9 @@ async function copyImagesWithoutResize(jobs) {
 function buildRecognitionProbe({
   entry,
   filenamePrefix,
+  matchMessage,
   matchNode,
+  noMatchMessage,
   noMatchNode,
   roi,
   templates,
@@ -724,10 +726,22 @@ function buildRecognitionProbe({
       roi,
       action: 'Screencap',
       filename: `${filenamePrefix}_match`,
+      focus: {
+        'Node.Recognition.Succeeded': {
+          content: matchMessage,
+          display: 'log',
+        },
+      },
     },
     [noMatchNode]: {
       action: 'Screencap',
       filename: `${filenamePrefix}_no_match`,
+      focus: {
+        'Node.PipelineNode.Succeeded': {
+          content: noMatchMessage,
+          display: 'log',
+        },
+      },
     },
   };
 }
@@ -756,6 +770,12 @@ function buildKnowledgePipeline(templates) {
       inverse: true,
       action: 'DoNothing',
       next: ['KnowledgeSmoke_ItemTemplateLoads'],
+      focus: {
+        'Node.Recognition.Failed': {
+          content: '知识库模板加载异常：棋子模板未通过探测。',
+          display: 'log',
+        },
+      },
     },
     KnowledgeSmoke_ItemTemplateLoads: {
       recognition: 'TemplateMatch',
@@ -765,6 +785,12 @@ function buildKnowledgePipeline(templates) {
       inverse: true,
       action: 'DoNothing',
       next: ['KnowledgeSmoke_TraitTemplateLoads'],
+      focus: {
+        'Node.Recognition.Failed': {
+          content: '知识库模板加载异常：装备模板未通过探测。',
+          display: 'log',
+        },
+      },
     },
     KnowledgeSmoke_TraitTemplateLoads: {
       recognition: 'TemplateMatch',
@@ -774,6 +800,12 @@ function buildKnowledgePipeline(templates) {
       inverse: true,
       action: 'DoNothing',
       next: ['KnowledgeSmoke_AugmentTemplateLoads'],
+      focus: {
+        'Node.Recognition.Failed': {
+          content: '知识库模板加载异常：羁绊模板未通过探测。',
+          display: 'log',
+        },
+      },
     },
     KnowledgeSmoke_AugmentTemplateLoads: {
       recognition: 'TemplateMatch',
@@ -783,16 +815,30 @@ function buildKnowledgePipeline(templates) {
       inverse: true,
       action: 'DoNothing',
       next: ['KnowledgeSmoke_Done'],
+      focus: {
+        'Node.Recognition.Failed': {
+          content: '知识库模板加载异常：强化符文模板未通过探测。',
+          display: 'log',
+        },
+      },
     },
     KnowledgeSmoke_Done: {
       action: 'Screencap',
       filename: 'knowledge_smoke_templates_loaded',
+      focus: {
+        'Node.PipelineNode.Succeeded': {
+          content: '知识库模板加载完成：棋子、装备、羁绊和强化符文模板可读取。',
+          display: 'log',
+        },
+      },
     },
 
     ...buildRecognitionProbe({
       entry: 'RecognizeShopChampions',
       filenamePrefix: 'knowledge_shop_champion',
+      matchMessage: '商店棋子模板命中。',
       matchNode: 'KnowledgeShopChampions_MatchAny',
+      noMatchMessage: '商店棋子模板未命中。',
       noMatchNode: 'KnowledgeShopChampions_NoMatch',
       roi: [150, 500, 980, 220],
       templates: templates.champions,
@@ -804,7 +850,9 @@ function buildKnowledgePipeline(templates) {
     ...buildRecognitionProbe({
       entry: 'RecognizeItems',
       filenamePrefix: 'knowledge_basic_item',
+      matchMessage: '基础装备模板命中。',
       matchNode: 'KnowledgeItems_MatchBasic',
+      noMatchMessage: '基础装备模板未命中。',
       noMatchNode: 'KnowledgeItems_NoBasicMatch',
       roi: [0, 400, 1280, 320],
       templates: templates.itemsBasic,
@@ -815,7 +863,9 @@ function buildKnowledgePipeline(templates) {
     ...buildRecognitionProbe({
       entry: 'RecognizeBasicItems',
       filenamePrefix: 'knowledge_basic_item',
+      matchMessage: '基础装备模板命中。',
       matchNode: 'KnowledgeBasicItems_MatchAny',
+      noMatchMessage: '基础装备模板未命中。',
       noMatchNode: 'KnowledgeBasicItems_NoMatch',
       roi: [0, 400, 1280, 320],
       templates: templates.itemsBasic,
@@ -826,7 +876,9 @@ function buildKnowledgePipeline(templates) {
     ...buildRecognitionProbe({
       entry: 'RecognizeCompletedItems',
       filenamePrefix: 'knowledge_completed_item',
+      matchMessage: '成装模板命中。',
       matchNode: 'KnowledgeCompletedItems_MatchAny',
+      noMatchMessage: '成装模板未命中。',
       noMatchNode: 'KnowledgeCompletedItems_NoMatch',
       roi: [0, 400, 1280, 320],
       templates: templates.itemsCompleted,
@@ -837,7 +889,9 @@ function buildKnowledgePipeline(templates) {
     ...buildRecognitionProbe({
       entry: 'RecognizeSpecialItems',
       filenamePrefix: 'knowledge_special_item',
+      matchMessage: '特殊装备模板命中。',
       matchNode: 'KnowledgeSpecialItems_MatchAny',
+      noMatchMessage: '特殊装备模板未命中。',
       noMatchNode: 'KnowledgeSpecialItems_NoMatch',
       roi: [0, 400, 1280, 320],
       templates: templates.itemsSpecial,
@@ -849,7 +903,9 @@ function buildKnowledgePipeline(templates) {
     ...buildRecognitionProbe({
       entry: 'RecognizeTraitsPanel',
       filenamePrefix: 'knowledge_trait',
+      matchMessage: '羁绊模板命中。',
       matchNode: 'KnowledgeTraits_MatchAny',
+      noMatchMessage: '羁绊模板未命中。',
       noMatchNode: 'KnowledgeTraits_NoMatch',
       roi: [0, 0, 360, 720],
       templates: templates.traits,

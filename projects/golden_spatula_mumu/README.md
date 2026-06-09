@@ -4,6 +4,8 @@
 
 ## 准备到 MXU
 
+一键启动可以直接双击项目根目录的 `start-mxu-golden-spatula.bat`。它会生成教程 pipeline、准备资源、检查 `maafw/MaaFramework.dll`，关闭旧的 `mxu.exe`，然后用 `pnpm tauri dev` 同时启动 Vite 前端和 Tauri 后端。这个命令窗口需要保持打开。
+
 ```powershell
 pnpm prepare:golden-spatula-mumu
 ```
@@ -16,12 +18,14 @@ pnpm prepare:golden-spatula-mumu
 
 ```powershell
 pnpm golden:red-dot
+pnpm golden:generate-tutorial
 pnpm golden:analyze
 pnpm golden:crop-assets -- --dry-run
 pnpm golden:fetch-knowledge
 ```
 
 - `golden:red-dot` 会准备资源、连接 MuMu、加载 bundle 并运行严格版 `RedDotPatrol`。脚本会自动探测 MXU 后端 `12701-12710` 端口；本轮必须产出完整巡检截图，且不能出现 fresh `failed` / `unverified` / `on_error` 诊断图才算通过。
+- `golden:generate-tutorial` 会从高层可复用片段生成 `resource/pipeline/tutorial.json`；维护完整新手教学时优先改生成脚本，不直接手写长 pipeline。
 - `golden:analyze` 会列出最近截图、on_error 图和日志线索。
 - `golden:crop-assets` 会按 `tooling/crop-recipes.json` 重新裁剪模板；调试新截图时建议先用 `--dry-run` 检查 recipe。
 - `golden:fetch-knowledge` 会从 `jinchanchan.fun` 当前版本 API 抓取英雄、羁绊、装备、强化符文与热门阵容资料，下载 Tencent CDN 图标，并生成 `resource_knowledge/` Maa 模板与 `knowledge/` JSON。
@@ -71,6 +75,7 @@ MXU 默认的 `金铲铲资源` 只加载轻量基础 bundle。需要跑棋子�
 - 当前策略资料放在 `knowledge/strategy/lin_xiaobei_17_4.json`，以林小北 17.4 上分思路为主，本地知识库补充棋子、装备和阵容信息。
 - MXU 桌面右侧会显示 `17.4 策略面板`，先展示阶段规则、主线阵容池和当前自动化测试状态。
 - 第一阶段已加入完整新手教学测试；它只面向游戏内教程环境，正常日常巡检和识别调试任务仍不会自动买卖棋子、刷新商店、D 牌或站位。
+- 新手教学的踩坑复盘、可复用子脚本和后续优化顺序见 `docs/tutorial-automation-playbook.md`。
 
 识别调试任务只做 `Screencap` 和 `TemplateMatch`。这些资料用于本地学习、模板验证和 UI 识别，不会产生对局决策、自动选秀、买卖棋子、上阵或购买确认。
 

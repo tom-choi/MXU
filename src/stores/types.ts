@@ -17,6 +17,7 @@ import type {
   HotkeySettings,
 } from '@/types/config';
 import type { ConnectionStatus, TaskStatus, AdbDevice, Win32Window } from '@/types/maa';
+import type { GoldenSpatulaLineupManagerState } from '@/types/goldenSpatula';
 import type { AccentColor, CustomAccent } from '@/themes';
 
 /** 单个任务的运行状态 */
@@ -227,6 +228,10 @@ export interface AppState {
 
   // 配置导入
   importConfig: (config: MxuConfig) => void;
+
+  // 金铲铲辅助
+  goldenSpatulaLineupManager: GoldenSpatulaLineupManagerState;
+  setGoldenSpatulaLineupManager: (manager: GoldenSpatulaLineupManagerState) => void;
 
   // MaaFramework 状态
   maaInitialized: boolean;

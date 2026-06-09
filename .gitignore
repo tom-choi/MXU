@@ -27,3 +27,7 @@ dist-ssr
 interface.json
 !projects/**/interface.json
 mxu.json
+/docs/mp4s
+/projects/golden_spatula_mumu/analysis/video
+/projects/golden_spatula_mumu/samples
+docs/mmors/金铲铲之战_2.mmor

@@ -154,6 +154,96 @@
       "resource": ["GoldenSpatula"]
     },
     {
+      "name": "BeginnerTutorialResumeStage3",
+      "label": "新手教学续跑：阶段 3 上阵",
+      "entry": "Tutorial_Stage3DragGuard",
+      "default_check": false,
+      "description": "假设当前停在新手教学第 3 阶段、已购买护卫并等待拖拽上阵，从该拖拽步骤继续完成后续教程。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula"]
+    },
+    {
+      "name": "AutoRollShopOnce",
+      "label": "自动 D 牌 1 次",
+      "entry": "AutoRollShopOnce",
+      "default_check": false,
+      "description": "假设当前停在对局商店可刷新状态，点击刷新按钮 1 次并保存前后截图；不会购买棋子。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoRollShopThree",
+      "label": "自动 D 牌 3 次",
+      "entry": "AutoRollShopThree",
+      "default_check": false,
+      "description": "假设当前停在对局商店可刷新状态，连续点击刷新按钮 3 次并保存前后截图；不会购买棋子。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoRollShopFive",
+      "label": "自动 D 牌 5 次",
+      "entry": "AutoRollShopFive",
+      "default_check": false,
+      "description": "假设当前停在对局商店可刷新状态，连续点击刷新按钮 5 次并保存前后截图；不会购买棋子。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoBuyExperienceOnce",
+      "label": "自动购买经验 1 次",
+      "entry": "AutoBuyExperienceOnce",
+      "default_check": false,
+      "description": "假设当前停在对局商店打开状态，点击购买经验按钮 1 次并保存前后截图；用于校准升级点位。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoBuyExperienceThree",
+      "label": "自动购买经验 3 次",
+      "entry": "AutoBuyExperienceThree",
+      "default_check": false,
+      "description": "假设当前停在对局商店打开状态，连续点击购买经验按钮 3 次；每次点击前都会确认按钮可见。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoBuyExperienceFive",
+      "label": "自动购买经验 5 次",
+      "entry": "AutoBuyExperienceFive",
+      "default_check": false,
+      "description": "假设当前停在对局商店打开状态，连续点击购买经验按钮 5 次；每次点击前都会确认按钮可见。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoRollAndBuyTargets",
+      "label": "自动 D 牌并购买目标",
+      "entry": "AutoRollAndBuyTargets",
+      "default_check": false,
+      "description": "由金铲铲辅助面板按当前 D 牌目标动态生成识别任务；会在商店区域匹配目标棋子头像并点击购买，然后按次数刷新继续购买。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "AutoLevelRollAndBuyTargets",
+      "label": "自动升级后 D 牌并购买目标",
+      "entry": "AutoLevelRollAndBuyTargets",
+      "default_check": false,
+      "description": "由金铲铲辅助面板动态生成任务；会先按配置购买经验，再按当前 D 牌目标识别商店棋子并点击购买。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
       "name": "KnowledgeSmokeTest",
       "label": "知识库模板加载测试",
       "entry": "KnowledgeSmokeTest",

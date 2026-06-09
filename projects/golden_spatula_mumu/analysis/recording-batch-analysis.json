@@ -1,0 +1,60 @@
+{
+  "type": "mxu.goldenSpatula.recordingBatchAnalysis",
+  "version": 1,
+  "generatedAt": "2026-06-09T07:03:02.759Z",
+  "options": {
+    "videoDir": "docs/mp4s",
+    "mmorDir": "docs/mmors",
+    "analysisRoot": "projects/golden_spatula_mumu/analysis/video",
+    "force": false,
+    "fps": 2,
+    "sceneThreshold": 14,
+    "regionThreshold": 12,
+    "minGapSeconds": 0.75,
+    "maxFrames": 80,
+    "maxEvents": 180,
+    "coordTransform": "auto",
+    "noRegression": false
+  },
+  "recordings": [
+    {
+      "key": "1",
+      "outDir": "projects/golden_spatula_mumu/analysis/video/1",
+      "video": "docs/mp4s/金铲铲之战(1).mp4",
+      "mmor": null,
+      "duplicateVideoCount": 0,
+      "duplicateMmorCount": 0,
+      "videoResult": {
+        "status": "skipped",
+        "reason": "analysis-exists"
+      },
+      "mmorResult": {
+        "status": "skipped",
+        "reason": "missing-mmor"
+      }
+    },
+    {
+      "key": "2",
+      "outDir": "projects/golden_spatula_mumu/analysis/video/2",
+      "video": "docs/mp4s/金铲铲之战(2).mp4",
+      "mmor": "docs/mmors/金铲铲之战_2.mmor",
+      "duplicateVideoCount": 0,
+      "duplicateMmorCount": 0,
+      "videoResult": {
+        "status": "skipped",
+        "reason": "analysis-exists"
+      },
+      "mmorResult": {
+        "status": "skipped",
+        "reason": "operations-exists"
+      }
+    }
+  ],
+  "regression": {
+    "status": "succeeded",
+    "code": 0,
+    "durationMs": 353,
+    "stdout": "Golden Spatula recording regression\nRecordings checked: 2\nStatus: warn\nJSON: projects/golden_spatula_mumu/analysis/recording-regression.json\nMarkdown: projects/golden_spatula_mumu/analysis/recording-regression.md\n",
+    "stderr": ""
+  }
+}

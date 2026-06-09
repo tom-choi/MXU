@@ -101,6 +101,13 @@ fn update_instance_controller(
     let cleanup_config = {
         let mut instances = state.instances.lock().map_err(|e| e.to_string())?;
         let instance = instances.get_mut(instance_id).ok_or("Instance not found")?;
+        if instance
+            .tasker
+            .as_ref()
+            .is_some_and(|tasker| tasker.running())
+        {
+            return Err("Cannot change controller while a task is running".to_string());
+        }
 
         let old_config = instance.controller_config.clone();
         instance.controller = Some(controller);
@@ -806,6 +813,13 @@ pub fn load_resource_impl(
 
     let mut instances = state.instances.lock().map_err(|e| e.to_string())?;
     let instance = instances.get_mut(instance_id).ok_or("Instance not found")?;
+    if instance
+        .tasker
+        .as_ref()
+        .is_some_and(|tasker| tasker.running())
+    {
+        return Err("Cannot load resource while a task is running".to_string());
+    }
 
     // 创建或获取资源
     if instance.resource.is_none() {
@@ -917,6 +931,13 @@ pub fn maa_destroy_resource(
     let instance = instances
         .get_mut(&instance_id)
         .ok_or("Instance not found")?;
+    if instance
+        .tasker
+        .as_ref()
+        .is_some_and(|tasker| tasker.running())
+    {
+        return Err("Cannot destroy resource while a task is running".to_string());
+    }
 
     // 销毁旧的资源
     instance.resource = None;

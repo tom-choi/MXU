@@ -11,7 +11,13 @@
     "roi": [0, 0, 1280, 720],
     "inverse": true,
     "action": "DoNothing",
-    "next": ["KnowledgeSmoke_ItemTemplateLoads"]
+    "next": ["KnowledgeSmoke_ItemTemplateLoads"],
+    "focus": {
+      "Node.Recognition.Failed": {
+        "content": "知识库模板加载异常：棋子模板未通过探测。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeSmoke_ItemTemplateLoads": {
     "recognition": "TemplateMatch",
@@ -20,7 +26,13 @@
     "roi": [0, 0, 1280, 720],
     "inverse": true,
     "action": "DoNothing",
-    "next": ["KnowledgeSmoke_TraitTemplateLoads"]
+    "next": ["KnowledgeSmoke_TraitTemplateLoads"],
+    "focus": {
+      "Node.Recognition.Failed": {
+        "content": "知识库模板加载异常：装备模板未通过探测。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeSmoke_TraitTemplateLoads": {
     "recognition": "TemplateMatch",
@@ -29,7 +41,13 @@
     "roi": [0, 0, 1280, 720],
     "inverse": true,
     "action": "DoNothing",
-    "next": ["KnowledgeSmoke_AugmentTemplateLoads"]
+    "next": ["KnowledgeSmoke_AugmentTemplateLoads"],
+    "focus": {
+      "Node.Recognition.Failed": {
+        "content": "知识库模板加载异常：羁绊模板未通过探测。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeSmoke_AugmentTemplateLoads": {
     "recognition": "TemplateMatch",
@@ -38,11 +56,23 @@
     "roi": [0, 0, 1280, 720],
     "inverse": true,
     "action": "DoNothing",
-    "next": ["KnowledgeSmoke_Done"]
+    "next": ["KnowledgeSmoke_Done"],
+    "focus": {
+      "Node.Recognition.Failed": {
+        "content": "知识库模板加载异常：强化符文模板未通过探测。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeSmoke_Done": {
     "action": "Screencap",
-    "filename": "knowledge_smoke_templates_loaded"
+    "filename": "knowledge_smoke_templates_loaded",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "知识库模板加载完成：棋子、装备、羁绊和强化符文模板可读取。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeShopChampions": {
     "action": "Screencap",
@@ -132,11 +162,23 @@
     ],
     "roi": [150, 500, 980, 220],
     "action": "Screencap",
-    "filename": "knowledge_shop_champion_match"
+    "filename": "knowledge_shop_champion_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "商店棋子模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeShopChampions_NoMatch": {
     "action": "Screencap",
-    "filename": "knowledge_shop_champion_no_match"
+    "filename": "knowledge_shop_champion_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "商店棋子模板未命中。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeItems": {
     "action": "Screencap",
@@ -165,11 +207,23 @@
     "threshold": [0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86],
     "roi": [0, 400, 1280, 320],
     "action": "Screencap",
-    "filename": "knowledge_basic_item_match"
+    "filename": "knowledge_basic_item_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "基础装备模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeItems_NoBasicMatch": {
     "action": "Screencap",
-    "filename": "knowledge_basic_item_no_match"
+    "filename": "knowledge_basic_item_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "基础装备模板未命中。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeBasicItems": {
     "action": "Screencap",
@@ -198,11 +252,23 @@
     "threshold": [0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86],
     "roi": [0, 400, 1280, 320],
     "action": "Screencap",
-    "filename": "knowledge_basic_item_match"
+    "filename": "knowledge_basic_item_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "基础装备模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeBasicItems_NoMatch": {
     "action": "Screencap",
-    "filename": "knowledge_basic_item_no_match"
+    "filename": "knowledge_basic_item_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "基础装备模板未命中。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeCompletedItems": {
     "action": "Screencap",
@@ -281,11 +347,23 @@
     ],
     "roi": [0, 400, 1280, 320],
     "action": "Screencap",
-    "filename": "knowledge_completed_item_match"
+    "filename": "knowledge_completed_item_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "成装模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeCompletedItems_NoMatch": {
     "action": "Screencap",
-    "filename": "knowledge_completed_item_no_match"
+    "filename": "knowledge_completed_item_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "成装模板未命中。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeSpecialItems": {
     "action": "Screencap",
@@ -532,11 +610,23 @@
     ],
     "roi": [0, 400, 1280, 320],
     "action": "Screencap",
-    "filename": "knowledge_special_item_match"
+    "filename": "knowledge_special_item_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "特殊装备模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeSpecialItems_NoMatch": {
     "action": "Screencap",
-    "filename": "knowledge_special_item_no_match"
+    "filename": "knowledge_special_item_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "特殊装备模板未命中。",
+        "display": "log"
+      }
+    }
   },
   "RecognizeTraitsPanel": {
     "action": "Screencap",
@@ -593,10 +683,22 @@
     ],
     "roi": [0, 0, 360, 720],
     "action": "Screencap",
-    "filename": "knowledge_trait_match"
+    "filename": "knowledge_trait_match",
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "羁绊模板命中。",
+        "display": "log"
+      }
+    }
   },
   "KnowledgeTraits_NoMatch": {
     "action": "Screencap",
-    "filename": "knowledge_trait_no_match"
+    "filename": "knowledge_trait_no_match",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "羁绊模板未命中。",
+        "display": "log"
+      }
+    }
   }
 }

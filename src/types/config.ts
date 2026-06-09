@@ -2,6 +2,7 @@
 
 import type { OptionValue, ActionConfig } from './interface';
 import type { AccentColor, CustomAccent } from '@/themes/types';
+import type { GoldenSpatulaLineupManagerState } from './goldenSpatula';
 
 export const DEFAULT_MAX_LOGS_PER_INSTANCE = 500;
 
@@ -168,6 +169,9 @@ export interface MxuConfig {
   version: string;
   instances: SavedInstance[];
   settings: AppSettings;
+  goldenSpatula?: {
+    lineupManager?: GoldenSpatulaLineupManagerState;
+  };
   recentlyClosed?: RecentlyClosedInstance[]; // 最近关闭的实例列表（最多30条）
   interfaceTaskSnapshot?: string[]; // 保存时 interface.json 中的任务名列表快照，用于检测新增任务
   newTaskNames?: string[]; // 用户尚未查看的新增任务名称列表

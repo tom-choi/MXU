@@ -13,10 +13,14 @@ function parseArgs(args) {
     displayShortSide: 720,
     entry: 'RedDotPatrol',
     instanceId: 'golden-red-dot-smoke',
+    loadKnowledgeResource: false,
+    pipelineOverride: '[]',
+    pipelineOverrideFile: null,
     selectedTaskId: `golden-red-dot-${Date.now()}`,
     skipPrepare: false,
     startMxu: true,
     strictPatrolCoverage: true,
+    summaryFile: null,
     targetDir: defaultTargetDir,
     timeoutMs: 240000,
   };
@@ -33,8 +37,20 @@ function parseArgs(args) {
     } else if (arg === '--instance' && next) {
       parsed.instanceId = next;
       i += 1;
+    } else if (arg === '--selected-task-id' && next) {
+      parsed.selectedTaskId = next;
+      i += 1;
+    } else if (arg === '--pipeline-override-json' && next) {
+      parsed.pipelineOverride = next;
+      i += 1;
+    } else if (arg === '--pipeline-override-file' && next) {
+      parsed.pipelineOverrideFile = path.resolve(repoRoot, next);
+      i += 1;
     } else if (arg === '--target-dir' && next) {
       parsed.targetDir = path.resolve(repoRoot, next);
+      i += 1;
+    } else if (arg === '--summary-file' && next) {
+      parsed.summaryFile = path.resolve(repoRoot, next);
       i += 1;
     } else if (arg === '--timeout-ms' && next) {
       parsed.timeoutMs = Number(next);
@@ -44,6 +60,8 @@ function parseArgs(args) {
       i += 1;
     } else if (arg === '--skip-prepare') {
       parsed.skipPrepare = true;
+    } else if (arg === '--load-knowledge-resource') {
+      parsed.loadKnowledgeResource = true;
     } else if (arg === '--no-start-mxu') {
       parsed.startMxu = false;
     } else if (arg === '--no-strict-patrol-coverage') {
@@ -54,6 +72,45 @@ function parseArgs(args) {
   }
 
   return parsed;
+}
+
+function validatePipelineOverride(value, label) {
+  let parsed;
+  try {
+    parsed = JSON.parse(value);
+  } catch (error) {
+    throw new Error(`${label} is not valid JSON: ${error.message}`);
+  }
+
+  if (!parsed || typeof parsed !== 'object') {
+    throw new Error(`${label} must be a JSON object or array`);
+  }
+
+  return JSON.stringify(parsed);
+}
+
+async function loadPipelineOverride(options) {
+  if (!options.pipelineOverrideFile) {
+    options.pipelineOverride = validatePipelineOverride(
+      options.pipelineOverride || '[]',
+      '--pipeline-override-json',
+    );
+    return;
+  }
+
+  const content = await fs.readFile(options.pipelineOverrideFile, 'utf8');
+  options.pipelineOverride = validatePipelineOverride(
+    content.trim() || '[]',
+    options.pipelineOverrideFile,
+  );
+  const parsed = JSON.parse(options.pipelineOverride);
+  const nodeCount =
+    parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? Object.keys(parsed).length : 0;
+  console.log(
+    `Loaded pipeline override: ${path.relative(repoRoot, options.pipelineOverrideFile)}${
+      nodeCount ? ` (${nodeCount} nodes)` : ''
+    }`,
+  );
 }
 
 function sleep(ms) {
@@ -195,7 +252,9 @@ function isKnowledgeEntry(entry) {
     entry === 'RecognizeBasicItems' ||
     entry === 'RecognizeCompletedItems' ||
     entry === 'RecognizeSpecialItems' ||
-    entry === 'RecognizeTraitsPanel'
+    entry === 'RecognizeTraitsPanel' ||
+    entry === 'AutoRollAndBuyTargets' ||
+    entry === 'AutoLevelRollAndBuyTargets'
   );
 }
 
@@ -257,7 +316,7 @@ async function connectAndLoad(apiBase, options) {
 
   logStep('Loading resource bundle');
   const resourcePaths = [path.join(options.targetDir, 'resource')];
-  if (isKnowledgeEntry(options.entry)) {
+  if (options.loadKnowledgeResource || isKnowledgeEntry(options.entry)) {
     resourcePaths.push(path.join(options.targetDir, 'resource_knowledge'));
   }
   await fetchJson(apiBase, `/maa/instances/${options.instanceId}/resource/load`, {
@@ -273,6 +332,8 @@ async function connectAndLoad(apiBase, options) {
     'controller/resource readiness',
     60000,
   );
+
+  return { device, resourcePaths };
 }
 
 async function runTask(apiBase, options) {
@@ -282,7 +343,7 @@ async function runTask(apiBase, options) {
     tasks: [
       {
         entry: options.entry,
-        pipeline_override: '[]',
+        pipeline_override: options.pipelineOverride || '[]',
         selected_task_id: options.selectedTaskId,
       },
     ],
@@ -326,7 +387,11 @@ async function runTask(apiBase, options) {
     throw new Error(`${options.entry} finished with status=${status}`);
   }
 
-  return taskStartedAt;
+  return {
+    taskStartedAt,
+    taskIds: result?.taskIds || [],
+    status,
+  };
 }
 
 async function walkFiles(dir, out = []) {
@@ -368,10 +433,28 @@ async function printArtifactList(files, limit) {
   const recent = files.sort((a, b) => b.mtimeMs - a.mtimeMs).slice(0, limit);
 
   for (const file of recent) {
-    const size = file.path.toLowerCase().endsWith('.png') ? await pngSize(file.path) : '';
-    const relative = path.relative(repoRoot, file.path);
-    console.log(`${relative}${size ? ` (${size})` : ''} - ${formatAge(file.mtimeMs)}`);
+    const summary = await summarizeArtifactFile(file);
+    console.log(
+      `${summary.path}${summary.dimensions ? ` (${summary.dimensions})` : ''} - ${summary.age}`,
+    );
   }
+}
+
+async function summarizeArtifactFile(file) {
+  const dimensions = file.path.toLowerCase().endsWith('.png') ? await pngSize(file.path) : '';
+  return {
+    path: path.relative(repoRoot, file.path),
+    size: file.size,
+    dimensions,
+    mtimeMs: file.mtimeMs,
+    modifiedAt: new Date(file.mtimeMs).toISOString(),
+    age: formatAge(file.mtimeMs),
+  };
+}
+
+async function summarizeArtifactFiles(files, limit) {
+  const recent = [...files].sort((a, b) => b.mtimeMs - a.mtimeMs).slice(0, limit);
+  return Promise.all(recent.map((file) => summarizeArtifactFile(file)));
 }
 
 async function summarizeArtifacts(targetDir, sinceMs = null) {
@@ -379,7 +462,13 @@ async function summarizeArtifacts(targetDir, sinceMs = null) {
   if (files.length === 0) {
     logStep('Screenshots and error artifacts');
     console.log('No screenshots or error artifacts found yet.');
-    return;
+    return {
+      mode: sinceMs ? 'fresh' : 'recent',
+      total: 0,
+      fresh: [],
+      historicalIssues: [],
+      recent: [],
+    };
   }
 
   if (sinceMs) {
@@ -403,11 +492,25 @@ async function summarizeArtifacts(targetDir, sinceMs = null) {
       logStep('Historical error artifacts ignored for this run');
       await printArtifactList(staleIssues, 8);
     }
-    return;
+    return {
+      mode: 'fresh',
+      total: files.length,
+      sinceMs,
+      fresh: await summarizeArtifactFiles(fresh, 16),
+      historicalIssues: await summarizeArtifactFiles(staleIssues, 8),
+      recent: [],
+    };
   }
 
   logStep('Recent screenshots and error artifacts');
   await printArtifactList(files, 12);
+  return {
+    mode: 'recent',
+    total: files.length,
+    fresh: [],
+    historicalIssues: [],
+    recent: await summarizeArtifactFiles(files, 12),
+  };
 }
 
 async function collectArtifacts(targetDir) {
@@ -477,20 +580,67 @@ async function assertStrictPatrolCoverage(targetDir, taskStartedAt) {
   console.log('Strict patrol coverage verified.');
 }
 
+async function writeJsonFile(filePath, data) {
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+}
+
+function relativeOrNull(filePath) {
+  return filePath ? path.relative(repoRoot, filePath) : null;
+}
+
+async function maybeWriteRunSummary(options, status, extra = {}) {
+  if (!options.summaryFile) return;
+
+  const summary = {
+    type: 'mxu.goldenSpatula.runnerSummary',
+    version: 1,
+    createdAt: new Date().toISOString(),
+    status,
+    entry: options.entry,
+    selectedTaskId: options.selectedTaskId,
+    instanceId: options.instanceId,
+    apiBase: options.apiBase,
+    targetDir: relativeOrNull(options.targetDir),
+    pipelineOverrideFile: relativeOrNull(options.pipelineOverrideFile),
+    loadKnowledgeResource: options.loadKnowledgeResource || isKnowledgeEntry(options.entry),
+    device: extra.device
+      ? {
+          name: extra.device.name,
+          address: extra.device.address,
+          adb_path: extra.device.adb_path,
+        }
+      : null,
+    resourcePaths: (extra.resourcePaths || []).map((resourcePath) => relativeOrNull(resourcePath)),
+    task: extra.task || null,
+    artifacts: extra.artifacts || null,
+    error: extra.error || null,
+  };
+
+  await writeJsonFile(options.summaryFile, summary);
+  console.log(`Wrote runner summary: ${path.relative(repoRoot, options.summaryFile)}`);
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
+  await loadPipelineOverride(options);
 
   if (!options.skipPrepare) {
     runPrepare(options.targetDir);
   }
 
   await ensureApi(options);
-  await connectAndLoad(options.apiBase, options);
-  const taskStartedAt = await runTask(options.apiBase, options);
-  await summarizeArtifacts(options.targetDir, taskStartedAt);
+  const connection = await connectAndLoad(options.apiBase, options);
+  const task = await runTask(options.apiBase, options);
+  const artifacts = await summarizeArtifacts(options.targetDir, task.taskStartedAt);
   if (options.entry === 'RedDotPatrol' && options.strictPatrolCoverage) {
-    await assertStrictPatrolCoverage(options.targetDir, taskStartedAt);
+    await assertStrictPatrolCoverage(options.targetDir, task.taskStartedAt);
   }
+  await maybeWriteRunSummary(options, 'succeeded', {
+    ...connection,
+    task,
+    artifacts,
+  });
   console.log(`\n${options.entry} succeeded.`);
 }
 
@@ -498,6 +648,10 @@ main().catch(async (error) => {
   const options = parseArgs(process.argv.slice(2));
   console.error(`\n${options.entry} failed: ${error.message}`);
   const targetDir = options.targetDir;
-  await summarizeArtifacts(targetDir).catch(() => {});
+  const artifacts = await summarizeArtifacts(targetDir).catch(() => null);
+  await maybeWriteRunSummary(options, 'failed', {
+    artifacts,
+    error: error.message,
+  }).catch(() => {});
   process.exitCode = 1;
 });

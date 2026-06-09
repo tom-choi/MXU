@@ -57,9 +57,13 @@
     "next": ["Tutorial_Stage1BuyXp"]
   },
   "Tutorial_Stage1BuyXp": {
-    "recognition": "DirectHit",
+    "recognition": "TemplateMatch",
+    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 575, 140, 80],
+    "timeout": 1500,
     "action": "Click",
-    "target": [245, 615, 2, 2],
+    "target": [286, 615, 2, 2],
     "post_delay": 2500,
     "next": ["Tutorial_Stage1AfterXp"]
   },
@@ -247,7 +251,7 @@
     "action": "Swipe",
     "begin": [337, 496],
     "end": [640, 282],
-    "duration": 900,
+    "duration": 800,
     "post_delay": 3500,
     "next": ["Tutorial_Stage3TraitDialogA"]
   },
@@ -291,7 +295,7 @@
     "action": "Swipe",
     "begin": [335, 500],
     "end": [640, 641],
-    "duration": 1200,
+    "duration": 800,
     "post_delay": 3500,
     "next": ["Tutorial_Stage3SellScreencap"]
   },
@@ -371,7 +375,7 @@
     "action": "Swipe",
     "begin": [102, 104],
     "end": [708, 369],
-    "duration": 1200,
+    "duration": 800,
     "post_delay": 3500,
     "next": ["Tutorial_Stage4CarouselDialogA"]
   },
@@ -420,7 +424,7 @@
     "action": "Swipe",
     "begin": [640, 504],
     "end": [579, 642],
-    "duration": 1400,
+    "duration": 800,
     "post_delay": 3500,
     "next": ["Tutorial_Stage4CombineHintA"]
   },
@@ -443,7 +447,7 @@
     "action": "Swipe",
     "begin": [102, 101],
     "end": [708, 369],
-    "duration": 1200,
+    "duration": 800,
     "post_delay": 3500,
     "next": ["Tutorial_Stage4RecipeTap"]
   },
@@ -500,9 +504,13 @@
     "next": ["Tutorial_Stage5RefreshA"]
   },
   "Tutorial_Stage5RefreshA": {
-    "recognition": "DirectHit",
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
     "action": "Click",
-    "target": [247, 684, 2, 2],
+    "target": [286, 681, 2, 2],
     "post_delay": 3000,
     "next": ["Tutorial_Stage5BuyC"]
   },
@@ -514,16 +522,24 @@
     "next": ["Tutorial_Stage5RefreshB"]
   },
   "Tutorial_Stage5RefreshB": {
-    "recognition": "DirectHit",
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
     "action": "Click",
-    "target": [247, 684, 2, 2],
+    "target": [286, 681, 2, 2],
     "post_delay": 3000,
     "next": ["Tutorial_Stage5RefreshC"]
   },
   "Tutorial_Stage5RefreshC": {
-    "recognition": "DirectHit",
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
     "action": "Click",
-    "target": [247, 684, 2, 2],
+    "target": [286, 681, 2, 2],
     "post_delay": 3000,
     "next": ["Tutorial_Stage5BuyD"]
   },
@@ -542,9 +558,13 @@
     "next": ["Tutorial_Stage5RefreshD"]
   },
   "Tutorial_Stage5RefreshD": {
-    "recognition": "DirectHit",
+    "recognition": "TemplateMatch",
+    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "threshold": [0.76, 0.7],
+    "roi": [180, 640, 140, 80],
+    "timeout": 1500,
     "action": "Click",
-    "target": [247, 684, 2, 2],
+    "target": [286, 681, 2, 2],
     "post_delay": 3000,
     "next": ["Tutorial_Stage5BuyF"]
   },

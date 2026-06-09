@@ -18,7 +18,7 @@ export { OptionEditor } from './OptionEditor';
 export { AddTaskPanel } from './AddTaskPanel';
 export { Toolbar } from './Toolbar';
 export { ScreenshotPanel } from './ScreenshotPanel';
-export { GoldenSpatulaStrategyPanel } from './GoldenSpatulaStrategyPanel';
+export { GoldenSpatulaAssistantPanel } from './GoldenSpatulaAssistantPanel';
 export { LogsPanel } from './LogsPanel';
 export { SettingsPage } from './SettingsPage';
 export { WelcomeDialog } from './WelcomeDialog';

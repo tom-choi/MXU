@@ -109,5 +109,25 @@
     "source": "samples/screenshots/source_reward_popup.png",
     "output": "resource/image/popup/reward_title.png",
     "rect": [563, 35, 156, 50]
+  },
+  {
+    "source": "samples/screenshots/source_in_game_shop_idle.png",
+    "output": "resource/image/ingame/buy_xp_button_idle.png",
+    "rect": [188, 586, 124, 56]
+  },
+  {
+    "source": "samples/screenshots/source_in_game_shop_active.png",
+    "output": "resource/image/ingame/buy_xp_button_active.png",
+    "rect": [188, 586, 124, 56]
+  },
+  {
+    "source": "samples/screenshots/source_in_game_shop_idle.png",
+    "output": "resource/image/ingame/shop_refresh_button_idle.png",
+    "rect": [188, 652, 124, 56]
+  },
+  {
+    "source": "samples/screenshots/source_in_game_shop_active.png",
+    "output": "resource/image/ingame/shop_refresh_button_active.png",
+    "rect": [188, 652, 124, 56]
   }
 ]

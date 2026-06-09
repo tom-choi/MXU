@@ -28,6 +28,7 @@ import type {
   ProjectInterface,
   SelectedTask,
 } from '@/types/interface';
+import type { GoldenSpatulaLineupManagerState } from '@/types/goldenSpatula';
 import type { ConnectionStatus, TaskStatus } from '@/types/maa';
 import { getMxuSpecialTask, isMxuSpecialTask, MXU_SPECIAL_TASKS } from '@/types/specialTasks';
 import { decryptCdk, encryptCdk } from '@/utils/cdkCrypto';
@@ -106,6 +107,7 @@ export type {
 
 // 最近关闭列表最大条目数
 const MAX_RECENTLY_CLOSED = 30;
+const EMPTY_GOLDEN_SPATULA_LINEUP_MANAGER: GoldenSpatulaLineupManagerState = { lineups: [] };
 
 export const useAppStore = create<AppState>()(
   subscribeWithSelector((set, get) => ({
@@ -978,6 +980,9 @@ export const useAppStore = create<AppState>()(
       return translations?.[key] || key;
     },
 
+    goldenSpatulaLineupManager: EMPTY_GOLDEN_SPATULA_LINEUP_MANAGER,
+    setGoldenSpatulaLineupManager: (manager) => set({ goldenSpatulaLineupManager: manager }),
+
     // 配置导入
     importConfig: (config) => {
       const pi = get().projectInterface;
@@ -1218,6 +1223,8 @@ export const useAppStore = create<AppState>()(
           stopTasks: 'F11',
           globalEnabled: false,
         },
+        goldenSpatulaLineupManager:
+          config.goldenSpatula?.lineupManager ?? EMPTY_GOLDEN_SPATULA_LINEUP_MANAGER,
         recentlyClosed: config.recentlyClosed || [],
         // 记录新增任务，并在有新增时自动展开添加任务面板
         newTaskNames: detectedNewTaskNames,
@@ -2027,29 +2034,33 @@ export const useAppStore = create<AppState>()(
 
 const _isWebUI = !isTauri();
 
+function getPersistedInstances(instances: Instance[]): MxuConfig['instances'] {
+  return instances.map((inst) => ({
+    id: inst.id,
+    name: inst.name,
+    controllerId: inst.controllerId,
+    resourceId: inst.resourceId,
+    controllerName: inst.controllerName,
+    resourceName: inst.resourceName,
+    savedDevice: inst.savedDevice,
+    tasks: inst.selectedTasks.map((t) => ({
+      id: t.id,
+      taskName: t.taskName,
+      customName: t.customName,
+      enabled: t.enabled,
+      optionValues: t.optionValues,
+    })),
+    schedulePolicies: inst.schedulePolicies,
+    preActions: inst.preActions,
+  }));
+}
+
 // 生成配置用于保存
 function generateConfig(): MxuConfig {
   const state = useAppStore.getState();
   return {
     version: '1.0',
-    instances: state.instances.map((inst) => ({
-      id: inst.id,
-      name: inst.name,
-      controllerId: inst.controllerId,
-      resourceId: inst.resourceId,
-      controllerName: inst.controllerName,
-      resourceName: inst.resourceName,
-      savedDevice: inst.savedDevice,
-      tasks: inst.selectedTasks.map((t) => ({
-        id: t.id,
-        taskName: t.taskName,
-        customName: t.customName,
-        enabled: t.enabled,
-        optionValues: t.optionValues,
-      })),
-      schedulePolicies: inst.schedulePolicies,
-      preActions: inst.preActions,
-    })),
+    instances: getPersistedInstances(state.instances),
     // WebUI 模式下保留后端原始的外观 & 布局设置，避免覆盖桌面端偏好
     ...(() => {
       const ba = _isWebUI ? getBackendAppearance() : undefined;
@@ -2100,6 +2111,14 @@ function generateConfig(): MxuConfig {
     interfaceTaskSnapshot: state.projectInterface?.task.map((t) => t.name) || [],
     newTaskNames: state.newTaskNames,
     lastActiveInstanceId: state.activeInstanceId || undefined,
+    ...(state.projectInterface?.name === 'GoldenSpatulaMuMu' ||
+    state.goldenSpatulaLineupManager.lineups.length > 0
+      ? {
+          goldenSpatula: {
+            lineupManager: state.goldenSpatulaLineupManager,
+          },
+        }
+      : {}),
     // 保存预设初始化标记
     presetInitialized: state.presetInitialized || undefined,
   };
@@ -2129,7 +2148,7 @@ function debouncedSaveConfig() {
 // WebUI 模式下外观 & 布局字段已独立存 localStorage，不参与 config 保存订阅
 useAppStore.subscribe(
   (state) => ({
-    instances: state.instances,
+    instances: getPersistedInstances(state.instances),
     activeInstanceId: state.activeInstanceId,
     ...(!_isWebUI && {
       theme: state.theme,
@@ -2165,6 +2184,7 @@ useAppStore.subscribe(
     hotkeys: state.hotkeys,
     recentlyClosed: state.recentlyClosed,
     newTaskNames: state.newTaskNames,
+    goldenSpatulaLineupManager: state.goldenSpatulaLineupManager,
     presetInitialized: state.presetInitialized,
   }),
   () => {

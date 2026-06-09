@@ -1,0 +1,263 @@
+{
+  "type": "mxu.goldenSpatula.recordingRegression",
+  "version": 1,
+  "generatedAt": "2026-06-09T07:15:14.966Z",
+  "analysisRoot": "projects/golden_spatula_mumu/analysis/video",
+  "status": "warn",
+  "options": {
+    "minVideoEvents": 20,
+    "minShopGestures": 20,
+    "maxTargetDrift": 70
+  },
+  "recordings": [
+    {
+      "name": "1",
+      "directory": "projects/golden_spatula_mumu/analysis/video/1",
+      "status": "warn",
+      "video": {
+        "path": "docs/mp4s/金铲铲之战(1).mp4",
+        "durationSeconds": 282.474,
+        "eventCount": 61
+      },
+      "mmor": null,
+      "checks": [
+        {
+          "status": "pass",
+          "key": "video:resolution",
+          "message": "Video resolution is 1280x720"
+        },
+        {
+          "status": "pass",
+          "key": "video:duration",
+          "message": "Video duration is 282.47s"
+        },
+        {
+          "status": "pass",
+          "key": "video:event-coverage",
+          "message": "Video candidate event count is 61",
+          "details": {
+            "minVideoEvents": 20
+          }
+        },
+        {
+          "status": "warn",
+          "key": "mmor:analysis-missing",
+          "message": "No operations.json was found"
+        }
+      ]
+    },
+    {
+      "name": "2",
+      "directory": "projects/golden_spatula_mumu/analysis/video/2",
+      "status": "pass",
+      "video": {
+        "path": "docs/mp4s/金铲铲之战(2).mp4",
+        "durationSeconds": 858.794,
+        "eventCount": 223
+      },
+      "mmor": {
+        "path": "docs/mmors/金铲铲之战_2.mmor",
+        "actionCount": 3498,
+        "gestureCount": 365,
+        "shopGestures": 87,
+        "transform": "rotatedClockwise"
+      },
+      "checks": [
+        {
+          "status": "pass",
+          "key": "video:resolution",
+          "message": "Video resolution is 1280x720"
+        },
+        {
+          "status": "pass",
+          "key": "video:duration",
+          "message": "Video duration is 858.79s"
+        },
+        {
+          "status": "pass",
+          "key": "video:event-coverage",
+          "message": "Video candidate event count is 223",
+          "details": {
+            "minVideoEvents": 20
+          }
+        },
+        {
+          "status": "pass",
+          "key": "mmor:coordinate-transform",
+          "message": "Selected coordinate transform is rotatedClockwise",
+          "details": {
+            "selectedScore": 2686
+          }
+        },
+        {
+          "status": "pass",
+          "key": "mmor:coordinate-transform-score",
+          "message": "Selected transform score 2686, best score 2686",
+          "details": {
+            "bestTransform": "rotatedClockwise"
+          }
+        },
+        {
+          "status": "pass",
+          "key": "mmor:actions",
+          "message": "3498 actions"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:gestures",
+          "message": "365 gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:shop-coverage",
+          "message": "87 shop gestures",
+          "details": {
+            "minShopGestures": 20
+          }
+        },
+        {
+          "status": "pass",
+          "key": "mmor:refresh-coverage",
+          "message": "3 refresh gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:xp-coverage",
+          "message": "1 buy XP gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:slot1-coverage",
+          "message": "Slot 1 has 23 recorded gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:slot2-coverage",
+          "message": "Slot 2 has 28 recorded gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:slot3-coverage",
+          "message": "Slot 3 has 20 recorded gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:slot4-coverage",
+          "message": "Slot 4 has 7 recorded gestures"
+        },
+        {
+          "status": "pass",
+          "key": "mmor:slot5-coverage",
+          "message": "Slot 5 has 9 recorded gestures"
+        },
+        {
+          "status": "pass",
+          "key": "target:buyXp",
+          "message": "buy XP target drift is 19.15px",
+          "details": {
+            "current": [286, 615],
+            "recorded": [292, 596.81],
+            "maxDistance": 35
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:refresh",
+          "message": "refresh target drift is 42.1px",
+          "details": {
+            "current": [286, 681],
+            "recorded": [246, 694.13],
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:slot1",
+          "message": "Slot 1 target drift is 45.12px",
+          "details": {
+            "current": [404, 642],
+            "recorded": [392, 598.5],
+            "insideRoi": true,
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:slot2",
+          "message": "Slot 2 target drift is 46.48px",
+          "details": {
+            "current": [562, 642],
+            "recorded": [566, 595.69],
+            "insideRoi": true,
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:slot3",
+          "message": "Slot 3 target drift is 46.76px",
+          "details": {
+            "current": [720, 642],
+            "recorded": [677, 660.38],
+            "insideRoi": true,
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:slot4",
+          "message": "Slot 4 target drift is 34.06px",
+          "details": {
+            "current": [878, 642],
+            "recorded": [866, 673.88],
+            "insideRoi": true,
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "target:slot5",
+          "message": "Slot 5 target drift is 29.21px",
+          "details": {
+            "current": [1036, 642],
+            "recorded": [1033, 671.06],
+            "insideRoi": true,
+            "maxDistance": 70
+          }
+        },
+        {
+          "status": "pass",
+          "key": "timing:buy-click-delay",
+          "message": "Buy click post_delay is 650ms",
+          "details": {
+            "recordedCloseSlotMedianSeconds": 0.944
+          }
+        },
+        {
+          "status": "pass",
+          "key": "timing:refresh-window",
+          "message": "Refresh window is 1800ms",
+          "details": {
+            "recordedRefreshMinSeconds": 1.696
+          }
+        },
+        {
+          "status": "pass",
+          "key": "timing:refresh-delay-cap",
+          "message": "Refresh post_delay is 1300ms",
+          "details": {
+            "recordedRefreshMedianSeconds": 2.192
+          }
+        },
+        {
+          "status": "pass",
+          "key": "timing:xp-delay",
+          "message": "XP post_delay is 900ms",
+          "details": {
+            "recordedXpMinSeconds": 0.64
+          }
+        }
+      ]
+    }
+  ]
+}

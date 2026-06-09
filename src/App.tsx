@@ -12,7 +12,7 @@ import {
   AddTaskPanel,
   Toolbar,
   ScreenshotPanel,
-  GoldenSpatulaStrategyPanel,
+  GoldenSpatulaAssistantPanel,
   LogsPanel,
   ConnectionPanel,
 } from '@/components';
@@ -1947,7 +1947,7 @@ function App() {
                     {/* 实时截图 */}
                     <ScreenshotPanel />
 
-                    <GoldenSpatulaStrategyPanel />
+                    <GoldenSpatulaAssistantPanel />
                   </div>
                 </div>
 
