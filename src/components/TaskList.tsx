@@ -30,6 +30,7 @@ import {
 import { useAppStore } from '@/stores/appStore';
 import { TaskItem } from './TaskItem';
 import { ActionItem } from './ActionItem';
+import { GOLDEN_SPATULA_PROJECT, GoldenSpatulaAssistantPanel } from './GoldenSpatulaAssistantPanel';
 import { ContextMenu, useContextMenu, type MenuItem } from './ContextMenu';
 import type { SavedTask } from '@/types/config';
 import type { PresetItem } from '@/types/interface';
@@ -383,26 +384,44 @@ export function TaskList() {
   }
 
   const tasks = instance.selectedTasks;
+  const showGoldenSpatulaAssistant = projectInterface?.name === GOLDEN_SPATULA_PROJECT;
 
   const preActions = instance.preActions ?? [];
   const showPreActions = preActions.length > 0;
   const canReorderPreActions = !isInstanceRunning && preActions.length > 1;
   const hasPresets =
     (projectInterface?.preset?.length ?? 0) > 0 && !skippedPresetInstanceIds.has(instance.id);
+  const goldenSpatulaAssistant = showGoldenSpatulaAssistant ? (
+    <GoldenSpatulaAssistantPanel />
+  ) : null;
 
   if (tasks.length === 0 && !showPreActions) {
     return (
       <>
-        <div className="flex-1 overflow-y-auto" onContextMenu={handleListContextMenu}>
+        <div
+          className={clsx(
+            'flex-1 overflow-y-auto',
+            showGoldenSpatulaAssistant && !hasPresets && 'p-3',
+          )}
+          onContextMenu={handleListContextMenu}
+        >
           {hasPresets ? (
             <PresetSelector instanceId={instance.id} />
           ) : (
-            <div className="h-full flex flex-col items-center justify-center text-text-muted gap-3">
+            <div
+              className={clsx(
+                'flex flex-col items-center justify-center text-text-muted gap-3',
+                showGoldenSpatulaAssistant ? 'min-h-[180px]' : 'h-full',
+              )}
+            >
               <ListTodo className="w-12 h-12 opacity-30" />
               <p className="text-sm">{t('taskList.noTasks')}</p>
               <p className="text-xs">{t('taskList.dragToReorder')}</p>
               <ImportConfigButton instanceId={instance.id} />
             </div>
+          )}
+          {goldenSpatulaAssistant && (
+            <div className={clsx(hasPresets && 'px-3 pb-3')}>{goldenSpatulaAssistant}</div>
           )}
         </div>
         {menuState.isOpen && (
@@ -457,6 +476,8 @@ export function TaskList() {
               <ImportConfigButton instanceId={instance.id} />
             </div>
           )}
+
+          {goldenSpatulaAssistant && <div className="mt-3">{goldenSpatulaAssistant}</div>}
         </div>
         {menuState.isOpen && (
           <ContextMenu items={menuState.items} position={menuState.position} onClose={hideMenu} />
@@ -516,6 +537,7 @@ export function TaskList() {
               </div>
             </SortableContext>
           </DndContext>
+          {goldenSpatulaAssistant && <div className="mt-3">{goldenSpatulaAssistant}</div>}
         </div>
       </div>
       {menuState.isOpen && (

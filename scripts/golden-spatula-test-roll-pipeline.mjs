@@ -62,6 +62,24 @@ function assertXpFocus(payload, event, extra = {}) {
   }
 }
 
+function assertHandFocus(payload, event, extra = {}) {
+  assert.equal(payload.scope, 'goldenSpatula.hand');
+  assert.equal(payload.display, 'log');
+  assert.equal(payload.event, event);
+  for (const [key, value] of Object.entries(extra)) {
+    assert.deepEqual(payload[key], value, `unexpected hand focus.${key}`);
+  }
+}
+
+function assertEconomyFocus(payload, event, extra = {}) {
+  assert.equal(payload.scope, 'goldenSpatula.economy');
+  assert.equal(payload.display, 'log');
+  assert.equal(payload.event, event);
+  for (const [key, value] of Object.entries(extra)) {
+    assert.deepEqual(payload[key], value, `unexpected economy focus.${key}`);
+  }
+}
+
 function assertRefreshNode(node, constants) {
   assert.equal(node.recognition, 'TemplateMatch');
   assert.deepEqual(node.template, [
@@ -136,15 +154,52 @@ async function main() {
   const {
     buildAutoLevelRollBuyPipelineOverride,
     buildAutoRollBuyPipelineOverride,
+    buildEconomyOcrPipelineOverride,
     goldenSpatulaAutoLevelRollBuyEntry,
     goldenSpatulaAutoBuyAttemptsPerShop,
     goldenSpatulaAutoRollBuyEntry,
+    goldenSpatulaBenchChampionSlots,
+    goldenSpatulaEconomyOcrEntry,
     goldenSpatulaShopChampionSlots,
     ...timingConstants
   } = await importRollPipelineModule();
 
   assert.equal(goldenSpatulaAutoBuyAttemptsPerShop, 5);
   assert.equal(goldenSpatulaShopChampionSlots.length, 5);
+  assert.equal(goldenSpatulaBenchChampionSlots.length, 9);
+
+  function assertEconomyOcrNode(node, field, nextNode) {
+    const expectedByField = {
+      round: String.raw`\d{1,2}\s*-\s*\d{1,2}`,
+      gold: String.raw`\d{1,3}`,
+      level: String.raw`\d{1,3}`,
+      experience: String.raw`\d{1,2}\s*/\s*\d{1,2}`,
+      streak: String.raw`\d{1}`,
+    };
+    const roiByField = {
+      round: [...timingConstants.goldenSpatulaEconomyRoundRoi],
+      gold: [...timingConstants.goldenSpatulaEconomyGoldRoi],
+      level: [...timingConstants.goldenSpatulaEconomyLevelRoi],
+      experience: [...timingConstants.goldenSpatulaEconomyExperienceRoi],
+      streak: [...timingConstants.goldenSpatulaEconomyStreakRoi],
+    };
+
+    assert.equal(node.recognition, 'OCR');
+    assert.equal(node.expected, expectedByField[field]);
+    assert.equal(node.threshold, timingConstants.goldenSpatulaEconomyOcrThreshold);
+    assert.deepEqual(node.replace, timingConstants.goldenSpatulaEconomyOcrReplace);
+    assert.equal(node.order_by, 'Expected');
+    assert.deepEqual(node.roi, roiByField[field]);
+    assert.equal(node.timeout, timingConstants.goldenSpatulaEconomyOcrTimeoutMs);
+    assert.equal(node.action, 'DoNothing');
+    assert.deepEqual(node.next, [nextNode]);
+    assert.deepEqual(node.on_error, [nextNode]);
+    assertEconomyFocus(getFocus(node, 'Node.Recognition.Succeeded'), 'recognized', {
+      field,
+      ...(field === 'streak' ? { streakKind: 'unknown' } : {}),
+    });
+    assertEconomyFocus(getFocus(node, 'Node.Recognition.Failed'), 'scanFailed', { field });
+  }
 
   const targets = [
     { name: '薇古丝', templatePath: 'champions/vex.png' },
@@ -152,14 +207,16 @@ async function main() {
   ];
   const nodes = parsePipeline(buildAutoRollBuyPipelineOverride(targets, 1));
   const expectedNodeCount =
+    5 +
     4 +
+    targets.length * goldenSpatulaBenchChampionSlots.length +
     (1 + 1) *
       goldenSpatulaAutoBuyAttemptsPerShop *
       (targets.length * goldenSpatulaShopChampionSlots.length * 3 + 1) +
-    2;
+    4;
 
   assert.equal(Object.keys(nodes).length, expectedNodeCount);
-  assert.deepEqual(getNode(nodes, 'AutoRollAndBuyTargets').next, ['AutoRollBuy_ShopReady']);
+  assert.deepEqual(getNode(nodes, 'AutoRollAndBuyTargets').next, ['AutoRollBuy_Hand_T0_B1']);
   assertFocus(
     getFocus(getNode(nodes, 'AutoRollAndBuyTargets'), 'Node.PipelineNode.Succeeded'),
     'started',
@@ -170,6 +227,54 @@ async function main() {
       targetNames: targets.map((target) => target.name),
     },
   );
+
+  const firstBenchNode = getNode(nodes, 'AutoRollBuy_Hand_T0_B1');
+  assert.equal(firstBenchNode.recognition, 'TemplateMatch');
+  assert.equal(firstBenchNode.template, 'champions/vex.png');
+  assert.deepEqual(firstBenchNode.roi, [...goldenSpatulaBenchChampionSlots[0].roi]);
+  assert.deepEqual(firstBenchNode.next, ['AutoRollBuy_Hand_T0_B2']);
+  assert.deepEqual(firstBenchNode.on_error, ['AutoRollBuy_Hand_T0_B2']);
+  assertHandFocus(getFocus(firstBenchNode, 'Node.Recognition.Succeeded'), 'benchHit', {
+    targetName: targets[0].name,
+    targetNames: targets.map((target) => target.name),
+    slotIndex: 1,
+    slotLabel: '1',
+  });
+
+  const economyScanNode = getNode(nodes, 'AutoRollBuy_EconomyScan');
+  assert.equal(economyScanNode.action, 'Screencap');
+  assert.equal(economyScanNode.filename, 'auto_roll_buy_economy_before');
+  assert.deepEqual(economyScanNode.next, ['AutoRollBuy_PreShop_EconomyOcr_Round']);
+  assertEconomyFocus(getFocus(economyScanNode, 'Node.PipelineNode.Succeeded'), 'started');
+  assertEconomyOcrNode(
+    getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Round'),
+    'round',
+    'AutoRollBuy_PreShop_EconomyOcr_Gold',
+  );
+  assertEconomyOcrNode(
+    getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Gold'),
+    'gold',
+    'AutoRollBuy_PreShop_EconomyOcr_Level',
+  );
+  assertEconomyOcrNode(
+    getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Level'),
+    'level',
+    'AutoRollBuy_PreShop_EconomyOcr_Experience',
+  );
+  assertEconomyOcrNode(
+    getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Experience'),
+    'experience',
+    'AutoRollBuy_PreShop_EconomyOcr_Streak',
+  );
+  assertEconomyOcrNode(
+    getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Streak'),
+    'streak',
+    'AutoRollBuy_PreShop_EconomyOcr_Done',
+  );
+  const economyDoneNode = getNode(nodes, 'AutoRollBuy_PreShop_EconomyOcr_Done');
+  assert.equal(economyDoneNode.action, 'DoNothing');
+  assert.deepEqual(economyDoneNode.next, ['AutoRollBuy_ShopReady']);
+  assertEconomyFocus(getFocus(economyDoneNode, 'Node.PipelineNode.Succeeded'), 'scanned');
 
   assertShopReadyNode(getNode(nodes, 'AutoRollBuy_ShopReady'), timingConstants);
 
@@ -322,12 +427,33 @@ async function main() {
   assertXpFocus(getFocus(xpNotReadyNode, 'Node.PipelineNode.Succeeded'), 'notReady');
 
   assert.deepEqual(getNode(combinedNodes, goldenSpatulaAutoRollBuyEntry).next, [
-    'AutoRollBuy_ShopReady',
+    'AutoRollBuy_Hand_T0_B1',
   ]);
 
   const emptyNodes = parsePipeline(buildAutoRollBuyPipelineOverride([], 3));
   assert.deepEqual(Object.keys(emptyNodes).sort(), ['AutoRollAndBuyTargets', 'AutoRollBuy_Done']);
   assert.deepEqual(getNode(emptyNodes, 'AutoRollAndBuyTargets').next, ['AutoRollBuy_Done']);
+
+  const economyNodes = parsePipeline(buildEconomyOcrPipelineOverride());
+  assert.deepEqual(getNode(economyNodes, goldenSpatulaEconomyOcrEntry).next, ['EconomyOcr_Round']);
+  assertEconomyFocus(
+    getFocus(getNode(economyNodes, goldenSpatulaEconomyOcrEntry), 'Node.PipelineNode.Succeeded'),
+    'started',
+  );
+  assertEconomyOcrNode(getNode(economyNodes, 'EconomyOcr_Round'), 'round', 'EconomyOcr_Gold');
+  assertEconomyOcrNode(getNode(economyNodes, 'EconomyOcr_Gold'), 'gold', 'EconomyOcr_Level');
+  assertEconomyOcrNode(getNode(economyNodes, 'EconomyOcr_Level'), 'level', 'EconomyOcr_Experience');
+  assertEconomyOcrNode(
+    getNode(economyNodes, 'EconomyOcr_Experience'),
+    'experience',
+    'EconomyOcr_Streak',
+  );
+  assertEconomyOcrNode(getNode(economyNodes, 'EconomyOcr_Streak'), 'streak', 'EconomyOcr_Done');
+  assert.deepEqual(getNode(economyNodes, 'EconomyOcr_Done').next, []);
+  assertEconomyFocus(
+    getFocus(getNode(economyNodes, 'EconomyOcr_Done'), 'Node.PipelineNode.Succeeded'),
+    'scanned',
+  );
 
   console.log('Golden Spatula roll-buy pipeline test');
   console.log(`Targets checked: ${targets.length}`);

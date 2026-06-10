@@ -244,6 +244,16 @@
       "resource": ["GoldenSpatulaKnowledge"]
     },
     {
+      "name": "RecognizeEconomyState",
+      "label": "经济 OCR / 数字识别",
+      "entry": "RecognizeEconomyState",
+      "default_check": false,
+      "description": "只截取对局商店底部固定区域，OCR 识别金币、等级和经验；不点击、不修改配置。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatula", "GoldenSpatulaKnowledge"]
+    },
+    {
       "name": "KnowledgeSmokeTest",
       "label": "知识库模板加载测试",
       "entry": "KnowledgeSmokeTest",
@@ -289,6 +299,16 @@
       "entry": "RecognizeSpecialItems",
       "default_check": false,
       "description": "只截图并尝试匹配特殊装备、神器和机制装备图标；模板较多，建议按需调试。",
+      "group": ["knowledge"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
+      "name": "RecognizeStreakState",
+      "label": "识别连胜/连败",
+      "entry": "RecognizeStreakState",
+      "default_check": false,
+      "description": "只截图并在顶部 HUD 的连胜、连败计数 ROI 中执行 OCR；不点击、不修改配置。",
       "group": ["knowledge"],
       "controller": ["MuMuAdb"],
       "resource": ["GoldenSpatulaKnowledge"]

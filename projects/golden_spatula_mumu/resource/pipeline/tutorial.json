@@ -58,7 +58,10 @@
   },
   "Tutorial_Stage1BuyXp": {
     "recognition": "TemplateMatch",
-    "template": ["ingame/buy_xp_button_idle.png", "ingame/buy_xp_button_active.png"],
+    "template": [
+      "ingame/buy_xp_button_idle.png",
+      "ingame/buy_xp_button_active.png"
+    ],
     "threshold": [0.76, 0.7],
     "roi": [180, 575, 140, 80],
     "timeout": 1500,
@@ -505,7 +508,10 @@
   },
   "Tutorial_Stage5RefreshA": {
     "recognition": "TemplateMatch",
-    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "template": [
+      "ingame/shop_refresh_button_idle.png",
+      "ingame/shop_refresh_button_active.png"
+    ],
     "threshold": [0.76, 0.7],
     "roi": [180, 640, 140, 80],
     "timeout": 1500,
@@ -523,7 +529,10 @@
   },
   "Tutorial_Stage5RefreshB": {
     "recognition": "TemplateMatch",
-    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "template": [
+      "ingame/shop_refresh_button_idle.png",
+      "ingame/shop_refresh_button_active.png"
+    ],
     "threshold": [0.76, 0.7],
     "roi": [180, 640, 140, 80],
     "timeout": 1500,
@@ -534,7 +543,10 @@
   },
   "Tutorial_Stage5RefreshC": {
     "recognition": "TemplateMatch",
-    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "template": [
+      "ingame/shop_refresh_button_idle.png",
+      "ingame/shop_refresh_button_active.png"
+    ],
     "threshold": [0.76, 0.7],
     "roi": [180, 640, 140, 80],
     "timeout": 1500,
@@ -559,7 +571,10 @@
   },
   "Tutorial_Stage5RefreshD": {
     "recognition": "TemplateMatch",
-    "template": ["ingame/shop_refresh_button_idle.png", "ingame/shop_refresh_button_active.png"],
+    "template": [
+      "ingame/shop_refresh_button_idle.png",
+      "ingame/shop_refresh_button_active.png"
+    ],
     "threshold": [0.76, 0.7],
     "roi": [180, 640, 140, 80],
     "timeout": 1500,

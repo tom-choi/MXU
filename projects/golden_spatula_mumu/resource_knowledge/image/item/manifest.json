@@ -30,8 +30,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1001_1001.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -49,8 +53,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1002_1002.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -68,8 +76,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1003_1003.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -87,8 +99,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1004_1004.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -106,8 +122,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1005_1005.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -125,8 +145,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1006_1006.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -144,8 +168,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1007_1007.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -163,8 +191,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1008_1008.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -182,8 +214,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1009_1009.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -201,8 +237,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_1010_frying_pan.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -220,8 +260,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2001_2001.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -239,8 +283,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2003_2003.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -258,8 +306,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2004_2004.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -277,8 +329,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2005_2005.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -296,8 +352,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2006_2006.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -315,8 +375,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2007_steraksgage.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -334,8 +398,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2009_2009.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -353,8 +421,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2010_2010.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -372,8 +444,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2011_voidstaff.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -391,8 +467,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2012_2052.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -410,8 +490,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2013_krakensfury.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -429,8 +513,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2014_nashorstooth.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -448,8 +536,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2016_2016.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -467,8 +559,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2017_2017.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -486,8 +582,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2018_crownguard.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -505,8 +605,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2019_2019.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -524,8 +628,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2020_2020.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -543,8 +651,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2022_2222.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -562,8 +674,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2023_2023.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -581,8 +697,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2024_adaptivehelm.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -600,8 +720,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2025_spiritvisage.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -619,8 +743,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2027_2054.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -638,8 +766,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2028_2248.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -657,8 +789,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2029_2329.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -676,8 +812,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2031_2031.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -695,8 +835,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2032_evenshroud.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -714,8 +858,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2034_2034.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -733,8 +881,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2036_2036.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -752,8 +904,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2037_2053.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -771,8 +927,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2038_2038.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -790,8 +950,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2039_2039.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -809,8 +973,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2040_nightharvester.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -828,8 +996,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2041_2041.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -847,8 +1019,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2042_strikersflail.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -866,8 +1042,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2044_2044.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -885,8 +1065,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2045_2045.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -904,8 +1088,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2046_2046.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -923,8 +1111,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2047_tactician_s_shield.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -942,8 +1134,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2048_tactician_s_cape.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -961,8 +1157,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2058_3611.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -980,8 +1180,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2059_2548.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -999,8 +1203,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2060_2549.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1018,8 +1226,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2061_2550.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1037,8 +1249,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2062_2551.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1056,8 +1272,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2063_2552.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1075,8 +1295,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2064_steraksmegashield.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1094,8 +1318,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2065_2554.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1113,8 +1341,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2066_2555.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1132,8 +1364,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2067_icathiasrevenge.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1151,8 +1387,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2068_2557.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1170,8 +1410,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2069_torrentialmaelstrom.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1189,8 +1433,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2070_thebaronsgift.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1208,8 +1456,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2071_2560.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1227,8 +1479,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2072_2561.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1246,8 +1502,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2073_royalcrownshield.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1265,8 +1525,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2074_2563.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1284,8 +1548,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2075_2564.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1303,8 +1571,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2076_2565.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1322,8 +1594,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2077_2566.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1341,8 +1617,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2078_jakshotheprotean.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1360,8 +1640,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2079_morespiritedvisage.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1379,8 +1663,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2080_2569.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1398,8 +1686,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2081_2570.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1417,8 +1709,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2082_2571.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1436,8 +1732,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2083_2572.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1455,8 +1755,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2084_2573.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1474,8 +1778,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2085_2574.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1493,8 +1801,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2086_2575.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1512,8 +1824,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2087_2576.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1531,8 +1847,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2088_2577.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1550,8 +1870,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2089_midnightreaper.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1569,8 +1893,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2090_2579.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1588,8 +1916,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2091_chainstriker.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1607,8 +1939,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2092_2581.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1626,8 +1962,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2093_2582.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1645,8 +1985,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_2094_2583.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1664,8 +2008,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3001_3701.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1683,8 +2031,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3002_3502.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1702,8 +2054,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3003_3503.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1721,8 +2077,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3004_3504.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1740,8 +2100,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3005_3505.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1759,8 +2123,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3007_3507.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1778,8 +2146,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3008_3508.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1797,8 +2169,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3009_3509.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1816,8 +2192,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3010_3710.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1835,8 +2215,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3014_3105.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1854,8 +2238,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3015_support_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1873,8 +2261,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3016_3507.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1892,8 +2284,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3017_3508.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1911,8 +2307,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3018_3508.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1930,8 +2330,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3019_golden_remover.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1949,8 +2353,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3020_masterwork_upgrade.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1968,8 +2376,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3021_plunderequipment_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -1987,8 +2399,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3022_heritage_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2006,8 +2422,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3023_piltover_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2025,8 +2445,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3024_zaun_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2044,8 +2468,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3025_ancient_anvil.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2063,8 +2491,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3028_salvager.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2082,8 +2514,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3029_luckyitemchest.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2101,8 +2537,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3030_radiantluckyitemchest.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2120,8 +2560,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_3031_3509.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2139,8 +2583,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6052_5004.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2158,8 +2606,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6054_3609.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2177,8 +2629,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6057_3607.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2196,8 +2652,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6059_3603.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2215,8 +2675,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6060_3610.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2234,8 +2698,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6061_2098.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2253,8 +2721,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6063_2097.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2272,8 +2744,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6065_5008.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2291,8 +2767,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6067_talisman_of_ascension.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2310,8 +2790,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6069_fishbones.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2329,8 +2813,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6070_mittens.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2348,8 +2836,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6071_luden_s_tempest.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2367,8 +2859,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6072_silvermere_dawn.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2386,8 +2882,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6073_chonccsprowlersclaw.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2405,8 +2905,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6075_wit_s_end.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2424,8 +2928,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6080_rapid_firecannon.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2443,8 +2951,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6083_blighting_jewel.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2462,8 +2974,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6084_seeker_s_armguard.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2481,8 +2997,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6085_lightshield_crest.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2500,8 +3020,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6086_lich_bane.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2519,8 +3043,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6087_flickerblade.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2538,8 +3066,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6088_statikkshiv.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2557,8 +3089,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6089_theindomitable.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2576,8 +3112,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6090_titanichydra.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2595,8 +3135,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6091_dawncore.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2614,8 +3158,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6092_aegisofdawn.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2633,8 +3181,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6093_aegisofdusk.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2652,8 +3204,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6094_voidgauntlet.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2671,8 +3227,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6095_cappajuice.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2690,8 +3250,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6096_hellfirehatchet.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2709,8 +3273,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6098_eternalpact.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2728,8 +3296,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6105_kaylesradiantexaltation.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2747,8 +3319,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6106_threshlantern.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2766,8 +3342,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6107_ahrirhythm.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2785,8 +3365,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6108_ekkopatience.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2804,8 +3388,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6109_yasuobladework.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2823,8 +3411,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6110_sorakamiracle.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2842,8 +3434,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6111_varusobsession.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2861,8 +3457,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_6112_evelynnfang.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2880,8 +3480,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9167_6901.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2899,8 +3503,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9241_droneuplink.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2918,8 +3526,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9242_malwarematrix.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2937,8 +3549,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9243_neutrongrenades3.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2956,8 +3572,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9245_sympatheticimplant.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2975,8 +3595,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9246_scopedholobow.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -2994,8 +3618,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9251_droneuplink.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3013,8 +3641,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9252_malwarematrix.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3032,8 +3664,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9253_neutrongrenades3.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3051,8 +3687,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9255_sympatheticimplant.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3070,8 +3710,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9256_scopedholobow.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3089,8 +3733,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9257_analyze.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3108,8 +3756,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9259_disrupt.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3127,8 +3779,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9260_doublestrike.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3146,8 +3802,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9261_fabricate.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3165,8 +3825,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9262_brace.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3184,8 +3848,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9264_infect.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3203,8 +3871,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9265_optimize.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3222,8 +3894,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9268_transmute.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3241,8 +3917,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9270_closequarters.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3260,8 +3940,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9271_gravbooster.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3279,8 +3963,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9272_gravbooster1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3298,8 +3986,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9274_emergencyshielding.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3317,8 +4009,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9275_emergencyshielding1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3336,8 +4032,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9277_heavyplating.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3355,8 +4055,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9278_sheermass.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3374,8 +4078,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9279_nanomachines.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3393,8 +4101,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9281_reactivearmor.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3412,8 +4124,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9282_choke.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3431,8 +4147,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9283_shockwave.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3450,8 +4170,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9284_buckshot.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3469,8 +4193,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9285_buckshot1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3488,8 +4216,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9286_buckshot2.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3507,8 +4239,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9288_laserballistics.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3526,8 +4262,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9289_leechingimplants.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3545,8 +4285,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9290_leechingimplants1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3564,8 +4308,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9291_meltthrough.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3583,8 +4331,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9292_doubletap.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3602,8 +4354,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9293_doubletap1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3621,8 +4377,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9294_tripletap.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3640,8 +4400,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9296_revup.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3659,8 +4423,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9297_revup1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3678,8 +4446,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9298_ripperbullets.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3697,8 +4469,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9300_ripperbullets1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3716,8 +4492,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9301_fragmentationrounds.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3735,8 +4515,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9302_fragmentationrounds1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3754,8 +4538,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9303_precisionscope.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3773,8 +4561,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9304_precisionscope1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3792,8 +4584,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9305_precisionscope2.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3811,8 +4607,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9306_aimassistant.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3830,8 +4630,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9308_sharpshootermodule.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3849,8 +4653,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9309_heartseeker.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3868,8 +4676,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9310_heartseeker1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3887,8 +4699,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9311_heartseeker2.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3906,8 +4722,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9313_tankbuster.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3925,8 +4745,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9314_aprounds.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3944,8 +4768,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9315_aprounds1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3963,8 +4791,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9316_latentexplosion.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -3982,8 +4814,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9317_blastradius.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4001,8 +4837,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9318_blastradius1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4020,8 +4860,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9319_blastradius2.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4039,8 +4883,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9320_sympatheticdetonation.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4058,8 +4906,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9321_coolant.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4077,8 +4929,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9322_coolant1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4096,8 +4952,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9323_voidcoefficient.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4115,8 +4975,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9324_fission.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4134,8 +4998,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9325_choke.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4153,8 +5021,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9326_fission1.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4172,8 +5044,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9327_fission2.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4191,8 +5067,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9328_backup.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4210,8 +5090,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9329_mechselector.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4229,8 +5113,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9331_iceblastarmor.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4248,8 +5136,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9332_searingshortbow.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4267,8 +5159,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9333_savageslicer.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4286,8 +5182,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9335_uwublaster.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4305,8 +5205,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9336_theannihilator.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4324,8 +5228,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9337_battlebunnycrossbow.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4343,8 +5251,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9338_rocketswarm.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4362,8 +5274,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9339_cyclonicslicers.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4381,8 +5297,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9340_radiantfield.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4400,8 +5320,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9341_lionessslament.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4419,8 +5343,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9342_guidinghex.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4438,8 +5366,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9343_tentacleslam.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4457,8 +5389,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9344_echoingbatblades.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4476,8 +5412,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9345_iceblastarmor_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4495,8 +5435,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9346_searingshortbow_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4514,8 +5458,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9347_uwublaster_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4533,8 +5481,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9348_theannihilator_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4552,8 +5504,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9349_battlebunnycrossbow_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4571,8 +5527,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9350_cyclonicslicers_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4590,8 +5550,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9351_radiantfield_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4609,8 +5573,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9352_echoingbatblades_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4628,8 +5596,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9353_omniweapon_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4647,8 +5619,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9354_sparkingprototype.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4666,8 +5642,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9355_clunkyprototype.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4685,8 +5665,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9356_leakyprototype.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4704,8 +5688,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9357_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4723,8 +5711,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9358_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4742,8 +5734,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9359_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4761,8 +5757,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9360_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4780,8 +5780,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9361_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4799,8 +5803,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9362_hexpaintbrush.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4818,8 +5826,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9363_lionesslament_up.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4837,8 +5849,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9364_championduplicator.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4856,8 +5872,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9365_anomaly.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4875,8 +5895,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9366_pocketrecombobulator.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4894,8 +5918,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9367_strikeselector.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4913,8 +5941,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_9851_junkyardtitan.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4932,8 +5964,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41701_41701.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4951,8 +5987,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41702_41702.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4970,8 +6010,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41703_41703.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -4989,8 +6033,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41704_41704.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5008,8 +6056,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41706_41706.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5027,8 +6079,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41707_41707.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5046,8 +6102,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41708_41708.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5065,8 +6125,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41709_41709.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5084,8 +6148,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41710_41710.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5103,8 +6171,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41711_41711.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5122,8 +6194,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41712_41712.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5141,8 +6217,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41713_41713.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5160,8 +6240,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41714_41714.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5179,8 +6263,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41715_41715.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5198,8 +6286,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41716_41716.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5217,8 +6309,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41717_41717.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5236,8 +6332,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41718_41718.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5255,8 +6355,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41719_41719.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     },
     {
@@ -5274,8 +6378,12 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/item/item_41720_41720.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "inventory_or_board_1280x720": [0, 400, 1280, 320],
-        "note": "装备栏、备战区和战场下半区初始巡检 ROI。"
+        "zones_1280x720": {
+          "inventory": [8, 72, 58, 230],
+          "bench": [270, 405, 620, 140],
+          "boardLower": [250, 245, 760, 230]
+        },
+        "note": "????????????????????????????????"
       }
     }
   ]

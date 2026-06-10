@@ -24,6 +24,7 @@
     "golden:test-video-calibration": "node scripts/golden-spatula-test-video-calibration.mjs",
     "golden:test-mmor-calibration": "node scripts/golden-spatula-test-mmor-calibration.mjs",
     "golden:test-ingame-template-match": "node scripts/golden-spatula-test-ingame-template-match.mjs",
+    "golden:test-economy-vision": "node scripts/golden-spatula-test-economy-vision.mjs",
     "golden:test-roll-pipeline": "node scripts/golden-spatula-test-roll-pipeline.mjs",
     "golden:test-dynamic-pipeline-graph": "node scripts/golden-spatula-test-dynamic-pipeline-graph.mjs",
     "golden:test-dynamic-runner": "node scripts/golden-spatula-test-dynamic-runner.mjs",

@@ -187,10 +187,15 @@ function normalizeAssetKey(name: string): string {
   return name.trim().toLocaleLowerCase();
 }
 
+function inferChampionCostFromPath(path: string | undefined): number | undefined {
+  const match = path?.replace(/\\/g, '/').match(/(?:^|\/)champion\/([1-5])\//);
+  return match ? Number(match[1]) : undefined;
+}
+
 function normalizeImageAssets(
   manifest: GoldenSpatulaTemplateManifest | undefined,
   baseImagePath: string,
-  metadata?: Record<string, { cost?: number }>,
+  metadata?: Record<string, { cost?: number; traits?: string[] }>,
 ): GoldenSpatulaChampionAssetIndex {
   const assets: GoldenSpatulaChampionAssetIndex = {};
   const entries = Array.isArray(manifest?.entries) ? manifest.entries : [];
@@ -208,11 +213,16 @@ function normalizeImageAssets(
         ? `${baseImagePath}/${normalizeRelativePath(templateResourcePath)}`
         : undefined;
     const asset = {
+      id: asNumber(entry?.id),
       name,
       imagePath,
       sourceUrl: asString(entry?.source_url),
       templateAvailable,
-      cost: metadata?.[key]?.cost ?? asNumber(entry?.cost),
+      cost:
+        metadata?.[key]?.cost ??
+        asNumber(entry?.cost) ??
+        inferChampionCostFromPath(templateResourcePath),
+      traits: metadata?.[key]?.traits,
     };
     const existing = assets[key];
     if (!existing || (!existing.imagePath && asset.imagePath)) {
@@ -225,7 +235,7 @@ function normalizeImageAssets(
 
 function normalizeChampionAssets(
   manifest: GoldenSpatulaTemplateManifest | undefined,
-  metadata?: Record<string, { cost?: number }>,
+  metadata?: Record<string, { cost?: number; traits?: string[] }>,
 ): GoldenSpatulaChampionAssetIndex {
   return normalizeImageAssets(manifest, 'resource_knowledge/image', metadata);
 }
@@ -242,32 +252,37 @@ function normalizeAugmentAssets(
   return normalizeImageAssets(manifest, 'resource_knowledge/image');
 }
 
-async function loadChampionMetadata(basePath?: string): Promise<Record<string, { cost?: number }>> {
+async function loadChampionMetadata(
+  basePath?: string,
+): Promise<Record<string, { cost?: number; traits?: string[] }>> {
   const index = await readJson<{ entries?: unknown[] }>(championIndexPath, basePath);
   if (index.status !== 'ready' || !Array.isArray(index.data?.entries)) return {};
 
   const pairs = await Promise.all(
-    index.data.entries.map(async (entryValue): Promise<[string, { cost?: number }] | null> => {
-      const entry = asRecord(entryValue);
-      const path = asString(entry?.path);
-      const fallbackName = asString(entry?.name);
-      if (!path) return null;
+    index.data.entries.map(
+      async (entryValue): Promise<[string, { cost?: number; traits?: string[] }] | null> => {
+        const entry = asRecord(entryValue);
+        const path = asString(entry?.path);
+        const fallbackName = asString(entry?.name);
+        if (!path) return null;
 
-      const detail = await readJson<Record<string, unknown>>(
-        `knowledge/champions/${normalizeRelativePath(path)}`,
-        basePath,
-      );
-      if (detail.status !== 'ready' || !detail.data) return null;
+        const detail = await readJson<Record<string, unknown>>(
+          `knowledge/champions/${normalizeRelativePath(path)}`,
+          basePath,
+        );
+        if (detail.status !== 'ready' || !detail.data) return null;
 
-      const name = asString(detail.data.name) || fallbackName;
-      const cost = asNumber(detail.data.cost) ?? asNumber(asRecord(detail.data._raw)?.price);
-      if (!name || cost === undefined) return null;
+        const name = asString(detail.data.name) || fallbackName;
+        const cost = asNumber(detail.data.cost) ?? asNumber(asRecord(detail.data._raw)?.price);
+        const traits = asStringArray(detail.data.traits);
+        if (!name || cost === undefined) return null;
 
-      return [normalizeAssetKey(name), { cost }];
-    }),
+        return [normalizeAssetKey(name), { cost, traits }];
+      },
+    ),
   );
 
-  const metadata: Record<string, { cost?: number }> = {};
+  const metadata: Record<string, { cost?: number; traits?: string[] }> = {};
   for (const pair of pairs) {
     if (!pair) continue;
     const [key, value] = pair;

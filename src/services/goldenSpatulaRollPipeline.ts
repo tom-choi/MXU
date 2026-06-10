@@ -1,4 +1,4 @@
-export type GoldenSpatulaAutoRollCount = 1 | 3 | 5;
+export type GoldenSpatulaAutoRollCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 export type GoldenSpatulaRollPipelineEvent =
   | 'started'
@@ -12,15 +12,40 @@ export type GoldenSpatulaRollPipelineEvent =
 
 export type GoldenSpatulaXpPipelineEvent = 'started' | 'clicked' | 'completed' | 'notReady';
 
+export type GoldenSpatulaHandPipelineEvent =
+  | 'started'
+  | 'benchHit'
+  | 'benchMiss'
+  | 'bought'
+  | 'completed'
+  | 'notReady';
+
+export type GoldenSpatulaEconomyPipelineEvent =
+  | 'started'
+  | 'scanned'
+  | 'recognized'
+  | 'scanFailed'
+  | 'buyChampion'
+  | 'refresh'
+  | 'buyXp'
+  | 'completed'
+  | 'notReady';
+
+export type GoldenSpatulaEconomyField = 'round' | 'gold' | 'level' | 'experience' | 'streak';
+
 export interface GoldenSpatulaRollBuyTargetTemplate {
   name: string;
   templatePath: string;
+  cost?: number;
 }
 
 export const goldenSpatulaAutoRollBuyEntry = 'AutoRollAndBuyTargets';
 export const goldenSpatulaAutoLevelRollBuyEntry = 'AutoLevelRollAndBuyTargets';
+export const goldenSpatulaEconomyOcrEntry = 'RecognizeEconomyState';
 export const goldenSpatulaAutoRollBuyFocusScope = 'goldenSpatula.roll';
 export const goldenSpatulaXpFocusScope = 'goldenSpatula.xp';
+export const goldenSpatulaHandFocusScope = 'goldenSpatula.hand';
+export const goldenSpatulaEconomyFocusScope = 'goldenSpatula.economy';
 export const goldenSpatulaAutoBuyAttemptsPerShop = 5;
 export const goldenSpatulaAutoBuyTemplateThreshold = 0.72;
 export const goldenSpatulaAutoBuyRecognitionTimeoutMs = 500;
@@ -53,6 +78,38 @@ export const goldenSpatulaShopChampionSlots = [
   { index: 4, label: '4', roi: [799, 580, 158, 125], target: [878, 642, 2, 2] },
   { index: 5, label: '5', roi: [957, 580, 158, 125], target: [1036, 642, 2, 2] },
 ] as const;
+export const goldenSpatulaItemRecognitionZones = [
+  { id: 'inventory', label: 'inventory', roi: [8, 72, 58, 230] },
+  { id: 'bench', label: 'bench', roi: [270, 405, 620, 140] },
+  { id: 'boardLower', label: 'boardLower', roi: [250, 245, 760, 230] },
+] as const;
+export const goldenSpatulaBenchChampionSlots = [
+  { index: 1, label: '1', roi: [285, 420, 76, 115] },
+  { index: 2, label: '2', roi: [362, 420, 76, 115] },
+  { index: 3, label: '3', roi: [439, 420, 76, 115] },
+  { index: 4, label: '4', roi: [516, 420, 76, 115] },
+  { index: 5, label: '5', roi: [593, 420, 76, 115] },
+  { index: 6, label: '6', roi: [670, 420, 76, 115] },
+  { index: 7, label: '7', roi: [747, 420, 76, 115] },
+  { index: 8, label: '8', roi: [824, 420, 76, 115] },
+  { index: 9, label: '9', roi: [901, 420, 76, 115] },
+] as const;
+export const goldenSpatulaEconomyOcrTimeoutMs = 900;
+export const goldenSpatulaEconomyOcrThreshold = 0.35;
+export const goldenSpatulaEconomyRoundRoi = [500, 6, 70, 28] as const;
+export const goldenSpatulaEconomyGoldRoi = [610, 535, 105, 45] as const;
+export const goldenSpatulaEconomyLevelRoi = [180, 535, 72, 42] as const;
+export const goldenSpatulaEconomyExperienceRoi = [246, 535, 86, 42] as const;
+export const goldenSpatulaEconomyStreakRoi = [720, 532, 70, 42] as const;
+export const goldenSpatulaEconomyOcrReplace = [
+  ['O', '0'],
+  ['o', '0'],
+  ['I', '1'],
+  ['l', '1'],
+  ['S', '5'],
+  ['s', '5'],
+  ['B', '8'],
+] as const;
 
 function buildAutoRollFocus(
   event: GoldenSpatulaRollPipelineEvent,
@@ -64,6 +121,7 @@ function buildAutoRollFocus(
     targetNames?: string[];
     slotIndex?: number;
     slotLabel?: string;
+    cost?: number;
   },
 ): Record<string, unknown> {
   const slotText = payload.slotLabel ? ` #${payload.slotLabel}` : '';
@@ -92,8 +150,169 @@ function buildXpFocus(
   };
 }
 
+function buildHandFocus(
+  event: GoldenSpatulaHandPipelineEvent,
+  payload: {
+    targetName?: string;
+    targetNames?: string[];
+    slotIndex?: number;
+    slotLabel?: string;
+    cost?: number;
+  },
+): Record<string, unknown> {
+  const slotText = payload.slotLabel ? ` #${payload.slotLabel}` : '';
+  return {
+    scope: goldenSpatulaHandFocusScope,
+    event,
+    display: 'log',
+    content: `MXU hand ${event}${payload.targetName ? `: ${payload.targetName}${slotText}` : ''}`,
+    ...payload,
+  };
+}
+
+function buildEconomyFocus(
+  event: GoldenSpatulaEconomyPipelineEvent,
+  payload: {
+    field?: GoldenSpatulaEconomyField;
+    gold?: number;
+    level?: number;
+    experience?: number;
+    experienceMax?: number;
+    round?: string;
+    streakInterest?: number;
+    streakKind?: string;
+    goldDelta?: number;
+    rawText?: string;
+    targetName?: string;
+    cost?: number;
+  },
+): Record<string, unknown> {
+  return {
+    scope: goldenSpatulaEconomyFocusScope,
+    event,
+    display: 'log',
+    content: `MXU economy ${event}`,
+    ...payload,
+  };
+}
+
+function getEconomyOcrFieldSuffix(field: GoldenSpatulaEconomyField): string {
+  switch (field) {
+    case 'round':
+      return 'Round';
+    case 'gold':
+      return 'Gold';
+    case 'level':
+      return 'Level';
+    case 'experience':
+      return 'Experience';
+    case 'streak':
+      return 'Streak';
+  }
+}
+
+function getEconomyOcrNodeName(prefix: string, field: GoldenSpatulaEconomyField): string {
+  return `${prefix}_${getEconomyOcrFieldSuffix(field)}`;
+}
+
+function getEconomyOcrDoneNodeName(prefix: string): string {
+  return `${prefix}_Done`;
+}
+
+function getEconomyOcrRoi(
+  field: GoldenSpatulaEconomyField,
+): readonly [number, number, number, number] {
+  switch (field) {
+    case 'round':
+      return goldenSpatulaEconomyRoundRoi;
+    case 'gold':
+      return goldenSpatulaEconomyGoldRoi;
+    case 'level':
+      return goldenSpatulaEconomyLevelRoi;
+    case 'experience':
+      return goldenSpatulaEconomyExperienceRoi;
+    case 'streak':
+      return goldenSpatulaEconomyStreakRoi;
+  }
+}
+
+function getEconomyOcrExpected(field: GoldenSpatulaEconomyField): string {
+  if (field === 'round') return String.raw`\d{1,2}\s*-\s*\d{1,2}`;
+  if (field === 'experience') return String.raw`\d{1,2}\s*/\s*\d{1,2}`;
+  if (field === 'streak') return String.raw`\d{1}`;
+  return String.raw`\d{1,3}`;
+}
+
+function appendEconomyOcrNodes(
+  nodes: Record<string, Record<string, unknown>>,
+  prefix: string,
+  nextNode?: string,
+): string {
+  const fields: GoldenSpatulaEconomyField[] = ['round', 'gold', 'level', 'experience', 'streak'];
+  const firstNode = getEconomyOcrNodeName(prefix, fields[0]);
+
+  fields.forEach((field, index) => {
+    const nodeName = getEconomyOcrNodeName(prefix, field);
+    const next = fields[index + 1]
+      ? getEconomyOcrNodeName(prefix, fields[index + 1])
+      : getEconomyOcrDoneNodeName(prefix);
+
+    nodes[nodeName] = {
+      recognition: 'OCR',
+      expected: getEconomyOcrExpected(field),
+      threshold: goldenSpatulaEconomyOcrThreshold,
+      replace: goldenSpatulaEconomyOcrReplace,
+      order_by: 'Expected',
+      roi: getEconomyOcrRoi(field),
+      timeout: goldenSpatulaEconomyOcrTimeoutMs,
+      action: 'DoNothing',
+      next: [next],
+      on_error: [next],
+      focus: {
+        'Node.Recognition.Succeeded': buildEconomyFocus('recognized', {
+          field,
+          ...(field === 'streak' ? { streakKind: 'unknown' } : {}),
+        }),
+        'Node.Recognition.Failed': buildEconomyFocus('scanFailed', { field }),
+      },
+    };
+  });
+
+  nodes[getEconomyOcrDoneNodeName(prefix)] = {
+    action: 'DoNothing',
+    next: nextNode ? [nextNode] : [],
+    focus: {
+      'Node.PipelineNode.Succeeded': buildEconomyFocus('scanned', {}),
+    },
+  };
+
+  return firstNode;
+}
+
+export function buildEconomyOcrPipelineOverride(nextNode?: string): string {
+  const prefix = 'EconomyOcr';
+  const nodes: Record<string, Record<string, unknown>> = {
+    [goldenSpatulaEconomyOcrEntry]: {
+      action: 'Screencap',
+      filename: 'economy_ocr_before',
+      next: [getEconomyOcrNodeName(prefix, 'round')],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildEconomyFocus('started', {}),
+      },
+    },
+  };
+
+  appendEconomyOcrNodes(nodes, prefix, nextNode);
+
+  return JSON.stringify(nodes);
+}
+
 function getAutoRollBuyAttemptStartNode(cycle: number, attempt: number): string {
   return getAutoRollBuyTargetNode(cycle, attempt, 0, 0);
+}
+
+function getAutoRollBuyBenchScanNode(targetIndex: number, slotPosition: number): string {
+  return `AutoRollBuy_Hand_T${targetIndex}_B${slotPosition + 1}`;
 }
 
 function getAutoRollBuyTargetNode(
@@ -133,7 +352,7 @@ export function buildAutoRollBuyPipelineOverride(
     [goldenSpatulaAutoRollBuyEntry]: {
       action: 'Screencap',
       filename: 'auto_roll_buy_before',
-      next: targets.length > 0 ? ['AutoRollBuy_ShopReady'] : ['AutoRollBuy_Done'],
+      next: targets.length > 0 ? [getAutoRollBuyBenchScanNode(0, 0)] : ['AutoRollBuy_Done'],
       focus: {
         'Node.PipelineNode.Succeeded': buildAutoRollFocus('started', {
           cycle: 1,
@@ -160,6 +379,47 @@ export function buildAutoRollBuyPipelineOverride(
   if (targets.length === 0) {
     return JSON.stringify(nodes);
   }
+
+  targets.forEach((target, targetIndex) => {
+    goldenSpatulaBenchChampionSlots.forEach((slot, slotPosition) => {
+      const nodeName = getAutoRollBuyBenchScanNode(targetIndex, slotPosition);
+      const nextNode =
+        slotPosition < goldenSpatulaBenchChampionSlots.length - 1
+          ? getAutoRollBuyBenchScanNode(targetIndex, slotPosition + 1)
+          : targetIndex < targets.length - 1
+            ? getAutoRollBuyBenchScanNode(targetIndex + 1, 0)
+            : 'AutoRollBuy_EconomyScan';
+
+      nodes[nodeName] = {
+        recognition: 'TemplateMatch',
+        template: target.templatePath,
+        threshold: goldenSpatulaAutoBuyTemplateThreshold,
+        roi: slot.roi,
+        timeout: goldenSpatulaAutoBuyRecognitionTimeoutMs,
+        action: 'DoNothing',
+        next: [nextNode],
+        on_error: [nextNode],
+        focus: {
+          'Node.Recognition.Succeeded': buildHandFocus('benchHit', {
+            targetName: target.name,
+            targetNames,
+            slotIndex: slot.index,
+            slotLabel: slot.label,
+            cost: target.cost,
+          }),
+        },
+      };
+    });
+  });
+
+  nodes.AutoRollBuy_EconomyScan = {
+    action: 'Screencap',
+    filename: 'auto_roll_buy_economy_before',
+    next: [appendEconomyOcrNodes(nodes, 'AutoRollBuy_PreShop_EconomyOcr', 'AutoRollBuy_ShopReady')],
+    focus: {
+      'Node.PipelineNode.Succeeded': buildEconomyFocus('started', {}),
+    },
+  };
 
   nodes.AutoRollBuy_ShopReady = {
     recognition: 'TemplateMatch',
@@ -237,6 +497,7 @@ export function buildAutoRollBuyPipelineOverride(
                 targetNames,
                 slotIndex: slot.index,
                 slotLabel: slot.label,
+                cost: target.cost,
               }),
             },
           };
@@ -261,6 +522,7 @@ export function buildAutoRollBuyPipelineOverride(
                 targetNames,
                 slotIndex: slot.index,
                 slotLabel: slot.label,
+                cost: target.cost,
               }),
             },
           };
@@ -278,6 +540,7 @@ export function buildAutoRollBuyPipelineOverride(
                 targetNames,
                 slotIndex: slot.index,
                 slotLabel: slot.label,
+                cost: target.cost,
               }),
             },
           };

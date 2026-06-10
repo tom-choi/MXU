@@ -74,6 +74,7 @@ export interface GoldenSpatulaChampionAsset {
   sourceUrl?: string;
   templateAvailable?: boolean;
   cost?: number;
+  traits?: string[];
 }
 
 export type GoldenSpatulaChampionAssetIndex = Record<string, GoldenSpatulaChampionAsset>;
@@ -212,6 +213,7 @@ export type GoldenSpatulaRecognitionKind =
   | 'basicItems'
   | 'completedItems'
   | 'specialItems'
+  | 'streak'
   | 'traits';
 
 export type GoldenSpatulaRecognitionStatus = 'success' | 'miss' | 'error';
@@ -246,6 +248,7 @@ export interface GoldenSpatulaRollEvent {
   targetNames?: string[];
   slotIndex?: number;
   slotLabel?: string;
+  cost?: number;
   message: string;
   nodeName?: string;
 }
@@ -282,4 +285,256 @@ export interface GoldenSpatulaXpRunState {
   updatedAt?: number;
   lastEvent?: GoldenSpatulaXpEvent;
   events: GoldenSpatulaXpEvent[];
+}
+
+export type GoldenSpatulaHandEventKind =
+  | 'started'
+  | 'benchHit'
+  | 'benchMiss'
+  | 'bought'
+  | 'completed'
+  | 'notReady';
+
+export type GoldenSpatulaOwnedConfidence = 'confirmed' | 'estimated' | 'stale';
+
+export interface GoldenSpatulaOwnedChampionState {
+  name: string;
+  count: number;
+  boughtCount: number;
+  benchCount: number;
+  benchSlots?: string[];
+  cost?: number;
+  confidence?: GoldenSpatulaOwnedConfidence;
+  updatedAt: number;
+}
+
+export interface GoldenSpatulaHandEvent {
+  id: string;
+  timestamp: number;
+  kind: GoldenSpatulaHandEventKind;
+  targetName?: string;
+  targetNames?: string[];
+  slotIndex?: number;
+  slotLabel?: string;
+  cost?: number;
+  count?: number;
+  message: string;
+  nodeName?: string;
+}
+
+export interface GoldenSpatulaHandRunState {
+  active: boolean;
+  targetNames: string[];
+  owned: Record<string, GoldenSpatulaOwnedChampionState>;
+  startedAt?: number;
+  updatedAt?: number;
+  lastEvent?: GoldenSpatulaHandEvent;
+  events: GoldenSpatulaHandEvent[];
+}
+
+export type GoldenSpatulaEconomyEventKind =
+  | 'started'
+  | 'scanned'
+  | 'recognized'
+  | 'scanFailed'
+  | 'buyChampion'
+  | 'refresh'
+  | 'buyXp'
+  | 'completed'
+  | 'notReady';
+
+export type GoldenSpatulaEconomyField = 'round' | 'gold' | 'level' | 'experience' | 'streak';
+
+export type GoldenSpatulaEconomyStreakKind = 'win' | 'loss' | 'none' | 'unknown';
+
+export interface GoldenSpatulaEconomySnapshot {
+  round?: string;
+  gold?: number;
+  level?: number;
+  experience?: number;
+  experienceMax?: number;
+  streakKind?: GoldenSpatulaEconomyStreakKind;
+  streakInterest?: number;
+  estimatedGoldDelta: number;
+  boughtChampionGold: number;
+  refreshGold: number;
+  xpGold: number;
+  xpPurchases: number;
+}
+
+export interface GoldenSpatulaEconomyEvent {
+  id: string;
+  timestamp: number;
+  kind: GoldenSpatulaEconomyEventKind;
+  field?: GoldenSpatulaEconomyField;
+  round?: string;
+  gold?: number;
+  level?: number;
+  experience?: number;
+  experienceMax?: number;
+  streakKind?: GoldenSpatulaEconomyStreakKind;
+  streakInterest?: number;
+  goldDelta?: number;
+  rawText?: string;
+  targetName?: string;
+  cost?: number;
+  message: string;
+  nodeName?: string;
+}
+
+export interface GoldenSpatulaEconomyRunState extends GoldenSpatulaEconomySnapshot {
+  active: boolean;
+  startedAt?: number;
+  updatedAt?: number;
+  lastEvent?: GoldenSpatulaEconomyEvent;
+  events: GoldenSpatulaEconomyEvent[];
+}
+
+export type GoldenSpatulaKnowledgeEventKind =
+  | 'shopScanStarted'
+  | 'shopChampionHit'
+  | 'shopSlotMiss'
+  | 'shopScanCompleted'
+  | 'itemScanStarted'
+  | 'itemHit'
+  | 'itemScanCompleted'
+  | 'streakScanStarted'
+  | 'streakRecognized'
+  | 'streakScanFailed'
+  | 'streakScanCompleted';
+
+export type GoldenSpatulaKnowledgeItemKind = 'basicItems' | 'completedItems' | 'specialItems';
+
+export type GoldenSpatulaKnowledgeItemZone = 'inventory' | 'bench' | 'boardLower';
+
+export type GoldenSpatulaKnowledgeStreakKind = 'win' | 'loss';
+
+export interface GoldenSpatulaKnowledgeEvent {
+  id: string;
+  timestamp: number;
+  kind: GoldenSpatulaKnowledgeEventKind;
+  scanKind?: GoldenSpatulaRecognitionKind;
+  slotIndex?: number;
+  slotLabel?: string;
+  championName?: string;
+  templatePath?: string;
+  itemKind?: GoldenSpatulaKnowledgeItemKind;
+  zone?: GoldenSpatulaKnowledgeItemZone;
+  streakKind?: GoldenSpatulaKnowledgeStreakKind;
+  streakCount?: number;
+  rawText?: string;
+  message: string;
+  nodeName?: string;
+}
+
+export type GoldenSpatulaKnowledgeSlotConfidence = 'matched' | 'empty' | 'unknown';
+
+export interface GoldenSpatulaKnowledgeShopSlotState {
+  slotIndex: number;
+  slotLabel?: string;
+  championName?: string;
+  templatePath?: string;
+  confidence: GoldenSpatulaKnowledgeSlotConfidence;
+  updatedAt: number;
+}
+
+export interface GoldenSpatulaKnowledgeItemState {
+  templatePath: string;
+  itemKind: GoldenSpatulaKnowledgeItemKind;
+  zones: GoldenSpatulaKnowledgeItemZone[];
+  updatedAt: number;
+}
+
+export interface GoldenSpatulaKnowledgeStreakSideState {
+  kind: GoldenSpatulaKnowledgeStreakKind;
+  count?: number;
+  rawText?: string;
+  updatedAt: number;
+  status: 'recognized' | 'miss';
+}
+
+export interface GoldenSpatulaKnowledgeScanState {
+  active: boolean;
+  shopSlots: Record<number, GoldenSpatulaKnowledgeShopSlotState>;
+  items: Record<string, GoldenSpatulaKnowledgeItemState>;
+  streak: Partial<Record<GoldenSpatulaKnowledgeStreakKind, GoldenSpatulaKnowledgeStreakSideState>>;
+  startedAt?: number;
+  updatedAt?: number;
+  lastEvent?: GoldenSpatulaKnowledgeEvent;
+  events: GoldenSpatulaKnowledgeEvent[];
+}
+
+export type GoldenSpatulaDecisionRole = 'carry' | 'frontline' | 'trait' | 'transition' | 'power';
+
+export type GoldenSpatulaDecisionTier = 'core' | 'high' | 'medium' | 'watch';
+
+export type GoldenSpatulaDecisionReason =
+  | 'activeCarry'
+  | 'activeFrontline'
+  | 'activeLineup'
+  | 'recommendedCarry'
+  | 'recommendedOverlap'
+  | 'nearUpgrade'
+  | 'highCostPower'
+  | 'cheapTransition'
+  | 'traitBridge'
+  | 'owned'
+  | 'levelOdds'
+  | 'levelLocked';
+
+export type GoldenSpatulaShopOddsAvailability = 'available' | 'rare' | 'unavailable' | 'unknown';
+
+export type GoldenSpatulaEconomyDecisionAction = 'roll' | 'save' | 'level' | 'hold';
+
+export type GoldenSpatulaDecisionConfidence = 'high' | 'medium' | 'low';
+
+export interface GoldenSpatulaPickRecommendation {
+  name: string;
+  score: number;
+  tier: GoldenSpatulaDecisionTier;
+  role: GoldenSpatulaDecisionRole;
+  cost?: number;
+  ownedCount: number;
+  ownedConfidence?: GoldenSpatulaOwnedConfidence;
+  targetCount: number;
+  copiesNeeded: number;
+  rollTargetPriority: number;
+  currentLevel?: number;
+  shopOdds?: number;
+  shopOddsAvailability: GoldenSpatulaShopOddsAvailability;
+  traitTags: string[];
+  sourceLineupNames: string[];
+  reasons: GoldenSpatulaDecisionReason[];
+}
+
+export interface GoldenSpatulaTransitionLineupRecommendation {
+  lineupId: string;
+  variantId: string;
+  name: string;
+  score: number;
+  quality?: string;
+  version?: string;
+  matchedUnitNames: string[];
+  traitTags: string[];
+}
+
+export interface GoldenSpatulaEconomyDecisionAdvice {
+  action: GoldenSpatulaEconomyDecisionAction;
+  confidence: GoldenSpatulaDecisionConfidence;
+  recommendedRollCount: number;
+  gold?: number;
+  level?: number;
+  interestGoldNeeded?: number;
+  urgentPickNames: string[];
+  reasons: GoldenSpatulaDecisionReason[];
+}
+
+export interface GoldenSpatulaDecisionPlan {
+  generatedAt: number;
+  evaluatedCandidates: number;
+  evaluatedLineups: number;
+  picks: GoldenSpatulaPickRecommendation[];
+  recommendedRollTargetNames: string[];
+  transitionLineups: GoldenSpatulaTransitionLineupRecommendation[];
+  economyAdvice: GoldenSpatulaEconomyDecisionAdvice;
 }

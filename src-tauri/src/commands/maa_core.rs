@@ -69,6 +69,90 @@ fn normalize_mumu_adb_address(device: &mut AdbDevice) {
     }
 }
 
+fn enrich_recognition_callback_detail(
+    state: &Arc<MaaState>,
+    instance_id: &str,
+    message: &str,
+    detail: &str,
+) -> String {
+    if message != "Node.Recognition.Succeeded" {
+        return detail.to_string();
+    }
+
+    let mut value = match serde_json::from_str::<serde_json::Value>(detail) {
+        Ok(value) => value,
+        Err(err) => {
+            warn!("Failed to parse recognition callback detail: {}", err);
+            return detail.to_string();
+        }
+    };
+
+    let Some(reco_id) = value.get("reco_id").and_then(|id| id.as_i64()) else {
+        return detail.to_string();
+    };
+
+    let recognition_detail = {
+        let instances = match state.instances.lock() {
+            Ok(instances) => instances,
+            Err(err) => {
+                warn!(
+                    "Failed to lock Maa instances for recognition detail: {}",
+                    err
+                );
+                return value.to_string();
+            }
+        };
+
+        let Some(instance) = instances.get(instance_id) else {
+            return value.to_string();
+        };
+        let Some(tasker) = instance.tasker.as_ref() else {
+            return value.to_string();
+        };
+
+        match tasker.get_recognition_detail(reco_id) {
+            Ok(detail) => detail,
+            Err(err) => {
+                warn!(
+                    "Failed to fetch recognition detail for reco_id {}: {}",
+                    reco_id, err
+                );
+                None
+            }
+        }
+    };
+
+    let Some(recognition_detail) = recognition_detail else {
+        return value.to_string();
+    };
+
+    let recognition_text = recognition_detail
+        .as_ocr_result()
+        .map(|result| result.text)
+        .or_else(|| {
+            recognition_detail
+                .detail
+                .get("text")
+                .and_then(|text| text.as_str())
+                .map(|text| text.to_string())
+        });
+    let Some(recognition_text) = recognition_text.filter(|text| !text.trim().is_empty()) else {
+        return value.to_string();
+    };
+
+    if let Some(object) = value.as_object_mut() {
+        object.insert(
+            "recognition_text".to_string(),
+            serde_json::Value::String(recognition_text),
+        );
+        if let Ok(detail_value) = serde_json::to_value(&recognition_detail) {
+            object.insert("recognition_detail".to_string(), detail_value);
+        }
+    }
+
+    value.to_string()
+}
+
 fn load_toolkit_option(data_dir: &Path) -> String {
     let option_path = data_dir.join("config").join("maa_option.json");
     let Ok(content) = std::fs::read_to_string(&option_path) else {
@@ -988,14 +1072,20 @@ pub fn run_task_impl(
         tasker
             .add_sink(move |msg, detail| {
                 debug!("[run_task][tasker] {} {}", msg, detail);
+                let detail = enrich_recognition_callback_detail(
+                    &maa_state_for_sink,
+                    &instance_id_for_sink,
+                    msg,
+                    detail,
+                );
                 handle_task_callback(
                     &maa_state_for_sink,
                     &app_for_sink,
                     &instance_id_for_sink,
                     msg,
-                    detail,
+                    &detail,
                 );
-                emit_callback_event(&app_for_sink, msg, detail);
+                emit_callback_event(&app_for_sink, msg.to_string(), detail);
             })
             .map_err(|e| e.to_string())?;
 

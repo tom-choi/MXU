@@ -22,6 +22,21 @@ const imageSizes = {
   augment: 48,
 };
 
+const knowledgeFocusScope = 'goldenSpatula.knowledge';
+const shopChampionSlots = [
+  { index: 1, label: '1', roi: [325, 580, 158, 125] },
+  { index: 2, label: '2', roi: [483, 580, 158, 125] },
+  { index: 3, label: '3', roi: [641, 580, 158, 125] },
+  { index: 4, label: '4', roi: [799, 580, 158, 125] },
+  { index: 5, label: '5', roi: [957, 580, 158, 125] },
+];
+const itemRecognitionZones = [
+  { id: 'inventory', label: 'inventory', roi: [8, 72, 58, 230] },
+  { id: 'bench', label: 'bench', roi: [270, 405, 620, 140] },
+  { id: 'boardLower', label: 'boardLower', roi: [250, 245, 760, 230] },
+];
+const streakRecognitionRoi = [720, 532, 70, 42];
+
 const requestHeaders = {
   'User-Agent': 'MXU GoldenSpatula knowledge fetcher (+local MaaFramework template research)',
 };
@@ -708,6 +723,31 @@ function buildRecognitionProbe({
   timeout,
   tryNode,
 }) {
+  if (entry === 'RecognizeShopChampions') {
+    return buildShopChampionSlotProbe({ templates, threshold });
+  }
+
+  const itemProbeConfig =
+    entry === 'RecognizeItems'
+      ? { itemKind: 'basicItems', nodePrefix: 'Items' }
+      : entry === 'RecognizeBasicItems'
+        ? { itemKind: 'basicItems', nodePrefix: 'BasicItems' }
+        : entry === 'RecognizeCompletedItems'
+          ? { itemKind: 'completedItems', nodePrefix: 'CompletedItems' }
+          : entry === 'RecognizeSpecialItems'
+            ? { itemKind: 'specialItems', nodePrefix: 'SpecialItems' }
+            : null;
+
+  if (itemProbeConfig) {
+    return buildItemAreaProbe({
+      entry,
+      filenamePrefix,
+      templates,
+      threshold,
+      ...itemProbeConfig,
+    });
+  }
+
   return {
     [entry]: {
       action: 'Screencap',
@@ -744,6 +784,241 @@ function buildRecognitionProbe({
       },
     },
   };
+}
+
+function buildKnowledgeFocus(content, event, payload = {}) {
+  return {
+    content,
+    display: 'log',
+    scope: knowledgeFocusScope,
+    event,
+    ...payload,
+  };
+}
+
+function getNextShopSlotFirstNode(slotPosition, templates) {
+  const nextSlot = shopChampionSlots[slotPosition + 1];
+  return nextSlot && templates.length > 0
+    ? `KnowledgeShopChampions_S${nextSlot.index}_T1`
+    : 'KnowledgeShopChampions_Done';
+}
+
+function buildShopChampionSlotProbe({ templates, threshold }) {
+  const nodes = {
+    RecognizeShopChampions: {
+      action: 'Screencap',
+      filename: 'knowledge_shop_champion_before',
+      next:
+        templates.length > 0
+          ? [`KnowledgeShopChampions_S${shopChampionSlots[0].index}_T1`]
+          : ['KnowledgeShopChampions_Done'],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Start shop champion recognition across 5 calibrated slots.',
+          'shopScanStarted',
+          { scanKind: 'champions' },
+        ),
+      },
+    },
+    KnowledgeShopChampions_Done: {
+      action: 'Screencap',
+      filename: 'knowledge_shop_champion_done',
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Shop slot recognition completed.',
+          'shopScanCompleted',
+          { scanKind: 'champions' },
+        ),
+      },
+    },
+  };
+
+  for (const [slotPosition, slot] of shopChampionSlots.entries()) {
+    const slotMissNode = `KnowledgeShopChampions_S${slot.index}_NoMatch`;
+    const nextSlotFirstNode = getNextShopSlotFirstNode(slotPosition, templates);
+
+    for (const [templateIndex, templatePath] of templates.entries()) {
+      const nodeName = `KnowledgeShopChampions_S${slot.index}_T${templateIndex + 1}`;
+      const nextTemplateNode =
+        templateIndex < templates.length - 1
+          ? `KnowledgeShopChampions_S${slot.index}_T${templateIndex + 2}`
+          : slotMissNode;
+
+      nodes[nodeName] = {
+        recognition: 'TemplateMatch',
+        template: templatePath,
+        threshold,
+        roi: slot.roi,
+        action: 'DoNothing',
+        next: [nextSlotFirstNode],
+        on_error: [nextTemplateNode],
+        focus: {
+          'Node.Recognition.Succeeded': buildKnowledgeFocus(
+            `Shop slot ${slot.label} matched a champion template.`,
+            'shopChampionHit',
+            {
+              scanKind: 'champions',
+              slotIndex: slot.index,
+              slotLabel: slot.label,
+              templatePath,
+            },
+          ),
+        },
+      };
+    }
+
+    nodes[slotMissNode] = {
+      action: 'DoNothing',
+      next: [nextSlotFirstNode],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          `Shop slot ${slot.label} did not match any champion template.`,
+          'shopSlotMiss',
+          {
+            scanKind: 'champions',
+            slotIndex: slot.index,
+            slotLabel: slot.label,
+          },
+        ),
+      },
+    };
+  }
+
+  return nodes;
+}
+
+function getItemZoneSuffix(zone) {
+  return zone.id[0].toUpperCase() + zone.id.slice(1);
+}
+
+function buildItemAreaProbe({ entry, filenamePrefix, itemKind, nodePrefix, templates, threshold }) {
+  const getNodeName = (zone, templateIndex) =>
+    `Knowledge${nodePrefix}_${getItemZoneSuffix(zone)}_T${templateIndex + 1}`;
+  const doneNode = `Knowledge${nodePrefix}_Done`;
+  const firstNode = templates.length > 0 ? getNodeName(itemRecognitionZones[0], 0) : doneNode;
+  const nodes = {
+    [entry]: {
+      action: 'Screencap',
+      filename: `${filenamePrefix}_before`,
+      next: [firstNode],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Start item recognition across inventory, bench, and lower-board zones.',
+          'itemScanStarted',
+          { scanKind: itemKind, itemKind },
+        ),
+      },
+    },
+    [doneNode]: {
+      action: 'Screencap',
+      filename: `${filenamePrefix}_done`,
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Item zone recognition completed.',
+          'itemScanCompleted',
+          { scanKind: itemKind, itemKind },
+        ),
+      },
+    },
+  };
+
+  for (const [zoneIndex, zone] of itemRecognitionZones.entries()) {
+    for (const [templateIndex, templatePath] of templates.entries()) {
+      const isLastTemplate = templateIndex === templates.length - 1;
+      const nextZone = itemRecognitionZones[zoneIndex + 1];
+      const nextNode = !isLastTemplate
+        ? getNodeName(zone, templateIndex + 1)
+        : nextZone
+          ? getNodeName(nextZone, 0)
+          : doneNode;
+
+      nodes[getNodeName(zone, templateIndex)] = {
+        recognition: 'TemplateMatch',
+        template: templatePath,
+        threshold,
+        roi: zone.roi,
+        action: 'DoNothing',
+        next: [nextNode],
+        on_error: [nextNode],
+        focus: {
+          'Node.Recognition.Succeeded': buildKnowledgeFocus(
+            `Item template matched in ${zone.label}.`,
+            'itemHit',
+            {
+              scanKind: itemKind,
+              itemKind,
+              zone: zone.id,
+              templatePath,
+            },
+          ),
+        },
+      };
+    }
+  }
+
+  return nodes;
+}
+
+function buildStreakProbe() {
+  const replace = [
+    ['O', '0'],
+    ['o', '0'],
+    ['I', '1'],
+    ['l', '1'],
+    ['S', '5'],
+    ['s', '5'],
+    ['B', '8'],
+  ];
+  const nodes = {
+    RecognizeStreakState: {
+      action: 'Screencap',
+      filename: 'knowledge_streak_before',
+      next: ['KnowledgeStreak_Interest'],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Start win/loss streak interest OCR.',
+          'streakScanStarted',
+          { scanKind: 'streak' },
+        ),
+      },
+    },
+    KnowledgeStreak_Interest: {
+      recognition: 'OCR',
+      expected: String.raw`\d{1}`,
+      threshold: 0.35,
+      replace,
+      order_by: 'Expected',
+      roi: streakRecognitionRoi,
+      action: 'DoNothing',
+      next: ['KnowledgeStreak_Done'],
+      on_error: ['KnowledgeStreak_Done'],
+      focus: {
+        'Node.Recognition.Succeeded': buildKnowledgeFocus(
+          'Win/loss streak interest OCR matched.',
+          'streakRecognized',
+          { scanKind: 'streak' },
+        ),
+        'Node.Recognition.Failed': buildKnowledgeFocus(
+          'Win/loss streak interest OCR missed.',
+          'streakScanFailed',
+          { scanKind: 'streak' },
+        ),
+      },
+    },
+    KnowledgeStreak_Done: {
+      action: 'Screencap',
+      filename: 'knowledge_streak_done',
+      focus: {
+        'Node.PipelineNode.Succeeded': buildKnowledgeFocus(
+          'Win/loss streak OCR completed.',
+          'streakScanCompleted',
+          { scanKind: 'streak' },
+        ),
+      },
+    },
+  };
+
+  return nodes;
 }
 
 function buildKnowledgePipeline(templates) {
@@ -900,6 +1175,8 @@ function buildKnowledgePipeline(templates) {
       tryNode: 'KnowledgeSpecialItems_TryMatch',
     }),
 
+    ...buildStreakProbe(),
+
     ...buildRecognitionProbe({
       entry: 'RecognizeTraitsPanel',
       filenamePrefix: 'knowledge_trait',
@@ -926,12 +1203,12 @@ async function writeManifests(entries, context) {
   };
 
   const championRoi = {
-    shop_slots_1280x720: [150, 500, 980, 220],
-    note: '商店五格棋子头像区域，后续应按实战截图微调。',
+    shop_slots_1280x720: shopChampionSlots.map((slot) => slot.roi),
+    note: '5 calibrated shop slot ROIs shared with the dynamic roll pipeline.',
   };
   const itemRoi = {
-    inventory_or_board_1280x720: [0, 400, 1280, 320],
-    note: '装备栏、备战区和战场下半区初始巡检 ROI。',
+    zones_1280x720: Object.fromEntries(itemRecognitionZones.map((zone) => [zone.id, zone.roi])),
+    note: 'Item recognition is split into inventory, bench, and lower-board zones.',
   };
   const traitRoi = {
     left_panel_1280x720: [0, 0, 360, 720],

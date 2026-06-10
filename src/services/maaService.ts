@@ -73,6 +73,10 @@ export interface MaaCallbackDetails {
   param?: unknown;
   entry?: string;
   name?: string;
+  focus?: unknown;
+  reco_id?: number;
+  recognition_detail?: unknown;
+  recognition_text?: string;
 }
 
 export interface SelfStopRequestedEvent {

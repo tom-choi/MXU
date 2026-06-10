@@ -1181,6 +1181,139 @@
     }
   },
 
+  "RecognizeEconomyState": {
+    "action": "Screencap",
+    "filename": "economy_ocr_before",
+    "next": ["EconomyOcr_Gold"],
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "MXU economy started",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "started"
+      }
+    }
+  },
+  "EconomyOcr_Gold": {
+    "recognition": "OCR",
+    "expected": "\\d{1,3}",
+    "threshold": 0.35,
+    "replace": [
+      ["O", "0"],
+      ["o", "0"],
+      ["I", "1"],
+      ["l", "1"],
+      ["S", "5"],
+      ["s", "5"],
+      ["B", "8"]
+    ],
+    "order_by": "Expected",
+    "roi": [610, 535, 105, 45],
+    "timeout": 900,
+    "action": "DoNothing",
+    "next": ["EconomyOcr_Level"],
+    "on_error": ["EconomyOcr_Level"],
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "MXU economy recognized",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "recognized",
+        "field": "gold"
+      },
+      "Node.Recognition.Failed": {
+        "content": "MXU economy scan failed",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "scanFailed",
+        "field": "gold"
+      }
+    }
+  },
+  "EconomyOcr_Level": {
+    "recognition": "OCR",
+    "expected": "\\d{1,3}",
+    "threshold": 0.35,
+    "replace": [
+      ["O", "0"],
+      ["o", "0"],
+      ["I", "1"],
+      ["l", "1"],
+      ["S", "5"],
+      ["s", "5"],
+      ["B", "8"]
+    ],
+    "order_by": "Expected",
+    "roi": [180, 535, 72, 42],
+    "timeout": 900,
+    "action": "DoNothing",
+    "next": ["EconomyOcr_Experience"],
+    "on_error": ["EconomyOcr_Experience"],
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "MXU economy recognized",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "recognized",
+        "field": "level"
+      },
+      "Node.Recognition.Failed": {
+        "content": "MXU economy scan failed",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "scanFailed",
+        "field": "level"
+      }
+    }
+  },
+  "EconomyOcr_Experience": {
+    "recognition": "OCR",
+    "expected": "\\d{1,2}\\s*/\\s*\\d{1,2}",
+    "threshold": 0.35,
+    "replace": [
+      ["O", "0"],
+      ["o", "0"],
+      ["I", "1"],
+      ["l", "1"],
+      ["S", "5"],
+      ["s", "5"],
+      ["B", "8"]
+    ],
+    "order_by": "Expected",
+    "roi": [246, 535, 86, 42],
+    "timeout": 900,
+    "action": "DoNothing",
+    "next": ["EconomyOcr_Done"],
+    "on_error": ["EconomyOcr_Done"],
+    "focus": {
+      "Node.Recognition.Succeeded": {
+        "content": "MXU economy recognized",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "recognized",
+        "field": "experience"
+      },
+      "Node.Recognition.Failed": {
+        "content": "MXU economy scan failed",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "scanFailed",
+        "field": "experience"
+      }
+    }
+  },
+  "EconomyOcr_Done": {
+    "action": "DoNothing",
+    "focus": {
+      "Node.PipelineNode.Succeeded": {
+        "content": "MXU economy scanned",
+        "display": "log",
+        "scope": "goldenSpatula.economy",
+        "event": "scanned"
+      }
+    }
+  },
+
   "AutoRollAndBuyTargets": {
     "action": "Screencap",
     "filename": "auto_roll_buy_not_configured"

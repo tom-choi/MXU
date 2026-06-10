@@ -24,7 +24,19 @@ const rollEvents = new Set([
 ]);
 
 const xpEvents = new Set(['started', 'clicked', 'completed', 'notReady']);
-const rollCounts = [1, 3, 5];
+const handEvents = new Set(['started', 'benchHit', 'benchMiss', 'bought', 'completed', 'notReady']);
+const economyEvents = new Set([
+  'started',
+  'scanned',
+  'recognized',
+  'scanFailed',
+  'buyChampion',
+  'refresh',
+  'buyXp',
+  'completed',
+  'notReady',
+]);
+const rollCounts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const targets = [
   { name: 'Vex', templatePath: 'champions/vex.png' },
   { name: 'Poppy', templatePath: 'champions/poppy.png' },
@@ -111,6 +123,13 @@ function assertFocusPayload(payload, label) {
     if (payload.event !== 'notReady') {
       assert.equal(Number.isFinite(payload.total), true, `${label}: missing xp total`);
     }
+  } else if (payload.scope === 'goldenSpatula.hand') {
+    assert.ok(handEvents.has(payload.event), `${label}: unknown hand event ${payload.event}`);
+    if (payload.event === 'benchHit' || payload.event === 'bought') {
+      assert.equal(typeof payload.targetName, 'string', `${label}: missing hand target`);
+    }
+  } else if (payload.scope === 'goldenSpatula.economy') {
+    assert.ok(economyEvents.has(payload.event), `${label}: unknown economy event ${payload.event}`);
   } else {
     assert.fail(`${label}: unexpected focus scope ${payload.scope}`);
   }
@@ -138,6 +157,14 @@ function validateNodeShape(node, label) {
       assert.ok(template.length > 0, `${label}: template cannot be empty`);
     }
     assertThresholdShape(node, label);
+  }
+
+  if (node.recognition === 'OCR') {
+    assert.equal(typeof node.expected, 'string', `${label}: OCR needs expected pattern`);
+    assert.ok(node.expected.length > 0, `${label}: OCR expected cannot be empty`);
+    assert.equal(typeof node.threshold, 'number', `${label}: OCR threshold must be number`);
+    assert.ok(Array.isArray(node.replace), `${label}: OCR replace must be array`);
+    assert.equal(node.order_by, 'Expected', `${label}: OCR should prefer expected text`);
   }
 
   if (node.focus !== undefined) {
@@ -193,6 +220,12 @@ function validateGraph(nodes, entry, label) {
 async function main() {
   const roll = await importRollPipelineModule();
   const cases = [];
+
+  cases.push({
+    label: 'economy-ocr',
+    entry: roll.goldenSpatulaEconomyOcrEntry,
+    json: roll.buildEconomyOcrPipelineOverride(),
+  });
 
   for (const rollCount of rollCounts) {
     cases.push({

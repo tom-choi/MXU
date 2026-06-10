@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Bot,
@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Clipboard,
   ClipboardPaste,
+  Coins,
   Copy,
   CopyPlus,
   Crosshair,
@@ -35,13 +36,26 @@ import { toast } from 'sonner';
 import { maaService, type MaaCallbackDetails } from '@/services/maaService';
 import { loadIconAsDataUrl } from '@/services/contentResolver';
 import {
+  buildEconomyEvent,
+  buildEconomyEventFromRollEvent,
+  buildEconomyEventFromXpEvent,
+  buildHandEvent,
+  buildHandEventFromRollEvent,
+  buildKnowledgeEvent,
   buildRollEvent,
   buildXpEvent,
+  createEmptyEconomyRunState,
+  createEmptyHandRunState,
+  createEmptyKnowledgeScanState,
   createEmptyRollRunState,
   createEmptyXpRunState,
+  mergeEconomyEvent,
+  mergeHandEvent,
+  mergeKnowledgeEvent,
   mergeRollEvent,
   mergeXpEvent,
 } from '@/services/goldenSpatulaAutomationEvents';
+import { buildGoldenSpatulaDecisionPlan } from '@/services/goldenSpatulaDecisionEngine';
 import {
   createManagedLineupFromRecommended,
   createManualLineup,
@@ -51,22 +65,36 @@ import {
   parseGoldenSpatulaLineupImport,
 } from '@/services/goldenSpatulaService';
 import {
-  buildAutoLevelRollBuyPipelineOverride,
   buildAutoRollBuyPipelineOverride,
-  goldenSpatulaAutoLevelRollBuyEntry as autoLevelRollBuyEntry,
   goldenSpatulaAutoRollBuyEntry as autoRollBuyEntry,
+  goldenSpatulaShopChampionSlots,
   type GoldenSpatulaRollBuyTargetTemplate,
 } from '@/services/goldenSpatulaRollPipeline';
+import {
+  createGoldenSpatulaEconomyStabilizerState,
+  stabilizeGoldenSpatulaEconomyResult,
+} from '@/services/goldenSpatulaEconomyStabilizer';
+import { recognizeGoldenSpatulaEconomyFromDataUrl } from '@/services/goldenSpatulaEconomyVision';
 import { useAppStore } from '@/stores/appStore';
 import type {
   GoldenSpatulaAssistantData,
   GoldenSpatulaChampionAsset,
   GoldenSpatulaChampionAssetIndex,
+  GoldenSpatulaDecisionPlan,
+  GoldenSpatulaPickRecommendation,
+  GoldenSpatulaEconomyEvent,
+  GoldenSpatulaEconomyRunState,
+  GoldenSpatulaHandRunState,
   GoldenSpatulaItemAsset,
   GoldenSpatulaItemAssetIndex,
+  GoldenSpatulaKnowledgeItemKind,
+  GoldenSpatulaKnowledgeItemState,
+  GoldenSpatulaKnowledgeScanState,
+  GoldenSpatulaKnowledgeShopSlotState,
   GoldenSpatulaLineupUnit,
   GoldenSpatulaLineupVariant,
   GoldenSpatulaManagedLineup,
+  GoldenSpatulaOwnedConfidence,
   GoldenSpatulaRecognitionKind,
   GoldenSpatulaRecognitionStatus,
   GoldenSpatulaRecognitionSummary,
@@ -82,7 +110,7 @@ import type {
   GoldenSpatulaXpRunState,
 } from '@/types/goldenSpatula';
 
-const GOLDEN_SPATULA_PROJECT = 'GoldenSpatulaMuMu';
+export const GOLDEN_SPATULA_PROJECT = 'GoldenSpatulaMuMu';
 const KNOWLEDGE_RESOURCE = 'GoldenSpatulaKnowledge';
 const MAX_RECOGNITION_SUMMARIES = 20;
 
@@ -92,19 +120,21 @@ const knowledgeTaskNames = new Set([
   'RecognizeBasicItems',
   'RecognizeCompletedItems',
   'RecognizeSpecialItems',
+  'RecognizeStreakState',
   'RecognizeTraitsPanel',
+  'RecognizeEconomyState',
 ]);
 
-type AutoRollCount = 1 | 3 | 5;
+type AutoRollCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
-const autoRollCounts: AutoRollCount[] = [1, 3, 5];
-const autoRollTaskByCount: Record<AutoRollCount, string> = {
+const autoRollCounts: AutoRollCount[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const autoRollTaskByCount: Partial<Record<AutoRollCount, string>> = {
   1: 'AutoRollShopOnce',
   3: 'AutoRollShopThree',
   5: 'AutoRollShopFive',
 };
-const autoRollTaskNames = new Set(Object.values(autoRollTaskByCount));
-const autoBuyExperienceTaskByCount: Record<AutoRollCount, string> = {
+const autoRollTaskNames = new Set(Object.values(autoRollTaskByCount).filter(Boolean));
+const autoBuyExperienceTaskByCount: Partial<Record<AutoRollCount, string>> = {
   1: 'AutoBuyExperienceOnce',
   3: 'AutoBuyExperienceThree',
   5: 'AutoBuyExperienceFive',
@@ -145,6 +175,45 @@ function hasFocusForMessage(
   return Boolean(focus?.[message]);
 }
 
+function getPanelFocusPayload(
+  message: string,
+  details: MaaCallbackDetails & Record<string, unknown>,
+): Record<string, unknown> | undefined {
+  const focus = details.focus as Record<string, unknown> | undefined;
+  const payload = focus?.[message];
+  return payload && typeof payload === 'object' && !Array.isArray(payload)
+    ? (payload as Record<string, unknown>)
+    : undefined;
+}
+
+function getRecognitionMappingFromKnowledgeFocus(
+  payload: Record<string, unknown> | undefined,
+): { kind: GoldenSpatulaRecognitionKind; status: GoldenSpatulaRecognitionStatus } | null {
+  if (payload?.scope !== 'goldenSpatula.knowledge') return null;
+
+  switch (payload.event) {
+    case 'shopChampionHit':
+      return { kind: 'champions', status: 'success' };
+    case 'shopSlotMiss':
+      return { kind: 'champions', status: 'miss' };
+    case 'itemHit':
+      if (
+        payload.itemKind === 'basicItems' ||
+        payload.itemKind === 'completedItems' ||
+        payload.itemKind === 'specialItems'
+      ) {
+        return { kind: payload.itemKind, status: 'success' };
+      }
+      return { kind: 'basicItems', status: 'success' };
+    case 'streakRecognized':
+      return { kind: 'streak', status: 'success' };
+    case 'streakScanFailed':
+      return { kind: 'streak', status: 'miss' };
+    default:
+      return null;
+  }
+}
+
 function buildRecognitionSummary(
   message: string,
   details: MaaCallbackDetails & Record<string, unknown>,
@@ -155,7 +224,9 @@ function buildRecognitionSummary(
   const nodeName = typeof details.name === 'string' ? details.name : undefined;
   if (!nodeName) return null;
 
-  const mapped = recognitionNodeMap[nodeName];
+  const mapped =
+    getRecognitionMappingFromKnowledgeFocus(getPanelFocusPayload(message, details)) ??
+    recognitionNodeMap[nodeName];
   if (!mapped) return null;
 
   return {
@@ -321,6 +392,26 @@ function findItemAsset(
   return assets?.[normalizeSearchText(itemName)];
 }
 
+function normalizeKnowledgeTemplatePath(path: string | undefined): string {
+  if (!path) return '';
+  const normalized = path.replace(/\\/g, '/').replace(/^\/+/, '').toLocaleLowerCase();
+  const marker = 'resource_knowledge/image/';
+  const markerIndex = normalized.lastIndexOf(marker);
+  return markerIndex >= 0 ? normalized.slice(markerIndex + marker.length) : normalized;
+}
+
+function findAssetByTemplatePath<T extends GoldenSpatulaChampionAsset>(
+  templatePath: string | undefined,
+  assets: Record<string, T> | undefined,
+): T | undefined {
+  const normalizedTemplate = normalizeKnowledgeTemplatePath(templatePath);
+  if (!normalizedTemplate) return undefined;
+
+  return Object.values(assets ?? {}).find((asset) =>
+    normalizeKnowledgeTemplatePath(asset.imagePath).endsWith(normalizedTemplate),
+  );
+}
+
 function costColor(cost: number | undefined): string {
   switch (cost) {
     case 1:
@@ -455,12 +546,17 @@ function collectRollTargetTemplates(
   const seen = new Set<string>();
   return collectRollTargetUnits(variant)
     .map((unit) => {
-      const imagePath = findChampionAsset(unit.name, championAssets)?.imagePath;
+      const asset = findChampionAsset(unit.name, championAssets);
+      const imagePath = asset?.imagePath;
       if (!imagePath) return null;
-      return {
+      const target: GoldenSpatulaRollBuyTargetTemplate = {
         name: unit.name,
         templatePath: toMaaTemplatePath(imagePath),
       };
+      if (asset?.cost !== undefined) {
+        target.cost = asset.cost;
+      }
+      return target;
     })
     .filter((target): target is GoldenSpatulaRollBuyTargetTemplate => Boolean(target?.templatePath))
     .filter((target) => {
@@ -815,54 +911,19 @@ function formatRollEventSlot(event: GoldenSpatulaRollEvent | undefined): string 
   return slot ? ` #${slot}` : '';
 }
 
-function RollTargetStatusChip({
-  name,
-  championAssets,
-  basePath,
-}: {
-  name: string;
-  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
-  basePath: string;
-}) {
-  const asset = findChampionAsset(name, championAssets);
-
-  return (
-    <div
-      className="inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md bg-bg-primary px-1.5 py-1 ring-1 ring-inset ring-border/70"
-      title={name}
-    >
-      <div
-        className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[9px] text-text-secondary"
-        style={costFrameStyle(asset?.cost)}
-      >
-        <div className="h-full w-full overflow-hidden rounded bg-bg-primary">
-          <LineupAssetImage
-            imagePath={asset?.imagePath}
-            fallback={shortUnitName(name)}
-            basePath={basePath}
-          />
-        </div>
-      </div>
-      <span className="truncate text-[11px] font-medium text-text-secondary">{name}</span>
-    </div>
-  );
-}
-
 function RollRunStatusPanel({
-  variant,
   championAssets,
   basePath,
   runState,
+  shopSlots,
   t,
 }: {
-  variant: GoldenSpatulaLineupVariant;
   championAssets: GoldenSpatulaChampionAssetIndex | undefined;
   basePath: string;
   runState: GoldenSpatulaRollRunState;
+  shopSlots: GoldenSpatulaKnowledgeScanState['shopSlots'];
   t: TFunction;
 }) {
-  const targetNames =
-    runState.targetNames.length > 0 ? runState.targetNames : getActiveRollTargetNames(variant);
   const latestRecognition = runState.events.find(
     (event) =>
       event.kind === 'bought' ||
@@ -921,28 +982,6 @@ function RollRunStatusPanel({
         </StatusPill>
       </div>
 
-      <div>
-        <div className="mb-1 text-[11px] text-text-muted">
-          {t('goldenSpatula.lineups.rollStatusTargets')}
-        </div>
-        {targetNames.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {targetNames.map((name) => (
-              <RollTargetStatusChip
-                key={name}
-                name={name}
-                championAssets={championAssets}
-                basePath={basePath}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-[11px] text-text-muted">
-            {t('goldenSpatula.lineups.rollStatusNoTargets')}
-          </div>
-        )}
-      </div>
-
       <div className="grid grid-cols-2 gap-1.5">
         <div className="rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
           <div className="text-[10px] text-text-muted">
@@ -957,6 +996,13 @@ function RollRunStatusPanel({
           <div className="mt-1 truncate text-xs text-text-primary">{buyText}</div>
         </div>
       </div>
+
+      <ShopObservationGrid
+        shopSlots={shopSlots}
+        championAssets={championAssets}
+        basePath={basePath}
+        t={t}
+      />
 
       <div className="flex items-center justify-between gap-2 text-[11px] text-text-muted">
         <span>
@@ -1075,6 +1121,746 @@ function XpRunStatusPanel({ runState, t }: { runState: GoldenSpatulaXpRunState; 
           {t('goldenSpatula.lineups.xpStatusNoEvents')}
         </div>
       )}
+    </div>
+  );
+}
+
+function formatSignedValue(value: number): string {
+  return value > 0 ? `+${value}` : `${value}`;
+}
+
+function formatShopOddsPercent(odds: number | undefined): string {
+  if (odds === undefined) return '-';
+  if (odds > 0 && odds < 0.01) return '<1%';
+  return `${Math.round(odds * 100)}%`;
+}
+
+function ownedConfidenceTone(
+  confidence: GoldenSpatulaOwnedConfidence | undefined,
+): 'success' | 'warning' | 'error' | 'muted' {
+  if (confidence === 'confirmed') return 'success';
+  if (confidence === 'estimated') return 'warning';
+  if (confidence === 'stale') return 'muted';
+  return 'muted';
+}
+
+function HandRunStatusPanel({
+  runState,
+  t,
+}: {
+  runState: GoldenSpatulaHandRunState;
+  t: TFunction;
+}) {
+  const latestText = runState.lastEvent?.message ?? t('goldenSpatula.lineups.handStatusNoEvents');
+
+  return (
+    <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
+      <div className="flex items-center justify-between gap-2">
+        <div className="text-xs font-medium text-text-primary">
+          {t('goldenSpatula.lineups.handStatus')}
+        </div>
+        <StatusPill tone={runState.active ? 'success' : 'muted'}>
+          {runState.active
+            ? t('goldenSpatula.lineups.rollStatusRunning')
+            : t('goldenSpatula.lineups.rollStatusIdle')}
+        </StatusPill>
+      </div>
+
+      <div className="rounded-md bg-bg-tertiary p-2">
+        <div className="text-[10px] text-text-muted">
+          {t('goldenSpatula.lineups.handStatusLatest')}
+        </div>
+        <div className="mt-1 truncate text-xs text-text-primary">{latestText}</div>
+      </div>
+
+      <div className="flex justify-end text-[11px] text-text-muted">
+        <span>
+          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
+            time: formatRollEventTime(runState.updatedAt, '-'),
+          })}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function EconomyRunStatusPanel({
+  runState,
+  detecting,
+  polling,
+  detectDisabledReason,
+  onDetect,
+  t,
+}: {
+  runState: GoldenSpatulaEconomyRunState;
+  detecting?: boolean;
+  polling?: boolean;
+  detectDisabledReason?: string;
+  onDetect?: () => void;
+  t: TFunction;
+}) {
+  const detectLabel = polling
+    ? t('goldenSpatula.lineups.stopEconomyOcr')
+    : t('goldenSpatula.lineups.runEconomyOcr');
+  const goldText =
+    runState.gold !== undefined
+      ? String(runState.gold)
+      : runState.estimatedGoldDelta !== 0
+        ? t('goldenSpatula.lineups.economyStatusEstimatedGold', {
+            delta: formatSignedValue(runState.estimatedGoldDelta),
+          })
+        : t('goldenSpatula.lineups.economyStatusUnknown');
+  const levelText =
+    runState.level !== undefined
+      ? String(runState.level)
+      : t('goldenSpatula.lineups.economyStatusUnknown');
+  const experienceText =
+    runState.experience !== undefined
+      ? runState.experienceMax !== undefined
+        ? `${runState.experience}/${runState.experienceMax}`
+        : String(runState.experience)
+      : runState.xpPurchases > 0
+        ? t('goldenSpatula.lineups.economyStatusXpDelta', {
+            count: runState.xpPurchases,
+          })
+        : t('goldenSpatula.lineups.economyStatusUnknown');
+  const roundText = runState.round ?? t('goldenSpatula.lineups.economyStatusUnknown');
+  const streakText =
+    runState.streakInterest !== undefined
+      ? runState.streakKind === 'win' || runState.streakKind === 'loss'
+        ? `${t(`goldenSpatula.lineups.economyStreakKind.${runState.streakKind}`)} +${
+            runState.streakInterest
+          }`
+        : runState.streakInterest === 0
+          ? '0'
+          : `+${runState.streakInterest}`
+      : t('goldenSpatula.lineups.economyStatusUnknown');
+
+  return (
+    <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
+      <div className="flex items-center justify-between gap-2">
+        <SectionTitle icon={Coins} label={t('goldenSpatula.lineups.economyStatus')} />
+        <div className="flex shrink-0 items-center gap-1.5">
+          <span className="hidden text-[11px] text-text-muted sm:inline">
+            {t('goldenSpatula.lineups.rollStatusLastUpdated', {
+              time: formatRollEventTime(runState.updatedAt, '-'),
+            })}
+          </span>
+          <StatusPill tone={runState.active || polling ? 'success' : 'muted'}>
+            {polling
+              ? t('goldenSpatula.lineups.economyOcrPolling')
+              : runState.active
+                ? t('goldenSpatula.lineups.rollStatusRunning')
+                : t('goldenSpatula.lineups.rollStatusIdle')}
+          </StatusPill>
+          {onDetect && (
+            <button
+              type="button"
+              disabled={Boolean(detectDisabledReason) && !polling}
+              onClick={onDetect}
+              className="inline-flex h-6 items-center gap-1 rounded-md border border-border bg-bg-secondary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+              title={polling ? detectLabel : detectDisabledReason || detectLabel}
+            >
+              {detecting || polling ? (
+                <Loader2 className="h-3 w-3 animate-spin" />
+              ) : (
+                <Crosshair className="h-3 w-3" />
+              )}
+              <span className="hidden sm:inline">{detectLabel}</span>
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
+        <div className="rounded-md bg-bg-tertiary p-2">
+          <div className="text-[10px] text-text-muted">
+            {t('goldenSpatula.lineups.economyRound')}
+          </div>
+          <div className="mt-1 truncate text-xs font-medium text-text-primary">{roundText}</div>
+        </div>
+        <div className="rounded-md bg-bg-tertiary p-2">
+          <div className="text-[10px] text-text-muted">
+            {t('goldenSpatula.lineups.economyGold')}
+          </div>
+          <div className="mt-1 truncate text-xs font-medium text-text-primary">{goldText}</div>
+        </div>
+        <div className="rounded-md bg-bg-tertiary p-2">
+          <div className="text-[10px] text-text-muted">
+            {t('goldenSpatula.lineups.economyLevel')}
+          </div>
+          <div className="mt-1 truncate text-xs font-medium text-text-primary">{levelText}</div>
+        </div>
+        <div className="rounded-md bg-bg-tertiary p-2">
+          <div className="text-[10px] text-text-muted">
+            {t('goldenSpatula.lineups.economyExperience')}
+          </div>
+          <div className="mt-1 truncate text-xs font-medium text-text-primary">
+            {experienceText}
+          </div>
+        </div>
+        <div className="rounded-md bg-bg-tertiary p-2">
+          <div className="text-[10px] text-text-muted">
+            {t('goldenSpatula.lineups.economyStreak')}
+          </div>
+          <div className="mt-1 truncate text-xs font-medium text-text-primary">{streakText}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function knowledgeTemplateFallback(templatePath: string | undefined, fallback: string): string {
+  if (!templatePath) return fallback;
+  const fileName = templatePath
+    .replace(/\\/g, '/')
+    .split('/')
+    .pop()
+    ?.replace(/\.[^.]+$/, '');
+  if (!fileName) return fallback;
+  const parts = fileName.split('_').filter(Boolean);
+  return parts[parts.length - 1] ?? fallback;
+}
+
+function KnowledgeShopSlotCard({
+  slot,
+  state,
+  championAssets,
+  basePath,
+  t,
+}: {
+  slot: (typeof goldenSpatulaShopChampionSlots)[number];
+  state?: GoldenSpatulaKnowledgeShopSlotState;
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
+  basePath: string;
+  t: TFunction;
+}) {
+  const asset =
+    findChampionAsset(state?.championName ?? '', championAssets) ??
+    findAssetByTemplatePath(state?.templatePath, championAssets);
+  const matched = state?.confidence === 'matched';
+  const empty = state?.confidence === 'empty';
+  const label = matched
+    ? (state?.championName ??
+      asset?.name ??
+      knowledgeTemplateFallback(
+        state?.templatePath,
+        t('goldenSpatula.recognition.unknownChampion'),
+      ))
+    : empty
+      ? t('goldenSpatula.recognition.emptySlot')
+      : t('goldenSpatula.recognition.unknownSlot');
+
+  return (
+    <div className="min-w-0 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
+      <div className="flex items-center justify-between gap-1">
+        <span className="text-[10px] font-medium text-text-muted">
+          {t('goldenSpatula.recognition.shopSlot', { slot: slot.label })}
+        </span>
+        <StatusPill tone={matched ? 'success' : empty ? 'warning' : 'muted'}>
+          {matched
+            ? t('goldenSpatula.recognition.status.success')
+            : empty
+              ? t('goldenSpatula.recognition.status.miss')
+              : t('goldenSpatula.recognition.notScanned')}
+        </StatusPill>
+      </div>
+      <div className="mt-1 flex items-center gap-1.5">
+        <div
+          className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[9px] text-text-secondary"
+          style={costFrameStyle(asset?.cost)}
+        >
+          <div className="h-full w-full overflow-hidden rounded bg-bg-tertiary">
+            {matched ? (
+              <LineupAssetImage
+                imagePath={asset?.imagePath}
+                fallback={shortUnitName(label)}
+                basePath={basePath}
+              />
+            ) : (
+              <span className="flex h-full w-full items-center justify-center">?</span>
+            )}
+          </div>
+        </div>
+        <span className="min-w-0 truncate text-xs font-medium text-text-primary">{label}</span>
+      </div>
+    </div>
+  );
+}
+
+function ShopObservationGrid({
+  shopSlots,
+  championAssets,
+  basePath,
+  t,
+}: {
+  shopSlots: GoldenSpatulaKnowledgeScanState['shopSlots'];
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
+  basePath: string;
+  t: TFunction;
+}) {
+  return (
+    <div>
+      <div className="mb-1 text-[11px] font-medium text-text-secondary">
+        {t('goldenSpatula.recognition.currentShop')}
+      </div>
+      <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-5">
+        {goldenSpatulaShopChampionSlots.map((slot) => (
+          <KnowledgeShopSlotCard
+            key={slot.index}
+            slot={slot}
+            state={shopSlots[slot.index]}
+            championAssets={championAssets}
+            basePath={basePath}
+            t={t}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function knowledgeItemKindTone(
+  kind: GoldenSpatulaKnowledgeItemKind,
+): 'success' | 'warning' | 'error' | 'muted' {
+  if (kind === 'basicItems') return 'muted';
+  if (kind === 'completedItems') return 'success';
+  return 'warning';
+}
+
+function sortKnowledgeItems(
+  items: Record<string, GoldenSpatulaKnowledgeItemState>,
+): GoldenSpatulaKnowledgeItemState[] {
+  return Object.values(items).sort((left, right) => right.updatedAt - left.updatedAt);
+}
+
+function KnowledgeItemChip({
+  item,
+  itemAssets,
+  basePath,
+  t,
+}: {
+  item: GoldenSpatulaKnowledgeItemState;
+  itemAssets: GoldenSpatulaItemAssetIndex | undefined;
+  basePath: string;
+  t: TFunction;
+}) {
+  const asset = findAssetByTemplatePath(item.templatePath, itemAssets);
+  const label =
+    asset?.name ??
+    knowledgeTemplateFallback(item.templatePath, t('goldenSpatula.recognition.unknownItem'));
+
+  return (
+    <div className="inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md bg-bg-primary px-1.5 py-1 ring-1 ring-inset ring-border/60">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-tertiary text-[9px] text-text-secondary">
+        <LineupAssetImage
+          imagePath={asset?.imagePath}
+          fallback={label.slice(0, 1)}
+          basePath={basePath}
+        />
+      </div>
+      <div className="min-w-0">
+        <div className="truncate text-[11px] font-medium text-text-primary">{label}</div>
+        <div className="mt-0.5 flex flex-wrap gap-0.5">
+          <StatusPill tone={knowledgeItemKindTone(item.itemKind)}>
+            {t(`goldenSpatula.recognition.itemKind.${item.itemKind}`)}
+          </StatusPill>
+          {item.zones.slice(0, 2).map((zone) => (
+            <span key={zone} className="rounded bg-bg-tertiary px-1 text-[10px] text-text-muted">
+              {t(`goldenSpatula.recognition.zone.${zone}`)}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function KnowledgeObservationPanel({
+  state,
+  itemAssets,
+  basePath,
+  t,
+}: {
+  state: GoldenSpatulaKnowledgeScanState;
+  itemAssets: GoldenSpatulaItemAssetIndex | undefined;
+  basePath: string;
+  t: TFunction;
+}) {
+  const items = sortKnowledgeItems(state.items);
+  const latestText = state.lastEvent?.message ?? t('goldenSpatula.recognition.knowledgeNoEvents');
+
+  return (
+    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2">
+      <div className="flex items-center justify-between gap-2">
+        <SectionTitle
+          icon={Crosshair}
+          label={t('goldenSpatula.recognition.knowledgeObservation')}
+        />
+        <StatusPill tone={state.active ? 'success' : 'muted'}>
+          {state.active
+            ? t('goldenSpatula.lineups.rollStatusRunning')
+            : t('goldenSpatula.lineups.rollStatusIdle')}
+        </StatusPill>
+      </div>
+
+      <div>
+        <div className="mb-1 text-[11px] font-medium text-text-secondary">
+          {t('goldenSpatula.recognition.currentItems')}
+        </div>
+        {items.length > 0 ? (
+          <div className="flex flex-wrap gap-1.5">
+            {items.slice(0, 12).map((item) => (
+              <KnowledgeItemChip
+                key={`${item.itemKind}:${item.templatePath}`}
+                item={item}
+                itemAssets={itemAssets}
+                basePath={basePath}
+                t={t}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
+            {t('goldenSpatula.recognition.noItemsObserved')}
+          </div>
+        )}
+      </div>
+
+      <div className="flex items-center justify-between gap-2 text-[11px] text-text-muted">
+        <span className="min-w-0 truncate">{latestText}</span>
+        <span className="shrink-0">
+          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
+            time: formatRollEventTime(state.updatedAt, '-'),
+          })}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function mergeShopSlotsFromRollEvent(
+  previous: GoldenSpatulaKnowledgeScanState,
+  event: GoldenSpatulaRollEvent,
+): GoldenSpatulaKnowledgeScanState {
+  const shouldReset = event.kind === 'started' || event.kind === 'refreshed';
+  const shouldMarkMatched =
+    (event.kind === 'bought' || event.kind === 'buyConfirmed') &&
+    event.slotIndex !== undefined &&
+    Boolean(event.targetName);
+
+  if (!shouldReset && !shouldMarkMatched) return previous;
+
+  const shopSlots = shouldReset ? {} : { ...previous.shopSlots };
+  if (shouldMarkMatched && event.slotIndex !== undefined && event.targetName) {
+    shopSlots[event.slotIndex] = {
+      slotIndex: event.slotIndex,
+      slotLabel: event.slotLabel,
+      championName: event.targetName,
+      confidence: 'matched',
+      updatedAt: event.timestamp,
+    };
+  }
+
+  return {
+    ...previous,
+    shopSlots,
+    updatedAt: event.timestamp,
+  };
+}
+
+function decisionActionTone(action: string): 'success' | 'warning' | 'error' | 'muted' {
+  switch (action) {
+    case 'roll':
+      return 'warning';
+    case 'save':
+      return 'success';
+    case 'level':
+      return 'success';
+    default:
+      return 'muted';
+  }
+}
+
+function DecisionPickCard({
+  pick,
+  asset,
+  basePath,
+  selected,
+  onToggle,
+  t,
+}: {
+  pick: GoldenSpatulaPickRecommendation;
+  asset: GoldenSpatulaChampionAsset | undefined;
+  basePath: string;
+  selected: boolean;
+  onToggle: () => void;
+  t: TFunction;
+}) {
+  const levelLocked = pick.shopOddsAvailability === 'unavailable';
+  const targetDisabled = levelLocked && !selected;
+  const oddsTone =
+    pick.shopOddsAvailability === 'available'
+      ? 'success'
+      : pick.shopOddsAvailability === 'rare'
+        ? 'warning'
+        : pick.shopOddsAvailability === 'unavailable'
+          ? 'error'
+          : 'muted';
+
+  return (
+    <div className="min-w-0 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
+      <div className="flex items-start gap-2">
+        <div
+          className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[10px] text-text-secondary"
+          style={costFrameStyle(asset?.cost ?? pick.cost)}
+        >
+          <div className="h-full w-full overflow-hidden rounded bg-bg-primary">
+            <LineupAssetImage
+              imagePath={asset?.imagePath}
+              fallback={shortUnitName(pick.name)}
+              basePath={basePath}
+            />
+          </div>
+          <span className="absolute right-0 top-0 rounded-bl bg-bg-primary/90 px-1 text-[9px] font-semibold text-accent">
+            {pick.score}
+          </span>
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center justify-between gap-1">
+            <div className="truncate text-xs font-medium text-text-primary">{pick.name}</div>
+            <StatusPill tone={pick.tier === 'core' || pick.tier === 'high' ? 'success' : 'muted'}>
+              {t(`goldenSpatula.lineups.decisionTier.${pick.tier}`)}
+            </StatusPill>
+          </div>
+          <div className="mt-1 flex flex-wrap gap-1">
+            <StatusPill tone="muted">
+              {t(`goldenSpatula.lineups.decisionRole.${pick.role}`)}
+            </StatusPill>
+            {pick.cost !== undefined && (
+              <StatusPill tone="muted">
+                {t('goldenSpatula.lineups.decisionCost', { cost: pick.cost })}
+              </StatusPill>
+            )}
+            <StatusPill tone={pick.ownedCount > 0 ? 'success' : 'muted'}>
+              {t('goldenSpatula.lineups.decisionOwned', { count: pick.ownedCount })}
+            </StatusPill>
+            {pick.ownedCount > 0 && pick.ownedConfidence && (
+              <StatusPill tone={ownedConfidenceTone(pick.ownedConfidence)}>
+                {t(`goldenSpatula.lineups.ownedConfidence.${pick.ownedConfidence}`)}
+              </StatusPill>
+            )}
+            {pick.copiesNeeded > 0 && (
+              <StatusPill tone="warning">
+                {t('goldenSpatula.lineups.decisionNeed', { count: pick.copiesNeeded })}
+              </StatusPill>
+            )}
+            <StatusPill tone={oddsTone}>
+              {pick.currentLevel !== undefined && pick.shopOdds !== undefined
+                ? t('goldenSpatula.lineups.decisionShopOdds', {
+                    level: pick.currentLevel,
+                    odds: formatShopOddsPercent(pick.shopOdds),
+                  })
+                : t('goldenSpatula.lineups.decisionShopOddsUnknown')}
+            </StatusPill>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-2 flex flex-wrap gap-1">
+        {pick.reasons.slice(0, 3).map((reason) => (
+          <span
+            key={reason}
+            className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] text-text-muted"
+          >
+            {t(`goldenSpatula.lineups.decisionReason.${reason}`)}
+          </span>
+        ))}
+      </div>
+
+      {pick.traitTags.length > 0 && (
+        <div className="mt-1 truncate text-[10px] text-text-muted">
+          {pick.traitTags.slice(0, 3).join(' / ')}
+        </div>
+      )}
+
+      <button
+        type="button"
+        disabled={targetDisabled}
+        onClick={onToggle}
+        className={clsx(
+          'mt-2 inline-flex w-full items-center justify-center gap-1 rounded-md px-2 py-1 text-[11px] transition-colors',
+          targetDisabled
+            ? 'cursor-not-allowed bg-bg-tertiary text-text-muted opacity-70'
+            : selected
+              ? 'bg-accent/10 text-accent ring-1 ring-inset ring-accent/30'
+              : 'bg-bg-tertiary text-text-secondary hover:text-accent',
+        )}
+      >
+        <Target className="h-3 w-3" />
+        {targetDisabled
+          ? t('goldenSpatula.lineups.decisionLevelLockedAction')
+          : selected
+            ? t('goldenSpatula.lineups.decisionTargetSelected')
+            : t('goldenSpatula.lineups.decisionSetTarget')}
+      </button>
+    </div>
+  );
+}
+
+function DecisionPlanPanel({
+  plan,
+  championAssets,
+  basePath,
+  activeTargetNames,
+  onToggleTarget,
+  onApplySortedTargets,
+  t,
+}: {
+  plan: GoldenSpatulaDecisionPlan;
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
+  basePath: string;
+  activeTargetNames: string[];
+  onToggleTarget: (name: string) => void;
+  onApplySortedTargets?: (names: string[]) => void;
+  t: TFunction;
+}) {
+  const selectedTargets = new Set(activeTargetNames.map(normalizeSearchText));
+  const advice = plan.economyAdvice;
+
+  return (
+    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2">
+      <div className="flex items-center justify-between gap-2">
+        <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.decisionTitle')} />
+        <div className="flex shrink-0 items-center gap-1">
+          {onApplySortedTargets && plan.recommendedRollTargetNames.length > 0 && (
+            <button
+              type="button"
+              onClick={() => onApplySortedTargets(plan.recommendedRollTargetNames)}
+              className="inline-flex h-6 items-center gap-1 rounded-md border border-border bg-bg-primary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
+              title={t('goldenSpatula.lineups.decisionApplySortedTargetsTitle')}
+            >
+              <ListChecks className="h-3 w-3" />
+              <span className="hidden sm:inline">
+                {t('goldenSpatula.lineups.decisionApplySortedTargets')}
+              </span>
+            </button>
+          )}
+          <StatusPill tone={decisionActionTone(advice.action)}>
+            {t(`goldenSpatula.lineups.decisionEconomyAction.${advice.action}`)}
+          </StatusPill>
+        </div>
+      </div>
+
+      <div className="rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <div className="truncate text-xs font-medium text-text-primary">
+              {t(`goldenSpatula.lineups.decisionEconomyHeadline.${advice.action}`)}
+            </div>
+            <div className="mt-1 truncate text-[11px] text-text-muted">
+              {t('goldenSpatula.lineups.decisionSearchMeta', {
+                candidates: plan.evaluatedCandidates,
+                lineups: plan.evaluatedLineups,
+              })}
+            </div>
+          </div>
+          <div className="flex shrink-0 flex-wrap justify-end gap-1">
+            <StatusPill tone="muted">
+              {t(`goldenSpatula.lineups.decisionConfidence.${advice.confidence}`)}
+            </StatusPill>
+            {advice.recommendedRollCount > 0 && (
+              <StatusPill tone="warning">
+                {t('goldenSpatula.lineups.decisionRecommendedRoll', {
+                  count: advice.recommendedRollCount,
+                })}
+              </StatusPill>
+            )}
+            {advice.interestGoldNeeded !== undefined && advice.interestGoldNeeded > 0 && (
+              <StatusPill tone="success">
+                {t('goldenSpatula.lineups.decisionInterestGap', {
+                  count: advice.interestGoldNeeded,
+                })}
+              </StatusPill>
+            )}
+          </div>
+        </div>
+        {advice.urgentPickNames.length > 0 && (
+          <div className="mt-1 truncate text-[11px] text-text-secondary">
+            {t('goldenSpatula.lineups.decisionUrgentTargets', {
+              targets: advice.urgentPickNames.join(' / '),
+            })}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <div className="mb-1 text-[11px] font-medium text-text-secondary">
+          {t('goldenSpatula.lineups.decisionPicks')}
+        </div>
+        {plan.picks.length > 0 ? (
+          <div className="grid grid-cols-2 gap-1.5">
+            {plan.picks.slice(0, 6).map((pick) => (
+              <DecisionPickCard
+                key={pick.name}
+                pick={pick}
+                asset={findChampionAsset(pick.name, championAssets)}
+                basePath={basePath}
+                selected={selectedTargets.has(normalizeSearchText(pick.name))}
+                onToggle={() => onToggleTarget(pick.name)}
+                t={t}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
+            {t('goldenSpatula.lineups.decisionNoPicks')}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <div className="mb-1 text-[11px] font-medium text-text-secondary">
+          {t('goldenSpatula.lineups.decisionTransitions')}
+        </div>
+        {plan.transitionLineups.length > 0 ? (
+          <div className="space-y-1">
+            {plan.transitionLineups.map((lineup) => (
+              <div
+                key={`${lineup.lineupId}-${lineup.variantId}`}
+                className="rounded-md bg-bg-primary px-2 py-1.5 ring-1 ring-inset ring-border/50"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="min-w-0 truncate text-xs font-medium text-text-primary">
+                    {lineup.name}
+                  </span>
+                  <StatusPill tone="muted">
+                    {t('goldenSpatula.lineups.decisionScore', { score: lineup.score })}
+                  </StatusPill>
+                </div>
+                <div className="mt-1 flex flex-wrap gap-1 text-[10px] text-text-muted">
+                  {lineup.matchedUnitNames.length > 0 && (
+                    <span className="rounded bg-bg-tertiary px-1.5 py-0.5">
+                      {t('goldenSpatula.lineups.decisionOverlap', {
+                        units: lineup.matchedUnitNames.join(' / '),
+                      })}
+                    </span>
+                  )}
+                  {lineup.traitTags.slice(0, 3).map((tag) => (
+                    <span key={tag} className="rounded bg-bg-tertiary px-1.5 py-0.5">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
+            {t('goldenSpatula.lineups.decisionNoTransitions')}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -1589,18 +2375,30 @@ export function GoldenSpatulaAssistantPanel() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [lineupSearch, setLineupSearch] = useState('');
   const [recommendedSearch, setRecommendedSearch] = useState('');
+  const [recommendedPickerOpen, setRecommendedPickerOpen] = useState(false);
   const [importText, setImportText] = useState('');
   const [autoRollCount, setAutoRollCount] = useState<AutoRollCount>(3);
   const [autoBuyExperienceCount, setAutoBuyExperienceCount] = useState<AutoRollCount>(1);
+  const [economyOcrSubmitting, setEconomyOcrSubmitting] = useState(false);
+  const [economyOcrPolling, setEconomyOcrPolling] = useState(false);
   const [autoRollBuySubmitting, setAutoRollBuySubmitting] = useState(false);
   const [autoBuyExperienceSubmitting, setAutoBuyExperienceSubmitting] = useState(false);
-  const [autoLevelRollBuySubmitting, setAutoLevelRollBuySubmitting] = useState(false);
   const [rollRunState, setRollRunState] = useState<GoldenSpatulaRollRunState>(() =>
     createEmptyRollRunState(),
   );
   const [xpRunState, setXpRunState] = useState<GoldenSpatulaXpRunState>(() =>
     createEmptyXpRunState(),
   );
+  const [handRunState, setHandRunState] = useState<GoldenSpatulaHandRunState>(() =>
+    createEmptyHandRunState(),
+  );
+  const [economyRunState, setEconomyRunState] = useState<GoldenSpatulaEconomyRunState>(() =>
+    createEmptyEconomyRunState(),
+  );
+  const [knowledgeScanState, setKnowledgeScanState] = useState<GoldenSpatulaKnowledgeScanState>(
+    () => createEmptyKnowledgeScanState(),
+  );
+  const economyStabilizerRef = useRef(createGoldenSpatulaEconomyStabilizerState());
 
   const isGoldenSpatula = projectInterface?.name === GOLDEN_SPATULA_PROJECT;
   const activeInstance = instances.find((item) => item.id === activeInstanceId);
@@ -1622,6 +2420,11 @@ export function GoldenSpatulaAssistantPanel() {
     activeInstance?.selectedTasks.filter(
       (task) => task.enabled && knowledgeTaskNames.has(task.taskName),
     ).length ?? 0;
+
+  useEffect(() => {
+    economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
+    setKnowledgeScanState(createEmptyKnowledgeScanState());
+  }, [activeInstanceId, currentResourceName]);
 
   useEffect(() => {
     if (!isGoldenSpatula) return;
@@ -1699,6 +2502,15 @@ export function GoldenSpatulaAssistantPanel() {
         );
         if (rollEvent) {
           setRollRunState((previous) => mergeRollEvent(previous, rollEvent));
+          setKnowledgeScanState((previous) => mergeShopSlotsFromRollEvent(previous, rollEvent));
+          const handEvent = buildHandEventFromRollEvent(rollEvent, t);
+          if (handEvent) {
+            setHandRunState((previous) => mergeHandEvent(previous, handEvent));
+          }
+          const economyEvent = buildEconomyEventFromRollEvent(rollEvent, t);
+          if (economyEvent) {
+            setEconomyRunState((previous) => mergeEconomyEvent(previous, economyEvent));
+          }
           return;
         }
 
@@ -1709,7 +2521,40 @@ export function GoldenSpatulaAssistantPanel() {
         );
         if (xpEvent) {
           setXpRunState((previous) => mergeXpEvent(previous, xpEvent));
+          const economyEvent = buildEconomyEventFromXpEvent(xpEvent, t);
+          if (economyEvent) {
+            setEconomyRunState((previous) => mergeEconomyEvent(previous, economyEvent));
+          }
           return;
+        }
+
+        const handEvent = buildHandEvent(
+          message,
+          details as MaaCallbackDetails & Record<string, unknown>,
+          t,
+        );
+        if (handEvent) {
+          setHandRunState((previous) => mergeHandEvent(previous, handEvent));
+          return;
+        }
+
+        const economyEvent = buildEconomyEvent(
+          message,
+          details as MaaCallbackDetails & Record<string, unknown>,
+          t,
+        );
+        if (economyEvent) {
+          setEconomyRunState((previous) => mergeEconomyEvent(previous, economyEvent));
+          return;
+        }
+
+        const knowledgeEvent = buildKnowledgeEvent(
+          message,
+          details as MaaCallbackDetails & Record<string, unknown>,
+          t,
+        );
+        if (knowledgeEvent) {
+          setKnowledgeScanState((previous) => mergeKnowledgeEvent(previous, knowledgeEvent));
         }
 
         const summary = buildRecognitionSummary(
@@ -1805,6 +2650,27 @@ export function GoldenSpatulaAssistantPanel() {
         : [],
     [activeVariant, assistantData?.championAssets.data],
   );
+  const decisionPlan = useMemo(
+    () =>
+      activeVariant
+        ? buildGoldenSpatulaDecisionPlan({
+            activeVariant,
+            managedLineups,
+            recommendedLineups: recommendedData?.lineups,
+            championAssets: assistantData?.championAssets.data,
+            handState: handRunState,
+            economyState: economyRunState,
+          })
+        : undefined,
+    [
+      activeVariant,
+      assistantData?.championAssets.data,
+      economyRunState,
+      handRunState,
+      managedLineups,
+      recommendedData?.lineups,
+    ],
+  );
   const savedRecommendedIds = useMemo(
     () =>
       new Set(
@@ -1850,7 +2716,8 @@ export function GoldenSpatulaAssistantPanel() {
       ? t('goldenSpatula.lineups.taskRunning')
       : !activeLineup || !activeVariant
         ? t('goldenSpatula.lineups.noActiveLineup')
-        : !projectInterface?.task.some((task) => task.name === autoRollTaskByCount[autoRollCount])
+        : !autoRollTaskByCount[autoRollCount] ||
+            !projectInterface?.task.some((task) => task.name === autoRollTaskByCount[autoRollCount])
           ? t('goldenSpatula.lineups.autoRollTaskMissing')
           : undefined;
   const autoRollBuyDisabledReason = !activeInstanceId
@@ -1870,6 +2737,15 @@ export function GoldenSpatulaAssistantPanel() {
                 : autoRollBuyTargets.length === 0
                   ? t('goldenSpatula.lineups.autoBuyNoMatchedTargets')
                   : undefined;
+  const economyOcrDisabledReason = !activeInstanceId
+    ? t('goldenSpatula.lineups.noActiveInstance')
+    : connectionStatus !== 'Connected'
+      ? t('goldenSpatula.lineups.deviceNotConnected')
+      : economyOcrSubmitting
+        ? t('goldenSpatula.lineups.taskRunning')
+        : !resourceLoaded
+          ? t('goldenSpatula.lineups.resourceNotLoaded')
+          : undefined;
   const autoBuyExperienceDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
     : connectionStatus !== 'Connected'
@@ -1878,28 +2754,12 @@ export function GoldenSpatulaAssistantPanel() {
         ? t('goldenSpatula.lineups.taskRunning')
         : !resourceLoaded
           ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-          : !projectInterface?.task.some(
+          : !autoBuyExperienceTaskByCount[autoBuyExperienceCount] ||
+              !projectInterface?.task.some(
                 (task) => task.name === autoBuyExperienceTaskByCount[autoBuyExperienceCount],
               )
             ? t('goldenSpatula.lineups.autoBuyExperienceTaskMissing')
             : undefined;
-  const autoLevelRollBuyDisabledReason = !activeInstanceId
-    ? t('goldenSpatula.lineups.noActiveInstance')
-    : connectionStatus !== 'Connected'
-      ? t('goldenSpatula.lineups.deviceNotConnected')
-      : activeInstance?.isRunning || autoLevelRollBuySubmitting
-        ? t('goldenSpatula.lineups.taskRunning')
-        : !activeLineup || !activeVariant
-          ? t('goldenSpatula.lineups.noActiveLineup')
-          : !projectInterface?.task.some((task) => task.name === autoLevelRollBuyEntry)
-            ? t('goldenSpatula.lineups.autoLevelRollBuyTaskMissing')
-            : !usingKnowledgeResource
-              ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
-              : !resourceLoaded
-                ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-                : autoRollBuyTargets.length === 0
-                  ? t('goldenSpatula.lineups.autoBuyNoMatchedTargets')
-                  : undefined;
 
   useEffect(() => {
     if (!isGoldenSpatula || managedLineups.length === 0 || activeLineup) return;
@@ -1910,6 +2770,17 @@ export function GoldenSpatulaAssistantPanel() {
       activeVariantId: first.variants[0]?.id,
     });
   }, [activeLineup, isGoldenSpatula, managedLineups, setGoldenSpatulaLineupManager]);
+
+  useEffect(() => {
+    if (!economyOcrPolling) return;
+
+    const interval = window.setInterval(() => {
+      if (economyOcrDisabledReason || economyOcrSubmitting || economyRunState.active) return;
+      void submitEconomyOcrTask(false);
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+  }, [economyOcrDisabledReason, economyOcrPolling, economyOcrSubmitting, economyRunState.active]);
 
   const healthItems = [
     {
@@ -2057,6 +2928,11 @@ export function GoldenSpatulaAssistantPanel() {
     toast.success(t('goldenSpatula.lineups.recommendedApplied'));
   };
 
+  const applyRecommendedLineupAndClose = (recommended: GoldenSpatulaRecommendedLineup) => {
+    applyRecommendedLineup(recommended);
+    setRecommendedPickerOpen(false);
+  };
+
   const importLineups = async () => {
     try {
       const content = importText.trim()
@@ -2142,6 +3018,7 @@ export function GoldenSpatulaAssistantPanel() {
     if (autoRollDisabledReason || !activeInstanceId || !projectInterface) return;
 
     const taskName = autoRollTaskByCount[autoRollCount];
+    if (!taskName) return;
     const currentInstance = useAppStore
       .getState()
       .instances.find((instance) => instance.id === activeInstanceId);
@@ -2171,6 +3048,220 @@ export function GoldenSpatulaAssistantPanel() {
     toast.success(t('goldenSpatula.lineups.autoRollTaskApplied', { count: autoRollCount }));
   };
 
+  async function submitEconomyOcrTask(showToast: boolean) {
+    if (economyOcrDisabledReason || !activeInstanceId) {
+      if (showToast && economyOcrDisabledReason) {
+        toast.error(economyOcrDisabledReason);
+      }
+      return;
+    }
+
+    try {
+      setEconomyOcrSubmitting(true);
+      const startedAt = Date.now();
+      setEconomyRunState((previous) => ({
+        ...previous,
+        active: true,
+        startedAt: previous.startedAt ?? startedAt,
+        updatedAt: startedAt,
+      }));
+
+      let cachedImage = await maaService.getCachedImage(activeInstanceId);
+      if (!cachedImage.startsWith('data:image/')) {
+        await maaService.postScreencap(activeInstanceId).catch(() => 0);
+        await new Promise((resolve) => window.setTimeout(resolve, 180));
+        cachedImage = await maaService.getCachedImage(activeInstanceId);
+      }
+      const timestamp = Date.now();
+      const rawResult = await recognizeGoldenSpatulaEconomyFromDataUrl(cachedImage);
+      const stabilized = stabilizeGoldenSpatulaEconomyResult(
+        economyStabilizerRef.current,
+        rawResult,
+        timestamp,
+      );
+      economyStabilizerRef.current = stabilized.state;
+      const result = stabilized.result;
+      const events: GoldenSpatulaEconomyEvent[] = [];
+
+      if (result.round !== undefined) {
+        events.push({
+          id: `${timestamp}-economy-round`,
+          timestamp,
+          kind: 'recognized',
+          field: 'round',
+          round: result.round,
+          rawText: result.rawText.round,
+          message: t('goldenSpatula.lineups.economyStatusEvent.recognized', {
+            field: 'round',
+            fieldLabel: t('goldenSpatula.lineups.economyField.round'),
+            value: result.round,
+            rawText: result.rawText.round,
+          }),
+          nodeName: 'EconomyVision_Round',
+        });
+      }
+
+      if (result.gold !== undefined) {
+        events.push({
+          id: `${timestamp}-economy-gold`,
+          timestamp,
+          kind: 'recognized',
+          field: 'gold',
+          gold: result.gold,
+          rawText: result.rawText.gold,
+          message: t('goldenSpatula.lineups.economyStatusEvent.recognized', {
+            field: 'gold',
+            fieldLabel: t('goldenSpatula.lineups.economyField.gold'),
+            value: result.gold,
+            rawText: result.rawText.gold,
+          }),
+          nodeName: 'EconomyVision_Gold',
+        });
+      }
+
+      if (result.level !== undefined) {
+        events.push({
+          id: `${timestamp}-economy-level`,
+          timestamp,
+          kind: 'recognized',
+          field: 'level',
+          level: result.level,
+          rawText: result.rawText.level,
+          message: t('goldenSpatula.lineups.economyStatusEvent.recognized', {
+            field: 'level',
+            fieldLabel: t('goldenSpatula.lineups.economyField.level'),
+            value: result.level,
+            rawText: result.rawText.level,
+          }),
+          nodeName: 'EconomyVision_Level',
+        });
+      }
+
+      if (result.experience !== undefined) {
+        const value =
+          result.experienceMax !== undefined
+            ? `${result.experience}/${result.experienceMax}`
+            : result.experience;
+        events.push({
+          id: `${timestamp}-economy-experience`,
+          timestamp,
+          kind: 'recognized',
+          field: 'experience',
+          experience: result.experience,
+          experienceMax: result.experienceMax,
+          rawText: result.rawText.experience,
+          message: t('goldenSpatula.lineups.economyStatusEvent.recognized', {
+            field: 'experience',
+            fieldLabel: t('goldenSpatula.lineups.economyField.experience'),
+            value,
+            rawText: result.rawText.experience,
+          }),
+          nodeName: 'EconomyVision_Experience',
+        });
+      }
+
+      if (result.streakInterest !== undefined) {
+        const value =
+          result.streakKind === 'win' || result.streakKind === 'loss'
+            ? `${t(`goldenSpatula.lineups.economyStreakKind.${result.streakKind}`)} +${
+                result.streakInterest
+              }`
+            : String(result.streakInterest);
+        events.push({
+          id: `${timestamp}-economy-streak`,
+          timestamp,
+          kind: 'recognized',
+          field: 'streak',
+          streakKind: result.streakKind,
+          streakInterest: result.streakInterest,
+          rawText: result.rawText.streak,
+          message: t('goldenSpatula.lineups.economyStatusEvent.recognized', {
+            field: 'streak',
+            fieldLabel: t('goldenSpatula.lineups.economyField.streak'),
+            value,
+            rawText: result.rawText.streak,
+          }),
+          nodeName: 'EconomyVision_Streak',
+        });
+      }
+
+      const rawText = [
+        result.rawText.round,
+        result.rawText.gold,
+        result.rawText.level,
+        result.rawText.experience,
+        result.rawText.streak,
+      ]
+        .filter(Boolean)
+        .join(' / ');
+      if (events.length === 0 && !rawText) {
+        events.push({
+          id: `${timestamp}-economy-scan-failed`,
+          timestamp,
+          kind: 'scanFailed',
+          field: 'gold',
+          rawText,
+          message: t('goldenSpatula.lineups.economyStatusEvent.scanFailed', {
+            field: 'gold',
+            fieldLabel: t('goldenSpatula.lineups.economyField.gold'),
+          }),
+          nodeName: 'EconomyVision',
+        });
+      }
+
+      events.push({
+        id: `${timestamp}-economy-scanned`,
+        timestamp,
+        kind: 'scanned',
+        message: t('goldenSpatula.lineups.economyStatusEvent.scanned'),
+        nodeName: 'EconomyVision',
+      });
+
+      setEconomyRunState((previous) =>
+        events.reduce<GoldenSpatulaEconomyRunState>(
+          (state, event) => mergeEconomyEvent(state, event),
+          {
+            ...previous,
+            active: true,
+            updatedAt: startedAt,
+          },
+        ),
+      );
+
+      if (showToast) {
+        toast.success(t('goldenSpatula.lineups.economyOcrStarted'));
+      }
+    } catch (error) {
+      setEconomyOcrPolling(false);
+      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      toast.error(
+        t('goldenSpatula.lineups.economyOcrFailed', {
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
+    } finally {
+      setEconomyOcrSubmitting(false);
+    }
+  }
+
+  const runEconomyOcrTask = async () => {
+    if (economyOcrPolling) {
+      setEconomyOcrPolling(false);
+      toast.success(t('goldenSpatula.lineups.economyOcrStopped'));
+      return;
+    }
+
+    if (economyOcrDisabledReason || !activeInstanceId) {
+      if (economyOcrDisabledReason) {
+        toast.error(economyOcrDisabledReason);
+      }
+      return;
+    }
+
+    setEconomyOcrPolling(true);
+    await submitEconomyOcrTask(true);
+  };
+
   const runAutoRollBuyTask = async () => {
     if (autoRollBuyDisabledReason || !activeInstanceId || !activeVariant) {
       if (autoRollBuyDisabledReason) {
@@ -2192,6 +3283,20 @@ export function GoldenSpatulaAssistantPanel() {
         updatedAt: startedAt,
         events: [],
       });
+      setHandRunState({
+        ...createEmptyHandRunState(),
+        active: true,
+        targetNames: autoRollBuyTargets.map((target) => target.name),
+        startedAt,
+        updatedAt: startedAt,
+      });
+      economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
+      setEconomyRunState({
+        ...createEmptyEconomyRunState(),
+        active: true,
+        startedAt,
+        updatedAt: startedAt,
+      });
       const pipelineOverride = buildAutoRollBuyPipelineOverride(autoRollBuyTargets, autoRollCount);
       const maaTaskId = await maaService.runTask(
         activeInstanceId,
@@ -2208,6 +3313,8 @@ export function GoldenSpatulaAssistantPanel() {
       toast.success(t('goldenSpatula.lineups.autoRollBuyStarted', { count: autoRollCount }));
     } catch (error) {
       setRollRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      setHandRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
       toast.error(
         t('goldenSpatula.lineups.autoRollBuyFailed', {
           error: error instanceof Error ? error.message : String(error),
@@ -2227,6 +3334,7 @@ export function GoldenSpatulaAssistantPanel() {
     }
 
     const taskName = autoBuyExperienceTaskByCount[autoBuyExperienceCount];
+    if (!taskName) return;
 
     try {
       setAutoBuyExperienceSubmitting(true);
@@ -2238,6 +3346,13 @@ export function GoldenSpatulaAssistantPanel() {
         startedAt,
         updatedAt: startedAt,
         events: [],
+      });
+      economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
+      setEconomyRunState({
+        ...createEmptyEconomyRunState(),
+        active: true,
+        startedAt,
+        updatedAt: startedAt,
       });
       const maaTaskId = await maaService.runTask(activeInstanceId, taskName);
 
@@ -2256,6 +3371,7 @@ export function GoldenSpatulaAssistantPanel() {
       );
     } catch (error) {
       setXpRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
       toast.error(
         t('goldenSpatula.lineups.autoBuyExperienceFailed', {
           error: error instanceof Error ? error.message : String(error),
@@ -2263,76 +3379,6 @@ export function GoldenSpatulaAssistantPanel() {
       );
     } finally {
       setAutoBuyExperienceSubmitting(false);
-    }
-  };
-
-  const runAutoLevelRollBuyTask = async () => {
-    if (autoLevelRollBuyDisabledReason || !activeInstanceId || !activeVariant) {
-      if (autoLevelRollBuyDisabledReason) {
-        toast.error(autoLevelRollBuyDisabledReason);
-      }
-      return;
-    }
-
-    try {
-      setAutoLevelRollBuySubmitting(true);
-      const startedAt = Date.now();
-      setXpRunState({
-        active: true,
-        current: 0,
-        total: autoBuyExperienceCount,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-      setRollRunState({
-        active: false,
-        targetNames: autoRollBuyTargets.map((target) => target.name),
-        rollCount: autoRollCount,
-        currentCycle: 0,
-        totalCycles: autoRollCount + 1,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-
-      const pipelineOverride = buildAutoLevelRollBuyPipelineOverride(
-        autoRollBuyTargets,
-        autoRollCount,
-        autoBuyExperienceCount,
-      );
-      const maaTaskId = await maaService.runTask(
-        activeInstanceId,
-        autoLevelRollBuyEntry,
-        pipelineOverride,
-      );
-
-      registerTaskIdName(
-        maaTaskId,
-        t('goldenSpatula.lineups.autoLevelRollBuyTaskName', {
-          xp: autoBuyExperienceCount,
-          roll: autoRollCount,
-        }),
-      );
-      updateInstance(activeInstanceId, { isRunning: true });
-      setInstanceTaskStatus(activeInstanceId, 'Running');
-      toast.success(
-        t('goldenSpatula.lineups.autoLevelRollBuyStarted', {
-          xp: autoBuyExperienceCount,
-          roll: autoRollCount,
-        }),
-      );
-    } catch (error) {
-      const failedAt = Date.now();
-      setXpRunState((previous) => ({ ...previous, active: false, updatedAt: failedAt }));
-      setRollRunState((previous) => ({ ...previous, active: false, updatedAt: failedAt }));
-      toast.error(
-        t('goldenSpatula.lineups.autoLevelRollBuyFailed', {
-          error: error instanceof Error ? error.message : String(error),
-        }),
-      );
-    } finally {
-      setAutoLevelRollBuySubmitting(false);
     }
   };
 
@@ -2347,6 +3393,17 @@ export function GoldenSpatulaAssistantPanel() {
       : [...currentNames, unitName];
 
     updateActiveVariant({ rollTargetNames: nextNames });
+  };
+
+  const applySortedRollTargets = (names: string[]) => {
+    if (!activeLineup || !activeVariant || names.length === 0) return;
+
+    updateActiveVariant({ rollTargetNames: names });
+    toast.success(
+      t('goldenSpatula.lineups.decisionSortedTargetsApplied', {
+        count: names.length,
+      }),
+    );
   };
 
   const activeLineupStrategyPanel =
@@ -2517,6 +3574,17 @@ export function GoldenSpatulaAssistantPanel() {
           <div className="flex items-center justify-between gap-2">
             <SectionTitle icon={Target} label={t('goldenSpatula.lineups.targetD')} />
           </div>
+          {decisionPlan && (
+            <DecisionPlanPanel
+              plan={decisionPlan}
+              championAssets={assistantData?.championAssets.data}
+              basePath={basePath}
+              activeTargetNames={getActiveRollTargetNames(activeVariant)}
+              onToggleTarget={toggleRollTarget}
+              onApplySortedTargets={applySortedRollTargets}
+              t={t}
+            />
+          )}
           <LineupTargetList
             variant={activeVariant}
             championAssets={assistantData?.championAssets.data}
@@ -2525,14 +3593,21 @@ export function GoldenSpatulaAssistantPanel() {
             t={t}
           />
           <RollRunStatusPanel
-            variant={activeVariant}
             championAssets={assistantData?.championAssets.data}
             basePath={basePath}
             runState={rollRunState}
+            shopSlots={knowledgeScanState.shopSlots}
+            t={t}
+          />
+          <HandRunStatusPanel runState={handRunState} t={t} />
+          <KnowledgeObservationPanel
+            state={knowledgeScanState}
+            itemAssets={assistantData?.itemAssets.data}
+            basePath={basePath}
             t={t}
           />
           <div className="space-y-1.5">
-            <div className="grid grid-cols-3 rounded-md bg-bg-tertiary p-0.5">
+            <div className="grid grid-cols-5 rounded-md bg-bg-tertiary p-0.5">
               {autoRollCounts.map((count) => {
                 const selected = autoRollCount === count;
                 return (
@@ -2576,7 +3651,7 @@ export function GoldenSpatulaAssistantPanel() {
                 })}
               </span>
             </div>
-            <div className="grid grid-cols-3 rounded-md bg-bg-primary p-0.5">
+            <div className="grid grid-cols-5 rounded-md bg-bg-primary p-0.5">
               {autoRollCounts.map((count) => {
                 const selected = autoBuyExperienceCount === count;
                 return (
@@ -2617,28 +3692,6 @@ export function GoldenSpatulaAssistantPanel() {
               {t('goldenSpatula.lineups.autoBuyExperienceDescription')}
             </div>
           </div>
-          <button
-            type="button"
-            disabled={Boolean(autoLevelRollBuyDisabledReason)}
-            onClick={runAutoLevelRollBuyTask}
-            className="inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-accent px-2 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
-            title={autoLevelRollBuyDisabledReason || t('goldenSpatula.lineups.runAutoLevelRollBuy')}
-          >
-            {autoLevelRollBuySubmitting ? (
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-            ) : (
-              <Sparkles className="h-3.5 w-3.5" />
-            )}
-            <span>
-              {t('goldenSpatula.lineups.runAutoLevelRollBuy', {
-                xp: autoBuyExperienceCount,
-                roll: autoRollCount,
-              })}
-            </span>
-          </button>
-          <div className="text-[11px] leading-relaxed text-text-muted">
-            {t('goldenSpatula.lineups.autoRollDescription')}
-          </div>
         </div>
 
         <details className="rounded-md bg-bg-tertiary/70 p-2">
@@ -2671,6 +3724,129 @@ export function GoldenSpatulaAssistantPanel() {
       </div>
     );
 
+  const recommendedPicker = recommendedPickerOpen ? (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 p-4"
+      role="presentation"
+      onClick={() => setRecommendedPickerOpen(false)}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={t('goldenSpatula.lineups.recommendedPickerTitle')}
+        className="flex max-h-[84vh] w-full max-w-4xl flex-col overflow-hidden rounded-lg bg-bg-secondary shadow-xl ring-1 ring-border"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-center justify-between gap-2 border-b border-border px-3 py-2">
+          <div className="flex min-w-0 items-center gap-2">
+            <Database className="h-4 w-4 shrink-0 text-accent" />
+            <div className="truncate text-sm font-medium text-text-primary">
+              {t('goldenSpatula.lineups.recommendedPickerTitle')}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setRecommendedPickerOpen(false)}
+            className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-bg-hover hover:text-text-primary"
+            title={t('common.close')}
+            aria-label={t('common.close')}
+          >
+            <XCircle className="h-4 w-4" />
+          </button>
+        </div>
+
+        <div className="border-b border-border p-3">
+          <div className="relative">
+            <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
+            <input
+              value={recommendedSearch}
+              onChange={(event) => setRecommendedSearch(event.target.value)}
+              placeholder={t('goldenSpatula.lineups.searchRecommended')}
+              className="w-full rounded-md border border-border bg-bg-primary py-1.5 pl-7 pr-2 text-xs text-text-primary outline-none focus:border-accent"
+            />
+          </div>
+        </div>
+
+        <div className="min-h-0 flex-1 overflow-y-auto p-3">
+          {recommendedLoading && (
+            <div className="flex items-center gap-2 rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
+              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+              {t('goldenSpatula.lineups.loadingRecommended')}
+            </div>
+          )}
+
+          {recommendedError && (
+            <div className="rounded-md border border-error/30 bg-error/5 p-2 text-xs text-text-secondary">
+              {t('goldenSpatula.lineups.recommendedFailed', { error: recommendedError })}
+            </div>
+          )}
+
+          {recommendedData?.index.status !== 'ready' && !recommendedLoading && (
+            <div className="rounded-md border border-warning/30 bg-warning/5 p-2 text-xs text-text-secondary">
+              {t('goldenSpatula.lineups.recommendedMissing')}
+            </div>
+          )}
+
+          {recommendedData?.index.status === 'ready' && (
+            <div className="grid gap-2 md:grid-cols-2">
+              {filteredRecommendedLineups.map((lineup) => {
+                const saved = savedRecommendedIds.has(lineup.id);
+                return (
+                  <div
+                    key={lineup.id}
+                    className="min-w-0 rounded-md bg-bg-tertiary p-2 ring-1 ring-inset ring-border/60"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <div className="truncate text-xs font-medium text-text-primary">
+                          {lineup.name}
+                        </div>
+                        <div className="mt-0.5 flex flex-wrap items-center gap-1 text-[11px] text-text-muted">
+                          {lineup.quality && <span>{lineup.quality}</span>}
+                          {lineup.version && <span>{lineup.version}</span>}
+                          {lineup.variant.code && <span>{lineup.variant.code}</span>}
+                        </div>
+                      </div>
+                      {saved && (
+                        <StatusPill tone="success">
+                          {t('goldenSpatula.lineups.source.recommended')}
+                        </StatusPill>
+                      )}
+                    </div>
+                    <LineupIconStrip
+                      variant={lineup.variant}
+                      championAssets={assistantData?.championAssets.data}
+                      itemAssets={assistantData?.itemAssets.data}
+                      basePath={basePath}
+                      maxUnits={10}
+                      showCarryBadge={false}
+                      itemPlacement="below"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => applyRecommendedLineupAndClose(lineup)}
+                      className="mt-2 inline-flex w-full items-center justify-center gap-1 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <Import className="h-3 w-3" />
+                      {saved
+                        ? t('goldenSpatula.lineups.switchSaved')
+                        : t('goldenSpatula.lineups.applyRecommended')}
+                    </button>
+                  </div>
+                );
+              })}
+              {filteredRecommendedLineups.length === 0 && !recommendedLoading && (
+                <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted md:col-span-2">
+                  {t('goldenSpatula.lineups.searchEmpty')}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  ) : null;
+
   const templateLabel = (key: GoldenSpatulaTemplateCategory) =>
     t(`goldenSpatula.recognition.categories.${key}`);
 
@@ -2684,7 +3860,6 @@ export function GoldenSpatulaAssistantPanel() {
               {t('goldenSpatula.title')}
             </span>
           </div>
-          <StatusPill tone="success">{t('goldenSpatula.assistOnly')}</StatusPill>
         </div>
       </div>
 
@@ -2741,6 +3916,21 @@ export function GoldenSpatulaAssistantPanel() {
                   className="w-full rounded-md border border-border bg-bg-primary py-1.5 pl-7 pr-2 text-xs text-text-primary outline-none focus:border-accent"
                 />
               </div>
+              <button
+                type="button"
+                onClick={() => setRecommendedPickerOpen(true)}
+                className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-md border border-border bg-bg-primary px-2 text-xs font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
+                title={t('goldenSpatula.lineups.openRecommended')}
+              >
+                {recommendedLoading ? (
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                ) : (
+                  <Database className="h-3.5 w-3.5" />
+                )}
+                <span className="whitespace-nowrap">
+                  {t('goldenSpatula.lineups.openRecommended')}
+                </span>
+              </button>
               <button
                 type="button"
                 onClick={addManualLineup}
@@ -2826,84 +4016,6 @@ export function GoldenSpatulaAssistantPanel() {
             </div>
 
             <div>
-              <SectionTitle icon={Database} label={t('goldenSpatula.lineups.recommended')} />
-              <div className="mt-2 space-y-2">
-                <div className="relative">
-                  <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
-                  <input
-                    value={recommendedSearch}
-                    onChange={(event) => setRecommendedSearch(event.target.value)}
-                    placeholder={t('goldenSpatula.lineups.searchRecommended')}
-                    className="w-full rounded-md border border-border bg-bg-primary py-1.5 pl-7 pr-2 text-xs text-text-primary outline-none focus:border-accent"
-                  />
-                </div>
-
-                {recommendedLoading && (
-                  <div className="flex items-center gap-2 text-xs text-text-muted">
-                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    {t('goldenSpatula.lineups.loadingRecommended')}
-                  </div>
-                )}
-
-                {recommendedError && (
-                  <div className="rounded-md border border-error/30 bg-error/5 p-2 text-xs text-text-secondary">
-                    {t('goldenSpatula.lineups.recommendedFailed', { error: recommendedError })}
-                  </div>
-                )}
-
-                {recommendedData?.index.status !== 'ready' && !recommendedLoading && (
-                  <div className="rounded-md border border-warning/30 bg-warning/5 p-2 text-xs text-text-secondary">
-                    {t('goldenSpatula.lineups.recommendedMissing')}
-                  </div>
-                )}
-
-                <div className="max-h-44 space-y-1 overflow-y-auto pr-1">
-                  {filteredRecommendedLineups.map((lineup) => {
-                    const saved = savedRecommendedIds.has(lineup.id);
-                    return (
-                      <div
-                        key={lineup.id}
-                        className="flex items-center justify-between gap-2 rounded-md bg-bg-tertiary px-2 py-1.5"
-                      >
-                        <div className="min-w-0">
-                          <div className="truncate text-xs text-text-primary">{lineup.name}</div>
-                          <div className="mt-0.5 flex items-center gap-1 text-[11px] text-text-muted">
-                            {lineup.quality && <span>{lineup.quality}</span>}
-                            {lineup.version && <span>{lineup.version}</span>}
-                            {lineup.variant.code && <span>{lineup.variant.code}</span>}
-                          </div>
-                          <LineupIconStrip
-                            variant={lineup.variant}
-                            championAssets={assistantData?.championAssets.data}
-                            itemAssets={assistantData?.itemAssets.data}
-                            basePath={basePath}
-                          />
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => applyRecommendedLineup(lineup)}
-                          className="inline-flex shrink-0 items-center gap-1 rounded border border-border px-2 py-1 text-[11px] text-text-secondary hover:text-accent"
-                        >
-                          <Import className="h-3 w-3" />
-                          {saved
-                            ? t('goldenSpatula.lineups.switchSaved')
-                            : t('goldenSpatula.lineups.applyRecommended')}
-                        </button>
-                      </div>
-                    );
-                  })}
-                  {recommendedData?.index.status === 'ready' &&
-                    filteredRecommendedLineups.length === 0 &&
-                    !recommendedLoading && (
-                      <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
-                        {t('goldenSpatula.lineups.searchEmpty')}
-                      </div>
-                    )}
-                </div>
-              </div>
-            </div>
-
-            <div>
               <SectionTitle icon={ClipboardPaste} label={t('goldenSpatula.lineups.import')} />
               <div className="mt-2 space-y-1.5">
                 <textarea
@@ -2926,7 +4038,19 @@ export function GoldenSpatulaAssistantPanel() {
           </div>
         )}
 
-        {activeTab === 'strategy' && activeLineupStrategyPanel}
+        {activeTab === 'strategy' && (
+          <div className="space-y-2">
+            <EconomyRunStatusPanel
+              runState={economyRunState}
+              detecting={economyOcrSubmitting || economyRunState.active}
+              polling={economyOcrPolling}
+              detectDisabledReason={economyOcrDisabledReason}
+              onDetect={runEconomyOcrTask}
+              t={t}
+            />
+            {activeLineupStrategyPanel}
+          </div>
+        )}
         {false && (
           <div className="space-y-3">
             {assistantData?.season.status !== 'ready' && (
@@ -3118,6 +4242,13 @@ export function GoldenSpatulaAssistantPanel() {
               )}
             </div>
 
+            <KnowledgeObservationPanel
+              state={knowledgeScanState}
+              itemAssets={assistantData?.itemAssets.data}
+              basePath={basePath}
+              t={t}
+            />
+
             {recognitionSummaries.length > 1 && (
               <div className="max-h-36 overflow-y-auto space-y-1 pr-1">
                 {recognitionSummaries.slice(1).map((item) => (
@@ -3180,6 +4311,7 @@ export function GoldenSpatulaAssistantPanel() {
           </div>
         )}
       </div>
+      {recommendedPicker}
     </div>
   );
 }

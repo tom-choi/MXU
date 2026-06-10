@@ -30,8 +30,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13450_s17_head_kaisa.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -49,8 +55,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13451_s17_head_urgot.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -68,8 +80,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13452_s17_head_viktor.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -87,8 +105,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13453_s17_head_ornn.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -106,8 +130,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13454_s17_head_lulu.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -125,8 +155,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13455_s17_head_fizz.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -144,8 +180,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13457_s17_head_maokai.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -163,8 +205,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13458_s17_head_diana.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -182,8 +230,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13459_s17_head_rhaast.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -201,8 +255,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13460_s17_head_illaoi.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -220,8 +280,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13461_s17_head_samira.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -239,8 +305,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13462_s17_head_aurora.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -258,8 +330,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13464_s17_head_urgot_mecha.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     },
     {
@@ -277,8 +355,14 @@
       "raw_path": "raw/jinchanchan/17_17.17.4_S18/image/champion/champion_13465_s17_head_missfortune.png",
       "usage": "MaaFramework TemplateMatch local recognition template",
       "roi_hint": {
-        "shop_slots_1280x720": [150, 500, 980, 220],
-        "note": "商店五格棋子头像区域，后续应按实战截图微调。"
+        "shop_slots_1280x720": [
+          [325, 580, 158, 125],
+          [483, 580, 158, 125],
+          [641, 580, 158, 125],
+          [799, 580, 158, 125],
+          [957, 580, 158, 125]
+        ],
+        "note": "?? 5 ??????? ROI????? D ?????"
       }
     }
   ],

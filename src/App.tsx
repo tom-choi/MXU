@@ -12,7 +12,6 @@ import {
   AddTaskPanel,
   Toolbar,
   ScreenshotPanel,
-  GoldenSpatulaAssistantPanel,
   LogsPanel,
   ConnectionPanel,
 } from '@/components';
@@ -1946,8 +1945,6 @@ function App() {
 
                     {/* 实时截图 */}
                     <ScreenshotPanel />
-
-                    <GoldenSpatulaAssistantPanel />
                   </div>
                 </div>
 
