@@ -95,6 +95,7 @@ export function createEmptyKnowledgeScanState(): GoldenSpatulaKnowledgeScanState
   return {
     active: false,
     shopSlots: {},
+    selectedAugments: {},
     items: {},
     streak: {},
     events: [],
@@ -133,7 +134,8 @@ function asEconomyField(value: unknown): GoldenSpatulaEconomyField | undefined {
     value === 'gold' ||
     value === 'level' ||
     value === 'experience' ||
-    value === 'streak'
+    value === 'streak' ||
+    value === 'shopOdds'
     ? value
     : undefined;
 }
@@ -167,6 +169,7 @@ function asRecognitionKind(value: unknown): GoldenSpatulaRecognitionKind | undef
     value === 'basicItems' ||
     value === 'completedItems' ||
     value === 'specialItems' ||
+    value === 'augments' ||
     value === 'streak' ||
     value === 'traits' ||
     value === 'smoke'
@@ -305,6 +308,10 @@ function isKnowledgeEventKind(value: unknown): value is GoldenSpatulaKnowledgeEv
     value === 'shopChampionHit' ||
     value === 'shopSlotMiss' ||
     value === 'shopScanCompleted' ||
+    value === 'selectedAugmentScanStarted' ||
+    value === 'selectedAugmentHit' ||
+    value === 'selectedAugmentSlotMiss' ||
+    value === 'selectedAugmentScanCompleted' ||
     value === 'itemScanStarted' ||
     value === 'itemHit' ||
     value === 'itemScanCompleted' ||
@@ -771,6 +778,8 @@ export function mergeEconomyEvent(
     experienceMax: event.experienceMax ?? (started ? undefined : previous.experienceMax),
     streakKind: event.streakKind ?? (started ? undefined : previous.streakKind),
     streakInterest: event.streakInterest ?? (started ? undefined : previous.streakInterest),
+    shopOdds: event.shopOdds ?? (started ? undefined : previous.shopOdds),
+    shopOddsSource: event.shopOddsSource ?? (started ? undefined : previous.shopOddsSource),
     estimatedGoldDelta: started ? 0 : previous.estimatedGoldDelta + goldDelta,
     boughtChampionGold: started ? 0 : boughtChampionGold,
     refreshGold: started ? 0 : refreshGold,
@@ -802,6 +811,8 @@ export function buildKnowledgeEvent(
   const slotIndex = asCallbackNumber(payload.slotIndex);
   const slotLabel = asCallbackString(payload.slotLabel);
   const championName = asCallbackString(payload.championName);
+  const augmentName = asCallbackString(payload.augmentName);
+  const score = asCallbackNumber(payload.score);
   const streakCount =
     kind === 'streakRecognized' && fieldText
       ? (asCallbackNumber(payload.streakCount) ?? parseFirstOcrInteger(fieldText))
@@ -816,14 +827,17 @@ export function buildKnowledgeEvent(
     slotIndex,
     slotLabel,
     championName,
+    augmentName,
     templatePath: asCallbackString(payload.templatePath),
     itemKind,
     zone,
     streakKind,
     streakCount,
+    score,
     rawText: fieldText,
     message: t(`goldenSpatula.recognition.knowledgeEvent.${kind}`, {
       slot: slotLabel ?? slotIndex,
+      augmentName,
       itemKind: itemKind ? t(`goldenSpatula.recognition.itemKind.${itemKind}`) : undefined,
       zone: zone ? t(`goldenSpatula.recognition.zone.${zone}`) : undefined,
       streakKind: streakKind ? t(`goldenSpatula.recognition.streakKind.${streakKind}`) : undefined,
@@ -846,13 +860,17 @@ export function mergeKnowledgeEvent(
 ): GoldenSpatulaKnowledgeScanState {
   const started =
     event.kind === 'shopScanStarted' ||
+    event.kind === 'selectedAugmentScanStarted' ||
     event.kind === 'itemScanStarted' ||
     event.kind === 'streakScanStarted';
   const completed =
     event.kind === 'shopScanCompleted' ||
+    event.kind === 'selectedAugmentScanCompleted' ||
     event.kind === 'itemScanCompleted' ||
     event.kind === 'streakScanCompleted';
   const shopSlots = event.kind === 'shopScanStarted' ? {} : { ...previous.shopSlots };
+  const selectedAugments =
+    event.kind === 'selectedAugmentScanStarted' ? {} : { ...(previous.selectedAugments ?? {}) };
   const items =
     event.kind === 'itemScanStarted' && event.itemKind
       ? Object.fromEntries(
@@ -875,6 +893,26 @@ export function mergeKnowledgeEvent(
       slotIndex: event.slotIndex,
       slotLabel: event.slotLabel,
       confidence: 'empty',
+      updatedAt: event.timestamp,
+    };
+  }
+
+  if (event.kind === 'selectedAugmentHit' && event.slotIndex !== undefined) {
+    selectedAugments[event.slotIndex] = {
+      slotIndex: event.slotIndex,
+      slotLabel: event.slotLabel,
+      augmentName: event.augmentName,
+      templatePath: event.templatePath,
+      confidence: 'matched',
+      score: event.score,
+      updatedAt: event.timestamp,
+    };
+  } else if (event.kind === 'selectedAugmentSlotMiss' && event.slotIndex !== undefined) {
+    selectedAugments[event.slotIndex] = {
+      slotIndex: event.slotIndex,
+      slotLabel: event.slotLabel,
+      confidence: 'empty',
+      score: event.score,
       updatedAt: event.timestamp,
     };
   }
@@ -910,6 +948,7 @@ export function mergeKnowledgeEvent(
   return {
     active: started ? true : completed ? false : previous.active,
     shopSlots,
+    selectedAugments,
     items,
     streak,
     startedAt: started ? event.timestamp : previous.startedAt,

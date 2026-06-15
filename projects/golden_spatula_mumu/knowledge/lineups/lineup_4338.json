@@ -153,7 +153,115 @@
   },
   "augment_recommendations": {
     "ids": [1002, 30488, 10570, 3065, 30205, 30599, 2021, 20517],
-    "note": "2经济一战力，优先选推荐的战力海克斯"
+    "note": "2经济一战力，优先选推荐的战力海克斯",
+    "priority_ids": [1002, 30488, 10570],
+    "alternative_ids": [3065, 30205, 30599, 2021, 20517],
+    "details": [
+      {
+        "id": 1002,
+        "name": "存心失利",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 95,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30488,
+        "name": "九条命",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 89,
+        "strength_tier": "contextual",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补阵容需求",
+        "reason": "阵容来源列为核心推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30205,
+        "name": "意料之中的意外",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 83,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：2经济一战力，优先选推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "2杠1—2杠5：一般五连败开，排名靠后的星神选秀有机会选2星体系1费卡，前期野怪与商店留牌只留5级体系卡，有3未来战士记得上，没有的话没必要故意开摆连败，装备与来牌顺利能走三连胜也是好的开局。",

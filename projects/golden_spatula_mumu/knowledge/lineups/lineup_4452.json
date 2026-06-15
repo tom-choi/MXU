@@ -153,7 +153,115 @@
   },
   "augment_recommendations": {
     "ids": [30009, 4713, 1147, 1895, 3069, 20208, 3128, 20723],
-    "note": "优先经济类海克斯"
+    "note": "优先经济类海克斯",
+    "priority_ids": [30009, 4713, 1147],
+    "alternative_ids": [1895, 3069, 20208, 3128, 20723],
+    "details": [
+      {
+        "id": 30009,
+        "name": "投资++",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 4713,
+        "name": "对冲基金+",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 93,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["economy"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1147,
+        "name": "后期专家",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 86,
+        "strength_tier": "C",
+        "level": 1,
+        "role_tags": ["economy", "leveling"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济、升级节奏；通用强度 C",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 C；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1895,
+        "name": "四费增援",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3069,
+        "name": "DD街区加强版",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 78,
+        "strength_tier": "contextual",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup"
+      },
+      {
+        "id": 20208,
+        "name": "征战之路",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 75,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["reroll", "combat", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、战力、装备补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3128,
+        "name": "珠光莲花 II",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 79,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20723,
+        "name": "黄金赌约++",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先经济类海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期用3未来或者观星过渡；也可以用三海魔人连败开，总之保证连败收益经济最大化。连胜开的话都可以，哪怕前期亏点利息，提前拉人口也是正确的抉择。",

@@ -153,8 +153,103 @@
     "order_names": ["暴风之剑", "女神之泪", "无用大棒", "巨人腰带", "负极斗篷"]
   },
   "augment_recommendations": {
-    "ids": [30621, 10559, 20141, 2021, 30599, 30009, 2128, 20141],
-    "note": "1经济1装备1战力"
+    "ids": [30621, 10559, 20141, 2021, 30599, 30009, 2128],
+    "note": "1经济1装备1战力",
+    "priority_ids": [30621, 10559, 20141],
+    "alternative_ids": [2021, 30599, 30009, 2128],
+    "details": [
+      {
+        "id": 30621,
+        "name": "四费小组",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 94,
+        "strength_tier": "contextual",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新",
+        "reason": "阵容来源列为核心推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup"
+      },
+      {
+        "id": 10559,
+        "name": "轻量魔法投掷",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy"],
+        "selection_decision": "首选强化：优先级最高，契合经济；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20141,
+        "name": "专属定制",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "首选强化：优先级最高，契合经济、装备；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 84,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30009,
+        "name": "投资++",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 81,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2128,
+        "name": "珠光莲花 I",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济1装备1战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "2-1 拉4 ，装备优先给阵容核心英雄；想稳连胜就别吝啬装备，尽早分配。2-3 或 2-5 拉5 ，根据主c定位合装备。3-1 阶段拉到 6 人口，只要能保住连胜，即便亏点利息，也可以适当提升人口增强战力。",

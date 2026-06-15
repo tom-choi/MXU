@@ -132,7 +132,115 @@
   },
   "augment_recommendations": {
     "ids": [10726, 2128, 2021, 1895, 20723, 30656, 30009, 30186],
-    "note": "最好是补2战力（保下限），或者2彩色大经济（赌三星4费）"
+    "note": "最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+    "priority_ids": [10726, 2128, 2021],
+    "alternative_ids": [1895, 20723, 30656, 30009, 30186],
+    "details": [
+      {
+        "id": 10726,
+        "name": "飙速木灵",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 95,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["flex"],
+        "selection_decision": "首选强化：优先级最高，契合当前阵容；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2128,
+        "name": "珠光莲花 I",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1895,
+        "name": "四费增援",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20723,
+        "name": "黄金赌约++",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30656,
+        "name": "贸易中心",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 83,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30009,
+        "name": "投资++",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 80,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30186,
+        "name": "1个霸符，2个霸符",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：最好是补2战力（保下限），或者2彩色大经济（赌三星4费）",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期木灵、堡垒与新星搭配即可，波比有装备就可以轻松连胜，能打连胜可以拉人口，后面靠7木灵波比很容易三星",

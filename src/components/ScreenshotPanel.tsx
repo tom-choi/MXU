@@ -17,7 +17,7 @@ import clsx from 'clsx';
 import { maaService } from '@/services/maaService';
 import { useAppStore } from '@/stores/appStore';
 import { ContextMenu, useContextMenu, type MenuItem } from './ContextMenu';
-import { getFrameInterval } from './FrameRateSelector';
+import { FrameRateSelector, getFrameInterval } from './FrameRateSelector';
 import { loggers } from '@/utils/logger';
 import { useIsMobile } from '@/hooks/useIsMobile';
 
@@ -33,6 +33,7 @@ const withTimeout = <T,>(promise: Promise<T>, ms: number): Promise<T> => {
 
 const MAX_CONSECUTIVE_FAILURES = 20;
 const API_TIMEOUT = 30000;
+const SCREENSHOT_SUBSCRIPTION_HEARTBEAT_MS = 10_000;
 
 export function ScreenshotPanel() {
   const { t } = useTranslation();
@@ -73,6 +74,7 @@ export function ScreenshotPanel() {
 
   // 从 store 获取当前实例的截图流状态
   const isStreaming = instanceId ? (instanceScreenshotStreaming[instanceId] ?? false) : false;
+  const screenshotSubscriberId = instanceId ? `panel-${instanceId}` : '';
 
   // 更新截图流状态
   const setIsStreaming = useCallback(
@@ -110,19 +112,28 @@ export function ScreenshotPanel() {
     };
   }, []);
 
+  const refreshScreenshotSubscription = useCallback(async () => {
+    if (!instanceId || !screenshotSubscriberId) return;
+
+    const intervalMs = getFrameInterval(screenshotFrameRate);
+    await maaService.screenshotSubscribe(instanceId, screenshotSubscriberId, intervalMs);
+  }, [instanceId, screenshotFrameRate, screenshotSubscriberId]);
+
   // 订阅/退订后端截图循环（确保全局只有一份 post_screencap 在运行）
   useEffect(() => {
     if (!instanceId || !isStreaming) return;
 
-    const intervalMs = getFrameInterval(screenshotFrameRate);
-    maaService
-      .screenshotSubscribe(instanceId, `panel-${instanceId}`, intervalMs)
-      .catch((e) => log.warn('截图订阅失败:', e));
+    refreshScreenshotSubscription().catch((e) => log.warn('截图订阅失败:', e));
+
+    const heartbeatId = window.setInterval(() => {
+      refreshScreenshotSubscription().catch((e) => log.warn('截图订阅续期失败:', e));
+    }, SCREENSHOT_SUBSCRIPTION_HEARTBEAT_MS);
 
     return () => {
-      maaService.screenshotUnsubscribe(instanceId, `panel-${instanceId}`).catch(() => {});
+      window.clearInterval(heartbeatId);
+      maaService.screenshotUnsubscribe(instanceId, screenshotSubscriberId).catch(() => {});
     };
-  }, [instanceId, isStreaming, screenshotFrameRate]);
+  }, [instanceId, isStreaming, refreshScreenshotSubscription, screenshotSubscriberId]);
 
   // ESC 键退出全屏
   useEffect(() => {
@@ -272,6 +283,26 @@ export function ScreenshotPanel() {
   // 连接成功后自动开始实时截图（仅当面板可见且未开启时）
   const connectionStatus = instanceId ? instanceConnectionStatus[instanceId] : undefined;
   const isResourceLoaded = instanceId ? instanceResourceLoaded[instanceId] : false;
+
+  useEffect(() => {
+    if (!instanceId || !isStreaming || connectionStatus !== 'Connected') return;
+
+    const resumeScreenshotStream = () => {
+      if (document.visibilityState === 'hidden') return;
+
+      streamingRef.current = true;
+      refreshScreenshotSubscription().catch((e) => log.warn('截图订阅恢复失败:', e));
+      streamLoop();
+    };
+
+    window.addEventListener('focus', resumeScreenshotStream);
+    document.addEventListener('visibilitychange', resumeScreenshotStream);
+
+    return () => {
+      window.removeEventListener('focus', resumeScreenshotStream);
+      document.removeEventListener('visibilitychange', resumeScreenshotStream);
+    };
+  }, [connectionStatus, instanceId, isStreaming, refreshScreenshotSubscription, streamLoop]);
 
   // 当设备已连接且资源已加载时自动折叠（与连接设置面板行为一致）
   useEffect(() => {
@@ -605,6 +636,7 @@ export function ScreenshotPanel() {
           {/* 分隔线放在 overflow-hidden 内部，避免展开瞬间闪烁 */}
           <div className="border-t border-border" />
           <div className="p-3">
+            <FrameRateSelector compact className="mb-3" />
             {/* 截图区域 */}
             <div
               className="aspect-video bg-bg-tertiary rounded-md flex items-center justify-center overflow-hidden relative"

@@ -12,6 +12,7 @@ const knowledgeResourceDir = path.join(projectDir, 'resource_knowledge');
 const knowledgeImageDir = path.join(knowledgeResourceDir, 'image');
 const apiBase = 'https://www.jinchanchan.fun/api/jinchanchan/data';
 const siteBase = 'https://www.jinchanchan.fun';
+const opggAugmentTierPage = 'https://op.gg/zh-cn/tft/meta-trends/augments';
 const defaultVersionPage = `${siteBase}/hero/v/`;
 const fetchedAt = new Date().toISOString();
 
@@ -201,6 +202,10 @@ function parseCsvIds(value) {
     .split(',')
     .map((part) => part.trim())
     .filter(Boolean);
+}
+
+function uniqueFiniteIds(values) {
+  return Array.from(new Set(values.map(Number).filter((value) => Number.isFinite(value))));
 }
 
 function parseMaybeJson(value, fallback = null) {
@@ -438,6 +443,121 @@ function normalizeAugment(hex, context) {
   };
 }
 
+function normalizeNameKey(value) {
+  return cleanText(value).replace(/\s+/g, '').toLocaleLowerCase();
+}
+
+function extractJsonValueAfter(text, marker) {
+  const markerIndex = text.indexOf(marker);
+  if (markerIndex < 0) {
+    return null;
+  }
+
+  let position = markerIndex + marker.length;
+  while (/\s/.test(text[position])) {
+    position += 1;
+  }
+
+  const open = text[position];
+  const close = open === '[' ? ']' : '}';
+  if ((open !== '[' && open !== '{') || !close) {
+    return null;
+  }
+
+  let depth = 0;
+  let inString = false;
+  let escaping = false;
+
+  for (let index = position; index < text.length; index += 1) {
+    const char = text[index];
+    if (inString) {
+      if (escaping) {
+        escaping = false;
+      } else if (char === '\\') {
+        escaping = true;
+      } else if (char === '"') {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (char === '"') {
+      inString = true;
+      continue;
+    }
+    if (char === open) {
+      depth += 1;
+      continue;
+    }
+    if (char === close) {
+      depth -= 1;
+      if (depth === 0) {
+        return text.slice(position, index + 1);
+      }
+    }
+  }
+
+  return null;
+}
+
+function decodeNextRscPayload(html) {
+  const regex = /<script>self\.__next_f\.push\(\[1,([\s\S]*?)\]\)<\/script>/g;
+  let text = '';
+  for (const match of html.matchAll(regex)) {
+    try {
+      text += JSON.parse(match[1]);
+    } catch {
+      // Ignore non-data chunks.
+    }
+  }
+  return text;
+}
+
+async function fetchOpggAugmentStrengthTiers() {
+  try {
+    const response = await fetch(opggAugmentTierPage, { headers: requestHeaders });
+    if (!response.ok) {
+      throw new Error(`OP.GG fetch failed ${response.status} ${response.statusText}`);
+    }
+
+    const html = await response.text();
+    const payload = decodeNextRscPayload(html);
+    const tiersJson = extractJsonValueAfter(payload, '"augmentTiers":');
+    const augmentsJson = extractJsonValueAfter(payload, '"AUGMENTS":');
+    if (!tiersJson || !augmentsJson) {
+      throw new Error('OP.GG augment tier payload was not found');
+    }
+
+    const tiers = JSON.parse(tiersJson);
+    const augments = JSON.parse(augmentsJson);
+    const opTierByApiName = new Map(
+      asArray(tiers)
+        .map((entry) => [entry.augments, entry.opTier])
+        .filter(([apiName]) => apiName),
+    );
+    const byName = new Map();
+
+    for (const augment of Object.values(augments)) {
+      const name = cleanText(augment?.name);
+      if (!name) continue;
+      const key = normalizeNameKey(name);
+      byName.set(key, {
+        api_name: augment.apiName,
+        name,
+        tier: augment.tier,
+        op_tier: opTierByApiName.get(augment.apiName) ?? null,
+        source_url: opggAugmentTierPage,
+      });
+    }
+
+    console.log(`OP.GG augment tiers loaded: ${byName.size}`);
+    return byName;
+  } catch (error) {
+    console.warn(`Warning: OP.GG augment tier enrichment skipped: ${error.message}`);
+    return new Map();
+  }
+}
+
 function normalizeLineupUnit(unit, indexes) {
   const heroId = Number(unit.hero_id);
   const equipmentIds = parseCsvIds(unit.equipment_id).map(Number);
@@ -455,6 +575,170 @@ function normalizeLineupUnit(unit, indexes) {
   };
 }
 
+const augmentTierBonus = {
+  OP: 8,
+  S: 6,
+  A: 4,
+  B: 1,
+  C: -4,
+  contextual: 0,
+  unknown: 0,
+};
+
+function clampRecommendationIndex(score) {
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+function inferAugmentRoleTags(augment, lineupName) {
+  const text = `${augment?.name ?? ''} ${augment?.description ?? ''} ${lineupName ?? ''}`;
+  const tags = [];
+  const add = (tag, pattern) => {
+    if (pattern.test(text) && !tags.includes(tag)) {
+      tags.push(tag);
+    }
+  };
+
+  if (
+    cleanText(augment?.hero_enhancement_type) &&
+    cleanText(augment?.hero_enhancement_type) !== '0'
+  ) {
+    tags.push('exclusive');
+  }
+  add('economy', /金币|利息|经济|储蓄|收入|投资|贷款|消费|奖励|福袋|百宝袋/u);
+  add('reroll', /刷新|商店|D牌|D个|升星|三星|复制器|弈子|备战席|门票/u);
+  add('leveling', /经验|升级|等级|人口|上进心|后期专家|前瞻思维/u);
+  add('combat', /伤害|攻击|法术|强度|暴击|攻速|飞升|护盾|治疗|护甲|魔抗|吸血|击杀/u);
+  add('item', /装备|散件|成装|神器|锻炉|铁砧|重铸|潘朵拉|拆卸器|大剑|法杖|拳套|腰带|女神之泪/u);
+  add('trait', /纹章|转职|羁绊|锅铲|阿福|节外生枝|蔓延之根|厨神/u);
+
+  if (tags.length === 0) {
+    tags.push('flex');
+  }
+  return tags;
+}
+
+function getAugmentStrength(augment, indexes) {
+  const strength =
+    indexes.augmentStrengthByName?.get(normalizeNameKey(augment?.name)) ??
+    indexes.augmentStrengthByName?.get(normalizeNameKey(augment?.slug));
+  return strength ?? null;
+}
+
+function noteMatchesRole(note, roleTags) {
+  const checks = [
+    ['economy', /经济|金币|利息|质量|追三|三星/u],
+    ['reroll', /刷新|D|追三|三星|质量/u],
+    ['leveling', /人口|上9|九五|95|经验/u],
+    ['combat', /战力|上限|伤害|飞升/u],
+    ['item', /装备|散件|神器|神装/u],
+    ['trait', /转职|羁绊|定阵/u],
+  ];
+
+  return checks.some(([tag, pattern]) => roleTags.includes(tag) && pattern.test(note));
+}
+
+function buildSelectionDecision({ group, score, roleTags, strengthTier }) {
+  const roleText = roleTags
+    .filter((tag) => tag !== 'flex')
+    .map((tag) => {
+      if (tag === 'economy') return '经济';
+      if (tag === 'reroll') return '追三/刷新';
+      if (tag === 'leveling') return '升级节奏';
+      if (tag === 'combat') return '战力';
+      if (tag === 'item') return '装备';
+      if (tag === 'trait') return '转职/羁绊';
+      if (tag === 'exclusive') return '专属';
+      return tag;
+    })
+    .join('、');
+  const tierText =
+    strengthTier && strengthTier !== 'contextual' && strengthTier !== 'unknown'
+      ? `；通用强度 ${strengthTier}`
+      : '';
+
+  if (roleTags.includes('exclusive')) {
+    return `定阵/专属强化：满足阵容条件时优先拿${tierText}`;
+  }
+  if (group === 'priority') {
+    return score >= 94
+      ? `首选强化：优先级最高，契合${roleText || '当前阵容'}${tierText}`
+      : `核心推荐：同类选项中优先选择，主要补${roleText || '阵容需求'}${tierText}`;
+  }
+  return `可替代强化：主推荐缺席时选择，按${roleText || '当前局势'}补足阵容短板${tierText}`;
+}
+
+function buildAugmentRecommendationDetail({ id, group, rank, note, lineupName, indexes }) {
+  const augment = indexes.augmentsById.get(Number(id));
+  const strength = getAugmentStrength(augment, indexes);
+  const strengthTier = strength?.op_tier || 'contextual';
+  const roleTags = inferAugmentRoleTags(augment, lineupName);
+  const baseScore = group === 'priority' ? 91 : 76;
+  const rankPenalty = Math.max(0, rank - 1) * (group === 'priority' ? 2 : 1);
+  const score = clampRecommendationIndex(
+    baseScore -
+      rankPenalty +
+      (augmentTierBonus[strengthTier] ?? 0) +
+      (roleTags.includes('exclusive') && group === 'priority' ? 5 : 0) +
+      (noteMatchesRole(note, roleTags) ? 3 : 0),
+  );
+
+  return {
+    id: Number(id),
+    name: augment?.name ?? '',
+    group,
+    rank,
+    recommended_index: score,
+    strength_tier: strengthTier,
+    level: Number(augment?.level ?? 0),
+    role_tags: roleTags,
+    selection_decision: buildSelectionDecision({ group, score, roleTags, strengthTier }),
+    reason: [
+      group === 'priority' ? '阵容来源列为核心推荐' : '阵容来源列为可替代推荐',
+      strength?.op_tier
+        ? `OP.GG 通用梯度 ${strength.op_tier}`
+        : '通用榜单未稳定匹配，按阵容上下文评估',
+      note ? `阵容备注：${note}` : '',
+    ]
+      .filter(Boolean)
+      .join('；'),
+    source: strength?.source_url ? 'jinchanchan_lineup+opgg_meta_trends' : 'jinchanchan_lineup',
+  };
+}
+
+function buildLineupAugmentRecommendationDetails(
+  priorityIds,
+  alternativeIds,
+  note,
+  lineupName,
+  indexes,
+) {
+  const seen = new Set();
+  const details = [];
+  for (const [group, ids] of [
+    ['priority', priorityIds],
+    ['alternative', alternativeIds],
+  ]) {
+    ids.forEach((id, index) => {
+      const numericId = Number(id);
+      if (!Number.isFinite(numericId) || seen.has(numericId)) {
+        return;
+      }
+      seen.add(numericId);
+      details.push(
+        buildAugmentRecommendationDetail({
+          id: numericId,
+          group,
+          rank: index + 1,
+          note,
+          lineupName,
+          indexes,
+        }),
+      );
+    });
+  }
+  return details;
+}
+
 function normalizeLineup(lineup, context, indexes) {
   const detail = parseMaybeJson(lineup.detail, {});
   const id = Number(lineup.id);
@@ -463,12 +747,18 @@ function normalizeLineup(lineup, context, indexes) {
   const carries = units.filter((unit) => unit.is_carry);
   const equipmentOrder = parseCsvIds(detail.equipment_order).map(Number);
   const hexbuff = detail.hexbuff ?? {};
-  const augmentIds = [...parseCsvIds(hexbuff.recomm), ...parseCsvIds(hexbuff.replace)].map(Number);
+  const priorityAugmentIds = uniqueFiniteIds(parseCsvIds(hexbuff.recomm));
+  const alternativeAugmentIds = uniqueFiniteIds(parseCsvIds(hexbuff.replace)).filter(
+    (augmentId) => !priorityAugmentIds.includes(augmentId),
+  );
+  const augmentIds = uniqueFiniteIds([...priorityAugmentIds, ...alternativeAugmentIds]);
+  const augmentNote = cleanText(detail.hex_info);
+  const lineupName = detail.line_name ?? lineup.line_name ?? '';
 
   return {
     id,
     slug,
-    name: detail.line_name ?? lineup.line_name ?? '',
+    name: lineupName,
     quality: lineup.quality ?? '',
     rating: lineup.quality ?? '',
     tags: parseCsvIds(detail.line_tag),
@@ -497,8 +787,17 @@ function normalizeLineup(lineup, context, indexes) {
       order_names: equipmentOrder.map((id) => indexes.itemsById.get(id)?.name ?? ''),
     },
     augment_recommendations: {
-      ids: augmentIds.filter((id) => Number.isFinite(id)),
-      note: cleanText(detail.hex_info),
+      ids: augmentIds,
+      priority_ids: priorityAugmentIds,
+      alternative_ids: alternativeAugmentIds,
+      details: buildLineupAugmentRecommendationDetails(
+        priorityAugmentIds,
+        alternativeAugmentIds,
+        augmentNote,
+        lineupName,
+        indexes,
+      ),
+      note: augmentNote,
     },
     notes: {
       early: cleanText(detail.early_info),
@@ -1494,6 +1793,7 @@ async function main() {
       fetchData('lineup', versionId),
     ]);
   const chessNameIndexRaw = await fetchData('chess_name_index', versionId);
+  const augmentStrengthByName = await fetchOpggAugmentStrengthTiers();
 
   const context = buildContext(versionId, versionsInfo);
   const champions = asArray(chessRaw)
@@ -1515,6 +1815,8 @@ async function main() {
 
   const indexes = {
     championsById: new Map(champions.map((champion) => [Number(champion.id), champion])),
+    augmentsById: new Map(augments.map((augment) => [Number(augment.id), augment])),
+    augmentStrengthByName,
     itemsById: new Map(items.map((item) => [Number(item.id), item])),
     chessNameById: new Map(
       Object.entries(chessNameIndexRaw ?? {}).map(([name, id]) => [

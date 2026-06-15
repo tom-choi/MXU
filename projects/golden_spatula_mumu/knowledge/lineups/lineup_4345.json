@@ -169,7 +169,115 @@
   },
   "augment_recommendations": {
     "ids": [10570, 20517, 20563, 10559, 3270, 20209, 4804, 30599],
-    "note": "2战力一经济，优先考虑推荐的战力海克斯"
+    "note": "2战力一经济，优先考虑推荐的战力海克斯",
+    "priority_ids": [10570, 20517, 20563],
+    "alternative_ids": [10559, 3270, 20209, 4804, 30599],
+    "details": [
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 93,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济、追三/刷新；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20563,
+        "name": "秘传奥义",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10559,
+        "name": "轻量魔法投掷",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3270,
+        "name": "活体锻炉",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20209,
+        "name": "崇高冒险",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 75,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 4804,
+        "name": "英勇福袋++",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：2战力一经济，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期有装备有2星前排可以拉人口打连胜，有三海魔人开局说天胡，配合斗士、狂战士可以轻松连胜。",

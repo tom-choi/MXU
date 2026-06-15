@@ -51,7 +51,7 @@ pnpm golden:fetch-knowledge
 - `仅截图`：保存当前模拟器画面。
 - `启动游戏`：启动 `com.tencent.jkchess`，然后进入主界面确认流程。
 - `停止游戏`：停止 `com.tencent.jkchess`。
-- `点击屏幕中心`：点击 1280x720 MuMu 画面的中心点。
+- `点击屏幕中心`：点击 720 短边逻辑画面的中心点；1600x900 等 16:9 画面会由 Maa 按比例映射。
 
 ## 素材
 

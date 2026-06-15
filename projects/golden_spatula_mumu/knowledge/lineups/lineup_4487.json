@@ -137,7 +137,115 @@
   },
   "augment_recommendations": {
     "ids": [20625, 20459, 2021, 1646, 1021, 3093, 2116, 3065],
-    "note": "推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文"
+    "note": "推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+    "priority_ids": [20625, 20459, 2021],
+    "alternative_ids": [1646, 1021, 3093, 2116, 3065],
+    "details": [
+      {
+        "id": 20625,
+        "name": "宝宝学院",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 100,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["reroll", "combat"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20459,
+        "name": "王冠之重",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 93,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["flex"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补阵容需求；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1646,
+        "name": "团队建设",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1021,
+        "name": "部分飞升",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3093,
+        "name": "便携锻炉",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 85,
+        "strength_tier": "OP",
+        "level": 2,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 OP",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 OP；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2116,
+        "name": "复苏之风 II",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 79,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 78,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：推荐一装备双战力符文，由于是一费赌狗尽量不拿经济类符文",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期不拉人口只留体系牌优先上2未来+虫子养经济还能发育虫子，装备优先做大虫子（科加斯）",

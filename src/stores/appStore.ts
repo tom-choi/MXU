@@ -17,6 +17,7 @@ import {
   defaultAddTaskPanelHeight,
   defaultMirrorChyanSettings,
   normalizeAddTaskPanelHeight,
+  normalizeScreenshotFrameRate,
   defaultScreenshotFrameRate,
   defaultWindowSize,
 } from '@/types/config';
@@ -48,6 +49,7 @@ import {
   cacheBackendLayout,
   getBackendLayout,
 } from '@/services/appearanceStorage';
+import { sanitizeGoldenSpatulaLineupManagerState } from '@/services/goldenSpatulaService';
 import { isTauri } from '@/utils/paths';
 import {
   generateId,
@@ -981,7 +983,8 @@ export const useAppStore = create<AppState>()(
     },
 
     goldenSpatulaLineupManager: EMPTY_GOLDEN_SPATULA_LINEUP_MANAGER,
-    setGoldenSpatulaLineupManager: (manager) => set({ goldenSpatulaLineupManager: manager }),
+    setGoldenSpatulaLineupManager: (manager) =>
+      set({ goldenSpatulaLineupManager: sanitizeGoldenSpatulaLineupManagerState(manager) }),
 
     // 配置导入
     importConfig: (config) => {
@@ -1204,9 +1207,9 @@ export const useAppStore = create<AppState>()(
         screenshotPanelExpanded:
           localLayout?.screenshotPanelExpanded ?? config.settings.screenshotPanelExpanded ?? true,
         screenshotFrameRate:
-          localLayout?.screenshotFrameRate ??
-          config.settings.screenshotFrameRate ??
-          defaultScreenshotFrameRate,
+          normalizeScreenshotFrameRate(
+            localLayout?.screenshotFrameRate ?? config.settings.screenshotFrameRate,
+          ),
         welcomeShownHash: config.settings.welcomeShownHash ?? '',
         devMode: config.settings.devMode ?? false,
         tcpCompatMode: config.settings.tcpCompatMode ?? false,
@@ -1223,8 +1226,9 @@ export const useAppStore = create<AppState>()(
           stopTasks: 'F11',
           globalEnabled: false,
         },
-        goldenSpatulaLineupManager:
+        goldenSpatulaLineupManager: sanitizeGoldenSpatulaLineupManagerState(
           config.goldenSpatula?.lineupManager ?? EMPTY_GOLDEN_SPATULA_LINEUP_MANAGER,
+        ),
         recentlyClosed: config.recentlyClosed || [],
         // 记录新增任务，并在有新增时自动展开添加任务面板
         newTaskNames: detectedNewTaskNames,
@@ -1655,8 +1659,9 @@ export const useAppStore = create<AppState>()(
     // 实时截图帧率设置
     screenshotFrameRate: defaultScreenshotFrameRate,
     setScreenshotFrameRate: (rate) => {
-      set({ screenshotFrameRate: rate });
-      if (!isTauri()) patchWebUILayout({ screenshotFrameRate: rate });
+      const normalizedRate = normalizeScreenshotFrameRate(rate);
+      set({ screenshotFrameRate: normalizedRate });
+      if (!isTauri()) patchWebUILayout({ screenshotFrameRate: normalizedRate });
     },
 
     // Welcome 弹窗显示记录
@@ -2084,7 +2089,9 @@ function generateConfig(): MxuConfig {
           addTaskPanelHeight: bl?.addTaskPanelHeight ?? state.addTaskPanelHeight,
           connectionPanelExpanded: bl?.connectionPanelExpanded ?? state.connectionPanelExpanded,
           screenshotPanelExpanded: bl?.screenshotPanelExpanded ?? state.screenshotPanelExpanded,
-          screenshotFrameRate: bl?.screenshotFrameRate ?? state.screenshotFrameRate,
+          screenshotFrameRate: normalizeScreenshotFrameRate(
+            bl?.screenshotFrameRate ?? state.screenshotFrameRate,
+          ),
           mirrorChyan: {
             ...state.mirrorChyanSettings,
             cdk: '',
@@ -2115,7 +2122,9 @@ function generateConfig(): MxuConfig {
     state.goldenSpatulaLineupManager.lineups.length > 0
       ? {
           goldenSpatula: {
-            lineupManager: state.goldenSpatulaLineupManager,
+            lineupManager: sanitizeGoldenSpatulaLineupManagerState(
+              state.goldenSpatulaLineupManager,
+            ),
           },
         }
       : {}),
@@ -2164,7 +2173,7 @@ useAppStore.subscribe(
       addTaskPanelHeight: state.addTaskPanelHeight,
       connectionPanelExpanded: state.connectionPanelExpanded,
       screenshotPanelExpanded: state.screenshotPanelExpanded,
-      screenshotFrameRate: state.screenshotFrameRate,
+      screenshotFrameRate: normalizeScreenshotFrameRate(state.screenshotFrameRate),
     }),
     confirmBeforeDelete: state.confirmBeforeDelete,
     maxLogsPerInstance: state.maxLogsPerInstance,

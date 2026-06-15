@@ -159,7 +159,115 @@
   },
   "augment_recommendations": {
     "ids": [10570, 20625, 3065, 1002, 2021, 30488, 2480, 20517],
-    "note": "最好两经济一战力，追三和拉人口都很重要，因此经济必须要够"
+    "note": "最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+    "priority_ids": [10570, 20625, 3065],
+    "alternative_ids": [1002, 2021, 30488, 2480, 20517],
+    "details": [
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20625,
+        "name": "宝宝学院",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["reroll", "combat"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1002,
+        "name": "存心失利",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 80,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 84,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30488,
+        "name": "九条命",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 74,
+        "strength_tier": "contextual",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2480,
+        "name": "天生二星",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 76,
+        "strength_tier": "contextual",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：最好两经济一战力，追三和拉人口都很重要，因此经济必须要够",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "定阵前提条件，至少满足以下其一1.开局有2星维迦2.本局星神有维鲁斯3.有宝宝学院海克斯2杠1—2杠5：一般五连败开，排名靠后的星神选秀有机会选2星体系1费卡，前期野怪与商店留牌只留5级体系卡，有2未来战士记得上，对局失败可以给刷新次数",

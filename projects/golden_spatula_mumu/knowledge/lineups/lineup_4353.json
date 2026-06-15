@@ -127,7 +127,115 @@
   },
   "augment_recommendations": {
     "ids": [20235, 20517, 10570, 30599, 30034, 2128, 20508, 20630],
-    "note": "1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星"
+    "note": "1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+    "priority_ids": [20235, 20517, 10570],
+    "alternative_ids": [30599, 30034, 2128, 20508, 20630],
+    "details": [
+      {
+        "id": 20235,
+        "name": "由二生D",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 94,
+        "strength_tier": "contextual",
+        "level": 2,
+        "role_tags": ["reroll"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新",
+        "reason": "阵容来源列为核心推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 93,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济、追三/刷新；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30034,
+        "name": "大而有力",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2128,
+        "name": "珠光莲花 I",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 83,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20508,
+        "name": "关爱包裹",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 80,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20630,
+        "name": "剑之工匠",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 76,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力，由二生d是非常合适的海克斯，有的话能快速追多个三星",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期不拉人口，不d牌，记住核心六张2费卡即可，连胜或者连败都能接受，尽可能多追三星，（派克和任意前排三星之后，上人口更加重要）",

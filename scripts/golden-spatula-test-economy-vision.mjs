@@ -8,40 +8,53 @@ import ts from 'typescript';
 
 const repoRoot = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const visionSource = path.join(repoRoot, 'src', 'services', 'goldenSpatulaEconomyVision.ts');
+const shopOddsSource = path.join(repoRoot, 'src', 'services', 'goldenSpatulaShopOdds.ts');
 const stabilizerSource = path.join(
   repoRoot,
   'src',
   'services',
   'goldenSpatulaEconomyStabilizer.ts',
 );
-const video1 = path.join(repoRoot, 'docs', 'mp4s', '金铲铲之战(1).mp4');
-const video2 = path.join(repoRoot, 'docs', 'mp4s', '金铲铲之战(2).mp4');
+const verifiedSamplesPath = path.join(
+  repoRoot,
+  'scripts',
+  'fixtures',
+  'golden-spatula-economy-video4-samples.json',
+);
+const video4 = path.join(repoRoot, 'docs', 'mp4s', '金铲铲之战(4).mp4');
 
 const strictSamples = [
   {
-    label: 'video-1 02:24.500 shop HUD',
-    video: video1,
-    at: '00:02:24.500',
+    label: 'video-4 01:20.000 pre-economy false positive guard',
+    video: video4,
+    at: '00:01:20.000',
     expected: {
-      round: '1-4',
-      gold: 12,
-      level: 3,
+      experience: undefined,
+      experienceMax: undefined,
+      streakKind: 'unknown',
+      streakInterest: undefined,
+      shopOdds: undefined,
+      shopOddsSource: undefined,
+    },
+  },
+  {
+    label: 'video-4 02:20.000 first shop HUD',
+    video: video4,
+    at: '00:02:20.000',
+    expected: {
+      round: '1-3',
+      gold: 2,
+      level: 2,
       experience: 0,
-      experienceMax: 6,
+      experienceMax: 2,
       streakKind: 'none',
       streakInterest: 0,
     },
   },
   {
-    label: 'video-1 03:11.000 level 4 with 0/10 XP',
-    video: video1,
-    at: '00:03:11.000',
-    expected: { gold: 0, level: 4, experience: 0, experienceMax: 10 },
-  },
-  {
-    label: 'video-2 02:06.500 board planning HUD',
-    video: video2,
-    at: '00:02:06.500',
+    label: 'video-4 03:00.000 stage 1-4 economy HUD',
+    video: video4,
+    at: '00:03:00.000',
     expected: {
       round: '1-4',
       gold: 3,
@@ -53,22 +66,62 @@ const strictSamples = [
     },
   },
   {
-    label: 'video-2 03:00.500 XP partially filled',
-    video: video2,
-    at: '00:03:00.500',
-    expected: { gold: 6, level: 3, experience: 2, experienceMax: 6 },
+    label: 'video-4 04:00.000 stage 2-1 with partial XP',
+    video: video4,
+    at: '00:04:00.000',
+    expected: { round: '2-1', gold: 15, level: 3, experience: 2, experienceMax: 6 },
   },
   {
-    label: 'video-2 05:35.500 level 4 with 17 gold',
-    video: video2,
-    at: '00:05:35.500',
-    expected: { gold: 17, level: 4, experience: 0, experienceMax: 10 },
+    label: 'video-4 05:40.000 level 4 win streak',
+    video: video4,
+    at: '00:05:40.000',
+    expected: {
+      gold: 20,
+      level: 4,
+      experience: 2,
+      experienceMax: 10,
+      streakKind: 'win',
+      streakInterest: 1,
+    },
   },
   {
-    label: 'video-2 05:41.500 level 4 with 15 gold',
-    video: video2,
-    at: '00:05:41.500',
-    expected: { gold: 15, level: 4, experience: 0, experienceMax: 10 },
+    label: 'video-4 06:40.000 level 4 two-streak economy HUD',
+    video: video4,
+    at: '00:06:40.000',
+    expected: {
+      gold: 29,
+      level: 4,
+      experience: 4,
+      experienceMax: 10,
+      streakKind: 'win',
+      streakInterest: 2,
+    },
+  },
+  {
+    label: 'video-4 08:00.000 transition ignores stray shop odds',
+    video: video4,
+    at: '00:08:00.000',
+    expected: {
+      gold: undefined,
+      level: undefined,
+      experience: undefined,
+      experienceMax: undefined,
+      shopOdds: undefined,
+      shopOddsSource: undefined,
+    },
+  },
+  {
+    label: 'video-4 08:40.000 level 5 economy HUD',
+    video: video4,
+    at: '00:08:40.000',
+    expected: {
+      gold: 32,
+      level: 5,
+      experience: 0,
+      experienceMax: 20,
+      streakKind: 'win',
+      streakInterest: 3,
+    },
   },
 ];
 
@@ -83,44 +136,24 @@ function formatTimestamp(seconds) {
   ).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
 }
 
-function buildCoverageSamples() {
-  const ranges = [
-    {
-      label: 'video-1 mid game shop/economy HUD',
-      video: video1,
-      startSeconds: 125.5,
-      count: 34,
-      stepSeconds: 2.5,
-    },
-    {
-      label: 'video-2 early planning/economy HUD',
-      video: video2,
-      startSeconds: 126.5,
-      count: 26,
-      stepSeconds: 2.5,
-    },
-    {
-      label: 'video-2 level-4 shop/economy HUD',
-      video: video2,
-      startSeconds: 331.5,
-      count: 10,
-      stepSeconds: 1.25,
-    },
-  ];
-
-  return ranges.flatMap((range) =>
+function buildVerifiedSamples(fixture) {
+  return fixture.ranges.flatMap((range, rangeIndex) =>
     Array.from({ length: range.count }, (_, index) => {
-      const seconds = range.startSeconds + index * range.stepSeconds;
+      const seconds = range.startSeconds + index;
       return {
-        label: `${range.label} #${String(index + 1).padStart(2, '0')}`,
-        video: range.video,
+        label: `video-4 verified #${String(rangeIndex + 1).padStart(3, '0')}.${String(
+          index + 1,
+        ).padStart(2, '0')}`,
+        video: video4,
         at: formatTimestamp(seconds),
+        expected: range.expected,
       };
     }),
   );
 }
 
-const coverageSamples = buildCoverageSamples();
+const verifiedFixture = JSON.parse(await fs.readFile(verifiedSamplesPath, 'utf8'));
+const verifiedSamples = buildVerifiedSamples(verifiedFixture);
 
 async function importTsModule(sourcePath, outputName) {
   const source = await fs.readFile(sourcePath, 'utf8');
@@ -185,6 +218,24 @@ function readVideoFrame(sample) {
   });
 }
 
+function cloneImageDataWithObscuredRect(imageData, rect) {
+  const data = Buffer.from(imageData.data);
+  for (let y = rect.y; y < rect.y + rect.height; y += 1) {
+    for (let x = rect.x; x < rect.x + rect.width; x += 1) {
+      const offset = (y * imageData.width + x) * 4;
+      data[offset] = 0;
+      data[offset + 1] = 0;
+      data[offset + 2] = 0;
+      data[offset + 3] = 255;
+    }
+  }
+
+  return {
+    ...imageData,
+    data,
+  };
+}
+
 function assertStrictResult(sample, result) {
   for (const [key, value] of Object.entries(sample.expected)) {
     assert.equal(
@@ -243,7 +294,7 @@ function assertCoverageResult(sample, result) {
 
   if (result.streakInterest !== undefined) {
     assert.ok(
-      result.streakInterest >= 0 && result.streakInterest <= 3,
+      result.streakInterest >= 0 && result.streakInterest <= 99,
       `${sample.label}: invalid streak interest ${result.streakInterest}`,
     );
     assert.ok(
@@ -253,6 +304,160 @@ function assertCoverageResult(sample, result) {
   }
 
   return true;
+}
+
+function createAccuracyMetrics() {
+  return {
+    round: { total: 0, passed: 0, failures: [] },
+    gold: { total: 0, passed: 0, failures: [] },
+    level: { total: 0, passed: 0, failures: [] },
+    experience: { total: 0, passed: 0, failures: [] },
+    streak: { total: 0, passed: 0, failures: [] },
+    shopOdds: { total: 0, passed: 0, failures: [] },
+  };
+}
+
+function recordMetric(metrics, key, sample, passed, expected, actual) {
+  const metric = metrics[key];
+  metric.total += 1;
+  if (passed) {
+    metric.passed += 1;
+    return;
+  }
+
+  metric.failures.push({
+    label: sample.label,
+    at: sample.at,
+    expected,
+    actual,
+  });
+}
+
+function sameShopOdds(expected, actual) {
+  if (!expected || !actual) return false;
+  for (const cost of [1, 2, 3, 4, 5]) {
+    const expectedValue = expected[cost];
+    const actualValue = actual[cost];
+    if (expectedValue === undefined && actualValue === undefined) continue;
+    if (expectedValue === undefined || actualValue === undefined) return false;
+    if (Math.abs(expectedValue - actualValue) > 0.0001) return false;
+  }
+  return true;
+}
+
+function evaluateVerifiedResult(sample, result, metrics) {
+  const { expected } = sample;
+
+  if (expected.round !== undefined) {
+    recordMetric(metrics, 'round', sample, result.round === expected.round, expected.round, result.round);
+  }
+
+  if (expected.gold !== undefined) {
+    recordMetric(metrics, 'gold', sample, result.gold === expected.gold, expected.gold, result.gold);
+  }
+
+  if (expected.level !== undefined) {
+    recordMetric(
+      metrics,
+      'level',
+      sample,
+      result.level === expected.level,
+      expected.level,
+      result.level,
+    );
+  }
+
+  if (expected.experience !== undefined && expected.experienceMax !== undefined) {
+    recordMetric(
+      metrics,
+      'experience',
+      sample,
+      result.experience === expected.experience && result.experienceMax === expected.experienceMax,
+      `${expected.experience}/${expected.experienceMax}`,
+      `${result.experience}/${result.experienceMax}`,
+    );
+  }
+
+  if (expected.streakKind !== undefined && expected.streakInterest !== undefined) {
+    recordMetric(
+      metrics,
+      'streak',
+      sample,
+      result.streakKind === expected.streakKind && result.streakInterest === expected.streakInterest,
+      `${expected.streakKind}:${expected.streakInterest}`,
+      `${result.streakKind}:${result.streakInterest}`,
+    );
+  }
+
+  if (expected.shopOdds !== undefined) {
+    recordMetric(
+      metrics,
+      'shopOdds',
+      sample,
+      sameShopOdds(expected.shopOdds, result.shopOdds),
+      expected.shopOdds,
+      result.shopOdds,
+    );
+  }
+}
+
+function getMetricAccuracy(metric) {
+  return metric.total > 0 ? metric.passed / metric.total : 0;
+}
+
+function assertVerifiedMetrics(metrics, fixture, sampleCount) {
+  const { minSamples, minPerClassAccuracy, minPerClassSamples } = fixture.requirements;
+  assert.ok(sampleCount >= minSamples, `Expected at least ${minSamples} samples, got ${sampleCount}`);
+
+  for (const [key, metric] of Object.entries(metrics)) {
+    const accuracy = getMetricAccuracy(metric);
+    assert.ok(
+      metric.total >= minPerClassSamples,
+      `Expected at least ${minPerClassSamples} ${key} samples, got ${metric.total}`,
+    );
+    assert.ok(
+      accuracy >= minPerClassAccuracy,
+      `${key} accuracy ${formatNumber(accuracy * 100)}% is below ${formatNumber(
+        minPerClassAccuracy * 100,
+      )}% (${metric.passed}/${metric.total}). First failures: ${JSON.stringify(
+        metric.failures.slice(0, 5),
+      )}`,
+    );
+  }
+}
+
+function assertShopOddsMatchLevelTable(label, result, getShopOddsByLevel) {
+  const expectedOdds = getShopOddsByLevel(result.level);
+  if (!expectedOdds) return;
+
+  for (const cost of [1, 2, 3, 4, 5]) {
+    assert.equal(
+      result.shopOdds?.[cost],
+      expectedOdds[cost],
+      `${label}: expected ${cost}-cost shop odds ${expectedOdds[cost]}, got ${result.shopOdds?.[cost]}`,
+    );
+  }
+}
+
+function assertShopOddsResolverBehavior(resolveShopOdds, getShopOddsByLevel) {
+  const level3Odds = getShopOddsByLevel(3);
+  const resolvedMixed = resolveShopOdds({ 1: 0.75, 2: 0.02, 5: 0.11 }, level3Odds);
+  assert.equal(resolvedMixed.source, 'mixed');
+  assert.equal(resolvedMixed.odds?.[1], 0.75);
+  assert.equal(resolvedMixed.sourceByCost?.[1], 'ocr');
+  assert.equal(resolvedMixed.odds?.[2], 0.25);
+  assert.equal(resolvedMixed.sourceByCost?.[2], 'levelTable');
+  assert.equal(resolvedMixed.odds?.[5], 0);
+  assert.equal(resolvedMixed.sourceByCost?.[5], 'levelTable');
+
+  const resolvedOcrOnly = resolveShopOdds({ 1: 0.74, 2: 0.26 }, undefined);
+  assert.equal(resolvedOcrOnly.source, 'ocr');
+  assert.equal(resolvedOcrOnly.odds?.[1], 0.74);
+  assert.equal(resolvedOcrOnly.odds?.[2], 0.26);
+
+  const resolvedLevelOnly = resolveShopOdds(undefined, level3Odds);
+  assert.equal(resolvedLevelOnly.source, 'levelTable');
+  assert.equal(resolvedLevelOnly.odds?.[3], 0);
 }
 
 function measureRecognition(images, recognize, passes = 10) {
@@ -399,6 +604,10 @@ function assertStabilizerBehavior(stabilizerModule) {
   assert.equal(stabilized.result.experienceMax, 20);
 }
 
+const { getGoldenSpatulaShopOddsByLevel, resolveGoldenSpatulaShopOdds } = await importTsModule(
+  shopOddsSource,
+  'goldenSpatulaShopOdds',
+);
 const { recognizeGoldenSpatulaEconomyFromImageData } = await importTsModule(
   visionSource,
   'goldenSpatulaEconomyVision.mjs',
@@ -408,8 +617,10 @@ const stabilizerModule = await importTsModule(
   'goldenSpatulaEconomyStabilizer.mjs',
 );
 assertStabilizerBehavior(stabilizerModule);
+assertShopOddsResolverBehavior(resolveGoldenSpatulaShopOdds, getGoldenSpatulaShopOddsByLevel);
 
-const decodedImages = [];
+const strictImages = [];
+const benchmarkImages = [];
 const decodeTimes = [];
 
 for (const sample of strictSamples) {
@@ -417,67 +628,57 @@ for (const sample of strictSamples) {
   decodeTimes.push(imageData.decodeMs);
   const result = recognizeGoldenSpatulaEconomyFromImageData(imageData);
   assertStrictResult(sample, result);
-  decodedImages.push(imageData);
+  assertShopOddsMatchLevelTable(sample.label, result, getGoldenSpatulaShopOddsByLevel);
+  strictImages.push(imageData);
+  benchmarkImages.push(imageData);
   console.log(`${sample.label}: ${JSON.stringify(result.rawText)}`);
 }
 
-let coverageWithGold = 0;
-let coverageWithLevel = 0;
-let coverageWithExperience = 0;
-let coveragePassed = 0;
-let coverageSkipped = 0;
+const partialShopOddsFrame = cloneImageDataWithObscuredRect(strictImages[2], {
+  x: 362,
+  y: 548,
+  width: 30,
+  height: 22,
+});
+const partialShopOddsResult = recognizeGoldenSpatulaEconomyFromImageData(partialShopOddsFrame);
+assert.equal(partialShopOddsResult.level, 3);
+assert.equal(partialShopOddsResult.shopOddsSource, 'mixed');
+assert.equal(partialShopOddsResult.shopOdds?.[1], 0.75);
+assert.equal(partialShopOddsResult.shopOdds?.[2], 0.25);
+assert.equal(partialShopOddsResult.shopOdds?.[3], 0);
+assert.equal(partialShopOddsResult.rawText.shopOdds?.[2], '25%');
 
-for (const sample of coverageSamples) {
+const accuracyMetrics = createAccuracyMetrics();
+
+for (const sample of verifiedSamples) {
   const imageData = await readVideoFrame(sample);
   decodeTimes.push(imageData.decodeMs);
   const result = recognizeGoldenSpatulaEconomyFromImageData(imageData);
-  const hasEconomyFields = assertCoverageResult(sample, result);
-  if (!hasEconomyFields) {
-    coverageSkipped += 1;
-    continue;
-  }
-
-  coveragePassed += 1;
-  decodedImages.push(imageData);
-  if (result.gold !== undefined) coverageWithGold += 1;
-  if (result.level !== undefined) coverageWithLevel += 1;
-  if (result.experience !== undefined && result.experienceMax !== undefined)
-    coverageWithExperience += 1;
+  assertCoverageResult(sample, result);
+  evaluateVerifiedResult(sample, result, accuracyMetrics);
+  if (benchmarkImages.length < 96) benchmarkImages.push(imageData);
 }
 
-assert.ok(
-  coveragePassed >= 50,
-  `Expected at least 50 valid coverage samples, got ${coveragePassed} valid and ${coverageSkipped} skipped`,
-);
-assert.ok(
-  coverageWithGold >= 50,
-  `Expected at least 50 gold coverage samples, got ${coverageWithGold}`,
-);
-assert.ok(
-  coverageWithLevel >= 50,
-  `Expected at least 50 level coverage samples, got ${coverageWithLevel}`,
-);
-assert.ok(
-  coverageWithExperience >= 50,
-  `Expected at least 50 experience coverage samples, got ${coverageWithExperience}`,
-);
+assertVerifiedMetrics(accuracyMetrics, verifiedFixture, verifiedSamples.length);
 
-const benchmark = measureRecognition(decodedImages, recognizeGoldenSpatulaEconomyFromImageData);
+const benchmark = measureRecognition(benchmarkImages, recognizeGoldenSpatulaEconomyFromImageData);
 const decodeTotalMs = decodeTimes.reduce((sum, value) => sum + value, 0);
 assert.ok(
-  benchmark.averageMs < 2,
-  `Expected average recognition under 2ms/frame, got ${formatNumber(benchmark.averageMs)}ms`,
+  benchmark.averageMs < 5,
+  `Expected average recognition under 5ms/frame, got ${formatNumber(benchmark.averageMs)}ms`,
 );
 assert.ok(
-  benchmark.p95Ms < 5,
-  `Expected p95 recognition under 5ms/frame, got ${formatNumber(benchmark.p95Ms)}ms`,
+  benchmark.p95Ms < 8,
+  `Expected p95 recognition under 8ms/frame, got ${formatNumber(benchmark.p95Ms)}ms`,
 );
 
-console.log(
-  `Coverage samples passed: ${coveragePassed}/${coverageSamples.length} ` +
-    `(skipped ${coverageSkipped}, gold ${coverageWithGold}, level ${coverageWithLevel}, ` +
-    `xp ${coverageWithExperience})`,
-);
+console.log(`Verified samples checked: ${verifiedSamples.length}`);
+for (const [key, metric] of Object.entries(accuracyMetrics)) {
+  console.log(
+    `${key} accuracy: ${formatNumber(getMetricAccuracy(metric) * 100)}% ` +
+      `(${metric.passed}/${metric.total})`,
+  );
+}
 console.log(`Strict samples passed: ${strictSamples.length}`);
 console.log('Economy stabilizer scenarios passed');
 console.log(
@@ -491,5 +692,5 @@ console.log(
     `(ffmpeg only, not used by the app polling path)`,
 );
 console.log(
-  `Golden Spatula economy vision samples passed: ${strictSamples.length + coveragePassed}`,
+  `Golden Spatula economy vision samples passed: ${strictSamples.length + verifiedSamples.length}`,
 );

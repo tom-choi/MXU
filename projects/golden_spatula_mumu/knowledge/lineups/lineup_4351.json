@@ -148,7 +148,115 @@
   },
   "augment_recommendations": {
     "ids": [1021, 1895, 20563, 30599, 20503, 20619, 20141, 20675],
-    "note": "一经济一战力一装备"
+    "note": "一经济一战力一装备",
+    "priority_ids": [1021, 1895, 20563],
+    "alternative_ids": [30599, 20503, 20619, 20141, 20675],
+    "details": [
+      {
+        "id": 1021,
+        "name": "部分飞升",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1895,
+        "name": "四费增援",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20563,
+        "name": "秘传奥义",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20503,
+        "name": "更要命的战刃",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20619,
+        "name": "双城赢家",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 75,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20141,
+        "name": "专属定制",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20675,
+        "name": "一波带走俩",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：一经济一战力一装备",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期根据来牌判断连胜或者连败；核心是不要主动d牌，保证经济良好。经济够好4杠1上8，经济不够就4杠2上8，",

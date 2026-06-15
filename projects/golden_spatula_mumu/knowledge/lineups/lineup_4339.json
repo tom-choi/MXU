@@ -154,7 +154,115 @@
   },
   "augment_recommendations": {
     "ids": [3008, 20009, 20475, 1147, 20213, 20616, 3158, 2021],
-    "note": "优先大经济海克斯，其次可拿推荐的战力海克斯"
+    "note": "优先大经济海克斯，其次可拿推荐的战力海克斯",
+    "priority_ids": [3008, 20009, 20475],
+    "alternative_ids": [1147, 20213, 20616, 3158, 2021],
+    "details": [
+      {
+        "id": 3008,
+        "name": "升级咯！",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 92,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["leveling"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补升级节奏；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20009,
+        "name": "投资+",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20475,
+        "name": "低调炫耀",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 91,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "item"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补追三/刷新、装备；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1147,
+        "name": "后期专家",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 75,
+        "strength_tier": "C",
+        "level": 1,
+        "role_tags": ["economy", "leveling"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、升级节奏补足阵容短板；通用强度 C",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 C；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20213,
+        "name": "前瞻思维",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "leveling"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、升级节奏补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20616,
+        "name": "利落保镖",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 78,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["reroll", "leveling", "combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、升级节奏、战力补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3158,
+        "name": "耐心学习",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 77,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["leveling"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按升级节奏补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先大经济海克斯，其次可拿推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "血量足够的情况下前中期最好是3未来战士拼多多阵容挂凯隐连胜开局（一般就是3未来或3海魔人拼新星挂凯隐），补充经验能够更快上9.为了保证连胜情况下前期可以快速拉人口（2杠1拉4，2杠5拉5，3杠1拉6，3杠5拉7），如果不能连胜，就靠连败吃刷新次数转其他阵容。",

@@ -142,7 +142,115 @@
   },
   "augment_recommendations": {
     "ids": [2804, 2184, 20234, 1646, 10011, 1148, 20517, 3065],
-    "note": "由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可"
+    "note": "由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+    "priority_ids": [2804, 2184, 20234],
+    "alternative_ids": [1646, 10011, 1148, 20517, 3065],
+    "details": [
+      {
+        "id": 2804,
+        "name": "英勇福袋",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2184,
+        "name": "大百宝袋",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 100,
+        "strength_tier": "OP",
+        "level": 2,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "首选强化：优先级最高，契合经济、装备；通用强度 OP",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 OP；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20234,
+        "name": "三项赛 I",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1646,
+        "name": "团队建设",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10011,
+        "name": "耐心是一种美德",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "B",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1148,
+        "name": "潘朵拉的备战席",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 77,
+        "strength_tier": "contextual",
+        "level": 2,
+        "role_tags": ["economy", "reroll", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新、装备补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 77,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：由于是三费赌狗没那么好三星，所以推荐一个经济符文，之后拿一装备一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期3海魔人搭配男刀过渡与斗士",

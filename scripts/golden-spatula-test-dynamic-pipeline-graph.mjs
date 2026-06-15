@@ -11,6 +11,10 @@ const screenBounds = {
   width: 1280,
   height: 720,
 };
+const scaledScreenBounds = {
+  width: 1600,
+  height: 900,
+};
 
 const rollEvents = new Set([
   'started',
@@ -71,7 +75,7 @@ function asArray(value) {
   return Array.isArray(value) ? value : [value];
 }
 
-function assertRect(rect, label) {
+function assertRect(rect, label, bounds = screenBounds) {
   assert.ok(Array.isArray(rect) && rect.length === 4, `${label}: expected rect`);
   const [x, y, width, height] = rect;
   for (const value of rect) {
@@ -79,19 +83,29 @@ function assertRect(rect, label) {
   }
   assert.ok(x >= 0 && y >= 0, `${label}: rect starts outside screen`);
   assert.ok(width > 0 && height > 0, `${label}: rect size must be positive`);
-  assert.ok(x + width <= screenBounds.width, `${label}: rect exceeds screen width`);
-  assert.ok(y + height <= screenBounds.height, `${label}: rect exceeds screen height`);
+  assert.ok(x + width <= bounds.width, `${label}: rect exceeds screen width`);
+  assert.ok(y + height <= bounds.height, `${label}: rect exceeds screen height`);
 }
 
-function assertClickTarget(target, label) {
+function assertClickTarget(target, label, bounds = screenBounds) {
   assert.ok(Array.isArray(target) && target.length >= 2, `${label}: click target must be point`);
   const [x, y] = target;
   assert.ok(Number.isFinite(x) && Number.isFinite(y), `${label}: click target has non-number`);
   assert.ok(x >= 0 && y >= 0, `${label}: click target starts outside screen`);
   assert.ok(
-    x <= screenBounds.width && y <= screenBounds.height,
+    x <= bounds.width && y <= bounds.height,
     `${label}: click target offscreen`,
   );
+}
+
+function assertScaledRect(rect, label, roll) {
+  const scaledRect = roll.scaleGoldenSpatulaLogicalRectToScreen(rect, scaledScreenBounds);
+  assertRect(scaledRect, `${label}.scaled1600x900`, scaledScreenBounds);
+}
+
+function assertScaledClickTarget(target, label, roll) {
+  const scaledTarget = roll.scaleGoldenSpatulaLogicalTargetToScreen(target, scaledScreenBounds);
+  assertClickTarget(scaledTarget, `${label}.scaled1600x900`, scaledScreenBounds);
 }
 
 function assertThresholdShape(node, label) {
@@ -135,15 +149,17 @@ function assertFocusPayload(payload, label) {
   }
 }
 
-function validateNodeShape(node, label) {
+function validateNodeShape(node, label, roll) {
   assert.ok(node && typeof node === 'object' && !Array.isArray(node), `${label}: node must object`);
 
   if (node.roi !== undefined) {
     assertRect(node.roi, `${label}.roi`);
+    assertScaledRect(node.roi, `${label}.roi`, roll);
   }
 
   if (node.action === 'Click') {
     assertClickTarget(node.target, `${label}.target`);
+    assertScaledClickTarget(node.target, `${label}.target`, roll);
     if (label.includes('#AutoRollBuy_C') && !label.includes('_Verify')) {
       assert.notEqual(node.target, true, `${label}: buy node must use calibrated slot target`);
     }
@@ -179,7 +195,7 @@ function validateNodeShape(node, label) {
   }
 }
 
-function validateGraph(nodes, entry, label) {
+function validateGraph(nodes, entry, label, roll) {
   assert.ok(nodes[entry], `${label}: missing entry ${entry}`);
   const names = new Set(Object.keys(nodes));
   const reachable = new Set();
@@ -193,7 +209,7 @@ function validateGraph(nodes, entry, label) {
     reachable.add(nodeName);
 
     const node = nodes[nodeName];
-    validateNodeShape(node, `${label}#${nodeName}`);
+    validateNodeShape(node, `${label}#${nodeName}`, roll);
     focusPayloads += node.focus ? Object.keys(node.focus).length : 0;
 
     for (const key of ['next', 'on_error']) {
@@ -219,6 +235,19 @@ function validateGraph(nodes, entry, label) {
 
 async function main() {
   const roll = await importRollPipelineModule();
+  assert.deepEqual(roll.goldenSpatulaLogicalScreenSize, {
+    width: 1280,
+    height: 720,
+    shortSide: 720,
+  });
+  assert.deepEqual(
+    roll.scaleGoldenSpatulaLogicalTargetToScreen([640, 360], scaledScreenBounds),
+    [800, 450],
+  );
+  assert.deepEqual(
+    roll.scaleGoldenSpatulaLogicalRectToScreen([325, 580, 158, 125], scaledScreenBounds),
+    [406, 725, 198, 156],
+  );
   const cases = [];
 
   cases.push({
@@ -254,7 +283,7 @@ async function main() {
 
   for (const testCase of cases) {
     const nodes = parsePipeline(testCase.json, testCase.label);
-    const result = validateGraph(nodes, testCase.entry, testCase.label);
+    const result = validateGraph(nodes, testCase.entry, testCase.label, roll);
     nodeCount += result.nodes;
     referenceCount += result.references;
     focusCount += result.focusPayloads;

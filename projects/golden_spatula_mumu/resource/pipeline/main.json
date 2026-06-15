@@ -1321,5 +1321,9 @@
   "AutoLevelRollAndBuyTargets": {
     "action": "Screencap",
     "filename": "auto_level_roll_buy_not_configured"
+  },
+  "AutoPickRecommendedAugment": {
+    "action": "Screencap",
+    "filename": "augment_pick_not_configured"
   }
 }

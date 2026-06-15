@@ -152,7 +152,115 @@
   },
   "augment_recommendations": {
     "ids": [10570, 2021, 20141, 3804, 30599, 30488, 3065, 2069],
-    "note": "1经济2战力最好"
+    "note": "1经济2战力最好",
+    "priority_ids": [10570, 2021, 20141],
+    "alternative_ids": [3804, 30599, 30488, 3065, 2069],
+    "details": [
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20141,
+        "name": "专属定制",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "首选强化：优先级最高，契合经济、装备；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3804,
+        "name": "英勇福袋+",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 84,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30488,
+        "name": "九条命",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 74,
+        "strength_tier": "contextual",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 79,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2069,
+        "name": "DD街区",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：1经济2战力最好",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "2杠1—2杠5：可以搭配3未来战士或者3海魔人开，不论连胜或者连败都有比较高的经济收益",

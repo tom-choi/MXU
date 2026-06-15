@@ -153,7 +153,115 @@
   },
   "augment_recommendations": {
     "ids": [3804, 2021, 20729, 20722, 30034, 1004, 30599, 3851],
-    "note": "必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。"
+    "note": "必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+    "priority_ids": [3804, 2021, 20729],
+    "alternative_ids": [20722, 30034, 1004, 30599, 3851],
+    "details": [
+      {
+        "id": 3804,
+        "name": "英勇福袋+",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20729,
+        "name": "热寂",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20722,
+        "name": "黄金赌约+",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30034,
+        "name": "大而有力",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1004,
+        "name": "明智消费",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 78,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["economy", "reroll", "leveling"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新、升级节奏补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3851,
+        "name": "混沌召唤",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["economy", "reroll", "leveling", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新、升级节奏、装备补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：必备热寂，在保证莫德凯撒三星的情况，尽可能拿飞升类战力。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "正常拼暗星拼重装战士，有法系装备给莫德凯撒在2阶段很强，可以拉人口连胜开，没有装备就正常连败到3杠2在启动",

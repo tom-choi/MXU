@@ -80,6 +80,15 @@ function assertEconomyFocus(payload, event, extra = {}) {
   }
 }
 
+function assertAugmentFocus(payload, event, extra = {}) {
+  assert.equal(payload.scope, 'goldenSpatula.augment');
+  assert.equal(payload.display, 'log');
+  assert.equal(payload.event, event);
+  for (const [key, value] of Object.entries(extra)) {
+    assert.deepEqual(payload[key], value, `unexpected augment focus.${key}`);
+  }
+}
+
 function assertRefreshNode(node, constants) {
   assert.equal(node.recognition, 'TemplateMatch');
   assert.deepEqual(node.template, [
@@ -152,21 +161,49 @@ function assertVerifyNode(node, templatePath, roi, nextNode, unconfirmedNode, co
 
 async function main() {
   const {
+    buildAugmentOcrPipelineOverride,
+    buildAutoPickAugmentPipelineOverride,
     buildAutoLevelRollBuyPipelineOverride,
     buildAutoRollBuyPipelineOverride,
     buildEconomyOcrPipelineOverride,
+    goldenSpatulaAugmentChoiceSlots,
+    goldenSpatulaAugmentOcrEntry,
+    goldenSpatulaAutoPickAugmentEntry,
     goldenSpatulaAutoLevelRollBuyEntry,
     goldenSpatulaAutoBuyAttemptsPerShop,
     goldenSpatulaAutoRollBuyEntry,
     goldenSpatulaBenchChampionSlots,
     goldenSpatulaEconomyOcrEntry,
+    goldenSpatulaLogicalScreenSize,
     goldenSpatulaShopChampionSlots,
+    scaleGoldenSpatulaLogicalRectToScreen,
+    scaleGoldenSpatulaLogicalTargetToScreen,
     ...timingConstants
   } = await importRollPipelineModule();
 
+  const scaledScreen = { width: 1600, height: 900 };
   assert.equal(goldenSpatulaAutoBuyAttemptsPerShop, 5);
   assert.equal(goldenSpatulaShopChampionSlots.length, 5);
   assert.equal(goldenSpatulaBenchChampionSlots.length, 9);
+  assert.equal(goldenSpatulaAugmentChoiceSlots.length, 3);
+  assert.deepEqual(goldenSpatulaLogicalScreenSize, { width: 1280, height: 720, shortSide: 720 });
+  assert.deepEqual(scaleGoldenSpatulaLogicalTargetToScreen([640, 360], scaledScreen), [800, 450]);
+  assert.deepEqual(scaleGoldenSpatulaLogicalTargetToScreen([404, 642, 2, 2], scaledScreen), [
+    505,
+    803,
+    3,
+    3,
+  ]);
+  assert.deepEqual(scaleGoldenSpatulaLogicalRectToScreen([325, 580, 158, 125], scaledScreen), [
+    406,
+    725,
+    198,
+    156,
+  ]);
+  assert.deepEqual(
+    scaleGoldenSpatulaLogicalTargetToScreen(goldenSpatulaAugmentChoiceSlots[1].target, scaledScreen),
+    [800, 398, 3, 3],
+  );
 
   function assertEconomyOcrNode(node, field, nextNode) {
     const expectedByField = {
@@ -453,6 +490,109 @@ async function main() {
   assertEconomyFocus(
     getFocus(getNode(economyNodes, 'EconomyOcr_Done'), 'Node.PipelineNode.Succeeded'),
     'scanned',
+  );
+
+  function assertAugmentOcrNode(node, slot, field, nextNode) {
+    assert.equal(node.recognition, 'OCR');
+    assert.equal(node.expected, '.{1,120}');
+    assert.equal(node.threshold, timingConstants.goldenSpatulaAugmentOcrThreshold);
+    assert.equal(node.order_by, 'Horizontal');
+    assert.deepEqual(node.roi, field === 'title' ? [...slot.titleRoi] : [...slot.descriptionRoi]);
+    assert.equal(node.timeout, timingConstants.goldenSpatulaAugmentOcrTimeoutMs);
+    assert.equal(node.action, 'DoNothing');
+    assert.deepEqual(node.next, [nextNode]);
+    assert.deepEqual(node.on_error, [nextNode]);
+    assertAugmentFocus(getFocus(node, 'Node.Recognition.Succeeded'), 'recognized', {
+      slotIndex: slot.index,
+      slotLabel: slot.label,
+      field,
+    });
+    assertAugmentFocus(getFocus(node, 'Node.Recognition.Failed'), 'scanFailed', {
+      slotIndex: slot.index,
+      slotLabel: slot.label,
+      field,
+    });
+  }
+
+  const augmentNodes = parsePipeline(buildAugmentOcrPipelineOverride());
+  assert.deepEqual(getNode(augmentNodes, goldenSpatulaAugmentOcrEntry).next, ['AugmentOcr_S1_Title']);
+  assertAugmentFocus(
+    getFocus(getNode(augmentNodes, goldenSpatulaAugmentOcrEntry), 'Node.PipelineNode.Succeeded'),
+    'started',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S1_Title'),
+    goldenSpatulaAugmentChoiceSlots[0],
+    'title',
+    'AugmentOcr_S1_Description',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S1_Description'),
+    goldenSpatulaAugmentChoiceSlots[0],
+    'description',
+    'AugmentOcr_S2_Title',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S2_Title'),
+    goldenSpatulaAugmentChoiceSlots[1],
+    'title',
+    'AugmentOcr_S2_Description',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S2_Description'),
+    goldenSpatulaAugmentChoiceSlots[1],
+    'description',
+    'AugmentOcr_S3_Title',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S3_Title'),
+    goldenSpatulaAugmentChoiceSlots[2],
+    'title',
+    'AugmentOcr_S3_Description',
+  );
+  assertAugmentOcrNode(
+    getNode(augmentNodes, 'AugmentOcr_S3_Description'),
+    goldenSpatulaAugmentChoiceSlots[2],
+    'description',
+    'AugmentOcr_Done',
+  );
+  assertAugmentFocus(
+    getFocus(getNode(augmentNodes, 'AugmentOcr_Done'), 'Node.PipelineNode.Succeeded'),
+    'scanned',
+  );
+
+  const pickNodes = parsePipeline(
+    buildAutoPickAugmentPipelineOverride(2, {
+      title: '来个好伙计！',
+      matchedName: '来个好伙计！',
+      score: 83,
+    }),
+  );
+  assert.deepEqual(getNode(pickNodes, goldenSpatulaAutoPickAugmentEntry).next, [
+    'AutoPickRecommendedAugment_Click',
+  ]);
+  assertAugmentFocus(
+    getFocus(getNode(pickNodes, goldenSpatulaAutoPickAugmentEntry), 'Node.PipelineNode.Succeeded'),
+    'started',
+    { slotIndex: 2, slotLabel: '2', title: '来个好伙计！', matchedName: '来个好伙计！', score: 83 },
+  );
+  const pickClickNode = getNode(pickNodes, 'AutoPickRecommendedAugment_Click');
+  assert.equal(pickClickNode.action, 'Click');
+  assert.deepEqual(pickClickNode.target, [...goldenSpatulaAugmentChoiceSlots[1].target]);
+  assert.ok(pickClickNode.target[1] < 450, 'augment pick target must avoid refresh buttons');
+  assert.equal(pickClickNode.post_delay, timingConstants.goldenSpatulaAugmentPickPostDelayMs);
+  assert.deepEqual(pickClickNode.next, ['AutoPickRecommendedAugment_After']);
+  assertAugmentFocus(getFocus(pickClickNode, 'Node.Action.Succeeded'), 'picked', {
+    slotIndex: 2,
+    slotLabel: '2',
+    title: '来个好伙计！',
+    matchedName: '来个好伙计！',
+    score: 83,
+  });
+  assertAugmentFocus(
+    getFocus(getNode(pickNodes, 'AutoPickRecommendedAugment_After'), 'Node.PipelineNode.Succeeded'),
+    'completed',
+    { slotIndex: 2, slotLabel: '2', title: '来个好伙计！', matchedName: '来个好伙计！', score: 83 },
   );
 
   console.log('Golden Spatula roll-buy pipeline test');

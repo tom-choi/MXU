@@ -158,7 +158,115 @@
   },
   "augment_recommendations": {
     "ids": [1021, 10570, 3065, 20141, 20517, 30034, 30488, 30599],
-    "note": "优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的"
+    "note": "优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+    "priority_ids": [1021, 10570, 3065],
+    "alternative_ids": [20141, 20517, 30034, 30488, 30599],
+    "details": [
+      {
+        "id": 1021,
+        "name": "部分飞升",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 96,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20141,
+        "name": "专属定制",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 79,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30034,
+        "name": "大而有力",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 75,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30488,
+        "name": "九条命",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 73,
+        "strength_tier": "contextual",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先刷新类经济与飞升类战力，经济不能太差，后续是需要高人口的",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期依靠3未来战士连胜连败即可（连败给刷新次数，并且星神有概率给体系2星1费，相对收益更高），连胜获得的经验道具不要直接用了，3杠2再用。",

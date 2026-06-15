@@ -142,7 +142,115 @@
   },
   "augment_recommendations": {
     "ids": [10570, 20517, 20242, 2804, 2069, 30488, 30599, 10242],
-    "note": "最好2经济1战力，优先考虑推荐的战力海克斯"
+    "note": "最好2经济1战力，优先考虑推荐的战力海克斯",
+    "priority_ids": [10570, 20517, 20242],
+    "alternative_ids": [2804, 2069, 30488, 30599, 10242],
+    "details": [
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 93,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济、追三/刷新；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20242,
+        "name": "终身黄铜 II",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["reroll", "combat", "trait"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、战力、转职/羁绊；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2804,
+        "name": "英勇福袋",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 83,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2069,
+        "name": "DD街区",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30488,
+        "name": "九条命",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 74,
+        "strength_tier": "contextual",
+        "level": 3,
+        "role_tags": ["flex"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按当前局势补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10242,
+        "name": "终身黄铜 I",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "combat", "trait"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、战力、转职/羁绊补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：最好2经济1战力，优先考虑推荐的战力海克斯",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "定阵前提条件:1.无硬性要求，装备合适，不要太烂即可 2杠1—2杠5：有3未来战士的话装备可以先上，无论连胜连败都能接受，没有就尽量连败吃利息，经济不烂即可。",

@@ -12,14 +12,18 @@
     "active_versions_api": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=active_versions",
     "versions_info_api": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=versions_info",
     "hero_page": "https://www.jinchanchan.fun/hero/v/17_17.17.4_S18",
-    "lineup_page": "https://www.jinchanchan.fun/lineup/v/17_17.17.4_S18"
+    "lineup_page": "https://www.jinchanchan.fun/lineup/v/17_17.17.4_S18",
+    "lineup_api": "https://www.jinchanchan.fun/api/jinchanchan/data?dataType=lineup&versionId=17_17.17.4_S18",
+    "augment_page": "https://www.jinchanchan.fun/hex/v/17_17.17.4_S18",
+    "augment_strength_page": "https://op.gg/zh-cn/tft/meta-trends/augments"
   },
   "counts": {
     "champions": 102,
     "traits": 34,
     "items": 277,
     "augments": 279,
-    "lineups": 41
+    "lineups": 41,
+    "lineup_augment_recommendations": 327
   },
   "active_versions": ["17_17.17.4_S18", "1_1.0.0_S1", "16_17.17.4_S18", "4_17.17.4_S18"],
   "versions_info": [

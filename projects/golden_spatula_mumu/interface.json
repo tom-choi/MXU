@@ -244,6 +244,16 @@
       "resource": ["GoldenSpatulaKnowledge"]
     },
     {
+      "name": "AutoPickRecommendedAugment",
+      "label": "自动领取推荐强化符文",
+      "entry": "AutoPickRecommendedAugment",
+      "default_check": false,
+      "description": "由金铲铲助手面板根据 OCR 分数动态生成点击任务；点击推荐强化符文卡片主体，避开下方刷新按钮。",
+      "group": ["automation"],
+      "controller": ["MuMuAdb"],
+      "resource": ["GoldenSpatulaKnowledge"]
+    },
+    {
       "name": "RecognizeEconomyState",
       "label": "经济 OCR / 数字识别",
       "entry": "RecognizeEconomyState",
@@ -368,7 +378,7 @@
       "label": "点击屏幕中心",
       "entry": "TapKnownPoint",
       "default_check": false,
-      "description": "点击 1280x720 MuMu 画面的中心点。",
+      "description": "点击 720 短边逻辑画面的中心点；1600x900 等 16:9 画面会由 Maa 按比例映射。",
       "group": ["debug"],
       "controller": ["MuMuAdb"],
       "resource": ["GoldenSpatula"]

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef, useId, KeyboardEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Camera, ChevronDown, Check } from 'lucide-react';
+import { Timer, ChevronDown, Check } from 'lucide-react';
 import clsx from 'clsx';
 import { useAppStore } from '@/stores/appStore';
-import type { ScreenshotFrameRate } from '@/types/config';
+import { normalizeScreenshotFrameRate, type ScreenshotFrameRate } from '@/types/config';
 
 interface FrameRateSelectorProps {
   /** 紧凑模式：用于中控台底部工具栏 */
@@ -12,30 +12,24 @@ interface FrameRateSelectorProps {
   className?: string;
 }
 
-// 帧率选项配置
+// 截图间隔选项配置
 const FRAME_RATE_OPTIONS: { value: ScreenshotFrameRate; labelKey: string }[] = [
-  { value: 'unlimited', labelKey: 'screenshot.frameRate.unlimited' },
-  { value: '5', labelKey: 'screenshot.frameRate.fps5' },
-  { value: '1', labelKey: 'screenshot.frameRate.fps1' },
-  { value: '0.2', labelKey: 'screenshot.frameRate.every5s' },
-  { value: '0.033', labelKey: 'screenshot.frameRate.every30s' },
+  { value: '0.25', labelKey: 'screenshot.frameRate.every025s' },
+  { value: '0.5', labelKey: 'screenshot.frameRate.every05s' },
+  { value: '1', labelKey: 'screenshot.frameRate.every1s' },
 ];
 
-/** 根据帧率设置计算帧间隔（毫秒） */
+/** 根据截图间隔设置计算帧间隔（毫秒） */
 export function getFrameInterval(frameRate: ScreenshotFrameRate): number {
-  switch (frameRate) {
-    case 'unlimited':
-      return 0; // 尽可能快
-    case '5':
-      return 200; // 每秒 5 帧
+  switch (normalizeScreenshotFrameRate(frameRate)) {
+    case '0.25':
+      return 250;
+    case '0.5':
+      return 500;
     case '1':
-      return 1000; // 每秒 1 帧
-    case '0.2':
-      return 5000; // 5 秒一帧
-    case '0.033':
-      return 30000; // 30 秒一帧
+      return 1000;
     default:
-      return 200;
+      return 1000;
   }
 }
 
@@ -44,21 +38,38 @@ export function FrameRateSelector({ compact = false, className }: FrameRateSelec
   const { screenshotFrameRate, setScreenshotFrameRate } = useAppStore();
 
   if (compact) {
-    // 紧凑模式：仅下拉框，用于中控台
+    const selectedRate = normalizeScreenshotFrameRate(screenshotFrameRate);
     return (
-      <div className={clsx('flex items-center gap-2', className)}>
-        <Camera className="w-4 h-4 text-text-secondary" />
-        <select
-          value={screenshotFrameRate}
-          onChange={(e) => setScreenshotFrameRate(e.target.value as ScreenshotFrameRate)}
-          className="px-2 py-1 text-sm bg-bg-tertiary border border-border rounded-md text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50"
+      <div
+        className={clsx('flex items-center justify-between gap-2 rounded-md bg-bg-tertiary p-1', className)}
+      >
+        <span className="px-1.5 text-xs text-text-secondary whitespace-nowrap">
+          {t('screenshot.frameRate.shortTitle')}
+        </span>
+        <div
+          className="grid grid-cols-3 gap-1"
+          role="radiogroup"
+          aria-label={t('screenshot.frameRate.title')}
         >
           {FRAME_RATE_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
+            <button
+              key={option.value}
+              type="button"
+              role="radio"
+              aria-checked={selectedRate === option.value}
+              onClick={() => setScreenshotFrameRate(option.value)}
+              className={clsx(
+                'h-7 min-w-12 rounded px-2 text-xs font-medium transition-colors',
+                'focus:outline-none focus:ring-2 focus:ring-accent/50',
+                selectedRate === option.value
+                  ? 'bg-bg-primary text-text-primary shadow-sm ring-1 ring-inset ring-border'
+                  : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary',
+              )}
+            >
               {t(option.labelKey)}
-            </option>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
     );
   }
@@ -68,7 +79,7 @@ export function FrameRateSelector({ compact = false, className }: FrameRateSelec
     <div className={clsx('bg-bg-secondary rounded-xl p-4 border border-border', className)}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Camera className="w-5 h-5 text-accent" />
+          <Timer className="w-5 h-5 text-accent" />
           <div>
             <span className="font-medium text-text-primary">{t('screenshot.frameRate.title')}</span>
             <p className="text-xs text-text-muted mt-0.5">{t('screenshot.frameRate.hint')}</p>
@@ -94,6 +105,7 @@ function FrameRateDropdown({ value, onChange }: FrameRateDropdownProps) {
   const { t } = useTranslation();
   const triggerId = useId();
   const listboxId = useId();
+  const selectedValue = normalizeScreenshotFrameRate(value);
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -101,12 +113,12 @@ function FrameRateDropdown({ value, onChange }: FrameRateDropdownProps) {
   const [activeIndex, setActiveIndex] = useState(() =>
     Math.max(
       0,
-      FRAME_RATE_OPTIONS.findIndex((option) => option.value === value),
+      FRAME_RATE_OPTIONS.findIndex((option) => option.value === selectedValue),
     ),
   );
 
   const selectedOption =
-    FRAME_RATE_OPTIONS.find((option) => option.value === value) ?? FRAME_RATE_OPTIONS[0];
+    FRAME_RATE_OPTIONS.find((option) => option.value === selectedValue) ?? FRAME_RATE_OPTIONS[0];
 
   // 点击外部关闭
   useEffect(() => {
@@ -127,7 +139,7 @@ function FrameRateDropdown({ value, onChange }: FrameRateDropdownProps) {
     if (open) {
       const index = Math.max(
         0,
-        FRAME_RATE_OPTIONS.findIndex((option) => option.value === value),
+        FRAME_RATE_OPTIONS.findIndex((option) => option.value === selectedValue),
       );
       setActiveIndex(index);
       // 使用 setTimeout 确保元素已渲染
@@ -135,7 +147,7 @@ function FrameRateDropdown({ value, onChange }: FrameRateDropdownProps) {
         listboxRef.current?.focus();
       }, 0);
     }
-  }, [open, value]);
+  }, [open, selectedValue]);
 
   const closeAndFocusTrigger = () => {
     setOpen(false);
@@ -219,7 +231,7 @@ function FrameRateDropdown({ value, onChange }: FrameRateDropdownProps) {
           onKeyDown={handleListboxKeyDown}
         >
           {FRAME_RATE_OPTIONS.map((option, index) => {
-            const isSelected = option.value === value;
+            const isSelected = option.value === selectedValue;
             const isActive = index === activeIndex;
             const optionId = `${listboxId}-option-${option.value}`;
             return (

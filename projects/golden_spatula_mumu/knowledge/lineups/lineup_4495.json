@@ -149,7 +149,115 @@
   },
   "augment_recommendations": {
     "ids": [10570, 2021, 20728, 2128, 3093, 3007, 20723, 30599],
-    "note": "补一经济一战力即可"
+    "note": "补一经济一战力即可",
+    "priority_ids": [10570, 2021, 20728],
+    "alternative_ids": [2128, 3093, 3007, 20723, 30599],
+    "details": [
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 98,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2021,
+        "name": "飞升",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20728,
+        "name": "宇宙大爆炸",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 2128,
+        "name": "珠光莲花 I",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 85,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3093,
+        "name": "便携锻炉",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 83,
+        "strength_tier": "OP",
+        "level": 2,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 OP",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 OP；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3007,
+        "name": "潘朵拉的装备 III",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 80,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、装备补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20723,
+        "name": "黄金赌约++",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 80,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30599,
+        "name": "灵魂唤醒",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：补一经济一战力即可",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期不d牌，装备好来牌顺利可以考虑拉人口上体系卡打连胜，否则优先开未来战士/3海魔人连败",

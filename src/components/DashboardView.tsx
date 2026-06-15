@@ -38,6 +38,7 @@ import { stopInstanceTasks } from '@/services/taskStopService';
 import { buildPiEnvVars } from '@/utils/piEnv';
 
 const log = loggers.ui;
+const SCREENSHOT_SUBSCRIPTION_HEARTBEAT_MS = 10_000;
 
 interface InstanceCardProps {
   instanceId: string;
@@ -98,6 +99,7 @@ function InstanceCard({ instanceId, instanceName, isActive, onSelect }: Instance
   const connectionStatus = instanceConnectionStatus[instanceId];
   const taskStatus = instanceTaskStatus[instanceId];
   const isStreaming = instanceScreenshotStreaming[instanceId] ?? false;
+  const screenshotSubscriberId = `dashboard-${instanceId}`;
   const isConnected = connectionStatus === 'Connected';
   const isResourceLoaded = instanceResourceLoaded[instanceId] || false;
 
@@ -406,19 +408,28 @@ function InstanceCard({ instanceId, instanceName, isActive, onSelect }: Instance
     };
   }, []);
 
+  const refreshScreenshotSubscription = useCallback(async () => {
+    if (!instanceId) return;
+
+    const intervalMs = getFrameInterval(screenshotFrameRate);
+    await maaService.screenshotSubscribe(instanceId, screenshotSubscriberId, intervalMs);
+  }, [instanceId, screenshotFrameRate, screenshotSubscriberId]);
+
   // 订阅/退订后端截图循环（确保全局只有一份 post_screencap 在运行）
   useEffect(() => {
     if (!instanceId || !isStreaming) return;
 
-    const intervalMs = getFrameInterval(screenshotFrameRate);
-    maaService
-      .screenshotSubscribe(instanceId, `dashboard-${instanceId}`, intervalMs)
-      .catch(() => {});
+    refreshScreenshotSubscription().catch(() => {});
+
+    const heartbeatId = window.setInterval(() => {
+      refreshScreenshotSubscription().catch(() => {});
+    }, SCREENSHOT_SUBSCRIPTION_HEARTBEAT_MS);
 
     return () => {
-      maaService.screenshotUnsubscribe(instanceId, `dashboard-${instanceId}`).catch(() => {});
+      window.clearInterval(heartbeatId);
+      maaService.screenshotUnsubscribe(instanceId, screenshotSubscriberId).catch(() => {});
     };
-  }, [instanceId, isStreaming, screenshotFrameRate]);
+  }, [instanceId, isStreaming, refreshScreenshotSubscription, screenshotSubscriberId]);
 
   // 响应 store 中 isStreaming 状态变化
   useEffect(() => {
@@ -430,6 +441,26 @@ function InstanceCard({ instanceId, instanceName, isActive, onSelect }: Instance
       streamLoop();
     }
   }, [isStreaming, isConnected, streamLoop]);
+
+  useEffect(() => {
+    if (!instanceId || !isStreaming || !isConnected) return;
+
+    const resumeScreenshotStream = () => {
+      if (document.visibilityState === 'hidden') return;
+
+      streamingRef.current = true;
+      refreshScreenshotSubscription().catch(() => {});
+      streamLoop();
+    };
+
+    window.addEventListener('focus', resumeScreenshotStream);
+    document.addEventListener('visibilitychange', resumeScreenshotStream);
+
+    return () => {
+      window.removeEventListener('focus', resumeScreenshotStream);
+      document.removeEventListener('visibilitychange', resumeScreenshotStream);
+    };
+  }, [instanceId, isStreaming, isConnected, refreshScreenshotSubscription, streamLoop]);
 
   // 连接后自动开始截图流
   const prevConnectedRef = useRef(false);

@@ -138,7 +138,115 @@
   },
   "augment_recommendations": {
     "ids": [20700, 3804, 20723, 3066, 30613, 30665, 3128, 20201],
-    "note": "优先经济复制器类海克斯，保证酒桶三星，其次再补战力"
+    "note": "优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+    "priority_ids": [20700, 3804, 20723],
+    "alternative_ids": [3066, 30613, 30665, 3128, 20201],
+    "details": [
+      {
+        "id": 20700,
+        "name": "自我毁灭",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 100,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["combat"],
+        "selection_decision": "首选强化：优先级最高，契合战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3804,
+        "name": "英勇福袋+",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20723,
+        "name": "黄金赌约++",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["economy", "item"],
+        "selection_decision": "首选强化：优先级最高，契合经济、装备；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3066,
+        "name": "新人入队",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 80,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30613,
+        "name": "正义报复",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["combat", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30665,
+        "name": "甜点",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 81,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["reroll", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3128,
+        "name": "珠光莲花 II",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20201,
+        "name": "火爆甩卖",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 75,
+        "strength_tier": "contextual",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板",
+        "reason": "阵容来源列为可替代推荐；通用榜单未稳定匹配，按阵容上下文评估；阵容备注：优先经济复制器类海克斯，保证酒桶三星，其次再补战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "酒桶有装备直接给，前期开斗士开暗星很轻易连胜开。连胜不了没事，中期酒桶能三才是关键",

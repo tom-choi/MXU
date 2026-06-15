@@ -28,6 +28,10 @@ const screenBounds = {
   width: 1280,
   height: 720,
 };
+const scaledScreenBounds = {
+  width: 1600,
+  height: 900,
+};
 
 const criticalEntries = [
   'BeginnerTutorialFullRun',
@@ -221,7 +225,7 @@ function templateBaseDirForPipeline(pipelinePath) {
     : path.join(projectRoot, 'resource', 'image');
 }
 
-function hasValidPoint(point) {
+function hasValidPoint(point, bounds = screenBounds) {
   if (!Array.isArray(point) || point.length < 2) return false;
   const [x, y] = point;
   return (
@@ -229,12 +233,12 @@ function hasValidPoint(point) {
     Number.isFinite(y) &&
     x >= 0 &&
     y >= 0 &&
-    x <= screenBounds.width &&
-    y <= screenBounds.height
+    x <= bounds.width &&
+    y <= bounds.height
   );
 }
 
-function hasValidRect(rect) {
+function hasValidRect(rect, bounds = screenBounds) {
   if (!Array.isArray(rect) || rect.length < 4) return false;
   const [x, y, width, height] = rect;
   return (
@@ -246,9 +250,20 @@ function hasValidRect(rect) {
     y >= 0 &&
     width > 0 &&
     height > 0 &&
-    x <= screenBounds.width &&
-    y <= screenBounds.height
+    x + width <= bounds.width &&
+    y + height <= bounds.height
   );
+}
+
+function scaleLogicalRect(rect, bounds = scaledScreenBounds) {
+  const scaleX = bounds.width / screenBounds.width;
+  const scaleY = bounds.height / screenBounds.height;
+  return [
+    Math.round(rect[0] * scaleX),
+    Math.round(rect[1] * scaleY),
+    Math.max(1, Math.round(rect[2] * scaleX)),
+    Math.max(1, Math.round(rect[3] * scaleY)),
+  ];
 }
 
 function findTemplateRefs(node) {
@@ -292,8 +307,21 @@ function validateActionTargets(node, location, errors, warnings) {
 
   if (node.roi !== undefined && !hasValidRect(node.roi)) {
     warnings.push(
-      `${location}: roi is outside expected 1280x720 bounds: ${JSON.stringify(node.roi)}`,
+      `${location}: roi is outside expected 720-short-side logical bounds: ${JSON.stringify(
+        node.roi,
+      )}`,
     );
+  }
+
+  if (node.roi !== undefined && hasValidRect(node.roi)) {
+    const scaledRoi = scaleLogicalRect(node.roi);
+    if (!hasValidRect(scaledRoi, scaledScreenBounds)) {
+      warnings.push(
+        `${location}: roi does not map inside 1600x900 screen bounds: ${JSON.stringify(
+          scaledRoi,
+        )}`,
+      );
+    }
   }
 }
 

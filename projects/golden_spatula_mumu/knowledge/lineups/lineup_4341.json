@@ -149,7 +149,115 @@
   },
   "augment_recommendations": {
     "ids": [1147, 20475, 20027, 20661, 20698, 20041, 4009, 3008],
-    "note": "首选经济类海克斯，可适当补充装备类战力"
+    "note": "首选经济类海克斯，可适当补充装备类战力",
+    "priority_ids": [1147, 20475, 20027],
+    "alternative_ids": [20661, 20698, 20041, 4009, 3008],
+    "details": [
+      {
+        "id": 1147,
+        "name": "后期专家",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 90,
+        "strength_tier": "C",
+        "level": 1,
+        "role_tags": ["economy", "leveling"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补经济、升级节奏；通用强度 C",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 C；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20475,
+        "name": "低调炫耀",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 96,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "item"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、装备；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20027,
+        "name": "爆炸式增长",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 88,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["leveling"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补升级节奏；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20661,
+        "name": "后期收益",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 80,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["reroll", "leveling", "combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、升级节奏、战力补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20698,
+        "name": "镀金钢铁",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、战力补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20041,
+        "name": "双排",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 81,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 4009,
+        "name": "最小巨人",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 77,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3008,
+        "name": "升级咯！",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 73,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["leveling"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按升级节奏补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：首选经济类海克斯，可适当补充装备类战力",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期用3未来战士或者3海魔人搭配新星弈子过渡，薇古丝装备前期可给伊泽瑞尔带，能连胜开最好，不能连胜开建议中期考虑转其他阵容",

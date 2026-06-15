@@ -67,6 +67,28 @@ export interface GoldenSpatulaTemplateManifest {
   entries?: unknown[];
 }
 
+export interface GoldenSpatulaChampionSkill {
+  name?: string;
+  description?: string;
+  briefValue?: string;
+  valueDescription?: string;
+  icon?: string;
+}
+
+export interface GoldenSpatulaChampionStat {
+  level?: number;
+  sellPrice?: number;
+  armor?: number;
+  attackRange?: number;
+  attackSpeed?: number;
+  criticalStrikeChance?: number;
+  attackDamage?: number;
+  hp?: number;
+  initialMana?: number;
+  magicResist?: number;
+  maxMana?: number;
+}
+
 export interface GoldenSpatulaChampionAsset {
   id?: number;
   name: string;
@@ -75,12 +97,34 @@ export interface GoldenSpatulaChampionAsset {
   templateAvailable?: boolean;
   cost?: number;
   traits?: string[];
+  skill?: GoldenSpatulaChampionSkill;
+  stats?: GoldenSpatulaChampionStat[];
 }
 
 export type GoldenSpatulaChampionAssetIndex = Record<string, GoldenSpatulaChampionAsset>;
 export type GoldenSpatulaItemAsset = GoldenSpatulaChampionAsset;
 export type GoldenSpatulaItemAssetIndex = Record<string, GoldenSpatulaItemAsset>;
-export type GoldenSpatulaAugmentAsset = GoldenSpatulaChampionAsset;
+export interface GoldenSpatulaTraitAsset extends GoldenSpatulaChampionAsset {
+  slug?: string;
+  description?: string;
+  effect?: string;
+  aliases?: string[];
+  thresholds?: number[];
+  members?: Array<{
+    id?: number;
+    name: string;
+    cost?: number;
+  }>;
+}
+export type GoldenSpatulaTraitAssetIndex = Record<string, GoldenSpatulaTraitAsset>;
+export interface GoldenSpatulaAugmentAsset extends GoldenSpatulaChampionAsset {
+  slug?: string;
+  level?: number;
+  description?: string;
+  aliases?: string[];
+  isLegend?: boolean;
+  heroEnhancementType?: string;
+}
 export type GoldenSpatulaAugmentAssetIndex = Record<string, GoldenSpatulaAugmentAsset>;
 
 export type GoldenSpatulaTemplateCategory = 'champions' | 'items' | 'traits' | 'augments';
@@ -98,6 +142,7 @@ export interface GoldenSpatulaAssistantData {
   strategy: GoldenSpatulaFileLoad<GoldenSpatulaStrategyData>;
   championAssets: GoldenSpatulaFileLoad<GoldenSpatulaChampionAssetIndex>;
   itemAssets: GoldenSpatulaFileLoad<GoldenSpatulaItemAssetIndex>;
+  traitAssets: GoldenSpatulaFileLoad<GoldenSpatulaTraitAssetIndex>;
   augmentAssets: GoldenSpatulaFileLoad<GoldenSpatulaAugmentAssetIndex>;
   templates: GoldenSpatulaTemplateCategoryStatus[];
   loadedAt: number;
@@ -126,6 +171,35 @@ export interface GoldenSpatulaLineupAugmentRecommendations {
   alternativeIds?: number[];
   ids?: number[];
   note?: string;
+  details?: GoldenSpatulaLineupAugmentRecommendationDetail[];
+}
+
+export type GoldenSpatulaLineupAugmentRecommendationGroup =
+  | 'priority'
+  | 'alternative'
+  | 'recommended';
+
+export type GoldenSpatulaLineupAugmentStrengthTier =
+  | 'OP'
+  | 'S'
+  | 'A'
+  | 'B'
+  | 'C'
+  | 'contextual'
+  | 'unknown';
+
+export interface GoldenSpatulaLineupAugmentRecommendationDetail {
+  id: number;
+  name?: string;
+  group?: GoldenSpatulaLineupAugmentRecommendationGroup;
+  rank?: number;
+  recommendationIndex?: number;
+  strengthTier?: GoldenSpatulaLineupAugmentStrengthTier;
+  level?: number;
+  roleTags?: string[];
+  selectionDecision?: string;
+  reason?: string;
+  source?: string;
 }
 
 export interface GoldenSpatulaLineupVariant {
@@ -213,6 +287,7 @@ export type GoldenSpatulaRecognitionKind =
   | 'basicItems'
   | 'completedItems'
   | 'specialItems'
+  | 'augments'
   | 'streak'
   | 'traits';
 
@@ -343,9 +418,21 @@ export type GoldenSpatulaEconomyEventKind =
   | 'completed'
   | 'notReady';
 
-export type GoldenSpatulaEconomyField = 'round' | 'gold' | 'level' | 'experience' | 'streak';
+export type GoldenSpatulaEconomyField =
+  | 'round'
+  | 'gold'
+  | 'level'
+  | 'experience'
+  | 'streak'
+  | 'shopOdds';
 
 export type GoldenSpatulaEconomyStreakKind = 'win' | 'loss' | 'none' | 'unknown';
+
+export type GoldenSpatulaShopCost = 1 | 2 | 3 | 4 | 5;
+
+export type GoldenSpatulaShopOddsByCost = Partial<Record<GoldenSpatulaShopCost, number>>;
+
+export type GoldenSpatulaShopOddsSource = 'ocr' | 'levelTable' | 'mixed';
 
 export interface GoldenSpatulaEconomySnapshot {
   round?: string;
@@ -355,6 +442,8 @@ export interface GoldenSpatulaEconomySnapshot {
   experienceMax?: number;
   streakKind?: GoldenSpatulaEconomyStreakKind;
   streakInterest?: number;
+  shopOdds?: GoldenSpatulaShopOddsByCost;
+  shopOddsSource?: GoldenSpatulaShopOddsSource;
   estimatedGoldDelta: number;
   boughtChampionGold: number;
   refreshGold: number;
@@ -374,6 +463,8 @@ export interface GoldenSpatulaEconomyEvent {
   experienceMax?: number;
   streakKind?: GoldenSpatulaEconomyStreakKind;
   streakInterest?: number;
+  shopOdds?: GoldenSpatulaShopOddsByCost;
+  shopOddsSource?: GoldenSpatulaShopOddsSource;
   goldDelta?: number;
   rawText?: string;
   targetName?: string;
@@ -395,6 +486,10 @@ export type GoldenSpatulaKnowledgeEventKind =
   | 'shopChampionHit'
   | 'shopSlotMiss'
   | 'shopScanCompleted'
+  | 'selectedAugmentScanStarted'
+  | 'selectedAugmentHit'
+  | 'selectedAugmentSlotMiss'
+  | 'selectedAugmentScanCompleted'
   | 'itemScanStarted'
   | 'itemHit'
   | 'itemScanCompleted'
@@ -417,11 +512,13 @@ export interface GoldenSpatulaKnowledgeEvent {
   slotIndex?: number;
   slotLabel?: string;
   championName?: string;
+  augmentName?: string;
   templatePath?: string;
   itemKind?: GoldenSpatulaKnowledgeItemKind;
   zone?: GoldenSpatulaKnowledgeItemZone;
   streakKind?: GoldenSpatulaKnowledgeStreakKind;
   streakCount?: number;
+  score?: number;
   rawText?: string;
   message: string;
   nodeName?: string;
@@ -445,6 +542,16 @@ export interface GoldenSpatulaKnowledgeItemState {
   updatedAt: number;
 }
 
+export interface GoldenSpatulaKnowledgeSelectedAugmentState {
+  slotIndex: number;
+  slotLabel?: string;
+  augmentName?: string;
+  templatePath?: string;
+  confidence: GoldenSpatulaKnowledgeSlotConfidence;
+  score?: number;
+  updatedAt: number;
+}
+
 export interface GoldenSpatulaKnowledgeStreakSideState {
   kind: GoldenSpatulaKnowledgeStreakKind;
   count?: number;
@@ -456,6 +563,7 @@ export interface GoldenSpatulaKnowledgeStreakSideState {
 export interface GoldenSpatulaKnowledgeScanState {
   active: boolean;
   shopSlots: Record<number, GoldenSpatulaKnowledgeShopSlotState>;
+  selectedAugments: Record<number, GoldenSpatulaKnowledgeSelectedAugmentState>;
   items: Record<string, GoldenSpatulaKnowledgeItemState>;
   streak: Partial<Record<GoldenSpatulaKnowledgeStreakKind, GoldenSpatulaKnowledgeStreakSideState>>;
   startedAt?: number;
@@ -475,6 +583,10 @@ export type GoldenSpatulaDecisionReason =
   | 'recommendedCarry'
   | 'recommendedOverlap'
   | 'nearUpgrade'
+  | 'shopVisible'
+  | 'itemFit'
+  | 'stageFit'
+  | 'streakPressure'
   | 'highCostPower'
   | 'cheapTransition'
   | 'traitBridge'
@@ -488,9 +600,110 @@ export type GoldenSpatulaEconomyDecisionAction = 'roll' | 'save' | 'level' | 'ho
 
 export type GoldenSpatulaDecisionConfidence = 'high' | 'medium' | 'low';
 
+export type GoldenSpatulaTempoPhase = 'early' | 'mid' | 'late' | 'unknown';
+
+export type GoldenSpatulaStreakPressure = 'push' | 'preserve' | 'neutral';
+
+export type GoldenSpatulaRollDecisionFactor =
+  | 'healthPressure'
+  | 'combatGap'
+  | 'targetClarity'
+  | 'pairsAndOuts'
+  | 'economyMargin';
+
+export type GoldenSpatulaRollDecisionBand = 'none' | 'smallRoll' | 'rollToQuality';
+
+export type GoldenSpatulaRoundPolicyCheckpoint =
+  | '2-1'
+  | '2-5'
+  | '3-2'
+  | '3-5'
+  | '4-1'
+  | '4-2'
+  | '5-1';
+
+export type GoldenSpatulaRoundPolicyKind =
+  | 'streakPush'
+  | 'standardLevel'
+  | 'rerollWindow'
+  | 'fourCostLaunch'
+  | 'lateCap'
+  | 'interest';
+
+export interface GoldenSpatulaRoundPolicyRecommendation {
+  checkpoint: GoldenSpatulaRoundPolicyCheckpoint;
+  kind: GoldenSpatulaRoundPolicyKind;
+  action: GoldenSpatulaEconomyDecisionAction;
+  confidence: GoldenSpatulaDecisionConfidence;
+  targetLevel?: number;
+  bankFloor?: number;
+  recommendedRollCount?: number;
+  focusCost?: GoldenSpatulaShopCost;
+}
+
+export interface GoldenSpatulaRollDecisionFactorScore {
+  score: number;
+  available: boolean;
+}
+
+export interface GoldenSpatulaRollDecisionScoreBreakdown {
+  total: number;
+  band: GoldenSpatulaRollDecisionBand;
+  factors: Record<GoldenSpatulaRollDecisionFactor, GoldenSpatulaRollDecisionFactorScore>;
+  topTargetName?: string;
+  stopLineTargetNames: string[];
+  unknownFactors: GoldenSpatulaRollDecisionFactor[];
+}
+
+export type GoldenSpatulaBenchDecisionKind = 'fantasy' | 'transition' | 'directUpgrade' | 'core';
+
+export interface GoldenSpatulaBenchSellCandidate {
+  name: string;
+  count: number;
+  benchCount: number;
+  sellGold: number;
+  kind: GoldenSpatulaBenchDecisionKind;
+  score?: number;
+  reasons: GoldenSpatulaDecisionReason[];
+}
+
+export interface GoldenSpatulaBenchInterestAdvice {
+  interestGoldNeeded?: number;
+  sellGoldAvailable: number;
+  canReachNextInterest: boolean;
+  sellCandidates: GoldenSpatulaBenchSellCandidate[];
+  preservedNames: string[];
+}
+
+export interface GoldenSpatulaPickScoreBreakdown {
+  base: number;
+  bonuses: {
+    owned: number;
+    nearUpgrade: number;
+    shopVisible: number;
+    itemFit: number;
+  };
+  penalty: number;
+  beforeMultipliers: number;
+  multipliers: {
+    role: number;
+    shopOdds: number;
+    copiesUrgency: number;
+    acquisitionEfficiency: number;
+    acquisitionFeasibility: number;
+    goldPressure: number;
+    completionChance: number;
+    expectedHitRate: number;
+    tempo: number;
+    level: number;
+  };
+  final: number;
+}
+
 export interface GoldenSpatulaPickRecommendation {
   name: string;
   score: number;
+  scoreBreakdown: GoldenSpatulaPickScoreBreakdown;
   tier: GoldenSpatulaDecisionTier;
   role: GoldenSpatulaDecisionRole;
   cost?: number;
@@ -501,10 +714,31 @@ export interface GoldenSpatulaPickRecommendation {
   rollTargetPriority: number;
   currentLevel?: number;
   shopOdds?: number;
+  shopOddsSource?: GoldenSpatulaShopOddsSource;
   shopOddsAvailability: GoldenSpatulaShopOddsAvailability;
+  nextLevel?: number;
+  nextLevelShopOdds?: number;
+  levelUpShopOddsGain?: number;
+  shopVisibleCount?: number;
+  observedItemMatchCount?: number;
+  matchedItemNames?: string[];
+  acquisitionExpectedRolls?: number;
+  acquisitionExpectedSpend?: number;
+  acquisitionCompletionChance?: number;
   traitTags: string[];
   sourceLineupNames: string[];
   reasons: GoldenSpatulaDecisionReason[];
+}
+
+export interface GoldenSpatulaTransitionLineupScoreBreakdown {
+  sharedTraitScore: number;
+  unitCountScore: number;
+  sourceWeightScore: number;
+  unitScore: number;
+  coreReachRatio: number;
+  spendPressurePenalty: number;
+  beforePenalty: number;
+  final: number;
 }
 
 export interface GoldenSpatulaTransitionLineupRecommendation {
@@ -512,16 +746,45 @@ export interface GoldenSpatulaTransitionLineupRecommendation {
   variantId: string;
   name: string;
   score: number;
+  scoreBreakdown: GoldenSpatulaTransitionLineupScoreBreakdown;
   quality?: string;
   version?: string;
   matchedUnitNames: string[];
+  shopVisibleUnitNames?: string[];
+  itemFitNames?: string[];
+  blockedUnitNames?: string[];
   traitTags: string[];
+}
+
+export interface GoldenSpatulaEconomyDecisionBreakdown {
+  urgentPickCount: number;
+  tempoPickCount: number;
+  levelLockedPickCount: number;
+  topPickScore?: number;
+  topRollTargetPriority?: number;
+  nearUpgrade: boolean;
+  highCostPlan: boolean;
+  criticalLevelLockedNeed: boolean;
+  levelUpTargetName?: string;
+  levelUpLevel?: number;
+  levelUpXpNeeded?: number;
+  levelUpGoldNeeded?: number;
+  levelUpShopOddsGain?: number;
+  levelUpNextShopOdds?: number;
+  rollDecisionScore: GoldenSpatulaRollDecisionScoreBreakdown;
+  roundPolicy?: GoldenSpatulaRoundPolicyRecommendation;
+  tempoPhase: GoldenSpatulaTempoPhase;
+  streakPressure: GoldenSpatulaStreakPressure;
+  projectedRollBudget?: number;
 }
 
 export interface GoldenSpatulaEconomyDecisionAdvice {
   action: GoldenSpatulaEconomyDecisionAction;
   confidence: GoldenSpatulaDecisionConfidence;
   recommendedRollCount: number;
+  recommendedXpPurchaseCount?: number;
+  breakdown: GoldenSpatulaEconomyDecisionBreakdown;
+  benchInterestAdvice?: GoldenSpatulaBenchInterestAdvice;
   gold?: number;
   level?: number;
   interestGoldNeeded?: number;

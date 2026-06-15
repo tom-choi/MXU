@@ -99,8 +99,15 @@ export interface RecentlyClosedInstance {
 // MirrorChyan 更新频道
 export type UpdateChannel = 'stable' | 'beta';
 
-// 截图帧率类型
-export type ScreenshotFrameRate = 'unlimited' | '5' | '1' | '0.2' | '0.033';
+// 截图刷新间隔类型；保留旧版帧率值用于读取历史配置。
+export type ScreenshotFrameRate =
+  | '0.25'
+  | '0.5'
+  | '1'
+  | 'unlimited'
+  | '5'
+  | '0.2'
+  | '0.033';
 
 // MirrorChyan 设置
 export interface MirrorChyanSettings {
@@ -197,6 +204,23 @@ export const defaultMirrorChyanSettings: MirrorChyanSettings = {
 
 // 默认截图帧率
 export const defaultScreenshotFrameRate: ScreenshotFrameRate = '1';
+
+export function normalizeScreenshotFrameRate(rate?: string): ScreenshotFrameRate {
+  switch (rate) {
+    case '0.25':
+    case '0.5':
+    case '1':
+      return rate;
+    case 'unlimited':
+    case '5':
+      return '0.25';
+    case '0.2':
+    case '0.033':
+      return '1';
+    default:
+      return defaultScreenshotFrameRate;
+  }
+}
 
 // 添加任务面板高度约束
 export const addTaskPanelHeightMin = 100;

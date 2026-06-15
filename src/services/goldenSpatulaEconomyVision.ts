@@ -1,3 +1,15 @@
+import type {
+  GoldenSpatulaShopCost,
+  GoldenSpatulaShopOddsByCost,
+  GoldenSpatulaShopOddsSource,
+} from '@/types/goldenSpatula';
+import {
+  getGoldenSpatulaShopOddsDisplayText,
+  getGoldenSpatulaShopOddsByLevel,
+  goldenSpatulaShopOddsCosts,
+  resolveGoldenSpatulaShopOdds,
+} from './goldenSpatulaShopOdds';
+
 export interface GoldenSpatulaEconomyVisionResult {
   round?: string;
   gold?: number;
@@ -6,12 +18,15 @@ export interface GoldenSpatulaEconomyVisionResult {
   experienceMax?: number;
   streakKind?: GoldenSpatulaEconomyVisionStreakKind;
   streakInterest?: number;
+  shopOdds?: GoldenSpatulaShopOddsByCost;
+  shopOddsSource?: GoldenSpatulaShopOddsSource;
   rawText: {
     round?: string;
     gold?: string;
     level?: string;
     experience?: string;
     streak?: string;
+    shopOdds?: Partial<Record<GoldenSpatulaShopCost, string>>;
   };
 }
 
@@ -68,6 +83,26 @@ const economyRects: Record<EconomyField, Rect> = {
   experience: { x: 250, y: 548, width: 65, height: 16 },
   streak: { x: 720, y: 532, width: 70, height: 42 },
 };
+
+const roundCandidateRects: Rect[] = [
+  { x: 420, y: 0, width: 80, height: 34 },
+  { x: 430, y: 0, width: 64, height: 34 },
+  economyRects.round,
+  { x: 488, y: 0, width: 82, height: 34 },
+  { x: 488, y: 2, width: 94, height: 30 },
+  { x: 472, y: 0, width: 126, height: 34 },
+  { x: 448, y: 0, width: 172, height: 40 },
+];
+
+const shopOddsCostRects: Record<GoldenSpatulaShopCost, Rect> = {
+  1: { x: 321, y: 548, width: 30, height: 22 },
+  2: { x: 362, y: 548, width: 30, height: 22 },
+  3: { x: 402, y: 548, width: 28, height: 22 },
+  4: { x: 442, y: 548, width: 28, height: 22 },
+  5: { x: 483, y: 548, width: 28, height: 22 },
+};
+
+const reliableExperienceMaxValues = new Set([2, 6, 10, 20, 36, 56, 60, 68, 80]);
 
 const digitTemplates: Record<string, string[][]> = {
   '0': [
@@ -126,6 +161,20 @@ const digitTemplates: Record<string, string[][]> = {
       '01111110',
       '01111110',
       '00111100',
+    ],
+    [
+      '00111100',
+      '00111111',
+      '01111111',
+      '01100111',
+      '01100111',
+      '01100111',
+      '11100111',
+      '11100111',
+      '01100111',
+      '01100111',
+      '00111111',
+      '00111110',
     ],
   ],
   '1': [
@@ -229,6 +278,20 @@ const digitTemplates: Record<string, string[][]> = {
       '11111111',
       '11111111',
     ],
+    [
+      '00001110',
+      '00001111',
+      '00001111',
+      '11000011',
+      '10000011',
+      '00000011',
+      '00001110',
+      '00001110',
+      '00011110',
+      '01111000',
+      '01111111',
+      '01111111',
+    ],
   ],
   '3': [
     [
@@ -319,6 +382,20 @@ const digitTemplates: Record<string, string[][]> = {
       '11111110',
       '00111100',
     ],
+    [
+      '01111000',
+      '01110000',
+      '01110000',
+      '01110000',
+      '01110000',
+      '00100111',
+      '00000111',
+      '00000011',
+      '10000011',
+      '11000011',
+      '11111111',
+      '01111110',
+    ],
   ],
   '6': [
     [
@@ -379,6 +456,20 @@ const digitTemplates: Record<string, string[][]> = {
       '01100000',
       '01100000',
     ],
+    [
+      '00001111',
+      '00001111',
+      '00001100',
+      '00001100',
+      '00001100',
+      '00111100',
+      '00110000',
+      '00110000',
+      '11110000',
+      '11110000',
+      '11110000',
+      '11000000',
+    ],
   ],
   '8': [
     [
@@ -413,6 +504,36 @@ const digitTemplates: Record<string, string[][]> = {
     ],
   ],
 };
+
+digitTemplates['3'].push([
+  '01111110',
+  '01111110',
+  '00001100',
+  '00011100',
+  '00011100',
+  '00011110',
+  '00001110',
+  '00000111',
+  '11000111',
+  '11111110',
+  '11111110',
+  '00111000',
+]);
+
+digitTemplates['9'].push([
+  '00011000',
+  '01111110',
+  '01000110',
+  '11000011',
+  '11000011',
+  '11000011',
+  '01111111',
+  '00111110',
+  '00000110',
+  '00001100',
+  '00011000',
+  '00110000',
+]);
 
 function createImage(dataUrl: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -473,21 +594,56 @@ function cropImageData(
   };
 }
 
-function isGlyphPixel(r: number, g: number, b: number): boolean {
+function isNeutralGlyphPixel(r: number, g: number, b: number): boolean {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   const luma = 0.299 * r + 0.587 * g + 0.114 * b;
   return luma > 145 && max - min < 100 && !(g > 145 && b > 90 && r < 120);
 }
 
-function buildMask(imageData: GoldenSpatulaEconomyImageData): boolean[][] {
+function isGlyphPixel(r: number, g: number, b: number): boolean {
+  const neutralText = isNeutralGlyphPixel(r, g, b);
+  const warmHudText = r > 155 && g > 120 && g < 225 && b < 120;
+  return neutralText || warmHudText;
+}
+
+function isShopOddsGlyphPixel(r: number, g: number, b: number): boolean {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+  const dimNeutralText = luma > 88 && max - min < 82;
+  const saturatedText = max > 105 && max - min > 34;
+  const brightText = luma > 135 && max > 150;
+  return dimNeutralText || saturatedText || brightText;
+}
+
+function isRoundGlyphPixel(r: number, g: number, b: number): boolean {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+  const dimNeutralText = luma > 72 && max - min < 78;
+  const dimWarmHudText = r > 92 && g > 78 && b < 88 && max - min < 92;
+  return isGlyphPixel(r, g, b) || dimNeutralText || dimWarmHudText;
+}
+
+function isStreakGlyphPixel(r: number, g: number, b: number): boolean {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+  return min > 115 && luma > 130 && max - min < 80;
+}
+
+function buildMask(
+  imageData: GoldenSpatulaEconomyImageData,
+  isActivePixel = isGlyphPixel,
+): boolean[][] {
   const mask: boolean[][] = [];
   for (let y = 0; y < imageData.height; y += 1) {
     const row: boolean[] = [];
     for (let x = 0; x < imageData.width; x += 1) {
       const offset = (y * imageData.width + x) * 4;
       row.push(
-        isGlyphPixel(
+        isActivePixel(
           imageData.data[offset] ?? 0,
           imageData.data[offset + 1] ?? 0,
           imageData.data[offset + 2] ?? 0,
@@ -496,6 +652,52 @@ function buildMask(imageData: GoldenSpatulaEconomyImageData): boolean[][] {
     }
     mask.push(row);
   }
+  return mask;
+}
+
+function trimStreakMask(mask: boolean[][]): boolean[][] {
+  const height = mask.length;
+  const top = Math.floor(height * 0.36);
+  const bottom = Math.ceil(height * 0.83);
+
+  return mask.map((row, y) =>
+    row.map((value) => value && y >= top && y <= bottom),
+  );
+}
+
+function buildMaskFromRect(
+  imageData: GoldenSpatulaEconomyImageData,
+  rect: Rect,
+  isActivePixel = isGlyphPixel,
+): boolean[][] {
+  const mask: boolean[][] = [];
+  const source = imageData.data;
+
+  for (let y = 0; y < rect.height; y += 1) {
+    const row: boolean[] = [];
+    const sourceY = rect.y + y;
+    const sourceRowOffset = sourceY * imageData.width * 4;
+    const outsideY = sourceY < 0 || sourceY >= imageData.height;
+
+    for (let x = 0; x < rect.width; x += 1) {
+      const sourceX = rect.x + x;
+      if (outsideY || sourceX < 0 || sourceX >= imageData.width) {
+        row.push(false);
+        continue;
+      }
+
+      const offset = sourceRowOffset + sourceX * 4;
+      row.push(
+        isActivePixel(
+          source[offset] ?? 0,
+          source[offset + 1] ?? 0,
+          source[offset + 2] ?? 0,
+        ),
+      );
+    }
+    mask.push(row);
+  }
+
   return mask;
 }
 
@@ -554,6 +756,12 @@ function isDigitSized(component: GlyphComponent): boolean {
   return width >= 3 && width <= 18 && height >= 8 && height <= 24;
 }
 
+function isStreakDigitSized(component: GlyphComponent): boolean {
+  const width = componentWidth(component);
+  const height = componentHeight(component);
+  return width >= 2 && width <= 24 && height >= 8 && height <= 34;
+}
+
 function componentToBits(mask: boolean[][], component: GlyphComponent): string[] {
   const rows: string[] = [];
   const width = componentWidth(component);
@@ -605,8 +813,13 @@ function templateScore(bits: string[], template: string[]): number {
   return jaccard * 0.72 + (same / Math.max(1, total)) * 0.28;
 }
 
-function classifyDigit(mask: boolean[][], component: GlyphComponent): ClassifiedDigit | null {
-  if (!isDigitSized(component)) return null;
+function classifyDigit(
+  mask: boolean[][],
+  component: GlyphComponent,
+  minScore = 0.46,
+  isSized = isDigitSized,
+): ClassifiedDigit | null {
+  if (!isSized(component)) return null;
 
   const bits = componentToBits(mask, component);
   let bestDigit = '';
@@ -622,8 +835,215 @@ function classifyDigit(mask: boolean[][], component: GlyphComponent): Classified
     }
   }
 
-  if (!bestDigit || bestScore < 0.46) return null;
+  if (!bestDigit || bestScore < minScore) return null;
   return { digit: bestDigit, score: bestScore, component };
+}
+
+function countComponentPixelsInRegion(
+  mask: boolean[][],
+  component: GlyphComponent,
+  x0: number,
+  y0: number,
+  x1: number,
+  y1: number,
+): number {
+  let count = 0;
+  for (let y = y0; y < y1; y += 1) {
+    for (let x = x0; x < x1; x += 1) {
+      if (
+        x >= component.x0 &&
+        x < component.x1 &&
+        y >= component.y0 &&
+        y < component.y1 &&
+        mask[y]?.[x]
+      ) {
+        count += 1;
+      }
+    }
+  }
+  return count;
+}
+
+function classifyStreakDigit(
+  mask: boolean[][],
+  component: GlyphComponent,
+): ClassifiedDigit | null {
+  const classified = classifyDigit(mask, component, 0.22, isStreakDigitSized);
+  const width = componentWidth(component);
+  const height = componentHeight(component);
+  if (
+    classified &&
+    (classified.digit === '5' || classified.digit === '6') &&
+    component.x0 >= 20 &&
+    component.x0 <= 32 &&
+    width <= 7 &&
+    height <= 10 &&
+    component.activePixels <= 38
+  ) {
+    const correctionXMid = component.x0 + Math.floor(width / 2);
+    const correctionYMid = component.y0 + Math.floor(height / 2);
+    const upperLeft = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      component.y0,
+      correctionXMid,
+      correctionYMid,
+    );
+    const upperRight = countComponentPixelsInRegion(
+      mask,
+      component,
+      correctionXMid,
+      component.y0,
+      component.x1,
+      correctionYMid,
+    );
+    const topRows = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      component.y0,
+      component.x1,
+      component.y0 + 2,
+    );
+    if (upperLeft >= upperRight && upperLeft - upperRight <= 3 && topRows >= 8) {
+      return { digit: '3', score: classified.score, component };
+    }
+  }
+
+  if (
+    classified?.digit === '0' &&
+    component.x0 >= 20 &&
+    component.x0 <= 32 &&
+    width <= 7 &&
+    height <= 10
+  ) {
+    const topRows = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      component.y0,
+      component.x1,
+      component.y0 + 2,
+    );
+    const bottomRows = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      component.y1 - 2,
+      component.x1,
+      component.y1,
+    );
+    if (topRows >= 7 && bottomRows <= 6) {
+      return { digit: '9', score: classified.score, component };
+    }
+  }
+
+  if (
+    classified?.digit === '6' &&
+    component.x0 >= 20 &&
+    component.x0 <= 32 &&
+    width <= 7 &&
+    height <= 10
+  ) {
+    const correctionXMid = component.x0 + Math.floor(width / 2);
+    const correctionYMid = component.y0 + Math.floor(height / 2);
+    const lowerLeft = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      correctionYMid,
+      correctionXMid,
+      component.y1,
+    );
+    const topRows = countComponentPixelsInRegion(
+      mask,
+      component,
+      component.x0,
+      component.y0,
+      component.x1,
+      component.y0 + 2,
+    );
+    if (lowerLeft <= 4 && topRows >= 6) {
+      return { digit: '5', score: classified.score, component };
+    }
+  }
+
+  if (classified) return classified;
+  if (!isStreakDigitSized(component)) return null;
+
+  if (
+    component.x0 >= 20 &&
+    component.x0 <= 32 &&
+    width >= 6 &&
+    width <= 9 &&
+    height >= 7 &&
+    height <= 10 &&
+    component.activePixels >= 24
+  ) {
+    return { digit: '2', score: 0.22, component };
+  }
+
+  if (width < 5 || height < 10) return null;
+
+  const xMid = component.x0 + Math.floor(width / 2);
+  const yTop = component.y0 + Math.floor(height * 0.3);
+  const yMidStart = component.y0 + Math.floor(height * 0.36);
+  const yMidEnd = component.y0 + Math.ceil(height * 0.68);
+  const yBottom = component.y0 + Math.floor(height * 0.72);
+
+  const topBand = countComponentPixelsInRegion(
+    mask,
+    component,
+    component.x0,
+    component.y0,
+    component.x1,
+    yTop,
+  );
+  const middleBand = countComponentPixelsInRegion(
+    mask,
+    component,
+    component.x0,
+    yMidStart,
+    component.x1,
+    yMidEnd,
+  );
+  const bottomBand = countComponentPixelsInRegion(
+    mask,
+    component,
+    component.x0,
+    yBottom,
+    component.x1,
+    component.y1,
+  );
+  const upperRight = countComponentPixelsInRegion(
+    mask,
+    component,
+    xMid,
+    component.y0,
+    component.x1,
+    yMidEnd,
+  );
+  const lowerLeft = countComponentPixelsInRegion(
+    mask,
+    component,
+    component.x0,
+    yMidStart,
+    xMid + 1,
+    component.y1,
+  );
+
+  if (
+    topBand >= 5 &&
+    middleBand >= 4 &&
+    bottomBand >= 5 &&
+    upperRight >= 4 &&
+    lowerLeft >= 4
+  ) {
+    return { digit: '2', score: 0.22, component };
+  }
+
+  return null;
 }
 
 function isSlashLike(mask: boolean[][], component: GlyphComponent): boolean {
@@ -659,6 +1079,87 @@ function parseInteger(text: string): number | undefined {
   return Number.isFinite(value) ? value : undefined;
 }
 
+function parseGold(text: string): number | undefined {
+  const value = parseInteger(text);
+  if (value === undefined || value < 0 || value > 99) return undefined;
+  return value;
+}
+
+function parseLevel(text: string): number | undefined {
+  const value = parseInteger(text);
+  if (value === undefined || value < 1 || value > 11) return undefined;
+  return value;
+}
+
+function normalizeExperience(
+  experience: ParsedExperience | undefined,
+): ParsedExperience | undefined {
+  if (!experience) return undefined;
+
+  const { current, max } = experience;
+  if (current === undefined && max === undefined) return experience;
+  if (
+    current === undefined ||
+    max === undefined ||
+    current < 0 ||
+    max <= 0 ||
+    current > max ||
+    !reliableExperienceMaxValues.has(max)
+  ) {
+    return { text: experience.text };
+  }
+
+  return experience;
+}
+
+function normalizeStreak(
+  streak: ParsedStreak | undefined,
+  hasEconomyHud: boolean,
+): ParsedStreak | undefined {
+  if (!streak) return hasEconomyHud ? { text: '', kind: 'none', interest: 0 } : undefined;
+  if (hasEconomyHud && streak.kind === 'none') {
+    return {
+      text: streak.text,
+      kind: 'none',
+      interest: 0,
+    };
+  }
+
+  if (
+    !hasEconomyHud ||
+    streak.interest === undefined ||
+    streak.interest < 0 ||
+    streak.interest > 99
+  ) {
+    if (hasEconomyHud && streak.interest === undefined && streak.text.length === 0) {
+      return {
+        text: streak.text,
+        kind: 'none',
+        interest: 0,
+      };
+    }
+
+    return {
+      text: streak.text,
+      kind: 'unknown',
+    };
+  }
+
+  return streak;
+}
+
+function hasReliableEconomyHud(
+  gold: number | undefined,
+  level: number | undefined,
+  experience: ParsedExperience | undefined,
+): boolean {
+  return (
+    gold !== undefined ||
+    level !== undefined ||
+    (experience?.current !== undefined && experience.max !== undefined)
+  );
+}
+
 function recognizeGold(mask: boolean[][]): string {
   const digits = extractComponents(mask)
     .filter((component) => component.x0 >= 20 && component.x0 <= 54 && component.y0 >= 4)
@@ -680,12 +1181,87 @@ function recognizeLevel(mask: boolean[][]): string {
 function recognizeRound(mask: boolean[][]): string {
   const digits = extractComponents(mask)
     .filter((component) => component.x0 >= 8 && component.y0 >= 3)
-    .map((component) => classifyDigit(mask, component))
+    .map((component) => classifyDigit(mask, component, 0.42))
     .filter((digit): digit is ClassifiedDigit => Boolean(digit))
     .sort((a, b) => a.component.x0 - b.component.x0);
   const text = digits.map((digit) => digit.digit).join('');
   if (text.length >= 2) return `${text[0]}-${text.slice(1, 3)}`;
   return '';
+}
+
+function normalizeRoundText(value: string): string | undefined {
+  const match = /^([1-9]\d?)-([1-9]\d?)$/u.exec(value);
+  if (!match) return undefined;
+  const stage = parseInteger(match[1] ?? '');
+  const round = parseInteger(match[2] ?? '');
+  if (stage === undefined || round === undefined || stage > 9 || round > 7) {
+    return undefined;
+  }
+  if (stage === 1 && round > 4) return '1-4';
+  return `${stage}-${round}`;
+}
+
+function recognizeRoundFromImageData(imageData: GoldenSpatulaEconomyImageData): string {
+  const candidates = roundCandidateRects
+    .flatMap((rect) => {
+      const scaledRect = scaleRect(rect, imageData.width, imageData.height);
+      return [
+        recognizeRound(buildMaskFromRect(imageData, scaledRect)),
+        recognizeRound(buildMaskFromRect(imageData, scaledRect, isNeutralGlyphPixel)),
+        recognizeRound(buildMaskFromRect(imageData, scaledRect, isRoundGlyphPixel)),
+      ];
+    })
+    .map(normalizeRoundText)
+    .filter((round): round is string => Boolean(round));
+
+  return candidates[0] ?? '';
+}
+
+function recognizePercentInteger(mask: boolean[][]): number | undefined {
+  const text = toDigitText(
+    extractComponents(mask)
+      .filter((component) => componentHeight(component) >= 6)
+      .map((component) => classifyDigit(mask, component, 0.34))
+      .filter((digit): digit is ClassifiedDigit => Boolean(digit)),
+  );
+  return parsePercentText(text);
+}
+
+function parsePercentText(text: string): number | undefined {
+  if (text.startsWith('0')) return 0;
+
+  for (const length of [3, 2, 1]) {
+    const value = parseInteger(text.slice(0, length));
+    if (value !== undefined && value >= 0 && value <= 100) return value;
+  }
+
+  return undefined;
+}
+
+function recognizeShopOdds(imageData: GoldenSpatulaEconomyImageData): {
+  odds?: GoldenSpatulaShopOddsByCost;
+  rawText?: Partial<Record<GoldenSpatulaShopCost, string>>;
+} {
+  const rawText: Partial<Record<GoldenSpatulaShopCost, string>> = {};
+  const odds: GoldenSpatulaShopOddsByCost = {};
+  let recognizedCount = 0;
+
+  for (const cost of goldenSpatulaShopOddsCosts) {
+    const value = recognizePercentInteger(
+      buildMaskFromRect(
+        imageData,
+        scaleRect(shopOddsCostRects[cost], imageData.width, imageData.height),
+        isShopOddsGlyphPixel,
+      ),
+    );
+    if (value !== undefined) {
+      rawText[cost] = `${value}%`;
+      odds[cost] = value / 100;
+      recognizedCount += 1;
+    }
+  }
+
+  return recognizedCount > 0 ? { odds, rawText } : { rawText };
 }
 
 function parseExperienceWithoutSlash(text: string): ParsedExperience {
@@ -770,9 +1346,9 @@ function inferStreakKind(
     }
   }
 
-  if (warmPixels > 25 && warmPixels > coolPixels * 1.2) return 'win';
-  if (coolPixels > 25 && coolPixels > warmPixels * 1.2) return 'loss';
-  return 'unknown';
+  if (warmPixels > 40) return 'win';
+  if (coolPixels > 60 && coolPixels > warmPixels * 1.5) return 'loss';
+  return 'none';
 }
 
 function recognizeStreak(
@@ -782,14 +1358,23 @@ function recognizeStreak(
   const components = extractComponents(mask).filter(
     (component) => componentHeight(component) >= 6 && component.y0 >= 3,
   );
-  const rightDigits = components
-    .filter((component) => component.x0 >= 36)
-    .map((component) => classifyDigit(mask, component))
-    .filter((digit): digit is ClassifiedDigit => Boolean(digit));
-  const allDigits = components
-    .map((component) => classifyDigit(mask, component))
-    .filter((digit): digit is ClassifiedDigit => Boolean(digit));
-  const text = toDigitText(rightDigits.length > 0 ? rightDigits : allDigits.slice(-1));
+  const digitComponents = components.filter(
+    (component) => component.x0 >= 20 && componentWidth(component) <= 24,
+  );
+  const allDigits = digitComponents
+    .map((component) => classifyStreakDigit(mask, component))
+    .filter((digit): digit is ClassifiedDigit => Boolean(digit))
+    .sort((a, b) => a.component.x0 - b.component.x0);
+  const candidateDigits = allDigits;
+  const compactDigits: ClassifiedDigit[] = [];
+  for (const digit of candidateDigits) {
+    const previous = compactDigits[compactDigits.length - 1];
+    if (previous && digit.component.x0 - previous.component.x1 > 5) break;
+    compactDigits.push(digit);
+    if (compactDigits.length >= 2) break;
+  }
+
+  const text = toDigitText(compactDigits);
   const interest = parseInteger(text);
 
   return {
@@ -819,11 +1404,20 @@ export function recognizeGoldenSpatulaEconomyFromImageData(
   let parsedStreak: ParsedStreak | undefined;
 
   for (const field of Object.keys(economyRects) as EconomyField[]) {
-    const crop = cropImageData(
-      imageData,
-      scaleRect(economyRects[field], imageData.width, imageData.height),
-    );
-    const result = recognizeField(crop, buildMask(crop), field);
+    if (field === 'round') {
+      rawText.round = recognizeRoundFromImageData(imageData);
+      continue;
+    }
+
+    const scaledRect = scaleRect(economyRects[field], imageData.width, imageData.height);
+    const crop = field === 'streak' ? cropImageData(imageData, scaledRect) : undefined;
+      const mask =
+        field === 'streak'
+          ? trimStreakMask(
+              buildMask(crop as GoldenSpatulaEconomyImageData, isStreakGlyphPixel),
+            )
+          : buildMaskFromRect(imageData, scaledRect);
+    const result = recognizeField(crop ?? imageData, mask, field);
     if (field === 'experience') {
       parsedExperience = result as ParsedExperience;
       rawText.experience = parsedExperience.text;
@@ -835,14 +1429,33 @@ export function recognizeGoldenSpatulaEconomyFromImageData(
     }
   }
 
+  const gold = parseGold(rawText.gold ?? '');
+  const level = parseLevel(rawText.level ?? '');
+  parsedExperience = normalizeExperience(parsedExperience);
+
+  const hasEconomyHud = hasReliableEconomyHud(gold, level, parsedExperience);
+  parsedStreak = normalizeStreak(parsedStreak, hasEconomyHud);
+  const shopOdds = level !== undefined ? recognizeShopOdds(imageData) : {};
+  const shopOddsFromLevel = getGoldenSpatulaShopOddsByLevel(level);
+  const resolvedShopOdds = hasEconomyHud
+    ? resolveGoldenSpatulaShopOdds(shopOdds.odds, shopOddsFromLevel)
+    : { sourceByCost: {} };
+  rawText.shopOdds = getGoldenSpatulaShopOddsDisplayText(
+    shopOdds.rawText,
+    shopOddsFromLevel,
+    resolvedShopOdds.sourceByCost,
+  );
+
   return {
     round: rawText.round || undefined,
-    gold: parseInteger(rawText.gold ?? ''),
-    level: parseInteger(rawText.level ?? ''),
+    gold,
+    level,
     experience: parsedExperience?.current,
     experienceMax: parsedExperience?.max,
     streakKind: parsedStreak?.kind,
     streakInterest: parsedStreak?.interest,
+    shopOdds: resolvedShopOdds.odds,
+    shopOddsSource: resolvedShopOdds.source,
     rawText,
   };
 }

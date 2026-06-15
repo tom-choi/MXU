@@ -31,7 +31,25 @@ export type GoldenSpatulaEconomyPipelineEvent =
   | 'completed'
   | 'notReady';
 
+export type GoldenSpatulaAugmentPipelineEvent =
+  | 'started'
+  | 'recognized'
+  | 'scanFailed'
+  | 'scanned'
+  | 'picked'
+  | 'completed'
+  | 'notReady';
+
 export type GoldenSpatulaEconomyField = 'round' | 'gold' | 'level' | 'experience' | 'streak';
+export type GoldenSpatulaAugmentOcrField = 'title' | 'description';
+
+export interface GoldenSpatulaScreenSize {
+  width: number;
+  height: number;
+}
+
+export type GoldenSpatulaPipelineRect = readonly [number, number, number, number];
+export type GoldenSpatulaPipelineTarget = readonly [number, number] | GoldenSpatulaPipelineRect;
 
 export interface GoldenSpatulaRollBuyTargetTemplate {
   name: string;
@@ -42,10 +60,18 @@ export interface GoldenSpatulaRollBuyTargetTemplate {
 export const goldenSpatulaAutoRollBuyEntry = 'AutoRollAndBuyTargets';
 export const goldenSpatulaAutoLevelRollBuyEntry = 'AutoLevelRollAndBuyTargets';
 export const goldenSpatulaEconomyOcrEntry = 'RecognizeEconomyState';
+export const goldenSpatulaAugmentOcrEntry = 'RecognizeAugmentChoices';
+export const goldenSpatulaAutoPickAugmentEntry = 'AutoPickRecommendedAugment';
 export const goldenSpatulaAutoRollBuyFocusScope = 'goldenSpatula.roll';
 export const goldenSpatulaXpFocusScope = 'goldenSpatula.xp';
 export const goldenSpatulaHandFocusScope = 'goldenSpatula.hand';
 export const goldenSpatulaEconomyFocusScope = 'goldenSpatula.economy';
+export const goldenSpatulaAugmentFocusScope = 'goldenSpatula.augment';
+export const goldenSpatulaLogicalScreenSize = {
+  width: 1280,
+  height: 720,
+  shortSide: 720,
+} as const;
 export const goldenSpatulaAutoBuyAttemptsPerShop = 5;
 export const goldenSpatulaAutoBuyTemplateThreshold = 0.72;
 export const goldenSpatulaAutoBuyRecognitionTimeoutMs = 500;
@@ -110,6 +136,69 @@ export const goldenSpatulaEconomyOcrReplace = [
   ['s', '5'],
   ['B', '8'],
 ] as const;
+export const goldenSpatulaAugmentOcrTimeoutMs = 650;
+export const goldenSpatulaAugmentOcrThreshold = 0.18;
+export const goldenSpatulaAugmentPickPostDelayMs = 1200;
+export const goldenSpatulaAugmentChoiceSlots = [
+  {
+    index: 1,
+    label: '1',
+    titleRoi: [170, 235, 270, 48],
+    descriptionRoi: [175, 282, 260, 128],
+    target: [310, 318, 2, 2],
+  },
+  {
+    index: 2,
+    label: '2',
+    titleRoi: [505, 235, 270, 48],
+    descriptionRoi: [510, 282, 260, 128],
+    target: [640, 318, 2, 2],
+  },
+  {
+    index: 3,
+    label: '3',
+    titleRoi: [840, 235, 270, 48],
+    descriptionRoi: [845, 282, 260, 128],
+    target: [970, 318, 2, 2],
+  },
+] as const;
+
+function getGoldenSpatulaLogicalScale(screen: GoldenSpatulaScreenSize): {
+  scaleX: number;
+  scaleY: number;
+} {
+  return {
+    scaleX: screen.width / goldenSpatulaLogicalScreenSize.width,
+    scaleY: screen.height / goldenSpatulaLogicalScreenSize.height,
+  };
+}
+
+export function scaleGoldenSpatulaLogicalRectToScreen(
+  rect: GoldenSpatulaPipelineRect,
+  screen: GoldenSpatulaScreenSize,
+): [number, number, number, number] {
+  const { scaleX, scaleY } = getGoldenSpatulaLogicalScale(screen);
+  return [
+    Math.round(rect[0] * scaleX),
+    Math.round(rect[1] * scaleY),
+    Math.max(1, Math.round(rect[2] * scaleX)),
+    Math.max(1, Math.round(rect[3] * scaleY)),
+  ];
+}
+
+export function scaleGoldenSpatulaLogicalTargetToScreen(
+  target: GoldenSpatulaPipelineTarget,
+  screen: GoldenSpatulaScreenSize,
+): number[] {
+  const { scaleX, scaleY } = getGoldenSpatulaLogicalScale(screen);
+  const scaled = [Math.round(target[0] * scaleX), Math.round(target[1] * scaleY)];
+  if (target.length >= 4) {
+    const rectTarget = target as GoldenSpatulaPipelineRect;
+    scaled.push(Math.max(1, Math.round(rectTarget[2] * scaleX)));
+    scaled.push(Math.max(1, Math.round(rectTarget[3] * scaleY)));
+  }
+  return scaled;
+}
 
 function buildAutoRollFocus(
   event: GoldenSpatulaRollPipelineEvent,
@@ -192,6 +281,27 @@ function buildEconomyFocus(
     event,
     display: 'log',
     content: `MXU economy ${event}`,
+    ...payload,
+  };
+}
+
+function buildAugmentFocus(
+  event: GoldenSpatulaAugmentPipelineEvent,
+  payload: {
+    slotIndex?: number;
+    slotLabel?: string;
+    field?: GoldenSpatulaAugmentOcrField;
+    title?: string;
+    matchedName?: string;
+    score?: number;
+  },
+): Record<string, unknown> {
+  const slotText = payload.slotLabel ? ` #${payload.slotLabel}` : '';
+  return {
+    scope: goldenSpatulaAugmentFocusScope,
+    event,
+    display: 'log',
+    content: `MXU augment ${event}${slotText}`,
     ...payload,
   };
 }
@@ -305,6 +415,157 @@ export function buildEconomyOcrPipelineOverride(nextNode?: string): string {
   appendEconomyOcrNodes(nodes, prefix, nextNode);
 
   return JSON.stringify(nodes);
+}
+
+function getAugmentOcrFieldSuffix(field: GoldenSpatulaAugmentOcrField): string {
+  return field === 'title' ? 'Title' : 'Description';
+}
+
+function getAugmentOcrNodeName(
+  prefix: string,
+  slot: (typeof goldenSpatulaAugmentChoiceSlots)[number],
+  field: GoldenSpatulaAugmentOcrField,
+): string {
+  return `${prefix}_S${slot.index}_${getAugmentOcrFieldSuffix(field)}`;
+}
+
+function getAugmentOcrDoneNodeName(prefix: string): string {
+  return `${prefix}_Done`;
+}
+
+function getAugmentOcrRoi(
+  slot: (typeof goldenSpatulaAugmentChoiceSlots)[number],
+  field: GoldenSpatulaAugmentOcrField,
+): readonly [number, number, number, number] {
+  return field === 'title' ? slot.titleRoi : slot.descriptionRoi;
+}
+
+function appendAugmentOcrNodes(
+  nodes: Record<string, Record<string, unknown>>,
+  prefix: string,
+  nextNode?: string,
+): string {
+  const fields: GoldenSpatulaAugmentOcrField[] = ['title', 'description'];
+  const orderedNodes = goldenSpatulaAugmentChoiceSlots.flatMap((slot) =>
+    fields.map((field) => ({ slot, field })),
+  );
+  const firstNode = getAugmentOcrNodeName(
+    prefix,
+    goldenSpatulaAugmentChoiceSlots[0],
+    fields[0],
+  );
+
+  orderedNodes.forEach(({ slot, field }, index) => {
+    const nodeName = getAugmentOcrNodeName(prefix, slot, field);
+    const next = orderedNodes[index + 1]
+      ? getAugmentOcrNodeName(prefix, orderedNodes[index + 1].slot, orderedNodes[index + 1].field)
+      : getAugmentOcrDoneNodeName(prefix);
+
+    nodes[nodeName] = {
+      recognition: 'OCR',
+      expected: '.{1,120}',
+      threshold: goldenSpatulaAugmentOcrThreshold,
+      order_by: 'Horizontal',
+      roi: getAugmentOcrRoi(slot, field),
+      timeout: goldenSpatulaAugmentOcrTimeoutMs,
+      action: 'DoNothing',
+      next: [next],
+      on_error: [next],
+      focus: {
+        'Node.Recognition.Succeeded': buildAugmentFocus('recognized', {
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          field,
+        }),
+        'Node.Recognition.Failed': buildAugmentFocus('scanFailed', {
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          field,
+        }),
+      },
+    };
+  });
+
+  nodes[getAugmentOcrDoneNodeName(prefix)] = {
+    action: 'DoNothing',
+    next: nextNode ? [nextNode] : [],
+    focus: {
+      'Node.PipelineNode.Succeeded': buildAugmentFocus('scanned', {}),
+    },
+  };
+
+  return firstNode;
+}
+
+export function buildAugmentOcrPipelineOverride(nextNode?: string): string {
+  const prefix = 'AugmentOcr';
+  const nodes: Record<string, Record<string, unknown>> = {
+    [goldenSpatulaAugmentOcrEntry]: {
+      action: 'Screencap',
+      filename: 'augment_ocr_before',
+      next: [getAugmentOcrNodeName(prefix, goldenSpatulaAugmentChoiceSlots[0], 'title')],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildAugmentFocus('started', {}),
+      },
+    },
+  };
+
+  appendAugmentOcrNodes(nodes, prefix, nextNode);
+
+  return JSON.stringify(nodes);
+}
+
+export function buildAutoPickAugmentPipelineOverride(
+  slotIndex: number,
+  payload: {
+    title?: string;
+    matchedName?: string;
+    score?: number;
+  } = {},
+): string {
+  const slot = goldenSpatulaAugmentChoiceSlots.find((item) => item.index === slotIndex);
+  if (!slot) {
+    throw new Error(`Unknown augment slot: ${slotIndex}`);
+  }
+
+  return JSON.stringify({
+    [goldenSpatulaAutoPickAugmentEntry]: {
+      action: 'Screencap',
+      filename: 'augment_pick_before',
+      next: ['AutoPickRecommendedAugment_Click'],
+      focus: {
+        'Node.PipelineNode.Succeeded': buildAugmentFocus('started', {
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          ...payload,
+        }),
+      },
+    },
+    AutoPickRecommendedAugment_Click: {
+      action: 'Click',
+      target: slot.target,
+      post_delay: goldenSpatulaAugmentPickPostDelayMs,
+      next: ['AutoPickRecommendedAugment_After'],
+      focus: {
+        'Node.Action.Succeeded': buildAugmentFocus('picked', {
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          ...payload,
+        }),
+      },
+    },
+    AutoPickRecommendedAugment_After: {
+      action: 'Screencap',
+      filename: 'augment_pick_after',
+      focus: {
+        'Node.PipelineNode.Succeeded': buildAugmentFocus('completed', {
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          ...payload,
+        }),
+      },
+    },
+  });
 }
 
 function getAutoRollBuyAttemptStartNode(cycle: number, attempt: number): string {

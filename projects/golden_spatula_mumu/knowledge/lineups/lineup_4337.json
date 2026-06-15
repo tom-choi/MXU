@@ -132,7 +132,115 @@
   },
   "augment_recommendations": {
     "ids": [20625, 3065, 10570, 1002, 20216, 20517, 20675, 20502],
-    "note": "一个经济保证质量，多拿战力提上限！"
+    "note": "一个经济保证质量，多拿战力提上限！",
+    "priority_ids": [20625, 3065, 10570],
+    "alternative_ids": [1002, 20216, 20517, 20675, 20502],
+    "details": [
+      {
+        "id": 20625,
+        "name": "宝宝学院",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 100,
+        "strength_tier": "S",
+        "level": 2,
+        "role_tags": ["reroll", "combat"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、战力；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 98,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10570,
+        "name": "升星之运",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 94,
+        "strength_tier": "A",
+        "level": 1,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "首选强化：优先级最高，契合经济、追三/刷新；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1002,
+        "name": "存心失利",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 80,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20216,
+        "name": "不侦察，不变阵",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 82,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新、战力补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20517,
+        "name": "寻宝",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 78,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20675,
+        "name": "一波带走俩",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 80,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["economy"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 20502,
+        "name": "更要命的帽子",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 76,
+        "strength_tier": "B",
+        "level": 3,
+        "role_tags": ["combat"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按战力补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：一个经济保证质量，多拿战力提上限！",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "开局不升人口不D牌只拿体系牌。可以3海魔人或者3未来开局5连败过渡，能补经济的同时星神选秀还有机会补到体系2星1费卡。",

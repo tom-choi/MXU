@@ -105,7 +105,115 @@
   },
   "augment_recommendations": {
     "ids": [20628, 1646, 10011, 3065, 1134, 1002, 30627, 3486],
-    "note": "优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。"
+    "note": "优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+    "priority_ids": [20628, 1646, 10011],
+    "alternative_ids": [3065, 1134, 1002, 30627, 3486],
+    "details": [
+      {
+        "id": 20628,
+        "name": "三幻神",
+        "group": "priority",
+        "rank": 1,
+        "recommended_index": 95,
+        "strength_tier": "A",
+        "level": 2,
+        "role_tags": ["reroll", "combat", "trait"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新、战力、转职/羁绊；通用强度 A",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 A；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1646,
+        "name": "团队建设",
+        "group": "priority",
+        "rank": 2,
+        "recommended_index": 95,
+        "strength_tier": "S",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "首选强化：优先级最高，契合追三/刷新；通用强度 S",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 S；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 10011,
+        "name": "耐心是一种美德",
+        "group": "priority",
+        "rank": 3,
+        "recommended_index": 88,
+        "strength_tier": "B",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "核心推荐：同类选项中优先选择，主要补追三/刷新；通用强度 B",
+        "reason": "阵容来源列为核心推荐；OP.GG 通用梯度 B；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3065,
+        "name": "棱彩门票",
+        "group": "alternative",
+        "rank": 1,
+        "recommended_index": 82,
+        "strength_tier": "S",
+        "level": 3,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1134,
+        "name": "D个痛快！ I",
+        "group": "alternative",
+        "rank": 2,
+        "recommended_index": 81,
+        "strength_tier": "S",
+        "level": 1,
+        "role_tags": ["reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按追三/刷新补足阵容短板；通用强度 S",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 S；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 1002,
+        "name": "存心失利",
+        "group": "alternative",
+        "rank": 3,
+        "recommended_index": 78,
+        "strength_tier": "B",
+        "level": 2,
+        "role_tags": ["economy", "reroll"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按经济、追三/刷新补足阵容短板；通用强度 B",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 B；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 30627,
+        "name": "神力天铸",
+        "group": "alternative",
+        "rank": 4,
+        "recommended_index": 80,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      },
+      {
+        "id": 3486,
+        "name": "珍藏财宝",
+        "group": "alternative",
+        "rank": 5,
+        "recommended_index": 79,
+        "strength_tier": "A",
+        "level": 3,
+        "role_tags": ["item"],
+        "selection_decision": "可替代强化：主推荐缺席时选择，按装备补足阵容短板；通用强度 A",
+        "reason": "阵容来源列为可替代推荐；OP.GG 通用梯度 A；阵容备注：优先三幻神，其次要拿经济类或者可以快速3星的符文，同时装备类的也可以。",
+        "source": "jinchanchan_lineup+opgg_meta_trends"
+      }
+    ]
   },
   "notes": {
     "early": "前期用3未来战士过渡。",

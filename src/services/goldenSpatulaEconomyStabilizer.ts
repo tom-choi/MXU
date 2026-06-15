@@ -1,6 +1,12 @@
 import type { GoldenSpatulaEconomyVisionResult } from '@/services/goldenSpatulaEconomyVision';
 
-export type GoldenSpatulaEconomyStableField = 'round' | 'gold' | 'level' | 'experience' | 'streak';
+export type GoldenSpatulaEconomyStableField =
+  | 'round'
+  | 'gold'
+  | 'level'
+  | 'experience'
+  | 'streak'
+  | 'shopOdds';
 
 interface PendingEconomyValue {
   count: number;
@@ -17,6 +23,8 @@ export interface GoldenSpatulaEconomyStableSnapshot {
   experienceMax?: number;
   streakKind?: GoldenSpatulaEconomyVisionResult['streakKind'];
   streakInterest?: number;
+  shopOdds?: GoldenSpatulaEconomyVisionResult['shopOdds'];
+  shopOddsSource?: GoldenSpatulaEconomyVisionResult['shopOddsSource'];
   updatedAt?: number;
 }
 
@@ -135,6 +143,20 @@ function isReliableStreakInterest(value: number | undefined): boolean {
   return value !== undefined && value >= 0 && value <= 3;
 }
 
+function isReliableShopOdds(value: GoldenSpatulaEconomyVisionResult['shopOdds']): boolean {
+  if (!value) return false;
+  const odds = [value[1], value[2], value[3], value[4], value[5]];
+  if (odds.some((item) => item === undefined || item < 0 || item > 1)) return false;
+  const sum = odds.reduce<number>((total, item) => total + (item ?? 0), 0);
+  return sum >= 0.95 && sum <= 1.05;
+}
+
+function shopOddsSignature(value: GoldenSpatulaEconomyVisionResult['shopOdds']): string {
+  return [1, 2, 3, 4, 5]
+    .map((cost) => `${cost}:${Math.round((value?.[cost as 1 | 2 | 3 | 4 | 5] ?? 0) * 100)}`)
+    .join('|');
+}
+
 function stableRawText(
   rawText: GoldenSpatulaEconomyVisionResult['rawText'],
 ): GoldenSpatulaEconomyVisionResult['rawText'] {
@@ -144,6 +166,7 @@ function stableRawText(
     level: rawText.level,
     experience: rawText.experience,
     streak: rawText.streak,
+    shopOdds: rawText.shopOdds,
   };
 }
 
@@ -273,6 +296,25 @@ export function stabilizeGoldenSpatulaEconomyResult(
     } else {
       pending.streak = decision.pending;
       heldFields.push('streak');
+    }
+  }
+
+  if (!isReliableShopOdds(input.shopOdds)) {
+    missingFields.push('shopOdds');
+  } else {
+    const signature = shopOddsSignature(input.shopOdds);
+    const decision = decideSuspiciousValue(pending.shopOdds, signature, true, timestamp);
+    if (decision.accept) {
+      result.shopOdds = input.shopOdds;
+      result.shopOddsSource = input.shopOddsSource;
+      snapshot.shopOdds = input.shopOdds;
+      snapshot.shopOddsSource = input.shopOddsSource;
+      snapshot.updatedAt = timestamp;
+      delete pending.shopOdds;
+      acceptedFields.push('shopOdds');
+    } else {
+      pending.shopOdds = decision.pending;
+      heldFields.push('shopOdds');
     }
   }
 
