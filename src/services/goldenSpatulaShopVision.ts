@@ -111,6 +111,91 @@ const shopVisionFiveCostMaxBlue = 0.12;
 const shopVisionFiveCostMinRedOverGreen = 0.13;
 const shopVisionFiveCostMinGreenOverBlue = 0.18;
 
+type GpuLike = any;
+
+const shopVisionGpuMapRead = 0x0001;
+const shopVisionGpuCopySrc = 0x0004;
+const shopVisionGpuCopyDst = 0x0008;
+const shopVisionGpuUniform = 0x0040;
+const shopVisionGpuStorage = 0x0080;
+const shopVisionGpuWorkgroupSize = 64;
+
+const shopVisionGpuShader = /* wgsl */ `
+struct Candidate {
+  variantIndex: u32,
+  x: u32,
+  y: u32,
+  templateOffset: u32,
+  templateWidth: u32,
+  templateHeight: u32,
+  pad0: u32,
+  pad1: u32,
+};
+
+struct Params {
+  candidateCount: u32,
+  slotWidth: u32,
+  slotHeight: u32,
+  minPatchNorm: f32,
+};
+
+@group(0) @binding(0) var<storage, read> slotValues: array<f32>;
+@group(0) @binding(1) var<storage, read> templateValues: array<f32>;
+@group(0) @binding(2) var<storage, read> candidates: array<Candidate>;
+@group(0) @binding(3) var<storage, read_write> scores: array<f32>;
+@group(0) @binding(4) var<uniform> params: Params;
+
+@compute @workgroup_size(${shopVisionGpuWorkgroupSize})
+fn main(@builtin(global_invocation_id) globalId: vec3<u32>) {
+  let candidateIndex = globalId.x;
+  if (candidateIndex >= params.candidateCount) {
+    return;
+  }
+
+  let candidate = candidates[candidateIndex];
+  var sum = 0.0;
+  var sumSq = 0.0;
+  var dot = 0.0;
+  var templateIndex = 0u;
+
+  for (var row = 0u; row < candidate.templateHeight; row = row + 1u) {
+    for (var column = 0u; column < candidate.templateWidth; column = column + 1u) {
+      let slotPixelIndex = ((candidate.y + row) * params.slotWidth + candidate.x + column) * 3u;
+      for (var channel = 0u; channel < 3u; channel = channel + 1u) {
+        let slotValue = slotValues[slotPixelIndex + channel];
+        sum = sum + slotValue;
+        sumSq = sumSq + slotValue * slotValue;
+        dot = dot + slotValue * templateValues[candidate.templateOffset + templateIndex];
+        templateIndex = templateIndex + 1u;
+      }
+    }
+  }
+
+  let count = f32(candidate.templateWidth * candidate.templateHeight * 3u);
+  let variance = max(0.0, sumSq - (sum * sum) / count);
+  let norm = sqrt(variance);
+  if (norm <= params.minPatchNorm) {
+    scores[candidateIndex] = -1.0;
+    return;
+  }
+
+  scores[candidateIndex] = dot / norm;
+}
+`;
+
+interface ShopVisionGpuState {
+  readonly device: GpuLike;
+  readonly pipeline: GpuLike;
+}
+
+interface ShopVisionGpuMatcher {
+  match(slot: ColorRaster): Promise<TemplateMatch[] | undefined>;
+  dispose(): void;
+}
+
+let shopVisionGpuUnavailable = false;
+let shopVisionGpuStatePromise: Promise<ShopVisionGpuState | undefined> | undefined;
+
 const shopVisionImageCache = new Map<string, Promise<HTMLImageElement>>();
 const shopVisionTemplateCache = new Map<string, Promise<TemplateVariant[]>>();
 
@@ -199,13 +284,7 @@ function normalizeFeature(values: Float32Array): Float32Array | undefined {
 }
 
 function isShopCostGoldPixel(red: number, green: number, blue: number): boolean {
-  return (
-    red > 0.53 &&
-    green > 0.41 &&
-    blue < 0.41 &&
-    red > green * 0.9 &&
-    green > blue * 1.2
-  );
+  return red > 0.53 && green > 0.41 && blue < 0.41 && red > green * 0.9 && green > blue * 1.2;
 }
 
 function isBottomTextLightPixel(red: number, green: number, blue: number): boolean {
@@ -221,7 +300,10 @@ function estimateShopCardCostSignal(slot: ColorRaster): ShopCardCostSignal | und
   const xStart = Math.max(0, Math.floor(slot.width * shopVisionCostSignalNameplateXStartRatio));
   const xEnd = Math.min(slot.width, Math.ceil(slot.width * shopVisionCostSignalNameplateXEndRatio));
   const yStart = Math.max(0, Math.floor(slot.height * shopVisionCostSignalNameplateYStartRatio));
-  const yEnd = Math.min(slot.height, Math.ceil(slot.height * shopVisionCostSignalNameplateYEndRatio));
+  const yEnd = Math.min(
+    slot.height,
+    Math.ceil(slot.height * shopVisionCostSignalNameplateYEndRatio),
+  );
 
   let pixels = 0;
   let redTotal = 0;
@@ -325,9 +407,7 @@ function hasShopCardPresence(slot: ColorRaster): boolean {
     for (let x = costXStart; x < slot.width; x += 1) {
       const index = (y * slot.width + x) * 3;
       costRegionPixels += 1;
-      if (
-        isShopCostGoldPixel(slot.values[index], slot.values[index + 1], slot.values[index + 2])
-      ) {
+      if (isShopCostGoldPixel(slot.values[index], slot.values[index + 1], slot.values[index + 2])) {
         costGoldPixels += 1;
       }
     }
@@ -474,7 +554,12 @@ function collectCandidateAssets(
   return candidates;
 }
 
-function scoreTemplateAt(slot: ColorRaster, variant: TemplateVariant, x: number, y: number): number {
+function scoreTemplateAt(
+  slot: ColorRaster,
+  variant: TemplateVariant,
+  x: number,
+  y: number,
+): number {
   let sum = 0;
   let sumSq = 0;
   let dot = 0;
@@ -529,7 +614,233 @@ function findTemplateMatches(slot: ColorRaster, variants: TemplateVariant[]): Te
   return [...bestByChampion.values()].sort((left, right) => right.score - left.score);
 }
 
-function isAmbiguousTemplateMatch(best: TemplateMatch | undefined, second: TemplateMatch | undefined): boolean {
+async function getShopVisionGpuState(): Promise<ShopVisionGpuState | undefined> {
+  if (shopVisionGpuUnavailable || typeof navigator === 'undefined') return undefined;
+
+  if (!shopVisionGpuStatePromise) {
+    shopVisionGpuStatePromise = (async () => {
+      const gpu = (navigator as Navigator & { gpu?: { requestAdapter(): Promise<GpuLike> } }).gpu;
+      if (!gpu) {
+        shopVisionGpuUnavailable = true;
+        return undefined;
+      }
+
+      try {
+        const adapter = await gpu.requestAdapter();
+        if (!adapter) {
+          shopVisionGpuUnavailable = true;
+          return undefined;
+        }
+
+        const device = await adapter.requestDevice();
+        const module = device.createShaderModule({ code: shopVisionGpuShader });
+        const pipeline = device.createComputePipeline({
+          layout: 'auto',
+          compute: { module, entryPoint: 'main' },
+        });
+        return { device, pipeline };
+      } catch {
+        shopVisionGpuUnavailable = true;
+        return undefined;
+      }
+    })();
+  }
+
+  return shopVisionGpuStatePromise;
+}
+
+function createShopVisionGpuBuffer(device: GpuLike, data: ArrayBufferView, usage: number): GpuLike {
+  const buffer = device.createBuffer({
+    size: Math.max(4, data.byteLength),
+    usage: usage | shopVisionGpuCopyDst,
+  });
+  device.queue.writeBuffer(buffer, 0, data);
+  return buffer;
+}
+
+function createShopVisionGpuParams(candidateCount: number): Uint8Array {
+  const params = new ArrayBuffer(16);
+  const view = new DataView(params);
+  view.setUint32(0, candidateCount, true);
+  view.setUint32(4, shopVisionSlotWidth, true);
+  view.setUint32(8, shopVisionSlotHeight, true);
+  view.setFloat32(12, shopVisionMinPatchNorm, true);
+  return new Uint8Array(params);
+}
+
+function buildShopVisionTemplateValues(variants: TemplateVariant[]): {
+  offsets: Uint32Array;
+  values: Float32Array;
+} {
+  const offsets = new Uint32Array(variants.length);
+  let totalLength = 0;
+
+  variants.forEach((variant, index) => {
+    offsets[index] = totalLength;
+    totalLength += variant.values.length;
+  });
+
+  const values = new Float32Array(totalLength);
+  let writeOffset = 0;
+  for (const variant of variants) {
+    values.set(variant.values, writeOffset);
+    writeOffset += variant.values.length;
+  }
+
+  return { offsets, values };
+}
+
+function buildShopVisionGpuCandidates(
+  variants: TemplateVariant[],
+  templateOffsets: Uint32Array,
+): Uint32Array {
+  const values: number[] = [];
+
+  variants.forEach((variant, variantIndex) => {
+    const maxX = shopVisionSlotWidth - variant.width;
+    const maxY = shopVisionSlotHeight - variant.height;
+    if (maxX < 0 || maxY < 0) return;
+
+    for (let y = 0; y <= maxY; y += shopVisionMatchStep) {
+      for (let x = 0; x <= maxX; x += shopVisionMatchStep) {
+        values.push(
+          variantIndex,
+          x,
+          y,
+          templateOffsets[variantIndex],
+          variant.width,
+          variant.height,
+          0,
+          0,
+        );
+      }
+    }
+  });
+
+  return new Uint32Array(values);
+}
+
+function reduceShopVisionGpuScores(
+  variants: TemplateVariant[],
+  candidates: Uint32Array,
+  scores: Float32Array,
+): TemplateMatch[] {
+  const bestByChampion = new Map<string, TemplateMatch>();
+
+  for (let candidateIndex = 0; candidateIndex < scores.length; candidateIndex += 1) {
+    const variantIndex = candidates[candidateIndex * 8];
+    const variant = variants[variantIndex];
+    if (!variant) continue;
+
+    const score = scores[candidateIndex];
+    const key = getTemplateMatchKey(variant);
+    const current = bestByChampion.get(key);
+    if (!current || score > current.score) {
+      bestByChampion.set(key, { variant, score });
+    }
+  }
+
+  return [...bestByChampion.values()].sort((left, right) => right.score - left.score);
+}
+
+async function createShopVisionGpuMatcher(
+  variants: TemplateVariant[],
+): Promise<ShopVisionGpuMatcher | undefined> {
+  const state = await getShopVisionGpuState();
+  if (!state || variants.length === 0) return undefined;
+
+  try {
+    const { offsets, values } = buildShopVisionTemplateValues(variants);
+    const candidates = buildShopVisionGpuCandidates(variants, offsets);
+    const candidateCount = Math.floor(candidates.length / 8);
+    if (candidateCount === 0 || values.length === 0) return undefined;
+
+    const { device, pipeline } = state;
+    const templateBuffer = createShopVisionGpuBuffer(device, values, shopVisionGpuStorage);
+    const candidateBuffer = createShopVisionGpuBuffer(device, candidates, shopVisionGpuStorage);
+    const paramsBuffer = createShopVisionGpuBuffer(
+      device,
+      createShopVisionGpuParams(candidateCount),
+      shopVisionGpuUniform,
+    );
+    const scoreBuffer = device.createBuffer({
+      size: candidateCount * Float32Array.BYTES_PER_ELEMENT,
+      usage: shopVisionGpuStorage | shopVisionGpuCopySrc,
+    });
+    const readBuffer = device.createBuffer({
+      size: candidateCount * Float32Array.BYTES_PER_ELEMENT,
+      usage: shopVisionGpuMapRead | shopVisionGpuCopyDst,
+    });
+
+    const dispose = () => {
+      templateBuffer.destroy?.();
+      candidateBuffer.destroy?.();
+      paramsBuffer.destroy?.();
+      scoreBuffer.destroy?.();
+      readBuffer.destroy?.();
+    };
+
+    return {
+      async match(slot: ColorRaster): Promise<TemplateMatch[] | undefined> {
+        if (shopVisionGpuUnavailable) {
+          return undefined;
+        }
+        if (slot.width !== shopVisionSlotWidth || slot.height !== shopVisionSlotHeight) {
+          return undefined;
+        }
+
+        const slotBuffer = createShopVisionGpuBuffer(device, slot.values, shopVisionGpuStorage);
+        try {
+          const bindGroup = device.createBindGroup({
+            layout: pipeline.getBindGroupLayout(0),
+            entries: [
+              { binding: 0, resource: { buffer: slotBuffer } },
+              { binding: 1, resource: { buffer: templateBuffer } },
+              { binding: 2, resource: { buffer: candidateBuffer } },
+              { binding: 3, resource: { buffer: scoreBuffer } },
+              { binding: 4, resource: { buffer: paramsBuffer } },
+            ],
+          });
+          const encoder = device.createCommandEncoder();
+          const pass = encoder.beginComputePass();
+          pass.setPipeline(pipeline);
+          pass.setBindGroup(0, bindGroup);
+          pass.dispatchWorkgroups(Math.ceil(candidateCount / shopVisionGpuWorkgroupSize));
+          pass.end();
+          encoder.copyBufferToBuffer(
+            scoreBuffer,
+            0,
+            readBuffer,
+            0,
+            candidateCount * Float32Array.BYTES_PER_ELEMENT,
+          );
+          device.queue.submit([encoder.finish()]);
+
+          await readBuffer.mapAsync(shopVisionGpuMapRead);
+          const mapped = readBuffer.getMappedRange();
+          const scores = new Float32Array(mapped.slice(0));
+          readBuffer.unmap();
+
+          return reduceShopVisionGpuScores(variants, candidates, scores);
+        } catch {
+          shopVisionGpuUnavailable = true;
+          return undefined;
+        } finally {
+          slotBuffer.destroy?.();
+        }
+      },
+      dispose,
+    };
+  } catch {
+    shopVisionGpuUnavailable = true;
+    return undefined;
+  }
+}
+
+function isAmbiguousTemplateMatch(
+  best: TemplateMatch | undefined,
+  second: TemplateMatch | undefined,
+): boolean {
   if (!best || !second) return false;
   return (
     second.score >= shopVisionAmbiguousSecondScore &&
@@ -556,7 +867,10 @@ function hasNearbyConfusingCandidate(
   );
 }
 
-function isKnownConfusingTemplateMatch(best: TemplateMatch | undefined, matches: TemplateMatch[]): boolean {
+function isKnownConfusingTemplateMatch(
+  best: TemplateMatch | undefined,
+  matches: TemplateMatch[],
+): boolean {
   if (!best || best.score >= shopVisionConfusingPairMaxBestScore) return false;
 
   if (templateMatchIncludes(best, 'urgot')) {
@@ -662,58 +976,69 @@ export async function recognizeGoldenSpatulaShopFromDataUrl(
   }
 
   const minScore = options.minScore ?? shopVisionDefaultMinScore;
-  const slots = goldenSpatulaShopChampionSlots.map((slot) => {
-    const sourceRect = scaleSlotRoi(slot.roi, screenshot);
-    const slotPresenceRaster = extractColorRaster(
-      screenshot,
-      Math.max(1, sourceRect[2]),
-      Math.max(1, sourceRect[3]),
-      sourceRect,
-    );
-    if (!hasShopCardPresence(slotPresenceRaster)) {
-      return {
+  const slots: GoldenSpatulaShopVisionSlotResult[] = [];
+  let gpuMatcher: ShopVisionGpuMatcher | undefined;
+
+  try {
+    for (const slot of goldenSpatulaShopChampionSlots) {
+      const sourceRect = scaleSlotRoi(slot.roi, screenshot);
+      const slotPresenceRaster = extractColorRaster(
+        screenshot,
+        Math.max(1, sourceRect[2]),
+        Math.max(1, sourceRect[3]),
+        sourceRect,
+      );
+      if (!hasShopCardPresence(slotPresenceRaster)) {
+        slots.push({
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          confidence: 'empty' as const,
+        });
+        continue;
+      }
+
+      const slotRaster = extractColorRaster(
+        screenshot,
+        shopVisionSlotWidth,
+        shopVisionSlotHeight,
+        sourceRect,
+      );
+      gpuMatcher ??= await createShopVisionGpuMatcher(variants);
+      const gpuMatches = await gpuMatcher?.match(slotRaster);
+      const matches = gpuMatches ?? findTemplateMatches(slotRaster, variants);
+      const costSignal = estimateShopCardCostSignal(slotPresenceRaster);
+      const costLockedMatches = selectCostLockedTemplateMatches(matches, costSignal, minScore);
+      const effectiveMatches = costLockedMatches ?? matches;
+      const effectiveMinScore = costLockedMatches ? shopVisionCostLockedMinScore : minScore;
+      const best = effectiveMatches[0];
+      const second = effectiveMatches[1];
+      if (
+        best &&
+        best.score >= effectiveMinScore &&
+        !isAmbiguousTemplateMatch(best, second) &&
+        !isKnownConfusingTemplateMatch(best, effectiveMatches)
+      ) {
+        slots.push({
+          slotIndex: slot.index,
+          slotLabel: slot.label,
+          championName: best.variant.asset.name,
+          templatePath: best.variant.templatePath,
+          confidence: 'matched' as const,
+          score: best.score,
+        });
+        continue;
+      }
+
+      slots.push({
         slotIndex: slot.index,
         slotLabel: slot.label,
         confidence: 'empty' as const,
-      };
+        score: best?.score,
+      });
     }
-
-    const slotRaster = extractColorRaster(
-      screenshot,
-      shopVisionSlotWidth,
-      shopVisionSlotHeight,
-      sourceRect,
-    );
-    const matches = findTemplateMatches(slotRaster, variants);
-    const costSignal = estimateShopCardCostSignal(slotPresenceRaster);
-    const costLockedMatches = selectCostLockedTemplateMatches(matches, costSignal, minScore);
-    const effectiveMatches = costLockedMatches ?? matches;
-    const effectiveMinScore = costLockedMatches ? shopVisionCostLockedMinScore : minScore;
-    const best = effectiveMatches[0];
-    const second = effectiveMatches[1];
-    if (
-      best &&
-      best.score >= effectiveMinScore &&
-      !isAmbiguousTemplateMatch(best, second) &&
-      !isKnownConfusingTemplateMatch(best, effectiveMatches)
-    ) {
-      return {
-        slotIndex: slot.index,
-        slotLabel: slot.label,
-        championName: best.variant.asset.name,
-        templatePath: best.variant.templatePath,
-        confidence: 'matched' as const,
-        score: best.score,
-      };
-    }
-
-    return {
-      slotIndex: slot.index,
-      slotLabel: slot.label,
-      confidence: 'empty' as const,
-      score: best?.score,
-    };
-  });
+  } finally {
+    gpuMatcher?.dispose();
+  }
 
   return { scannedAt, slots };
 }

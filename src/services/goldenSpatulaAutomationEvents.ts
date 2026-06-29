@@ -869,8 +869,7 @@ export function mergeKnowledgeEvent(
     event.kind === 'itemScanCompleted' ||
     event.kind === 'streakScanCompleted';
   const shopSlots = event.kind === 'shopScanStarted' ? {} : { ...previous.shopSlots };
-  const selectedAugments =
-    event.kind === 'selectedAugmentScanStarted' ? {} : { ...(previous.selectedAugments ?? {}) };
+  const selectedAugments = { ...(previous.selectedAugments ?? {}) };
   const items =
     event.kind === 'itemScanStarted' && event.itemKind
       ? Object.fromEntries(
@@ -908,13 +907,16 @@ export function mergeKnowledgeEvent(
       updatedAt: event.timestamp,
     };
   } else if (event.kind === 'selectedAugmentSlotMiss' && event.slotIndex !== undefined) {
-    selectedAugments[event.slotIndex] = {
-      slotIndex: event.slotIndex,
-      slotLabel: event.slotLabel,
-      confidence: 'empty',
-      score: event.score,
-      updatedAt: event.timestamp,
-    };
+    const previousSlot = selectedAugments[event.slotIndex];
+    if (previousSlot?.confidence !== 'matched') {
+      selectedAugments[event.slotIndex] = {
+        slotIndex: event.slotIndex,
+        slotLabel: event.slotLabel,
+        confidence: 'empty',
+        score: event.score,
+        updatedAt: event.timestamp,
+      };
+    }
   }
 
   if (event.kind === 'itemHit') {

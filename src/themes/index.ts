@@ -63,9 +63,15 @@ const registeredCustomAccentNames = new Set<AccentColor>();
  * - warning/error: 固定颜色（保持语义一致性）
  * - info: 跟随强调色（用于信息提示）
  */
-const fixedSemanticColors = {
-  warning: '#f59e0b',
-  error: '#ef4444',
+const semanticColors = {
+  light: {
+    warning: '#f59e0b',
+    error: '#ef4444',
+  },
+  dark: {
+    warning: '#f7c948',
+    error: '#f87171',
+  },
 };
 
 /** 当前主题状态 */
@@ -109,8 +115,9 @@ function applyCSSVariables(mode: ModeTheme, accent: AccentTheme, isDark: boolean
   // success 和 info 使用强调色，让 UI 更统一
   root.style.setProperty('--color-success', accent.default);
   root.style.setProperty('--color-info', accent.default);
-  root.style.setProperty('--color-warning', fixedSemanticColors.warning);
-  root.style.setProperty('--color-error', fixedSemanticColors.error);
+  const semantic = isDark ? semanticColors.dark : semanticColors.light;
+  root.style.setProperty('--color-warning', semantic.warning);
+  root.style.setProperty('--color-error', semantic.error);
 }
 
 /**

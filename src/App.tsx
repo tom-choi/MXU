@@ -1926,10 +1926,10 @@ function App() {
             {/* 右侧信息面板 */}
             {!rightPanelCollapsed && (
               <div
-                className={`flex flex-col p-3 bg-bg-primary overflow-x-hidden border-l border-transparent ${sidePanelExpanded ? 'gap-3 overflow-y-auto' : 'overflow-hidden'}`}
+                className={`flex flex-col bg-bg-secondary/25 p-1.5 overflow-x-hidden border-l border-border/35 ${sidePanelExpanded ? 'gap-1.5 overflow-y-auto' : 'overflow-hidden'}`}
                 style={{
                   width: rightPanelWidth,
-                  minWidth: 240,
+                  minWidth: 220,
                   // 允许收缩但保持最小宽度，确保窗口缩小时不被裁切
                   flexShrink: 1,
                 }}
@@ -1939,7 +1939,7 @@ function App() {
                   className="grid transition-[grid-template-rows] duration-150 ease-out"
                   style={{ gridTemplateRows: sidePanelExpanded ? '1fr' : '0fr' }}
                 >
-                  <div className="overflow-hidden min-h-0 flex flex-col gap-3">
+                  <div className="overflow-hidden min-h-0 flex flex-col gap-2">
                     {/* 连接设置（设备/资源选择） */}
                     <ConnectionPanel />
 

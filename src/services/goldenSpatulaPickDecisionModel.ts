@@ -28,6 +28,8 @@ export interface GoldenSpatulaPickScoreInput {
   shopVisibleBonus: number;
   itemFitBonus: number;
   completePenalty: number;
+  interestTaxPenalty: number;
+  contestPenalty: number;
   role: GoldenSpatulaDecisionRole;
   copiesNeeded: number;
   cost?: number;
@@ -80,18 +82,14 @@ export function compareGoldenSpatulaActionablePicks(
   );
 }
 
-export function isGoldenSpatulaActionableRollPick(
-  pick: GoldenSpatulaPickRecommendation,
-): boolean {
+export function isGoldenSpatulaActionableRollPick(pick: GoldenSpatulaPickRecommendation): boolean {
   if (pick.shopOddsAvailability === 'unavailable') return false;
   if (pick.shopOdds !== undefined && pick.shopOdds <= 0) return false;
   if (pick.copiesNeeded <= 0) return false;
   return pick.score > 0 || pick.rollTargetPriority > 0;
 }
 
-export function isGoldenSpatulaActionablePick(
-  pick: GoldenSpatulaPickRecommendation,
-): boolean {
+export function isGoldenSpatulaActionablePick(pick: GoldenSpatulaPickRecommendation): boolean {
   if (pick.copiesNeeded <= 0) return false;
   if ((pick.shopVisibleCount ?? 0) > 0) return pick.score > 0;
   return isGoldenSpatulaActionableRollPick(pick);
@@ -122,7 +120,10 @@ export function getGoldenSpatulaPickScoreBreakdown(
       ? 1
       : getGoldenSpatulaShopOddsScoreMultiplier(input.shopOddsAvailability, input.shopOdds);
   const levelPenalty =
-    input.cost !== undefined && input.cost >= 4 && input.currentLevel !== undefined && input.currentLevel < 8
+    input.cost !== undefined &&
+    input.cost >= 4 &&
+    input.currentLevel !== undefined &&
+    input.currentLevel < 8
       ? 0.9
       : 1;
   const beforeMultipliers =
@@ -131,7 +132,10 @@ export function getGoldenSpatulaPickScoreBreakdown(
     input.nearUpgradeBonus +
     input.shopVisibleBonus +
     input.itemFitBonus -
-    input.completePenalty;
+    input.completePenalty -
+    input.interestTaxPenalty -
+    input.contestPenalty;
+  const penalty = input.completePenalty + input.interestTaxPenalty + input.contestPenalty;
   const expectedHitRateMultiplier = 0.78 + input.acquisition.expectedRollHitRate * 0.38;
   const final = Math.max(
     0,
@@ -158,7 +162,12 @@ export function getGoldenSpatulaPickScoreBreakdown(
       shopVisible: input.shopVisibleBonus,
       itemFit: input.itemFitBonus,
     },
-    penalty: input.completePenalty,
+    penalties: {
+      complete: input.completePenalty,
+      interestTax: input.interestTaxPenalty,
+      contest: input.contestPenalty,
+    },
+    penalty,
     beforeMultipliers,
     multipliers: {
       role: roleWeight,

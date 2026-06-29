@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNod
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import {
+  Activity,
   Bot,
   BookOpen,
   CheckCircle2,
@@ -68,13 +69,14 @@ import {
   type GoldenSpatulaAugmentScanState,
 } from '@/services/goldenSpatulaAugmentAutomation';
 import {
+  preloadGoldenSpatulaAugmentChoiceVisionTemplates,
+  recognizeGoldenSpatulaAugmentChoicesFromImageElement,
   recognizeGoldenSpatulaAugmentChoicesFromDataUrl,
   type GoldenSpatulaAugmentChoiceVisionResult,
 } from '@/services/goldenSpatulaAugmentChoiceVision';
 import {
   buildGoldenSpatulaAugmentDecision,
   type GoldenSpatulaAugmentDecision,
-  type GoldenSpatulaAugmentScoreReason,
 } from '@/services/goldenSpatulaAugmentDecisionModel';
 import { buildGoldenSpatulaDecisionPlan } from '@/services/goldenSpatulaDecisionEngine';
 import {
@@ -82,7 +84,6 @@ import {
   getGoldenSpatulaActiveRollTargetNames,
   isGoldenSpatulaCarryUnit,
   isGoldenSpatulaDisplayableUnit,
-  isGoldenSpatulaFrontlineUnit,
 } from '@/services/goldenSpatulaDecisionContext';
 import {
   createManagedLineupFromRecommended,
@@ -93,14 +94,14 @@ import {
   parseGoldenSpatulaLineupImport,
 } from '@/services/goldenSpatulaService';
 import {
-  buildAutoPickAugmentPipelineOverride,
   buildAutoLevelRollBuyPipelineOverride,
   buildAutoRollBuyPipelineOverride,
+  buildAutoPickAugmentPipelineOverride,
   goldenSpatulaAugmentFocusScope,
-  goldenSpatulaAutoPickAugmentEntry as autoPickAugmentEntry,
   goldenSpatulaAutoLevelRollBuyEntry as autoLevelRollBuyEntry,
   goldenSpatulaAutoRollBuyEntry as autoRollBuyEntry,
-  goldenSpatulaShopChampionSlots,
+  goldenSpatulaAutoPickAugmentEntry as autoPickAugmentEntry,
+  type GoldenSpatulaAutoRollCount,
 } from '@/services/goldenSpatulaRollPipeline';
 import { collectGoldenSpatulaDecisionRollTargetTemplates } from '@/services/goldenSpatulaRollTargets';
 import {
@@ -113,13 +114,27 @@ import {
   type GoldenSpatulaShopVisionResult,
 } from '@/services/goldenSpatulaShopVision';
 import {
+  findGoldenSpatulaSelectedAugmentDetailPanelTargetsFromDataUrl,
+  findGoldenSpatulaSelectedAugmentProbeTargetsFromDataUrl,
   recognizeGoldenSpatulaSelectedAugmentsFromDataUrl,
+  recognizeGoldenSpatulaSelectedAugmentDetailFromDataUrl,
+  scaleGoldenSpatulaSelectedAugmentTargetFromDataUrl,
+  type GoldenSpatulaSelectedAugmentDetailDiagnostics,
+  type GoldenSpatulaSelectedAugmentProbeTarget,
+  type GoldenSpatulaSelectedAugmentVisionSlotResult,
   type GoldenSpatulaSelectedAugmentVisionResult,
 } from '@/services/goldenSpatulaSelectedAugmentVision';
 import {
+  detectGoldenSpatulaAugmentPresenceFromLoadedImage,
   detectGoldenSpatulaAugmentPresenceFromDataUrl,
+  loadGoldenSpatulaAugmentPresenceImage,
   type GoldenSpatulaAugmentPresenceResult,
 } from '@/services/goldenSpatulaAugmentPresenceVision';
+import {
+  detectGoldenSpatulaSpecialEventsFromDataUrl,
+  type GoldenSpatulaSpecialEventDetection,
+  type GoldenSpatulaSpecialEventType,
+} from '@/services/goldenSpatulaSpecialEventVision';
 import { useAppStore } from '@/stores/appStore';
 import type {
   GoldenSpatulaAssistantData,
@@ -136,8 +151,6 @@ import type {
   GoldenSpatulaKnowledgeEvent,
   GoldenSpatulaItemAsset,
   GoldenSpatulaItemAssetIndex,
-  GoldenSpatulaKnowledgeItemKind,
-  GoldenSpatulaKnowledgeItemState,
   GoldenSpatulaKnowledgeScanState,
   GoldenSpatulaKnowledgeSelectedAugmentState,
   GoldenSpatulaKnowledgeShopSlotState,
@@ -153,7 +166,6 @@ import type {
   GoldenSpatulaRecommendedLineup,
   GoldenSpatulaRecommendedLineupsData,
   GoldenSpatulaRollEvent,
-  GoldenSpatulaRollEventKind,
   GoldenSpatulaRollRunState,
   GoldenSpatulaShopOddsSource,
   GoldenSpatulaTemplateCategory,
@@ -161,7 +173,6 @@ import type {
   GoldenSpatulaTraitAsset,
   GoldenSpatulaTraitAssetIndex,
   GoldenSpatulaVariantSlot,
-  GoldenSpatulaXpEventKind,
   GoldenSpatulaXpRunState,
 } from '@/types/goldenSpatula';
 
@@ -169,7 +180,320 @@ export const GOLDEN_SPATULA_PROJECT = 'GoldenSpatulaMuMu';
 const KNOWLEDGE_RESOURCE = 'GoldenSpatulaKnowledge';
 const MAX_RECOGNITION_SUMMARIES = 20;
 const selectedAugmentCheckIntervalMs = 5000;
-const augmentPresenceCheckIntervalMs = 5000;
+const selectedAugmentMissingPassiveCheckIntervalMs = 45000;
+const selectedAugmentUnknownRoundCheckIntervalMs = 60000;
+const selectedAugmentOneStableCheckIntervalMs = 30000;
+const selectedAugmentTwoStableCheckIntervalMs = 45000;
+const selectedAugmentThreeStableCheckIntervalMs = 60000;
+const selectedAugmentFullStableCheckIntervalMs = 90000;
+const selectedAugmentPostChoiceWakeWindowMs = 12000;
+const selectedAugmentChoiceWakeMinIntervalMs = 3000;
+const selectedAugmentNoPresenceBackoffMs = 45000;
+const selectedAugmentNoPresenceMaxBackoffMs = 180000;
+const selectedAugmentNoMatchBackoffMs = 15000;
+const selectedAugmentMaxScanSlots = 4;
+const selectedAugmentRepeatedImageBackoffMs = 30000;
+const selectedAugmentVisionEnabled = true;
+const selectedAugmentActiveProbeEnabled = true;
+const selectedAugmentActiveProbeMissThreshold = 2;
+const selectedAugmentActiveProbeMinIntervalMs = 30000;
+const selectedAugmentActiveProbeClickDelayMs = 340;
+const selectedAugmentActiveProbeScreencapDelayMs = 220;
+const selectedAugmentActiveProbeCloseDelayMs = 120;
+const selectedAugmentDetailProbeSettleRetryDelayMs = 300;
+const selectedAugmentActiveProbeCloseLogicalTarget = [650, 360] as const;
+const selectedAugmentProbeReliabilityWindowSize = 20;
+const selectedAugmentProbeReliabilityTargetRate = 0.9;
+const selectedAugmentProbeCalibrationTargetLimit = 4;
+const selectedAugmentProbePanelTargetLimit = 4;
+const selectedAugmentProbeMaxClickAttempts = 8;
+const selectedAugmentProbeBatchSize = 10;
+const selectedAugmentProbeTraceLimit = 10;
+const augmentPresenceCheckIntervalMs = 1000;
+const specialEventMissingGraceMs = 3000;
+const augmentOcrExperimentalEnabled = false;
+
+type SelectedAugmentProbeRunStage =
+  | 'matched'
+  | 'noTargets'
+  | 'noPanelTarget'
+  | 'noDetailCard'
+  | 'detailUnmatched'
+  | 'blocked'
+  | 'cancelled'
+  | 'noScreenshot'
+  | 'error';
+
+interface SelectedAugmentProbeReliabilitySnapshot {
+  total: number;
+  success: number;
+  passRate: number;
+  targetRate: number;
+  history: boolean[];
+  lastStage?: SelectedAugmentProbeRunStage;
+  lastAttempts: number;
+  lastUpdatedAt?: number;
+}
+
+interface SelectedAugmentDetailProbeResult {
+  detailMatched: boolean;
+  finalImage: string;
+  stage: SelectedAugmentProbeRunStage;
+  attempts: number;
+  match?: GoldenSpatulaSelectedAugmentVisionSlotResult;
+  detailDiagnostics?: GoldenSpatulaSelectedAugmentDetailDiagnostics;
+  target?: GoldenSpatulaSelectedAugmentProbeTarget;
+  panelTarget?: GoldenSpatulaSelectedAugmentProbeTarget;
+  panelTargetCount: number;
+}
+
+interface SelectedAugmentProbeSequenceResult {
+  detailMatched: boolean;
+  finalImage: string;
+  stage: SelectedAugmentProbeRunStage;
+  attempts: number;
+  targetCount: number;
+  panelTargetCount?: number;
+  match?: GoldenSpatulaSelectedAugmentVisionSlotResult;
+  detailDiagnostics?: GoldenSpatulaSelectedAugmentDetailDiagnostics;
+  target?: GoldenSpatulaSelectedAugmentProbeTarget;
+  panelTarget?: GoldenSpatulaSelectedAugmentProbeTarget;
+}
+
+interface SelectedAugmentDetailRecognitionResult {
+  match?: GoldenSpatulaSelectedAugmentVisionSlotResult;
+  diagnostics?: GoldenSpatulaSelectedAugmentDetailDiagnostics;
+}
+
+interface SelectedAugmentProbeCandidateStats {
+  success: number;
+  failure: number;
+  lastUpdatedAt: number;
+}
+
+interface SelectedAugmentProbeTraceTarget {
+  slotIndex: number;
+  slotLabel: string;
+  source?: GoldenSpatulaSelectedAugmentProbeTarget['source'];
+  augmentName?: string;
+  score?: number;
+  logicalTarget?: readonly [number, number];
+  screenTarget?: readonly [number, number];
+}
+
+interface SelectedAugmentProbeTraceMatch {
+  augmentName?: string;
+  score?: number;
+  slotIndex: number;
+  slotLabel: string;
+  templatePath?: string;
+  matchKind?: GoldenSpatulaSelectedAugmentVisionSlotResult['matchKind'];
+  matchCenter?: readonly [number, number];
+  matchSourceLabel?: string;
+  matchSide?: GoldenSpatulaSelectedAugmentVisionSlotResult['matchSide'];
+  matchMargin?: number;
+}
+
+interface SelectedAugmentProbeTraceEntry {
+  id: string;
+  timestamp: number;
+  runKind: 'active' | 'single' | 'batch';
+  iteration?: number;
+  total?: number;
+  success: boolean;
+  stage: SelectedAugmentProbeRunStage;
+  attempts: number;
+  targetCount: number;
+  panelTargetCount?: number;
+  initialImage?: string;
+  finalImage?: string;
+  target?: SelectedAugmentProbeTraceTarget;
+  panelTarget?: SelectedAugmentProbeTraceTarget;
+  match?: SelectedAugmentProbeTraceMatch;
+  detailDiagnostics?: GoldenSpatulaSelectedAugmentDetailDiagnostics;
+}
+
+function createEmptySelectedAugmentProbeReliability(): SelectedAugmentProbeReliabilitySnapshot {
+  return {
+    total: 0,
+    success: 0,
+    passRate: 0,
+    targetRate: selectedAugmentProbeReliabilityTargetRate,
+    history: [],
+    lastAttempts: 0,
+  };
+}
+
+function updateSelectedAugmentProbeReliability(
+  previous: SelectedAugmentProbeReliabilitySnapshot,
+  result: {
+    success: boolean;
+    stage: SelectedAugmentProbeRunStage;
+    attempts: number;
+  },
+): SelectedAugmentProbeReliabilitySnapshot {
+  const history = [...previous.history, result.success].slice(
+    -selectedAugmentProbeReliabilityWindowSize,
+  );
+  const success = history.filter(Boolean).length;
+  const total = history.length;
+
+  return {
+    total,
+    success,
+    passRate: total > 0 ? success / total : 0,
+    targetRate: selectedAugmentProbeReliabilityTargetRate,
+    history,
+    lastStage: result.stage,
+    lastAttempts: result.attempts,
+    lastUpdatedAt: Date.now(),
+  };
+}
+
+function waitMs(ms: number): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function isSelectedAugmentProbeBlockingSpecialEvent(
+  events: Partial<
+    Record<
+      GoldenSpatulaSpecialEventType,
+      {
+        visible: boolean;
+      }
+    >
+  >,
+): boolean {
+  return Boolean(
+    events.augmentChoice?.visible ||
+    events.deityDuel?.visible ||
+    events.rewardBlessing?.visible ||
+    events.itemArmory?.visible,
+  );
+}
+
+function parseGoldenSpatulaRound(
+  round: string | undefined,
+): { stage: number; turn: number } | undefined {
+  const [stageText, turnText] = String(round ?? '').split('-');
+  const stage = Number(stageText);
+  const turn = Number(turnText);
+  if (!Number.isFinite(stage) || !Number.isFinite(turn)) return undefined;
+
+  return { stage, turn };
+}
+
+function isSelectedAugmentScanAvailable(
+  round: string | undefined,
+  matchedSelectedAugmentCount: number,
+): boolean {
+  const parsed = parseGoldenSpatulaRound(round);
+  if (!parsed) return true;
+  if (matchedSelectedAugmentCount > 0) return true;
+  return parsed.stage >= 2;
+}
+
+function isLikelySelectedAugmentUpdateWindow(round: string | undefined): boolean {
+  const parsed = parseGoldenSpatulaRound(round);
+  if (!parsed) return false;
+  const { stage, turn } = parsed;
+
+  return (
+    (stage === 2 && turn <= 2) ||
+    (stage === 3 && turn >= 2 && turn <= 3) ||
+    (stage === 4 && turn >= 2 && turn <= 3) ||
+    (stage === 5 && turn >= 2 && turn <= 3)
+  );
+}
+
+function getExpectedSelectedAugmentCountForRound(round: string | undefined): number {
+  const parsed = parseGoldenSpatulaRound(round);
+  if (!parsed) return 0;
+  const { stage } = parsed;
+  if (stage < 2) return 0;
+  if (stage === 2) return 1;
+  if (stage === 3) return 2;
+  if (stage === 4) return 3;
+  return 4;
+}
+
+function getSelectedAugmentMaxScanSlots(
+  round: string | undefined,
+  matchedSelectedAugmentCount: number,
+): number {
+  const expectedSelectedAugmentCount = getExpectedSelectedAugmentCountForRound(round);
+  const scanTarget =
+    expectedSelectedAugmentCount > 0
+      ? Math.max(expectedSelectedAugmentCount, matchedSelectedAugmentCount)
+      : Math.max(1, matchedSelectedAugmentCount + 1);
+  return Math.max(1, Math.min(selectedAugmentMaxScanSlots, scanTarget));
+}
+
+function getStableSelectedAugmentCheckIntervalMs(matchedSelectedAugmentCount: number): number {
+  if (matchedSelectedAugmentCount >= 4) return selectedAugmentFullStableCheckIntervalMs;
+  if (matchedSelectedAugmentCount >= 3) return selectedAugmentThreeStableCheckIntervalMs;
+  if (matchedSelectedAugmentCount >= 2) return selectedAugmentTwoStableCheckIntervalMs;
+  if (matchedSelectedAugmentCount >= 1) return selectedAugmentOneStableCheckIntervalMs;
+  return selectedAugmentUnknownRoundCheckIntervalMs;
+}
+
+function getGoldenSpatulaDataUrlFastFingerprint(dataUrl: string): string {
+  if (!dataUrl.startsWith('data:image/')) return '';
+  const middle = Math.max(0, Math.floor(dataUrl.length / 2) - 64);
+  return [
+    dataUrl.length,
+    dataUrl.slice(0, 80),
+    dataUrl.slice(middle, middle + 128),
+    dataUrl.slice(-128),
+  ].join(':');
+}
+
+function getSelectedAugmentCheckIntervalMs(
+  round: string | undefined,
+  matchedSelectedAugmentCount: number,
+): number {
+  const parsed = parseGoldenSpatulaRound(round);
+  if (!parsed) {
+    return getStableSelectedAugmentCheckIntervalMs(matchedSelectedAugmentCount);
+  }
+
+  const expectedSelectedAugmentCount = getExpectedSelectedAugmentCountForRound(round);
+  if (
+    isLikelySelectedAugmentUpdateWindow(round) &&
+    matchedSelectedAugmentCount < expectedSelectedAugmentCount
+  ) {
+    return selectedAugmentCheckIntervalMs;
+  }
+  if (matchedSelectedAugmentCount < expectedSelectedAugmentCount) {
+    return selectedAugmentMissingPassiveCheckIntervalMs;
+  }
+  return getStableSelectedAugmentCheckIntervalMs(matchedSelectedAugmentCount);
+}
+
+function hasGoldenSpatulaAugmentVisionAssets(
+  augmentAssets: GoldenSpatulaAugmentAssetIndex | undefined,
+): boolean {
+  return Object.values(augmentAssets ?? {}).some(
+    (asset) => Boolean(asset.imagePath) && asset.templateAvailable !== false,
+  );
+}
+
+function waitForSelectedAugmentVisionBackgroundSlot(): Promise<void> {
+  return new Promise((resolve) => {
+    window.requestAnimationFrame(() => {
+      const requestIdleCallback = (
+        window as Window & {
+          requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+        }
+      ).requestIdleCallback;
+      if (requestIdleCallback) {
+        requestIdleCallback(resolve, { timeout: 1200 });
+      } else {
+        window.setTimeout(resolve, 0);
+      }
+    });
+  });
+}
 
 const knowledgeTaskNames = new Set([
   'KnowledgeSmokeTest',
@@ -182,7 +506,8 @@ const knowledgeTaskNames = new Set([
   'RecognizeEconomyState',
 ]);
 
-type AutoRollCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+type AutoRollCount = GoldenSpatulaAutoRollCount;
+type AutoDecisionMode = 'off' | 'roll' | 'level';
 
 const autoRollCounts: AutoRollCount[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const autoRollTaskByCount: Partial<Record<AutoRollCount, string>> = {
@@ -190,20 +515,25 @@ const autoRollTaskByCount: Partial<Record<AutoRollCount, string>> = {
   3: 'AutoRollShopThree',
   5: 'AutoRollShopFive',
 };
-const autoRollTaskNames = new Set(Object.values(autoRollTaskByCount).filter(Boolean));
 const autoBuyExperienceTaskByCount: Partial<Record<AutoRollCount, string>> = {
   1: 'AutoBuyExperienceOnce',
   3: 'AutoBuyExperienceThree',
   5: 'AutoBuyExperienceFive',
 };
-const goldenSpatulaShopOddsCosts = [1, 2, 3, 4, 5] as const;
+const autoDecisionRollCost = 2;
+const autoDecisionLevelCost = 4;
+const autoDecisionInitialDelayMs = 5000;
+const autoDecisionRepeatDelayMs = 3000;
 
-function toAutoRollCount(value: number | undefined): AutoRollCount | undefined {
-  if (value === undefined || !Number.isFinite(value)) return undefined;
-  const normalized = Math.trunc(value);
-  return autoRollCounts.includes(normalized as AutoRollCount)
-    ? (normalized as AutoRollCount)
-    : undefined;
+function getAutoDecisionActionCost(mode: AutoDecisionMode): number | undefined {
+  if (mode === 'roll') return autoDecisionRollCost;
+  if (mode === 'level') return autoDecisionLevelCost;
+  return undefined;
+}
+
+function clampAutoRollCount(value: number | undefined, fallback: number): AutoRollCount {
+  const raw = Number.isFinite(value) ? Math.trunc(value as number) : fallback;
+  return Math.max(1, Math.min(10, raw)) as AutoRollCount;
 }
 
 const battleBoardSlotCount = 28;
@@ -328,9 +658,9 @@ function buildRecognitionSummary(
 
 function StatusIcon({ ok }: { ok: boolean }) {
   return ok ? (
-    <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+    <CheckCircle2 className="h-3 w-3 shrink-0 text-success" />
   ) : (
-    <XCircle className="w-3.5 h-3.5 text-warning shrink-0" />
+    <XCircle className="h-3 w-3 shrink-0 text-warning" />
   );
 }
 
@@ -344,7 +674,7 @@ function StatusPill({
   return (
     <span
       className={clsx(
-        'shrink-0 rounded px-1.5 py-0.5 text-[11px] font-medium ring-1 ring-inset',
+        'shrink-0 rounded-full px-1.5 py-px text-[10px] font-semibold leading-4 ring-1 ring-inset',
         tone === 'success' && 'bg-success/15 text-success ring-success/30',
         tone === 'warning' && 'bg-warning/15 text-warning ring-warning/35',
         tone === 'error' && 'bg-error/15 text-error ring-error/30',
@@ -357,7 +687,10 @@ function StatusPill({
 }
 
 function getRecommendedQualityTone(quality: string | undefined): 's' | 'a' | 'b' | 'default' {
-  const grade = quality?.trim().match(/^[A-Za-z]\+?/u)?.[0]?.toUpperCase();
+  const grade = quality
+    ?.trim()
+    .match(/^[A-Za-z]\+?/u)?.[0]
+    ?.toUpperCase();
   if (grade?.startsWith('S')) return 's';
   if (grade?.startsWith('A')) return 'a';
   if (grade?.startsWith('B')) return 'b';
@@ -365,15 +698,15 @@ function getRecommendedQualityTone(quality: string | undefined): 's' | 'a' | 'b'
 }
 
 const goldenSpatulaNeutralTagClass =
-  'inline-flex items-center rounded bg-bg-hover px-1.5 py-0.5 text-[10px] font-medium text-text-secondary ring-1 ring-inset ring-border/70';
+  'inline-flex items-center rounded-full bg-bg-hover px-1.5 py-px text-[10px] font-semibold leading-4 text-text-secondary ring-1 ring-inset ring-border/70';
 
 const goldenSpatulaAccentTagClass =
-  'inline-flex items-center rounded bg-accent/10 px-1.5 py-0.5 text-[10px] font-medium text-accent ring-1 ring-inset ring-accent/30';
+  'inline-flex items-center rounded-full bg-accent/10 px-1.5 py-px text-[10px] font-semibold leading-4 text-accent ring-1 ring-inset ring-accent/30';
 
 function SectionTitle({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
   return (
-    <div className="flex items-center gap-2 text-xs font-medium text-text-primary">
-      <Icon className="w-3.5 h-3.5 text-text-secondary" />
+    <div className="inline-flex items-center gap-1.5 rounded-full bg-bg-secondary px-2 py-px text-[10px] font-black uppercase tracking-wide text-text-secondary ring-1 ring-inset ring-border/35">
+      <Icon className="h-3 w-3 text-text-muted" />
       <span>{label}</span>
     </div>
   );
@@ -399,10 +732,15 @@ function TemplateCategoryRow({
   const tone = ready ? 'success' : item.status === 'error' ? 'error' : 'warning';
 
   return (
-    <div className="flex items-center justify-between gap-2 rounded-md bg-bg-tertiary px-2 py-1.5">
-      <div className="flex items-center gap-2 min-w-0">
-        <StatusIcon ok={ready} />
-        <span className="text-xs text-text-secondary truncate">{label}</span>
+    <div className="flex h-6 min-w-0 items-center justify-between gap-1.5 rounded-full bg-bg-primary/60 px-1.5 ring-1 ring-inset ring-border/30">
+      <div className="flex min-w-0 items-center gap-1.5">
+        <span
+          className={clsx(
+            'h-1.5 w-1.5 shrink-0 rounded-full',
+            ready ? 'bg-success' : tone === 'error' ? 'bg-error' : 'bg-warning',
+          )}
+        />
+        <span className="truncate text-[10px] font-bold text-text-secondary">{label}</span>
       </div>
       <StatusPill tone={tone}>
         {ready
@@ -445,19 +783,6 @@ function isMainCarryUnit(
   return isGoldenSpatulaCarryUnit(unit, variant);
 }
 
-function isFrontlinerUnit(
-  unit: GoldenSpatulaLineupUnit,
-  variant: GoldenSpatulaLineupVariant,
-): boolean {
-  return isGoldenSpatulaFrontlineUnit(unit, variant);
-}
-
-function getLineupUnitRole(unit: GoldenSpatulaLineupUnit, variant: GoldenSpatulaLineupVariant) {
-  if (isMainCarryUnit(unit, variant)) return 'carry';
-  if (isFrontlinerUnit(unit, variant)) return 'frontline';
-  return 'unit';
-}
-
 function findChampionAsset(
   unitName: string,
   assets: GoldenSpatulaChampionAssetIndex | undefined,
@@ -486,9 +811,7 @@ function findTraitAsset(
   );
 }
 
-function collectLineupItemFallbacks(
-  variant: GoldenSpatulaLineupVariant,
-): Map<string, string[]> {
+function collectLineupItemFallbacks(variant: GoldenSpatulaLineupVariant): Map<string, string[]> {
   const itemsByName = new Map<string, string[]>();
 
   for (const unit of [...variant.mainCarries, ...variant.frontliners, ...variant.units]) {
@@ -538,12 +861,7 @@ function hydrateLineupVariantItemsFromReference(
   const shouldFillEquipmentOrder =
     (variant.equipmentOrder?.length ?? 0) === 0 && (reference.equipmentOrder?.length ?? 0) > 0;
 
-  if (
-    !mainCarries.changed &&
-    !frontliners.changed &&
-    !units.changed &&
-    !shouldFillEquipmentOrder
-  ) {
+  if (!mainCarries.changed && !frontliners.changed && !units.changed && !shouldFillEquipmentOrder) {
     return variant;
   }
 
@@ -590,6 +908,306 @@ function findAssetByTemplatePath<T extends GoldenSpatulaChampionAsset>(
   return Object.values(assets ?? {}).find((asset) =>
     normalizeKnowledgeTemplatePath(asset.imagePath).endsWith(normalizedTemplate),
   );
+}
+
+function formatLineupDisplayName(name: string | undefined): string {
+  return name?.trim() || '-';
+}
+
+function parseLineupTraitTags(
+  summary: string | undefined,
+): Array<{ count?: string; name: string }> {
+  if (!summary) return [];
+
+  const result: Array<{ count?: string; name: string }> = [];
+  const seen = new Set<string>();
+  for (const rawPart of summary.split(/[\/,，、|]/u)) {
+    const part = rawPart.trim();
+    if (!part) continue;
+    const match = part.match(/^(\d+)\s*(.+)$/u);
+    const count = match?.[1];
+    const name = (match?.[2] ?? part).trim();
+    const key = normalizeSearchText(name);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    result.push({ count, name });
+  }
+
+  if (result.length > 0) return result;
+
+  return Array.from(summary.matchAll(/(\d+)\s*([\p{Script=Han}A-Za-z·]{2,16})/gu))
+    .map((match) => ({ count: match[1], name: match[2].trim() }))
+    .filter((trait) => trait.name);
+}
+
+function traitNameMatches(
+  candidate: string | undefined,
+  traitName: string,
+  traitAsset: GoldenSpatulaTraitAsset | undefined,
+): boolean {
+  if (!candidate) return false;
+  const normalizedCandidate = normalizeSearchText(candidate);
+  const normalizedTrait = normalizeSearchText(traitName);
+  if (normalizedCandidate === normalizedTrait) return true;
+  return Boolean(
+    traitAsset?.aliases?.some((alias) => normalizeSearchText(alias) === normalizedCandidate),
+  );
+}
+
+function collectLineupTraitUnits(
+  variant: GoldenSpatulaLineupVariant,
+  traitName: string,
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
+  traitAssets?: GoldenSpatulaTraitAssetIndex,
+): GoldenSpatulaLineupUnit[] {
+  const traitAsset = findTraitAsset(traitName, traitAssets);
+  return collectLineupUnits(variant).filter((unit) => {
+    const asset = findChampionAsset(unit.name, championAssets);
+    return asset?.traits?.some((trait) => traitNameMatches(trait, traitName, traitAsset));
+  });
+}
+
+function parseTraitActiveCount(
+  trait: { count?: string; name: string },
+  variant: GoldenSpatulaLineupVariant,
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
+): number | undefined {
+  const parsed = Number(String(trait.count ?? '').match(/\d+/u)?.[0]);
+  if (Number.isFinite(parsed) && parsed > 0) return parsed;
+  const count = collectLineupTraitUnits(variant, trait.name, championAssets).length;
+  return count > 0 ? count : undefined;
+}
+
+function parseTraitEffectLines(asset: GoldenSpatulaTraitAsset | undefined): string[] {
+  const raw = [asset?.effect, asset?.description].filter(hasText).join('\n');
+  return raw
+    .split(/[\n\r]+|(?<=。)|(?<=；)|(?<=;)/u)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .slice(0, 8);
+}
+
+function parseTraitEffectLine(line: string): { threshold?: number; text: string } {
+  const match = line.match(/^\s*(?:\(?(\d{1,2})\)?|(\d{1,2})[：:])/u);
+  const threshold = Number(match?.[1] ?? match?.[2]);
+  return {
+    threshold: Number.isFinite(threshold) && threshold > 0 ? threshold : undefined,
+    text: line.replace(/^\s*\(?\d{1,2}\)?\s*[：:.-]?\s*/u, '').trim() || line,
+  };
+}
+
+function getActiveTraitThreshold(
+  thresholds: number[],
+  activeCount: number | undefined,
+): number | undefined {
+  if (activeCount === undefined) return undefined;
+  return thresholds
+    .filter((threshold) => threshold <= activeCount)
+    .sort((left, right) => right - left)[0];
+}
+
+function getLineupDisplayLevel(variant: GoldenSpatulaLineupVariant): number {
+  return Math.max(1, Math.min(10, collectLineupUnits(variant).length));
+}
+
+function getLineupTotalCost(
+  variant: GoldenSpatulaLineupVariant,
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
+): number | undefined {
+  let total = 0;
+  let known = 0;
+  for (const unit of collectLineupUnits(variant)) {
+    const cost = findChampionAsset(unit.name, championAssets)?.cost;
+    if (cost === undefined) continue;
+    total += cost;
+    known += 1;
+  }
+  return known > 0 ? total : undefined;
+}
+
+function formatShopOddsPercent(value: number | undefined): string {
+  return formatOddsValue(value);
+}
+
+function mergeShopSlotsFromRollEvent(
+  previous: GoldenSpatulaKnowledgeScanState,
+  event: GoldenSpatulaRollEvent,
+): GoldenSpatulaKnowledgeScanState {
+  if (event.slotIndex === undefined) return previous;
+  const timestamp = event.timestamp || Date.now();
+  const shopSlots = { ...previous.shopSlots };
+  if (event.kind === 'buyConfirmed' || event.kind === 'bought' || event.kind === 'missed') {
+    shopSlots[event.slotIndex] = {
+      slotIndex: event.slotIndex,
+      slotLabel: event.slotLabel,
+      championName: event.kind === 'missed' ? event.targetName : undefined,
+      confidence: event.kind === 'missed' ? 'unknown' : 'empty',
+      updatedAt: timestamp,
+    };
+  }
+
+  return {
+    ...previous,
+    shopSlots,
+    updatedAt: timestamp,
+  };
+}
+
+function buildShopVisionKnowledgeEvents(
+  result: GoldenSpatulaShopVisionResult,
+  t: TFunction,
+): GoldenSpatulaKnowledgeEvent[] {
+  const timestamp = result.scannedAt || Date.now();
+  const events: GoldenSpatulaKnowledgeEvent[] = [
+    {
+      id: `${timestamp}-shop-vision-started`,
+      timestamp,
+      kind: 'shopScanStarted',
+      scanKind: 'champions',
+      message: t('goldenSpatula.recognition.knowledgeEvent.shopScanStarted'),
+      nodeName: 'ShopVision',
+    },
+  ];
+
+  for (const slot of result.slots) {
+    const hit = slot.confidence === 'matched' && Boolean(slot.championName);
+    events.push({
+      id: `${timestamp}-shop-vision-${slot.slotIndex}`,
+      timestamp,
+      kind: hit ? 'shopChampionHit' : 'shopSlotMiss',
+      scanKind: 'champions',
+      slotIndex: slot.slotIndex,
+      slotLabel: slot.slotLabel,
+      championName: slot.championName,
+      templatePath: slot.templatePath,
+      score: slot.score,
+      message: t(
+        `goldenSpatula.recognition.knowledgeEvent.${hit ? 'shopChampionHit' : 'shopSlotMiss'}`,
+        {
+          slot: slot.slotLabel ?? slot.slotIndex,
+          championName: slot.championName,
+        },
+      ),
+      nodeName: 'ShopVision',
+    });
+  }
+
+  events.push({
+    id: `${timestamp}-shop-vision-completed`,
+    timestamp,
+    kind: 'shopScanCompleted',
+    scanKind: 'champions',
+    message: t('goldenSpatula.recognition.knowledgeEvent.shopScanCompleted'),
+    nodeName: 'ShopVision',
+  });
+  return events;
+}
+
+function buildSelectedAugmentKnowledgeEvents(
+  result: GoldenSpatulaSelectedAugmentVisionResult,
+  t: TFunction,
+  nodeName = 'SelectedAugmentVision',
+): GoldenSpatulaKnowledgeEvent[] {
+  if (result.slots.length === 0) return [];
+
+  const timestamp = result.scannedAt || Date.now();
+  const events: GoldenSpatulaKnowledgeEvent[] = [
+    {
+      id: `${timestamp}-selected-augment-started`,
+      timestamp,
+      kind: 'selectedAugmentScanStarted',
+      scanKind: 'augments',
+      message: t('goldenSpatula.recognition.knowledgeEvent.selectedAugmentScanStarted'),
+      nodeName,
+    },
+  ];
+
+  for (const slot of result.slots) {
+    const hit = slot.confidence === 'matched' && Boolean(slot.augmentName);
+    events.push({
+      id: `${timestamp}-selected-augment-${slot.slotIndex}`,
+      timestamp,
+      kind: hit ? 'selectedAugmentHit' : 'selectedAugmentSlotMiss',
+      scanKind: 'augments',
+      slotIndex: slot.slotIndex,
+      slotLabel: slot.slotLabel,
+      augmentName: slot.augmentName,
+      templatePath: slot.templatePath,
+      score: slot.score,
+      message: t(
+        `goldenSpatula.recognition.knowledgeEvent.${
+          hit ? 'selectedAugmentHit' : 'selectedAugmentSlotMiss'
+        }`,
+        {
+          slot: slot.slotLabel ?? slot.slotIndex,
+          augmentName: slot.augmentName,
+        },
+      ),
+      nodeName,
+    });
+  }
+
+  events.push({
+    id: `${timestamp}-selected-augment-completed`,
+    timestamp,
+    kind: 'selectedAugmentScanCompleted',
+    scanKind: 'augments',
+    message: t('goldenSpatula.recognition.knowledgeEvent.selectedAugmentScanCompleted'),
+    nodeName,
+  });
+  return events;
+}
+
+function buildAugmentChoiceVisionScanState(
+  result: GoldenSpatulaAugmentChoiceVisionResult,
+  t: TFunction,
+): GoldenSpatulaAugmentScanState {
+  const timestamp = result.scannedAt || Date.now();
+  const events: GoldenSpatulaAugmentScanEvent[] = result.slots.map((slot) => {
+    const matched = slot.confidence === 'matched' && Boolean(slot.augmentName);
+    return {
+      id: `${timestamp}-augment-choice-${slot.slotIndex}`,
+      timestamp,
+      kind: matched ? 'recognized' : 'scanFailed',
+      slotIndex: slot.slotIndex,
+      slotLabel: slot.slotLabel,
+      field: 'title',
+      title: slot.augmentName,
+      matchedName: slot.augmentName,
+      score: slot.score,
+      message: t(
+        `goldenSpatula.lineups.augmentStatusEvent.${matched ? 'recognized' : 'scanFailed'}`,
+        {
+          slot: slot.slotLabel ?? slot.slotIndex,
+          field: t('goldenSpatula.lineups.augmentField.title'),
+          matchedName: slot.augmentName,
+          score: slot.score,
+        },
+      ),
+      nodeName: 'AugmentChoiceVision',
+    };
+  });
+
+  const choices: GoldenSpatulaAugmentScanState['choices'] = {};
+  for (const slot of result.slots) {
+    choices[slot.slotIndex] = {
+      slotIndex: slot.slotIndex,
+      slotLabel: slot.slotLabel,
+      titleText: slot.augmentName,
+      titleStatus: slot.confidence === 'matched' ? 'recognized' : 'miss',
+      descriptionStatus: 'unknown',
+      updatedAt: timestamp,
+    };
+  }
+
+  return {
+    active: false,
+    startedAt: timestamp,
+    updatedAt: timestamp,
+    choices,
+    lastEvent: events[0],
+    events,
+  };
 }
 
 function costColor(cost: number | undefined): string {
@@ -641,17 +1259,6 @@ function getUnitCost(
 
 function getActiveRollTargetNames(variant: GoldenSpatulaLineupVariant): string[] {
   return getGoldenSpatulaActiveRollTargetNames(variant);
-}
-
-function collectRollTargetUnits(variant: GoldenSpatulaLineupVariant): GoldenSpatulaLineupUnit[] {
-  const units = collectLineupUnits(variant);
-  const activeNames = getActiveRollTargetNames(variant);
-
-  return activeNames
-    .map((name) =>
-      units.find((unit) => normalizeSearchText(unit.name) === normalizeSearchText(name)),
-    )
-    .filter((unit): unit is GoldenSpatulaLineupUnit => Boolean(unit));
 }
 
 function hasMeaningfulVariantContent(variant: GoldenSpatulaLineupVariant): boolean {
@@ -760,7 +1367,8 @@ function getFloatingInfoTooltipPosition(
     Math.max(margin, rect.left + rect.width / 2 - width / 2),
     Math.max(margin, viewportWidth - width - margin),
   );
-  const shouldPlaceAbove = rect.bottom + gap + estimatedHeight > viewportHeight && rect.top > estimatedHeight;
+  const shouldPlaceAbove =
+    rect.bottom + gap + estimatedHeight > viewportHeight && rect.top > estimatedHeight;
 
   return {
     left,
@@ -799,7 +1407,7 @@ function FloatingInfoTooltip({
     position && typeof document !== 'undefined'
       ? createPortal(
           <div
-            className="pointer-events-none fixed z-[1000] overflow-hidden rounded-lg border border-border bg-bg-secondary text-text-primary shadow-2xl shadow-black/10 dark:border-white/10 dark:bg-[#050508] dark:text-white dark:shadow-black/40"
+            className="pointer-events-none fixed z-[1000] overflow-hidden rounded-lg border border-border bg-bg-secondary text-text-primary shadow-2xl shadow-black/15"
             style={{
               left: position.left,
               top: position.top,
@@ -853,7 +1461,7 @@ function TooltipAssetIcon({
   return (
     <div
       className={clsx(
-        'flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted ring-1 ring-border/70 dark:bg-zinc-900 dark:text-zinc-300 dark:ring-white/15',
+        'flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted ring-1 ring-border/70',
         className,
       )}
     >
@@ -908,7 +1516,10 @@ function sanitizeGoldenSpatulaTooltipText(text: string | undefined): string | un
     .replace(/<[^>]*>/gu, '')
     .replace(/\b0>/gu, '')
     .replace(/~/g, '')
-    .replace(/[（(]\s*(?:总参与击败数|当前加成|击败追踪器|已吸引的朋友数量)[^）)]*[:：]\s*0\s*[）)]/gu, '')
+    .replace(
+      /[（(]\s*(?:总参与击败数|当前加成|击败追踪器|已吸引的朋友数量)[^）)]*[:：]\s*0\s*[）)]/gu,
+      '',
+    )
     .replace(/\s*(?:击败追踪器|总参与击败数|已吸引的朋友数量)[:：]\s*0/gu, '')
     .replace(/\s*[^，。；;|]*[:：]\s*0(?:\.0+)?%【[^】]+】(?:[，,]\s*0(?:\.0+)?%【[^】]+】)*/gu, '')
     .split(/(?<=。|！|!|？|\?)\s*/u)
@@ -926,7 +1537,9 @@ function cleanChampionTooltipText(text: string | undefined): string | undefined 
 
 function formatTooltipStatNumber(value: number | undefined): string | undefined {
   if (value === undefined || !Number.isFinite(value)) return undefined;
-  return Number.isInteger(value) ? String(value) : value.toFixed(2).replace(/0+$/u, '').replace(/\.$/u, '');
+  return Number.isInteger(value)
+    ? String(value)
+    : value.toFixed(2).replace(/0+$/u, '').replace(/\.$/u, '');
 }
 
 function formatTooltipMana(stat: GoldenSpatulaChampionStat | undefined): string | undefined {
@@ -948,9 +1561,7 @@ function splitChampionSkillValueLines(text: string | undefined): string[] {
 
 function AttackRangeDots({ range }: { range: number | undefined }) {
   const normalizedRange =
-    range !== undefined && Number.isFinite(range)
-      ? Math.max(0, Math.min(5, Math.round(range)))
-      : 0;
+    range !== undefined && Number.isFinite(range) ? Math.max(0, Math.min(5, Math.round(range))) : 0;
 
   return (
     <span className="inline-flex items-center gap-0.5">
@@ -959,7 +1570,9 @@ function AttackRangeDots({ range }: { range: number | undefined }) {
           key={index}
           className={clsx(
             'h-2 w-2 rounded-full',
-            index < normalizedRange ? 'bg-stone-500 dark:bg-stone-400' : 'bg-bg-active dark:bg-zinc-700',
+            index < normalizedRange
+              ? 'bg-stone-500 dark:bg-stone-400'
+              : 'bg-bg-active dark:bg-zinc-700',
           )}
         />
       ))}
@@ -1001,7 +1614,9 @@ function renderChampionSkillText(text: string | undefined): ReactNode {
   const cleaned = cleanChampionTooltipText(text);
   if (!cleaned) return null;
 
-  const parts = cleaned.split(/(【[^】]+】|\d+(?:\.\d+)?(?:\s*\/\s*\d+(?:\.\d+)?)+|[+-]?\d+(?:\.\d+)?%?)/gu);
+  const parts = cleaned.split(
+    /(【[^】]+】|\d+(?:\.\d+)?(?:\s*\/\s*\d+(?:\.\d+)?)+|[+-]?\d+(?:\.\d+)?%?)/gu,
+  );
   return parts.map((part, index) => {
     if (!part) return null;
     if (/^【[^】]+】$/u.test(part)) {
@@ -1009,7 +1624,7 @@ function renderChampionSkillText(text: string | undefined): ReactNode {
     }
     if (/^\d+(?:\.\d+)?(?:\s*\/\s*\d+(?:\.\d+)?)+$/u.test(part.trim())) {
       return (
-        <span key={`${part}-${index}`} className="font-black text-amber-700 dark:text-amber-300">
+        <span key={`${part}-${index}`} className="font-bold text-amber-700 dark:text-amber-300">
           {part}
         </span>
       );
@@ -1036,17 +1651,17 @@ function TooltipItemIcon({
 }) {
   return (
     <div
-      className="group/item relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md bg-gradient-to-br from-bg-tertiary to-bg-primary p-[1px] shadow-sm ring-1 ring-inset ring-border/70 dark:from-zinc-800 dark:to-zinc-950 dark:ring-white/15"
+      className="group/item relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-md bg-gradient-to-br from-bg-tertiary to-bg-primary p-[1px] shadow-sm ring-1 ring-inset ring-border/70"
       title={item}
     >
-      <div className="h-full w-full overflow-hidden rounded bg-bg-primary text-[7px] font-bold text-text-muted dark:bg-zinc-950 dark:text-zinc-400">
+      <div className="h-full w-full overflow-hidden rounded bg-bg-primary text-[7px] font-bold text-text-muted">
         <LineupAssetImage
           imagePath={itemAsset?.imagePath}
           fallback={item.slice(0, 1)}
           basePath={basePath}
         />
       </div>
-      <div className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-border/40 group-hover/item:ring-amber-400/60 dark:ring-black/30 dark:group-hover/item:ring-amber-300/60" />
+      <div className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-border/40 group-hover/item:ring-amber-400/60" />
     </div>
   );
 }
@@ -1083,7 +1698,7 @@ function LineupUnitHoverCard({
             className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-md p-[2px]"
             style={costFrameStyle(cost)}
           >
-            <div className="h-full w-full overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted dark:bg-zinc-950 dark:text-zinc-400">
+            <div className="h-full w-full overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted">
               <LineupAssetImage
                 imagePath={asset?.imagePath}
                 fallback={shortUnitName(unit.name)}
@@ -1093,11 +1708,11 @@ function LineupUnitHoverCard({
           </div>
           <div className="min-w-0">
             <div className="flex min-w-0 items-center gap-1.5">
-              <span className="truncate text-[14px] font-black leading-tight text-text-primary dark:text-zinc-50">
+              <span className="truncate text-[14px] font-bold leading-tight text-text-primary dark:text-zinc-50">
                 {unit.name}
               </span>
               {cost !== undefined && (
-                <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-black text-amber-300">
+                <span className="inline-flex shrink-0 items-center gap-1 text-[11px] font-bold text-amber-300">
                   <Coins className="h-3 w-3 fill-amber-300 text-amber-300" />
                   {cost}
                 </span>
@@ -1125,7 +1740,7 @@ function LineupUnitHoverCard({
             )}
           </div>
         </div>
-        <div className="shrink-0 text-right text-[10px] font-black leading-tight text-amber-300/75">
+        <div className="shrink-0 text-right text-[10px] font-bold leading-tight text-amber-300/75">
           MXU
         </div>
       </div>
@@ -1134,7 +1749,7 @@ function LineupUnitHoverCard({
         <>
           <TooltipDivider />
           <div className="flex items-start gap-2">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted ring-1 ring-border/70 dark:bg-zinc-900 dark:text-zinc-400 dark:ring-white/15">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted ring-1 ring-border/70">
               {asset?.skill?.icon ? (
                 <img src={asset.skill.icon} alt="" className="h-full w-full object-cover" />
               ) : (
@@ -1144,7 +1759,7 @@ function LineupUnitHoverCard({
             <div className="min-w-0 flex-1">
               <div className="flex min-w-0 items-center gap-2">
                 {skillName && (
-                  <span className="truncate text-[13px] font-black text-text-primary dark:text-zinc-50">
+                  <span className="truncate text-[13px] font-bold text-text-primary dark:text-zinc-50">
                     {skillName}
                   </span>
                 )}
@@ -1190,7 +1805,14 @@ function LineupUnitHoverCard({
             <div className="flex flex-wrap gap-1.5">
               {items.map((item, index) => {
                 const itemAsset = findItemAsset(item, itemAssets);
-                return <TooltipItemIcon key={`${item}-${index}`} item={item} itemAsset={itemAsset} basePath={basePath} />;
+                return (
+                  <TooltipItemIcon
+                    key={`${item}-${index}`}
+                    item={item}
+                    itemAsset={itemAsset}
+                    basePath={basePath}
+                  />
+                );
               })}
             </div>
           </div>
@@ -1277,7 +1899,8 @@ function compareAugmentRecommendationDetails(
     augmentRecommendationGroupOrder[getAugmentRecommendationGroup(right)];
   if (groupDelta !== 0) return groupDelta;
 
-  const rankDelta = (left.rank ?? Number.MAX_SAFE_INTEGER) - (right.rank ?? Number.MAX_SAFE_INTEGER);
+  const rankDelta =
+    (left.rank ?? Number.MAX_SAFE_INTEGER) - (right.rank ?? Number.MAX_SAFE_INTEGER);
   if (rankDelta !== 0) return rankDelta;
 
   const indexDelta = (right.recommendationIndex ?? 0) - (left.recommendationIndex ?? 0);
@@ -1394,7 +2017,9 @@ function AugmentRecommendationHoverCard({
           />
           <div className="min-w-0">
             <div className="flex min-w-0 items-center gap-1.5">
-              <span className="truncate text-sm font-bold text-text-primary dark:text-white">{name}</span>
+              <span className="truncate text-sm font-bold text-text-primary dark:text-white">
+                {name}
+              </span>
               {detail.recommendationIndex !== undefined && (
                 <span className="inline-flex items-center gap-1 rounded bg-amber-400/15 px-1.5 py-0.5 text-[11px] font-bold text-amber-300">
                   <Coins className="h-3 w-3" />
@@ -1403,13 +2028,13 @@ function AugmentRecommendationHoverCard({
               )}
             </div>
             <div className="mt-1 flex flex-wrap gap-1">
-                <span className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
-                  {formatAugmentRecommendationGroup(group, t)}
-                </span>
-                <span className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
-                  {formatAugmentStrengthTier(tier, t)}
-                </span>
-                {(detail.level ?? asset?.level) !== undefined && (
+              <span className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
+                {formatAugmentRecommendationGroup(group, t)}
+              </span>
+              <span className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
+                {formatAugmentStrengthTier(tier, t)}
+              </span>
+              {(detail.level ?? asset?.level) !== undefined && (
                 <span className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
                   {t('goldenSpatula.lineups.augmentLevel', {
                     level: detail.level ?? asset?.level,
@@ -1427,7 +2052,10 @@ function AugmentRecommendationHoverCard({
       {roleTags.length > 0 && (
         <div className="flex flex-wrap gap-1">
           {roleTags.map((roleTag) => (
-            <span key={roleTag} className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent">
+            <span
+              key={roleTag}
+              className="rounded bg-bg-hover px-1.5 py-0.5 text-[11px] text-text-secondary ring-1 ring-inset ring-border/60 dark:bg-white/10 dark:text-zinc-200 dark:ring-transparent"
+            >
               {formatAugmentRoleTag(roleTag, t)}
             </span>
           ))}
@@ -1437,12 +2065,16 @@ function AugmentRecommendationHoverCard({
       {body && (
         <>
           <TooltipDivider />
-          <div className="text-[12px] leading-relaxed text-text-primary dark:text-zinc-100">{body}</div>
+          <div className="text-[12px] leading-relaxed text-text-primary dark:text-zinc-100">
+            {body}
+          </div>
         </>
       )}
 
       {asset?.description && body !== asset.description && (
-        <div className="text-[11px] leading-relaxed text-text-muted dark:text-zinc-400">{asset.description}</div>
+        <div className="text-[11px] leading-relaxed text-text-muted dark:text-zinc-400">
+          {asset.description}
+        </div>
       )}
     </div>
   );
@@ -1462,7 +2094,6 @@ function AugmentRecommendationChip({
   const asset = findAugmentRecommendationAsset(detail, augmentAssets);
   const name = getAugmentRecommendationName(detail, augmentAssets);
   const group = getAugmentRecommendationGroup(detail);
-  const decision = detail.selectionDecision || detail.reason || asset?.description;
   const roleTags = detail.roleTags?.slice(0, 4) ?? [];
 
   return (
@@ -1477,11 +2108,11 @@ function AugmentRecommendationChip({
         />
       }
     >
-      <div className="min-w-0 rounded-md border border-border/70 bg-bg-primary p-2 text-left shadow-sm transition-colors hover:border-accent/45">
-        <div className="flex min-w-0 items-start gap-2">
+      <div className="min-w-0 rounded-lg border border-border/55 bg-bg-primary/70 px-1.5 py-1 text-left shadow-sm transition-colors hover:border-accent/45 hover:bg-bg-primary">
+        <div className="flex min-w-0 items-center gap-1.5">
           <div
             className={clsx(
-              'flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md p-[2px] text-[10px] font-bold ring-1 ring-inset',
+              'flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md p-[2px] text-[9px] font-bold ring-1 ring-inset',
               getAugmentLevelFrameClass(detail.level ?? asset?.level),
             )}
           >
@@ -1496,12 +2127,12 @@ function AugmentRecommendationChip({
 
           <div className="min-w-0 flex-1">
             <div className="flex min-w-0 items-center gap-1.5">
-              <span className="min-w-0 flex-1 truncate text-xs font-semibold text-text-primary">
+              <span className="min-w-0 flex-1 truncate text-[11px] font-black leading-none text-text-primary">
                 {name}
               </span>
               {detail.recommendationIndex !== undefined && (
                 <span
-                  className="shrink-0 rounded bg-accent/10 px-1.5 py-0.5 text-[10px] font-bold tabular-nums text-accent ring-1 ring-inset ring-accent/30"
+                  className="shrink-0 rounded-full bg-accent/10 px-1.5 py-px text-[9px] font-black tabular-nums text-accent ring-1 ring-inset ring-accent/30"
                   title={t('goldenSpatula.lineups.augmentRecommendationIndex', {
                     score: detail.recommendationIndex,
                   })}
@@ -1529,15 +2160,9 @@ function AugmentRecommendationChip({
           </div>
         </div>
 
-        {decision && (
-          <div className="mt-1.5 line-clamp-2 text-[11px] leading-relaxed text-text-muted">
-            {decision}
-          </div>
-        )}
-
         {roleTags.length > 0 && (
-          <div className="mt-1.5 flex flex-wrap gap-1">
-            {roleTags.map((roleTag) => (
+          <div className="mt-1 flex flex-wrap gap-1 pl-[38px]">
+            {roleTags.slice(0, 2).map((roleTag) => (
               <span key={roleTag} className={goldenSpatulaNeutralTagClass}>
                 {formatAugmentRoleTag(roleTag, t)}
               </span>
@@ -1604,16 +2229,18 @@ function AugmentRecommendationTierBoard({
   const tierGroups = augmentRecommendationTierOrder
     .map((tier) => ({
       tier,
-      items: filteredRecommendations.filter((detail) => getAugmentRecommendationTier(detail) === tier),
+      items: filteredRecommendations.filter(
+        (detail) => getAugmentRecommendationTier(detail) === tier,
+      ),
     }))
     .filter((group) => group.items.length > 0);
 
   return (
-    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+    <div className="space-y-1.5 rounded-lg bg-bg-primary/35 p-1.5 ring-1 ring-inset ring-border/35">
+      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between">
         <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.augmentMetaTitle')} />
-        <div className="flex flex-wrap gap-1.5 sm:justify-end">
-          <div className="flex flex-wrap rounded-md bg-bg-primary p-0.5 ring-1 ring-inset ring-border/70">
+        <div className="flex flex-wrap gap-1 sm:justify-end">
+          <div className="flex flex-wrap rounded-full bg-bg-secondary/70 p-0.5 ring-1 ring-inset ring-border/40">
             {visibleLevelFilters.map((item) => {
               const selected = levelFilter === item;
               const count = levelCounts.get(item) ?? 0;
@@ -1623,9 +2250,9 @@ function AugmentRecommendationTierBoard({
                   type="button"
                   onClick={() => setLevelFilter(item)}
                   className={clsx(
-                    'inline-flex h-6 min-w-12 items-center justify-center gap-1 rounded px-2 text-[11px] font-medium transition-colors',
+                    'inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full px-1.5 text-[10px] font-bold transition-colors',
                     selected
-                      ? 'bg-accent/10 text-accent shadow-sm'
+                      ? 'bg-accent/10 text-accent shadow-sm ring-1 ring-inset ring-accent/25'
                       : 'text-text-muted hover:text-text-primary',
                   )}
                 >
@@ -1636,7 +2263,7 @@ function AugmentRecommendationTierBoard({
             })}
           </div>
           {visibleGroupFilters.length > 1 && (
-            <div className="flex flex-wrap rounded-md bg-bg-primary p-0.5 ring-1 ring-inset ring-border/70">
+            <div className="flex flex-wrap rounded-full bg-bg-secondary/70 p-0.5 ring-1 ring-inset ring-border/40">
               {visibleGroupFilters.map((item) => {
                 const selected = groupFilter === item;
                 const count = groupCounts.get(item) ?? 0;
@@ -1646,9 +2273,9 @@ function AugmentRecommendationTierBoard({
                     type="button"
                     onClick={() => setGroupFilter(item)}
                     className={clsx(
-                      'inline-flex h-6 min-w-12 items-center justify-center gap-1 rounded px-2 text-[11px] font-medium transition-colors',
+                      'inline-flex h-5 min-w-10 items-center justify-center gap-1 rounded-full px-1.5 text-[10px] font-bold transition-colors',
                       selected
-                        ? 'bg-accent/10 text-accent shadow-sm'
+                        ? 'bg-accent/10 text-accent shadow-sm ring-1 ring-inset ring-accent/25'
                         : 'text-text-muted hover:text-text-primary',
                     )}
                   >
@@ -1662,26 +2289,26 @@ function AugmentRecommendationTierBoard({
         </div>
       </div>
 
-      <div className="space-y-1.5">
+      <div className="space-y-1">
         {tierGroups.length > 0 ? (
           tierGroups.map(({ tier, items }) => (
             <div
               key={tier}
               className={clsx(
-                'overflow-hidden rounded-md border bg-bg-primary',
+                'overflow-hidden rounded-lg border bg-bg-secondary/45',
                 getAugmentTierRailClass(tier),
               )}
             >
               <div className="flex flex-col sm:flex-row">
-                <div className="flex items-center justify-between gap-2 px-3 py-2 sm:w-[4.5rem] sm:flex-col sm:justify-center">
-                  <span className="text-sm font-black leading-none">
+                <div className="flex items-center justify-between gap-1.5 px-2 py-1 sm:w-14 sm:flex-col sm:justify-center">
+                  <span className="text-xs font-black leading-none">
                     {formatAugmentStrengthTier(tier, t)}
                   </span>
-                  <span className="rounded bg-bg-primary/60 px-1.5 py-0.5 text-[10px] font-bold tabular-nums">
+                  <span className="rounded-full bg-bg-primary/70 px-1.5 py-px text-[9px] font-black tabular-nums">
                     {items.length}
                   </span>
                 </div>
-                <div className="grid flex-1 gap-1.5 border-t border-current/15 p-2 sm:grid-cols-2 sm:border-l sm:border-t-0 xl:grid-cols-3">
+                <div className="grid flex-1 gap-1 border-t border-current/15 p-1.5 sm:grid-cols-2 sm:border-l sm:border-t-0 xl:grid-cols-3">
                   {items.map((detail, index) => (
                     <AugmentRecommendationChip
                       key={`${detail.id}-${detail.group ?? 'recommended'}-${detail.rank ?? detail.recommendationIndex ?? index}`}
@@ -1707,162 +2334,70 @@ function AugmentRecommendationTierBoard({
 
 function LineupTargetCard({
   unit,
-  variant,
-  asset,
+  championAssets,
   basePath,
   selected,
-  onClick,
+  onToggleTarget,
   t,
 }: {
   unit: GoldenSpatulaLineupUnit;
-  variant: GoldenSpatulaLineupVariant;
-  asset: GoldenSpatulaChampionAsset | undefined;
+  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
   basePath: string;
-  selected?: boolean;
-  onClick?: () => void;
+  selected: boolean;
+  onToggleTarget: (name: string) => void;
   t: TFunction;
 }) {
-  const role = getLineupUnitRole(unit, variant);
-  const highlighted = role === 'carry';
-  const cost = asset?.cost;
-  const Root = onClick ? 'button' : 'div';
+  const asset = findChampionAsset(unit.name, championAssets);
 
   return (
-    <Root
-      type={onClick ? 'button' : undefined}
-      onClick={onClick}
-      className={clsx(
-        'inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md px-1.5 py-1 text-left ring-1 ring-inset transition-colors',
+    <button
+      type="button"
+      aria-pressed={selected}
+      onClick={() => onToggleTarget(unit.name)}
+      title={
         selected
-          ? 'bg-accent/10 text-accent ring-accent/40'
-          : highlighted
-            ? 'bg-accent/10 text-accent ring-accent/30'
-            : 'bg-bg-tertiary text-text-secondary ring-border/60',
-        onClick && 'hover:text-accent hover:ring-accent/30',
+          ? t('goldenSpatula.lineups.decisionTargetSelected')
+          : t('goldenSpatula.lineups.decisionSetTarget')
+      }
+      className={clsx(
+        'group relative w-[62px] shrink-0 rounded-xl p-1 text-center transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50',
+        selected
+          ? 'bg-accent/10 text-accent ring-2 ring-accent/70 shadow-sm'
+          : 'bg-transparent text-text-primary hover:-translate-y-0.5 hover:bg-bg-hover/70 hover:ring-1 hover:ring-border/70',
       )}
-      title={unitLabel(unit)}
     >
+      {selected && (
+        <span className="absolute -left-0.5 -top-1 z-10 rounded-full bg-accent px-1.5 py-0.5 text-[9px] font-black leading-none text-white shadow-sm ring-1 ring-inset ring-accent">
+          D
+        </span>
+      )}
       <div
         className={clsx(
-          'relative flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[10px] font-medium',
-          highlighted ? 'bg-accent/15 text-accent' : 'bg-bg-primary text-text-secondary',
+          'relative mx-auto flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-bg-tertiary p-[2px] text-[10px] text-text-muted shadow-sm transition-transform group-hover:scale-[1.03]',
+          selected && 'ring-2 ring-accent ring-offset-1 ring-offset-bg-secondary',
         )}
-        style={costFrameStyle(cost)}
+        style={costFrameStyle(asset?.cost)}
       >
-        <div className="h-full w-full overflow-hidden rounded bg-bg-primary">
+        <div className="h-full w-full overflow-hidden rounded-md bg-bg-primary">
           <LineupAssetImage
             imagePath={asset?.imagePath}
             fallback={shortUnitName(unit.name)}
             basePath={basePath}
+            className="scale-105"
           />
         </div>
-        {highlighted && (
-          <span className="absolute right-0 top-0 flex h-3 w-3 items-center justify-center rounded-full bg-amber-400 text-[8px] font-bold leading-none text-slate-950 ring-1 ring-white/80">
-            C
-          </span>
-        )}
       </div>
-      <div className="min-w-0">
-        <div className="truncate text-xs font-medium">{unit.name}</div>
-        {role !== 'unit' && (
-          <div className="truncate text-[10px] text-text-muted">
-            {t(`goldenSpatula.lineups.targetRole.${role}`)}
-          </div>
+      <span
+        className={clsx(
+          'mt-1 block max-w-full truncate text-[10px] font-black leading-none',
+          selected ? 'text-accent' : 'text-text-primary',
         )}
-      </div>
-    </Root>
+      >
+        {unit.name}
+      </span>
+    </button>
   );
 }
-
-function getLineupDisplayLevel(variant: GoldenSpatulaLineupVariant): number {
-  const unitCount = collectLineupUnits(variant).filter(isGoldenSpatulaDisplayableUnit).length;
-  return Math.min(10, Math.max(1, unitCount));
-}
-
-function getLineupTotalCost(
-  variant: GoldenSpatulaLineupVariant,
-  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
-): number | undefined {
-  const costs = collectLineupUnits(variant)
-    .filter(isGoldenSpatulaDisplayableUnit)
-    .map((unit) => getUnitCost(unit.name, championAssets))
-    .filter((cost): cost is number => cost !== undefined);
-  if (costs.length === 0) return undefined;
-  return costs.reduce((sum, cost) => sum + cost, 0);
-}
-
-function parseLineupTraitTags(summary: string | undefined): Array<{ count?: string; name: string }> {
-  if (!summary) return [];
-  const content = summary.replace(/^.*?】/u, '').trim() || summary.trim();
-  const matches = [...content.matchAll(/(\d+)\s*([^0-9\s]+)/gu)]
-    .map((match) => ({
-      count: match[1],
-      name: match[2].replace(/[，,、/]+$/u, '').trim(),
-    }))
-    .filter((item) => item.name);
-  if (matches.length > 0) return matches.slice(0, 8);
-  return [{ name: content }].filter((item) => item.name);
-}
-
-function normalizeTraitEffectText(text: string): string {
-  return sanitizeGoldenSpatulaTooltipText(text) ?? '';
-}
-
-function parseTraitEffectLines(asset: GoldenSpatulaTraitAsset | undefined): string[] {
-  const source = asset?.effect || asset?.description;
-  if (!source) return [];
-  const lines = source
-    .split('|')
-    .map(normalizeTraitEffectText)
-    .filter(Boolean);
-  return [...new Set(lines)].slice(0, 6);
-}
-
-function parseTraitEffectLine(line: string): { threshold?: number; text: string } {
-  const match = line.match(/^\((\d+)\)\s*(.+)$/u);
-  if (!match) return { text: line };
-  return {
-    threshold: Number(match[1]),
-    text: match[2].trim(),
-  };
-}
-
-function getActiveTraitThreshold(
-  thresholds: number[],
-  activeCount: number | undefined,
-): number | undefined {
-  if (activeCount === undefined) return undefined;
-  return thresholds
-    .filter((threshold) => activeCount >= threshold)
-    .sort((left, right) => right - left)[0];
-}
-
-function collectLineupTraitUnits(
-  variant: GoldenSpatulaLineupVariant,
-  traitName: string,
-  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
-): GoldenSpatulaLineupUnit[] {
-  const traitKey = normalizeSearchText(traitName);
-  return collectLineupUnits(variant)
-    .filter(isGoldenSpatulaDisplayableUnit)
-    .filter((unit) =>
-      findChampionAsset(unit.name, championAssets)?.traits?.some(
-        (trait) => normalizeSearchText(trait) === traitKey,
-      ),
-    );
-}
-
-function parseTraitActiveCount(
-  trait: { count?: string; name: string },
-  variant: GoldenSpatulaLineupVariant,
-  championAssets: GoldenSpatulaChampionAssetIndex | undefined,
-): number | undefined {
-  const parsed = trait.count ? Number(trait.count) : undefined;
-  if (parsed !== undefined && Number.isFinite(parsed)) return parsed;
-  const units = collectLineupTraitUnits(variant, trait.name, championAssets);
-  return units.length > 0 ? units.length : undefined;
-}
-
 function LineupTraitHoverCard({
   trait,
   variant,
@@ -1900,13 +2435,15 @@ function LineupTraitHoverCard({
               imagePath={asset?.imagePath}
               fallback={trait.name.slice(0, 1)}
               basePath={basePath}
-              className="h-11 w-11 rounded-lg dark:bg-zinc-950"
+              className="h-11 w-11 rounded-lg bg-gradient-to-br from-amber-50 via-white to-slate-100 p-1 text-amber-700 shadow-sm ring-amber-200/80 dark:bg-none dark:p-0 dark:text-text-muted dark:ring-border/70"
             />
             <div className="min-w-0">
               <div className="flex min-w-0 items-center gap-2">
-                <span className="truncate text-base font-black text-text-primary dark:text-white">{trait.name}</span>
+                <span className="truncate text-base font-bold text-text-primary dark:text-white">
+                  {trait.name}
+                </span>
                 {activeCount !== undefined && (
-                  <span className="inline-flex shrink-0 items-center rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-black text-slate-950">
+                  <span className="inline-flex shrink-0 items-center rounded-full bg-amber-400 px-2 py-0.5 text-[11px] font-bold text-slate-950">
                     {activeCount}
                   </span>
                 )}
@@ -1918,7 +2455,7 @@ function LineupTraitHoverCard({
               </div>
             </div>
           </div>
-          <div className="shrink-0 text-right text-[10px] font-black leading-tight text-amber-300/80">
+          <div className="shrink-0 text-right text-[10px] font-bold leading-tight text-amber-300/80">
             MXU
           </div>
         </div>
@@ -1940,16 +2477,16 @@ function LineupTraitHoverCard({
                       'flex items-start gap-2 rounded-md px-2 py-1.5 text-[11px] leading-relaxed ring-1 ring-inset',
                       active
                         ? 'bg-amber-400/12 text-amber-900 ring-amber-300/45 dark:text-zinc-50'
-                        : 'bg-bg-tertiary text-text-secondary ring-border/70 dark:bg-white/[0.035] dark:text-zinc-400 dark:ring-white/10',
+                        : 'bg-bg-tertiary text-text-secondary ring-border/70',
                     )}
                   >
                     {parsed.threshold !== undefined && (
                       <span
                         className={clsx(
-                          'mt-0.5 inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full px-1 text-[11px] font-black ring-1 ring-inset',
+                          'mt-0.5 inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full px-1 text-[11px] font-bold ring-1 ring-inset',
                           active
                             ? 'bg-amber-400 text-slate-950 ring-amber-200/80'
-                            : 'bg-bg-secondary text-text-muted ring-border/70 dark:bg-zinc-900 dark:text-zinc-400 dark:ring-white/10',
+                            : 'bg-bg-secondary text-text-muted ring-border/70',
                         )}
                       >
                         {parsed.threshold}
@@ -2026,13 +2563,13 @@ function LineupTraitPillRow({
           >
             <span
               className={clsx(
-                'inline-flex min-w-0 shrink-0 items-center gap-1 rounded-full bg-bg-hover text-text-secondary ring-1 ring-inset ring-border/65 dark:bg-black/35 dark:text-zinc-300 dark:ring-white/10',
+                'inline-flex min-w-0 shrink-0 items-center gap-1 rounded-full bg-bg-hover text-text-secondary ring-1 ring-inset ring-border/65',
                 compact ? 'h-5 px-1.5 text-[10px]' : 'h-6 px-2 text-[11px]',
               )}
               title={`${trait.count ? `${trait.count} ` : ''}${trait.name}`}
             >
               {asset?.imagePath && (
-                <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center overflow-hidden rounded-full bg-bg-primary dark:bg-zinc-950">
+                <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center overflow-hidden rounded-full bg-bg-primary">
                   <LineupAssetImage
                     imagePath={asset.imagePath}
                     fallback={trait.name.slice(0, 1)}
@@ -2041,7 +2578,7 @@ function LineupTraitPillRow({
                 </span>
               )}
               {trait.count && (
-                <span className="rounded-full bg-amber-400/20 px-1 text-[10px] font-black tabular-nums text-amber-700 dark:text-amber-200">
+                <span className="rounded-full bg-amber-400/20 px-1 text-[10px] font-bold tabular-nums text-amber-700 dark:text-amber-200">
                   {trait.count}
                 </span>
               )}
@@ -2054,14 +2591,25 @@ function LineupTraitPillRow({
   );
 }
 
-function LineupDarkTierBadge({ quality }: { quality?: string }) {
-  const grade = quality?.trim().match(/^[A-Za-z]\+?/u)?.[0]?.toUpperCase() ?? '?';
+function LineupDarkTierBadge({
+  quality,
+  compact = false,
+}: {
+  quality?: string;
+  compact?: boolean;
+}) {
+  const grade =
+    quality
+      ?.trim()
+      .match(/^[A-Za-z]\+?/u)?.[0]
+      ?.toUpperCase() ?? '?';
   const tone = getRecommendedQualityTone(quality);
 
   return (
     <span
       className={clsx(
-        'inline-flex h-9 min-w-9 items-center justify-center rounded-md px-2 text-sm font-black leading-none text-white shadow-sm ring-1 ring-inset',
+        'inline-flex items-center justify-center rounded-md px-2 font-extrabold leading-none text-white shadow-sm ring-1 ring-inset',
+        compact ? 'h-7 min-w-7 text-[11px]' : 'h-9 min-w-9 text-sm',
         tone === 's' && 'bg-gradient-to-b from-amber-300 to-amber-600 ring-amber-200/60',
         tone === 'a' && 'bg-gradient-to-b from-violet-300 to-violet-600 ring-violet-200/60',
         tone === 'b' && 'bg-gradient-to-b from-sky-300 to-sky-600 ring-sky-200/50',
@@ -2074,17 +2622,11 @@ function LineupDarkTierBadge({ quality }: { quality?: string }) {
   );
 }
 
-function LineupMetric({
-  label,
-  value,
-}: {
-  label: string;
-  value: ReactNode;
-}) {
+function LineupMetric({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="min-w-0 border-l border-border/70 px-3 first:border-l-0">
       <div className="truncate text-[10px] text-text-muted">{label}</div>
-      <div className="mt-0.5 truncate text-sm font-black tabular-nums text-text-primary">
+      <div className="mt-0.5 truncate text-sm font-bold tabular-nums text-text-primary">
         {value}
       </div>
     </div>
@@ -2115,8 +2657,8 @@ function LineupOpggUnitStrip({
   return (
     <div
       className={clsx(
-        'flex min-w-0 items-start overflow-hidden',
-        compact ? 'gap-1.5' : 'gap-2',
+        'flex min-w-0 items-start overflow-x-auto overflow-y-visible pb-1 pr-1',
+        compact ? 'gap-1.5' : 'gap-2.5',
       )}
     >
       {units.map((unit, index) => {
@@ -2138,32 +2680,46 @@ function LineupOpggUnitStrip({
               />
             }
           >
-            <div className={clsx('min-w-0 shrink-0', compact ? 'w-11' : 'w-12')}>
+            <div className={clsx('min-w-0 shrink-0 text-center', compact ? 'w-12' : 'w-16')}>
               <div
                 className={clsx(
-                  'relative flex shrink-0 items-center justify-center rounded-md p-[2px]',
-                  compact ? 'h-10 w-10' : 'h-11 w-11',
+                  'relative mx-auto flex shrink-0 items-center justify-center rounded-lg p-[2px] shadow-sm',
+                  compact ? 'h-11 w-11' : 'h-14 w-14',
                 )}
                 style={costFrameStyle(cost)}
               >
-                <div className="h-full w-full overflow-hidden rounded bg-bg-primary text-[10px] font-bold text-text-muted">
+                <div className="h-full w-full overflow-hidden rounded-md bg-bg-primary text-[10px] font-bold text-text-muted">
                   <LineupAssetImage
                     imagePath={asset?.imagePath}
                     fallback={shortUnitName(unit.name)}
                     basePath={basePath}
+                    className="scale-110"
                   />
                 </div>
                 {carry && (
-                  <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber-400 px-1 text-[9px] font-black leading-none text-slate-950 ring-1 ring-white/80">
+                  <span
+                    className={clsx(
+                      'absolute -right-1 -top-1 flex items-center justify-center rounded-full bg-amber-400 px-1 font-black leading-none text-slate-950 ring-1 ring-white/80',
+                      compact ? 'h-4 min-w-4 text-[9px]' : 'h-5 min-w-5 text-[10px]',
+                    )}
+                  >
                     C
                   </span>
                 )}
                 {items.length > 0 && (
-                  <div className="absolute -bottom-1 left-1/2 flex -translate-x-1/2 justify-center gap-0.5 rounded bg-bg-secondary/90 px-0.5 py-0.5 shadow-sm ring-1 ring-border/60 backdrop-blur-sm dark:bg-black/70 dark:ring-white/10">
+                  <div
+                    className={clsx(
+                      'absolute left-1/2 flex -translate-x-1/2 justify-center gap-0.5 rounded-md bg-bg-secondary/95 px-0.5 py-0.5 shadow-sm ring-1 ring-border/60 backdrop-blur-sm',
+                      compact ? '-bottom-5' : '-bottom-6',
+                    )}
+                  >
                     {items.map((item, itemIndex) => (
                       <span
                         key={`${item}-${itemIndex}`}
-                        className="flex h-4 w-4 items-center justify-center overflow-hidden rounded bg-bg-primary p-[1px] text-[6px] text-text-muted ring-1 ring-border/70 dark:bg-zinc-950 dark:text-zinc-400 dark:ring-black/60"
+                        className={clsx(
+                          'flex items-center justify-center overflow-hidden rounded bg-bg-primary p-[1px] text-text-muted ring-1 ring-border/70',
+                          compact ? 'h-4 w-4 text-[6px]' : 'h-[18px] w-[18px] text-[7px]',
+                        )}
                         title={item}
                       >
                         <LineupAssetImage
@@ -2176,7 +2732,12 @@ function LineupOpggUnitStrip({
                   </div>
                 )}
               </div>
-              <div className="mt-1 truncate text-center text-[10px] font-bold leading-none text-text-primary dark:text-white">
+              <div
+                className={clsx(
+                  'truncate text-center font-bold leading-none text-text-primary dark:text-white',
+                  compact ? 'mt-5 text-[10px]' : 'mt-6 text-xs',
+                )}
+              >
                 {unit.name}
               </div>
             </div>
@@ -2184,13 +2745,16 @@ function LineupOpggUnitStrip({
         );
       })}
       {Array.from({ length: emptySlots }).map((_, index) => (
-        <div
-          key={`empty-${index}`}
-          className={clsx(
-            'shrink-0 rounded-md border-2 border-border-strong/50 bg-bg-tertiary/80',
-            compact ? 'h-10 w-10' : 'h-11 w-11',
-          )}
-        />
+        <div key={`empty-${index}`} className={clsx('shrink-0', compact ? 'w-12' : 'w-16')}>
+          <div
+            className={clsx(
+              'mx-auto rounded-lg',
+              compact
+                ? 'h-11 w-11 border border-dashed border-border/45 bg-bg-tertiary/35 opacity-60'
+                : 'h-14 w-14 border-2 border-border-strong/50 bg-bg-tertiary/80',
+            )}
+          />
+        </div>
       ))}
     </div>
   );
@@ -2207,6 +2771,7 @@ function LineupCompositionSummary({
   basePath,
   t,
   compact = false,
+  selected = false,
 }: {
   name: string;
   variant: GoldenSpatulaLineupVariant;
@@ -2218,6 +2783,7 @@ function LineupCompositionSummary({
   basePath: string;
   t: TFunction;
   compact?: boolean;
+  selected?: boolean;
 }) {
   const level = getLineupDisplayLevel(variant);
   const totalCost = getLineupTotalCost(variant, championAssets);
@@ -2229,10 +2795,94 @@ function LineupCompositionSummary({
     sourceKind ? t(`goldenSpatula.lineups.source.${sourceKind}`) : undefined,
   ].filter((item): item is string => Boolean(item));
 
+  if (compact) {
+    return (
+      <div
+        className={clsx(
+          'min-w-0 overflow-hidden rounded-lg border border-l-4 text-left transition duration-150',
+          selected
+            ? 'border-accent/55 bg-accent/5 shadow-sm ring-1 ring-inset ring-accent/25 dark:bg-accent/10'
+            : 'border-border/70 border-l-transparent bg-bg-primary/65 shadow-sm ring-1 ring-inset ring-border/30',
+        )}
+      >
+        <div className="grid min-w-0 items-center gap-1.5 px-1.5 py-1 lg:grid-cols-[34px_minmax(150px,0.38fr)_minmax(340px,1fr)]">
+          <div className="flex justify-center">
+            <LineupDarkTierBadge quality={variant.quality} compact />
+          </div>
+
+          <div className="min-w-0">
+            <div className="flex min-w-0 items-center gap-1.5">
+              <div className="min-w-0 flex-1 truncate text-xs font-black text-text-primary">
+                {name}
+              </div>
+              <span className="shrink-0 rounded-full border border-emerald-500/35 bg-emerald-500/10 px-1.5 py-0.5 text-[10px] font-black text-emerald-700 dark:text-emerald-200">
+                {t('goldenSpatula.lineups.lineupLevel', { level })}
+              </span>
+            </div>
+
+            <div className="mt-0.5 flex min-w-0 flex-wrap items-center gap-0.5">
+              {metaTags.slice(0, 2).map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-bg-tertiary px-1.5 py-px text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/30"
+                >
+                  {tag}
+                </span>
+              ))}
+              <span
+                className="inline-flex items-center gap-0.5 rounded-full bg-bg-tertiary px-1.5 py-px text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/30"
+                title={t('goldenSpatula.lineups.lineupUnits')}
+              >
+                <ListChecks className="h-3 w-3 text-text-muted" />
+                {unitCount}
+              </span>
+              <span
+                className="inline-flex items-center gap-0.5 rounded-full bg-bg-tertiary px-1.5 py-px text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/30"
+                title={t('goldenSpatula.lineups.lineupCost')}
+              >
+                <Coins className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+                {totalCost ?? '-'}
+              </span>
+              <span
+                className="inline-flex items-center gap-0.5 rounded-full bg-bg-tertiary px-1.5 py-px text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/30"
+                title={t('goldenSpatula.lineups.lineupAugments')}
+              >
+                <Sparkles className="h-3 w-3 text-accent" />
+                {augmentCount}
+              </span>
+            </div>
+
+            <div className="mt-1">
+              <LineupTraitPillRow
+                variant={variant}
+                traitAssets={traitAssets}
+                championAssets={championAssets}
+                basePath={basePath}
+                t={t}
+                compact
+              />
+            </div>
+          </div>
+
+          <LineupOpggUnitStrip
+            variant={variant}
+            championAssets={championAssets}
+            itemAssets={itemAssets}
+            basePath={basePath}
+            compact
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={clsx(
-        'min-w-0 overflow-hidden rounded-md border border-border bg-bg-secondary text-left shadow-sm ring-1 ring-inset ring-border/35',
+        'min-w-0 overflow-hidden rounded-md border text-left transition duration-150',
+        selected
+          ? 'border-accent/70 bg-accent/5 shadow-md ring-2 ring-inset ring-accent/45 dark:bg-accent/10 dark:ring-accent/55'
+          : 'border-border bg-bg-secondary shadow-sm ring-1 ring-inset ring-border/35',
         compact ? 'min-h-[116px]' : 'min-h-[126px]',
       )}
     >
@@ -2240,8 +2890,8 @@ function LineupCompositionSummary({
         className={clsx(
           'grid min-w-0',
           compact
-            ? 'grid-cols-1 lg:grid-cols-[minmax(360px,0.92fr)_minmax(510px,1.45fr)]'
-            : 'grid-cols-1 lg:grid-cols-[minmax(400px,0.95fr)_minmax(540px,1.45fr)]',
+            ? 'grid-cols-1 lg:grid-cols-[minmax(340px,0.82fr)_minmax(620px,1.6fr)]'
+            : 'grid-cols-1 lg:grid-cols-[minmax(380px,0.88fr)_minmax(660px,1.6fr)]',
         )}
       >
         <div
@@ -2259,9 +2909,7 @@ function LineupCompositionSummary({
           <div className="flex min-w-0 flex-col justify-center px-3 py-2.5">
             <div className="flex min-w-0 items-start gap-2">
               <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-black text-text-primary">
-                  {name}
-                </div>
+                <div className="truncate text-sm font-bold text-text-primary">{name}</div>
                 {metaTags.length > 0 && (
                   <div className="mt-1.5 flex min-w-0 flex-wrap gap-1">
                     {metaTags.slice(0, 3).map((tag) => (
@@ -2295,7 +2943,10 @@ function LineupCompositionSummary({
                   )
                 }
               />
-              <LineupMetric label={t('goldenSpatula.lineups.lineupAugments')} value={augmentCount} />
+              <LineupMetric
+                label={t('goldenSpatula.lineups.lineupAugments')}
+                value={augmentCount}
+              />
             </div>
           </div>
         </div>
@@ -2337,681 +2988,91 @@ function LineupTargetList({
   variant: GoldenSpatulaLineupVariant;
   championAssets: GoldenSpatulaChampionAssetIndex | undefined;
   basePath: string;
-  onToggleTarget?: (unitName: string) => void;
+  onToggleTarget: (name: string) => void;
   t: TFunction;
 }) {
-  const units = collectRollTargetUnits(variant);
-  const allUnits = collectLineupUnits(variant);
-  const activeTargetNames = new Set(
-    getActiveRollTargetNames(variant).map((name) => normalizeSearchText(name)),
-  );
-
-  if (onToggleTarget) {
-    return allUnits.length > 0 ? (
-      <div>
-        <div className="mb-1 text-[11px] text-text-muted">
-          {t('goldenSpatula.lineups.targetCandidates')}
-        </div>
-        <div className="flex flex-wrap gap-1.5">
-          {allUnits.map((unit, index) => {
-            const selected = activeTargetNames.has(normalizeSearchText(unit.name));
-            return (
-              <LineupTargetCard
-                key={`${unit.name}-${unit.location ?? index}`}
-                unit={unit}
-                variant={variant}
-                asset={findChampionAsset(unit.name, championAssets)}
-                basePath={basePath}
-                selected={selected}
-                onClick={() => onToggleTarget(unit.name)}
-                t={t}
-              />
-            );
-          })}
-        </div>
-      </div>
-    ) : (
-      <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
-        {t('goldenSpatula.lineups.noRollTargets')}
-      </div>
+  const units = collectLineupUnits(variant)
+    .filter(isGoldenSpatulaDisplayableUnit)
+    .filter(
+      (unit, index, list) =>
+        list.findIndex(
+          (item) => normalizeSearchText(item.name) === normalizeSearchText(unit.name),
+        ) === index,
     );
-  }
+  const selectedTargetSet = new Set(
+    getGoldenSpatulaActiveRollTargetNames(variant).map((name) => normalizeSearchText(name)),
+  );
+  const selectedCount = units.filter((unit) =>
+    selectedTargetSet.has(normalizeSearchText(unit.name)),
+  ).length;
 
   return (
-    <div className="space-y-2">
+    <div className="rounded-lg bg-bg-primary/35 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+      <div className="mb-1 flex items-center justify-between gap-1.5">
+        <div className="text-[10px] font-black uppercase tracking-wide text-text-muted">
+          {t('goldenSpatula.lineups.targetCandidates')}
+        </div>
+        <StatusPill tone={selectedCount > 0 ? 'success' : 'muted'}>
+          {t('goldenSpatula.lineups.rollStatusTargets')} {selectedCount}
+        </StatusPill>
+      </div>
       {units.length > 0 ? (
-        <div className="flex flex-wrap gap-1.5">
-          {units.map((unit, index) => (
+        <div className="flex min-w-0 items-start gap-1.5 overflow-x-auto overflow-y-visible px-0.5 pb-0.5 pt-1.5">
+          {units.map((unit) => (
             <LineupTargetCard
-              key={`${unit.name}-${unit.location ?? index}`}
+              key={unit.name}
               unit={unit}
-              variant={variant}
-              asset={findChampionAsset(unit.name, championAssets)}
+              championAssets={championAssets}
               basePath={basePath}
-              selected
+              selected={selectedTargetSet.has(normalizeSearchText(unit.name))}
+              onToggleTarget={onToggleTarget}
               t={t}
             />
           ))}
         </div>
       ) : (
-        <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
+        <div className="rounded-full bg-bg-tertiary/70 px-2 py-1 text-[10px] font-semibold text-text-muted">
           {t('goldenSpatula.lineups.noRollTargets')}
         </div>
       )}
     </div>
   );
 }
-
-function formatRollEventTime(timestamp: number | undefined, fallback: string): string {
-  if (!timestamp) return fallback;
-  return new Date(timestamp).toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  });
-}
-
-function rollEventTone(kind: GoldenSpatulaRollEventKind): 'success' | 'warning' | 'muted' {
-  switch (kind) {
-    case 'buyConfirmed':
-    case 'completed':
-      return 'success';
-    case 'buyUnconfirmed':
-    case 'missed':
-    case 'notReady':
-      return 'warning';
-    default:
-      return 'muted';
-  }
-}
-
-function xpEventTone(kind: GoldenSpatulaXpEventKind): 'success' | 'warning' | 'muted' {
-  switch (kind) {
-    case 'completed':
-      return 'success';
-    case 'notReady':
-      return 'warning';
-    default:
-      return 'muted';
-  }
-}
-
-function formatRollEventSlot(event: GoldenSpatulaRollEvent | undefined): string {
-  if (!event) return '';
-  const slot = event.slotLabel ?? event.slotIndex;
-  return slot ? ` #${slot}` : '';
-}
-
-function RollRunStatusPanel({
-  runState,
-  t,
-}: {
-  runState: GoldenSpatulaRollRunState;
-  t: TFunction;
-}) {
-  const latestRecognition = runState.events.find(
-    (event) =>
-      event.kind === 'bought' ||
-      event.kind === 'buyConfirmed' ||
-      event.kind === 'buyUnconfirmed' ||
-      event.kind === 'missed',
-  );
-  const latestBuyResult = runState.events.find(
-    (event) =>
-      event.kind === 'buyConfirmed' ||
-      event.kind === 'buyUnconfirmed' ||
-      event.kind === 'bought' ||
-      event.kind === 'missed',
-  );
-  const progressReady = runState.totalCycles > 0 && runState.currentCycle > 0;
-  const latestSlotText = formatRollEventSlot(latestRecognition);
-  const latestBuySlotText = formatRollEventSlot(latestBuyResult);
-
-  const recognitionText =
-    latestRecognition?.kind === 'bought' ||
-    latestRecognition?.kind === 'buyConfirmed' ||
-    latestRecognition?.kind === 'buyUnconfirmed'
-      ? `${t('goldenSpatula.lineups.rollStatusRecognitionHit', {
-          target: latestRecognition.targetName,
-        })}${latestSlotText}`
-      : latestRecognition?.kind === 'missed'
-        ? t('goldenSpatula.lineups.rollStatusRecognitionMiss')
-        : t('goldenSpatula.lineups.rollStatusNoRecognition');
-  const buyText =
-    latestBuyResult?.kind === 'buyConfirmed'
-      ? `${t('goldenSpatula.lineups.rollStatusBuyConfirmed', {
-          target: latestBuyResult.targetName,
-        })}${latestBuySlotText}`
-      : latestBuyResult?.kind === 'buyUnconfirmed'
-        ? `${t('goldenSpatula.lineups.rollStatusBuyUnconfirmed', {
-            target: latestBuyResult.targetName,
-          })}${latestBuySlotText}`
-        : latestBuyResult?.kind === 'bought'
-          ? `${t('goldenSpatula.lineups.rollStatusBuyHit', {
-              target: latestBuyResult.targetName,
-            })}${latestBuySlotText}`
-          : latestBuyResult?.kind === 'missed'
-            ? t('goldenSpatula.lineups.rollStatusBuyMiss')
-            : t('goldenSpatula.lineups.rollStatusBuyNone');
-
+function findAugmentAssetByName(
+  name: string | undefined,
+  assets: GoldenSpatulaAugmentAssetIndex | undefined,
+): GoldenSpatulaAugmentAsset | undefined {
+  if (!name || !assets) return undefined;
+  const key = normalizeSearchText(name);
   return (
-    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2">
-      <div className="flex items-center justify-between gap-2">
-        <div className="text-xs font-medium text-text-primary">
-          {t('goldenSpatula.lineups.rollStatus')}
-        </div>
-        <StatusPill tone={runState.active ? 'success' : 'muted'}>
-          {runState.active
-            ? t('goldenSpatula.lineups.rollStatusRunning')
-            : t('goldenSpatula.lineups.rollStatusIdle')}
-        </StatusPill>
-      </div>
-
-      <div className="grid grid-cols-2 gap-1.5">
-        <div className="rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.rollStatusLatestRecognition')}
-          </div>
-          <div className="mt-1 truncate text-xs text-text-primary">{recognitionText}</div>
-        </div>
-        <div className="rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.rollStatusBuyResult')}
-          </div>
-          <div className="mt-1 truncate text-xs text-text-primary">{buyText}</div>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between gap-2 text-[11px] text-text-muted">
-        <span>
-          {progressReady
-            ? t('goldenSpatula.lineups.rollStatusProgressValue', {
-                current: runState.currentCycle,
-                total: runState.totalCycles,
-              })
-            : t('goldenSpatula.lineups.rollStatusProgressEmpty')}
-        </span>
-        <span>
-          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-            time: formatRollEventTime(runState.updatedAt, '-'),
-          })}
-        </span>
-      </div>
-
-      {runState.events.length > 0 ? (
-        <div className="space-y-1">
-          <div className="text-[11px] text-text-muted">
-            {t('goldenSpatula.lineups.rollStatusHistory')}
-          </div>
-          <div className="space-y-1">
-            {runState.events.slice(0, 4).map((event) => (
-              <div
-                key={event.id}
-                className="flex items-center justify-between gap-2 rounded bg-bg-primary px-2 py-1 text-[11px] ring-1 ring-inset ring-border/50"
-              >
-                <span className="min-w-0 truncate text-text-secondary">{event.message}</span>
-                <StatusPill tone={rollEventTone(event.kind)}>
-                  {formatRollEventTime(event.timestamp, '-')}
-                </StatusPill>
-              </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className="text-[11px] text-text-muted">
-          {t('goldenSpatula.lineups.rollStatusNoEvents')}
-        </div>
-      )}
-    </div>
+    assets[key] ??
+    Object.values(assets).find(
+      (asset) =>
+        normalizeSearchText(asset.name) === key ||
+        asset.aliases?.some((alias) => normalizeSearchText(alias) === key),
+    )
   );
 }
 
-function XpRunStatusPanel({ runState, t }: { runState: GoldenSpatulaXpRunState; t: TFunction }) {
-  const latestEvent = runState.lastEvent;
-  const progressReady = runState.total > 0;
-  const current = Math.min(runState.current, runState.total || runState.current);
-  const latestText = latestEvent?.message ?? t('goldenSpatula.lineups.xpStatusNoEvents');
-
-  return (
-    <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex items-center justify-between gap-2">
-        <div className="text-xs font-medium text-text-primary">
-          {t('goldenSpatula.lineups.xpStatus')}
-        </div>
-        <StatusPill tone={runState.active ? 'success' : 'muted'}>
-          {runState.active
-            ? t('goldenSpatula.lineups.xpStatusRunning')
-            : t('goldenSpatula.lineups.xpStatusIdle')}
-        </StatusPill>
-      </div>
-
-      <div className="grid grid-cols-2 gap-1.5">
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.xpStatusProgress')}
-          </div>
-          <div className="mt-1 truncate text-xs text-text-primary">
-            {progressReady
-              ? t('goldenSpatula.lineups.xpStatusProgressValue', {
-                  current,
-                  total: runState.total,
-                })
-              : t('goldenSpatula.lineups.xpStatusProgressEmpty')}
-          </div>
-        </div>
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.xpStatusLatest')}
-          </div>
-          <div className="mt-1 truncate text-xs text-text-primary">{latestText}</div>
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between gap-2 text-[11px] text-text-muted">
-        <span>
-          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-            time: formatRollEventTime(runState.updatedAt, '-'),
-          })}
-        </span>
-        {runState.events.length > 0 && (
-          <StatusPill tone={xpEventTone(runState.events[0].kind)}>
-            {formatRollEventTime(runState.events[0].timestamp, '-')}
-          </StatusPill>
-        )}
-      </div>
-
-      {runState.events.length > 0 ? (
-        <div className="space-y-1">
-          {runState.events.slice(0, 3).map((event) => (
-            <div
-              key={event.id}
-              className="flex items-center justify-between gap-2 rounded bg-bg-tertiary px-2 py-1 text-[11px]"
-            >
-              <span className="min-w-0 truncate text-text-secondary">{event.message}</span>
-              <StatusPill tone={xpEventTone(event.kind)}>
-                {formatRollEventTime(event.timestamp, '-')}
-              </StatusPill>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-[11px] text-text-muted">
-          {t('goldenSpatula.lineups.xpStatusNoEvents')}
-        </div>
-      )}
-    </div>
+function findAugmentAssetByTemplatePath(
+  templatePath: string | undefined,
+  assets: GoldenSpatulaAugmentAssetIndex | undefined,
+): GoldenSpatulaAugmentAsset | undefined {
+  const normalizedTemplate = normalizeKnowledgeTemplatePath(templatePath);
+  if (!normalizedTemplate) return undefined;
+  return Object.values(assets ?? {}).find((asset) =>
+    normalizeKnowledgeTemplatePath(asset.imagePath).endsWith(normalizedTemplate),
   );
 }
 
-function formatSignedValue(value: number): string {
-  return value > 0 ? `+${value}` : `${value}`;
-}
-
-function formatShopOddsPercent(odds: number | undefined): string {
-  if (odds === undefined) return '-';
-  if (odds > 0 && odds < 0.01) return '<1%';
-  return `${Math.round(odds * 100)}%`;
-}
-
-function formatPercentValue(value: number | undefined): string {
-  if (value === undefined || !Number.isFinite(value)) return '-';
-  return `${Math.round(value * 100)}%`;
-}
-
-function shopOddsSourceTone(
-  source: GoldenSpatulaShopOddsSource | undefined,
-): 'success' | 'warning' | 'error' | 'muted' {
-  if (source === 'ocr') return 'success';
-  if (source === 'mixed') return 'warning';
-  return 'muted';
-}
-
-function ShopOddsSummary({
-  shopOdds,
-  source,
-  t,
-  className,
-}: {
-  shopOdds: GoldenSpatulaEconomyRunState['shopOdds'];
-  source: GoldenSpatulaShopOddsSource | undefined;
-  t: TFunction;
-  className?: string;
-}) {
-  const hasShopOdds = goldenSpatulaShopOddsCosts.some((cost) => shopOdds?.[cost] !== undefined);
-  const sourceLabel = hasShopOdds ? (source ?? 'levelTable') : source;
-
-  return (
-    <div
-      className={clsx(
-        'flex min-w-0 flex-1 flex-wrap items-center justify-end gap-1 text-[11px]',
-        className,
-      )}
-    >
-      <span className="text-text-muted">{t('goldenSpatula.lineups.economyShopOdds')}</span>
-      {hasShopOdds ? (
-        goldenSpatulaShopOddsCosts.map((cost) => (
-          <StatusPill key={cost} tone={shopOdds?.[cost] !== undefined ? 'success' : 'muted'}>
-            {t('goldenSpatula.lineups.economyCostOdds', {
-              cost,
-              odds: formatShopOddsPercent(shopOdds?.[cost]),
-            })}
-          </StatusPill>
-        ))
-      ) : (
-        <StatusPill tone="muted">{t('goldenSpatula.lineups.economyStatusUnknown')}</StatusPill>
-      )}
-      {sourceLabel && (
-        <StatusPill tone={shopOddsSourceTone(sourceLabel)}>
-          {t(`goldenSpatula.lineups.economyShopOddsSource.${sourceLabel}`)}
-        </StatusPill>
-      )}
-    </div>
-  );
-}
-
-function formatDecisionEstimate(value: number | undefined): string {
-  if (value === undefined || !Number.isFinite(value)) return '-';
-  if (value > 0 && value < 1) return '<1';
-  return `${Math.round(value)}`;
-}
-
-function expectedRollsTone(value: number | undefined): 'success' | 'warning' | 'error' | 'muted' {
-  if (value === undefined || !Number.isFinite(value)) return 'muted';
-  if (value <= 4) return 'success';
-  if (value <= 10) return 'warning';
-  return 'muted';
-}
-
-function completionChanceTone(
-  value: number | undefined,
-): 'success' | 'warning' | 'error' | 'muted' {
-  if (value === undefined) return 'muted';
-  if (value >= 0.65) return 'success';
-  if (value >= 0.3) return 'warning';
-  return 'muted';
-}
-
-function HandRunStatusPanel({
-  runState,
-  t,
-}: {
-  runState: GoldenSpatulaHandRunState;
-  t: TFunction;
-}) {
-  const latestText = runState.lastEvent?.message ?? t('goldenSpatula.lineups.handStatusNoEvents');
-
-  return (
-    <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex items-center justify-between gap-2">
-        <div className="text-xs font-medium text-text-primary">
-          {t('goldenSpatula.lineups.handStatus')}
-        </div>
-        <StatusPill tone={runState.active ? 'success' : 'muted'}>
-          {runState.active
-            ? t('goldenSpatula.lineups.rollStatusRunning')
-            : t('goldenSpatula.lineups.rollStatusIdle')}
-        </StatusPill>
-      </div>
-
-      <div className="rounded-md bg-bg-tertiary p-2">
-        <div className="text-[10px] text-text-muted">
-          {t('goldenSpatula.lineups.handStatusLatest')}
-        </div>
-        <div className="mt-1 truncate text-xs text-text-primary">{latestText}</div>
-      </div>
-
-      <div className="flex justify-end text-[11px] text-text-muted">
-        <span>
-          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-            time: formatRollEventTime(runState.updatedAt, '-'),
-          })}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function EconomyRunStatusPanel({
-  runState,
-  selectedAugments,
-  augmentAssets,
-  basePath,
-  detecting,
-  polling,
-  detectDisabledReason,
-  onDetect,
-  t,
-}: {
-  runState: GoldenSpatulaEconomyRunState;
-  selectedAugments?: GoldenSpatulaKnowledgeScanState['selectedAugments'];
-  augmentAssets?: GoldenSpatulaAugmentAssetIndex;
-  basePath: string;
-  detecting?: boolean;
-  polling?: boolean;
-  detectDisabledReason?: string;
-  onDetect?: () => void;
-  t: TFunction;
-}) {
-  const detectLabel = polling
-    ? t('goldenSpatula.lineups.stopEconomyOcr')
-    : t('goldenSpatula.lineups.runEconomyOcr');
-  const goldText =
-    runState.gold !== undefined
-      ? String(runState.gold)
-      : runState.estimatedGoldDelta !== 0
-        ? t('goldenSpatula.lineups.economyStatusEstimatedGold', {
-            delta: formatSignedValue(runState.estimatedGoldDelta),
-          })
-        : t('goldenSpatula.lineups.economyStatusUnknown');
-  const levelText =
-    runState.level !== undefined
-      ? String(runState.level)
-      : t('goldenSpatula.lineups.economyStatusUnknown');
-  const experienceText =
-    runState.experience !== undefined
-      ? runState.experienceMax !== undefined
-        ? `${runState.experience}/${runState.experienceMax}`
-        : String(runState.experience)
-      : runState.xpPurchases > 0
-        ? t('goldenSpatula.lineups.economyStatusXpDelta', {
-            count: runState.xpPurchases,
-          })
-        : t('goldenSpatula.lineups.economyStatusUnknown');
-  const roundText = runState.round ?? t('goldenSpatula.lineups.economyStatusUnknown');
-  const streakText =
-    runState.streakInterest !== undefined
-      ? runState.streakKind === 'win' || runState.streakKind === 'loss'
-        ? `${t(`goldenSpatula.lineups.economyStreakKind.${runState.streakKind}`)} +${
-            runState.streakInterest
-          }`
-        : runState.streakInterest === 0
-          ? '0'
-          : `+${runState.streakInterest}`
-      : t('goldenSpatula.lineups.economyStatusUnknown');
-  const selectedAugmentItems = sortKnowledgeSelectedAugments(selectedAugments);
-
-  return (
-    <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex items-center justify-between gap-2">
-        <SectionTitle icon={Coins} label={t('goldenSpatula.lineups.economyStatus')} />
-        <div className="flex shrink-0 items-center gap-1.5">
-          <span className="hidden text-[11px] text-text-muted sm:inline">
-            {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-              time: formatRollEventTime(runState.updatedAt, '-'),
-            })}
-          </span>
-          <StatusPill tone={runState.active || polling ? 'success' : 'muted'}>
-            {polling
-              ? t('goldenSpatula.lineups.economyOcrPolling')
-              : runState.active
-                ? t('goldenSpatula.lineups.rollStatusRunning')
-                : t('goldenSpatula.lineups.rollStatusIdle')}
-          </StatusPill>
-          {onDetect && (
-            <button
-              type="button"
-              disabled={Boolean(detectDisabledReason) && !polling}
-              onClick={onDetect}
-              className="inline-flex h-6 items-center gap-1 rounded-md border border-border bg-bg-secondary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
-              title={polling ? detectLabel : detectDisabledReason || detectLabel}
-            >
-              {detecting || polling ? (
-                <Loader2 className="h-3 w-3 animate-spin" />
-              ) : (
-                <Crosshair className="h-3 w-3" />
-              )}
-              <span className="hidden sm:inline">{detectLabel}</span>
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.economyRound')}
-          </div>
-          <div className="mt-1 truncate text-xs font-medium text-text-primary">{roundText}</div>
-        </div>
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.economyGold')}
-          </div>
-          <div className="mt-1 truncate text-xs font-medium text-text-primary">{goldText}</div>
-        </div>
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.economyLevel')}
-          </div>
-          <div className="mt-1 truncate text-xs font-medium text-text-primary">{levelText}</div>
-        </div>
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.economyExperience')}
-          </div>
-          <div className="mt-1 truncate text-xs font-medium text-text-primary">
-            {experienceText}
-          </div>
-        </div>
-        <div className="rounded-md bg-bg-tertiary p-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.economyStreak')}
-          </div>
-          <div className="mt-1 truncate text-xs font-medium text-text-primary">{streakText}</div>
-        </div>
-      </div>
-
-      <div className="rounded-md bg-bg-tertiary p-2">
-        <div className="mb-1 flex items-center justify-between gap-2">
-          <div className="text-[10px] text-text-muted">
-            {t('goldenSpatula.recognition.currentSelectedAugments')}
-          </div>
-          <span className="text-[10px] text-text-muted">
-            {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-              time: formatRollEventTime(
-                selectedAugmentItems[0]?.updatedAt ?? runState.updatedAt,
-                '-',
-              ),
-            })}
-          </span>
-        </div>
-        {selectedAugmentItems.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {selectedAugmentItems.map((augment) => (
-              <KnowledgeSelectedAugmentChip
-                key={`economy-${augment.slotIndex}:${augment.templatePath ?? augment.augmentName ?? 'unknown'}`}
-                augment={augment}
-                augmentAssets={augmentAssets}
-                basePath={basePath}
-                t={t}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-xs text-text-muted">
-            {t('goldenSpatula.recognition.noSelectedAugmentsObserved')}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function knowledgeTemplateFallback(templatePath: string | undefined, fallback: string): string {
-  if (!templatePath) return fallback;
-  const fileName = templatePath
-    .replace(/\\/g, '/')
-    .split('/')
-    .pop()
-    ?.replace(/\.[^.]+$/, '');
-  if (!fileName) return fallback;
-  const parts = fileName.split('_').filter(Boolean);
-  return parts[parts.length - 1] ?? fallback;
-}
-
-function KnowledgeShopSlotCard({
-  slot,
-  state,
-  championAssets,
-  basePath,
-  t,
-}: {
-  slot: (typeof goldenSpatulaShopChampionSlots)[number];
-  state?: GoldenSpatulaKnowledgeShopSlotState;
-  championAssets: GoldenSpatulaChampionAssetIndex | undefined;
-  basePath: string;
-  t: TFunction;
-}) {
-  const asset =
-    findChampionAsset(state?.championName ?? '', championAssets) ??
-    findAssetByTemplatePath(state?.templatePath, championAssets);
-  const matched = state?.confidence === 'matched';
-  const empty = state?.confidence === 'empty';
-  const label = matched
-    ? (state?.championName ??
-      asset?.name ??
-      knowledgeTemplateFallback(
-        state?.templatePath,
-        t('goldenSpatula.recognition.unknownChampion'),
-      ))
-    : empty
-      ? t('goldenSpatula.recognition.emptySlot')
-      : t('goldenSpatula.recognition.unknownSlot');
-
-  return (
-    <div className="min-w-0 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex items-center justify-between gap-1">
-        <span className="text-[10px] font-medium text-text-muted">
-          {t('goldenSpatula.recognition.shopSlot', { slot: slot.label })}
-        </span>
-        <StatusPill tone={matched ? 'success' : empty ? 'warning' : 'muted'}>
-          {matched
-            ? t('goldenSpatula.recognition.status.success')
-            : empty
-              ? t('goldenSpatula.recognition.status.miss')
-              : t('goldenSpatula.recognition.notScanned')}
-        </StatusPill>
-      </div>
-      <div className="mt-1 flex items-center gap-1.5">
-        <div
-          className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[9px] text-text-secondary"
-          style={costFrameStyle(asset?.cost)}
-        >
-          <div className="h-full w-full overflow-hidden rounded bg-bg-tertiary">
-            {matched ? (
-              <LineupAssetImage
-                imagePath={asset?.imagePath}
-                fallback={shortUnitName(label)}
-                basePath={basePath}
-              />
-            ) : (
-              <span className="flex h-full w-full items-center justify-center">?</span>
-            )}
-          </div>
-        </div>
-        <span className="min-w-0 truncate text-xs font-medium text-text-primary">{label}</span>
-      </div>
-    </div>
+function findItemAssetByTemplatePath(
+  templatePath: string | undefined,
+  assets: GoldenSpatulaItemAssetIndex | undefined,
+): GoldenSpatulaItemAsset | undefined {
+  const normalizedTemplate = normalizeKnowledgeTemplatePath(templatePath);
+  if (!normalizedTemplate) return undefined;
+  return Object.values(assets ?? {}).find((asset) =>
+    normalizeKnowledgeTemplatePath(asset.imagePath).endsWith(normalizedTemplate),
   );
 }
 
@@ -3021,159 +3082,54 @@ function ShopObservationGrid({
   basePath,
   t,
 }: {
-  shopSlots: GoldenSpatulaKnowledgeScanState['shopSlots'];
+  shopSlots: Record<number, GoldenSpatulaKnowledgeShopSlotState>;
   championAssets: GoldenSpatulaChampionAssetIndex | undefined;
   basePath: string;
   t: TFunction;
 }) {
-  return (
-    <div>
-      <div className="mb-1 text-[11px] font-medium text-text-secondary">
-        {t('goldenSpatula.recognition.currentShop')}
-      </div>
-      <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-5">
-        {goldenSpatulaShopChampionSlots.map((slot) => (
-          <KnowledgeShopSlotCard
-            key={slot.index}
-            slot={slot}
-            state={shopSlots[slot.index]}
-            championAssets={championAssets}
-            basePath={basePath}
-            t={t}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function knowledgeItemKindTone(
-  kind: GoldenSpatulaKnowledgeItemKind,
-): 'success' | 'warning' | 'error' | 'muted' {
-  if (kind === 'basicItems') return 'muted';
-  if (kind === 'completedItems') return 'success';
-  return 'warning';
-}
-
-function sortKnowledgeItems(
-  items: Record<string, GoldenSpatulaKnowledgeItemState>,
-): GoldenSpatulaKnowledgeItemState[] {
-  return Object.values(items).sort((left, right) => right.updatedAt - left.updatedAt);
-}
-
-function KnowledgeItemChip({
-  item,
-  itemAssets,
-  basePath,
-  t,
-}: {
-  item: GoldenSpatulaKnowledgeItemState;
-  itemAssets: GoldenSpatulaItemAssetIndex | undefined;
-  basePath: string;
-  t: TFunction;
-}) {
-  const asset = findAssetByTemplatePath(item.templatePath, itemAssets);
-  const label =
-    asset?.name ??
-    knowledgeTemplateFallback(item.templatePath, t('goldenSpatula.recognition.unknownItem'));
+  const slots = Array.from({ length: 5 }, (_, index) => shopSlots[index + 1]);
 
   return (
-    <div className="inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md bg-bg-primary px-1.5 py-1 ring-1 ring-inset ring-border/60">
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded bg-bg-tertiary text-[9px] text-text-secondary">
-        <LineupAssetImage
-          imagePath={asset?.imagePath}
-          fallback={label.slice(0, 1)}
-          basePath={basePath}
-        />
-      </div>
-      <div className="min-w-0">
-        <div className="truncate text-[11px] font-medium text-text-primary">{label}</div>
-        <div className="mt-0.5 flex flex-wrap gap-0.5">
-          <StatusPill tone={knowledgeItemKindTone(item.itemKind)}>
-            {t(`goldenSpatula.recognition.itemKind.${item.itemKind}`)}
-          </StatusPill>
-          {item.zones.slice(0, 2).map((zone) => (
-            <span key={zone} className="rounded bg-bg-tertiary px-1 text-[10px] text-text-muted">
-              {t(`goldenSpatula.recognition.zone.${zone}`)}
+    <div className="grid grid-cols-5 gap-1">
+      {slots.map((slot, index) => {
+        const asset =
+          findChampionAsset(slot?.championName ?? '', championAssets) ??
+          findAssetByTemplatePath(slot?.templatePath, championAssets);
+        const name = slot?.championName ?? asset?.name;
+        const matched = slot?.confidence === 'matched' && Boolean(name);
+
+        return (
+          <div
+            key={slot?.slotIndex ?? index}
+            className={clsx(
+              'relative min-w-0 rounded-lg border px-1 py-1 transition-colors',
+              matched
+                ? 'border-accent/40 bg-accent/10 ring-1 ring-inset ring-accent/20'
+                : 'border-border/55 bg-bg-secondary/55 text-text-muted',
+            )}
+          >
+            <span className="absolute left-1 top-1 z-10 rounded-full bg-bg-primary/90 px-1 text-[9px] font-black leading-4 text-text-muted ring-1 ring-inset ring-border/40">
+              {index + 1}
             </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function sortKnowledgeSelectedAugments(
-  augments: Record<number, GoldenSpatulaKnowledgeSelectedAugmentState> | undefined,
-): GoldenSpatulaKnowledgeSelectedAugmentState[] {
-  return Object.values(augments ?? {})
-    .filter((augment) => augment.confidence === 'matched')
-    .sort((left, right) => left.slotIndex - right.slotIndex);
-}
-
-function findAugmentAssetByName(
-  name: string | undefined,
-  assets: GoldenSpatulaAugmentAssetIndex | undefined,
-): GoldenSpatulaAugmentAsset | undefined {
-  const normalized = normalizeSearchText(name ?? '');
-  if (!normalized) return undefined;
-  return Object.values(assets ?? {}).find(
-    (asset) => normalizeSearchText(asset.name) === normalized,
-  );
-}
-
-function KnowledgeSelectedAugmentChip({
-  augment,
-  augmentAssets,
-  basePath,
-  t,
-}: {
-  augment: GoldenSpatulaKnowledgeSelectedAugmentState;
-  augmentAssets: GoldenSpatulaAugmentAssetIndex | undefined;
-  basePath: string;
-  t: TFunction;
-}) {
-  const asset =
-    findAssetByTemplatePath(augment.templatePath, augmentAssets) ??
-    findAugmentAssetByName(augment.augmentName, augmentAssets);
-  const label =
-    asset?.name ??
-    augment.augmentName ??
-    knowledgeTemplateFallback(augment.templatePath, t('goldenSpatula.recognition.unknownAugment'));
-  const scoreText =
-    augment.score !== undefined && Number.isFinite(augment.score)
-      ? `${Math.round(augment.score * 100)}%`
-      : undefined;
-
-  return (
-    <div className="inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md bg-bg-primary px-1.5 py-1 ring-1 ring-inset ring-border/60">
-      <div
-        className={clsx(
-          'flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded ring-1 ring-inset',
-          getAugmentLevelFrameClass(asset?.level),
-        )}
-      >
-        <LineupAssetImage
-          imagePath={asset?.imagePath}
-          fallback={label.slice(0, 1)}
-          basePath={basePath}
-        />
-      </div>
-      <div className="min-w-0">
-        <div className="truncate text-[11px] font-medium text-text-primary">{label}</div>
-        <div className="mt-0.5 flex flex-wrap items-center gap-0.5">
-          {asset?.level !== undefined && (
-            <span className="rounded bg-bg-tertiary px-1 text-[10px] text-text-muted">
-              {t('goldenSpatula.lineups.augmentLevel', { level: asset.level })}
-            </span>
-          )}
-          {scoreText && (
-            <span className="rounded bg-bg-tertiary px-1 text-[10px] text-text-muted">
-              {scoreText}
-            </span>
-          )}
-        </div>
-      </div>
+            <div className="flex min-w-0 items-center gap-1">
+              <div
+                className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-md bg-bg-tertiary text-[10px] ring-1 ring-inset ring-border/55"
+                style={costFrameStyle(asset?.cost)}
+              >
+                <LineupAssetImage imagePath={asset?.imagePath} fallback="?" basePath={basePath} />
+              </div>
+              <div className="min-w-0 truncate text-[11px] font-black leading-none text-text-primary">
+                {name ??
+                  t(
+                    matched
+                      ? 'goldenSpatula.recognition.unknownChampion'
+                      : 'goldenSpatula.recognition.notScanned',
+                  )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -3191,17 +3147,16 @@ function KnowledgeObservationPanel({
   basePath: string;
   t: TFunction;
 }) {
-  const items = sortKnowledgeItems(state.items);
-  const selectedAugments = sortKnowledgeSelectedAugments(state.selectedAugments);
-  const latestText = state.lastEvent?.message ?? t('goldenSpatula.recognition.knowledgeNoEvents');
+  const selectedAugments = Object.values(state.selectedAugments)
+    .filter((slot) => slot.confidence === 'matched')
+    .sort((left, right) => left.slotIndex - right.slotIndex);
+  const items = Object.values(state.items).slice(0, 8);
+  const latestEvent = state.lastEvent ?? state.events[0];
 
   return (
-    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2">
-      <div className="flex items-center justify-between gap-2">
-        <SectionTitle
-          icon={Crosshair}
-          label={t('goldenSpatula.recognition.knowledgeObservation')}
-        />
+    <div className="space-y-1 rounded-lg bg-bg-primary/35 p-1.5 ring-1 ring-inset ring-border/30">
+      <div className="flex items-center justify-between gap-1.5">
+        <SectionTitle icon={Database} label={t('goldenSpatula.recognition.knowledgeObservation')} />
         <StatusPill tone={state.active ? 'success' : 'muted'}>
           {state.active
             ? t('goldenSpatula.lineups.rollStatusRunning')
@@ -3209,266 +3164,439 @@ function KnowledgeObservationPanel({
         </StatusPill>
       </div>
 
-      <div>
-        <div className="mb-1 text-[11px] font-medium text-text-secondary">
-          {t('goldenSpatula.recognition.currentSelectedAugments')}
+      <div className="grid gap-1 md:grid-cols-2">
+        <div className="rounded-lg bg-bg-secondary/60 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+          <div className="mb-1 text-[9px] font-black uppercase tracking-wide text-text-muted">
+            {t('goldenSpatula.recognition.currentSelectedAugments')}
+          </div>
+          {selectedAugments.length > 0 ? (
+            <div className="flex flex-wrap gap-1">
+              {selectedAugments.slice(0, 4).map((slot) => {
+                const asset =
+                  findAugmentAssetByName(slot.augmentName, augmentAssets) ??
+                  findAugmentAssetByTemplatePath(slot.templatePath, augmentAssets);
+                const name =
+                  slot.augmentName ?? asset?.name ?? t('goldenSpatula.recognition.unknownAugment');
+
+                return (
+                  <span
+                    key={slot.slotIndex}
+                    className="inline-flex h-6 max-w-full items-center gap-1 rounded-full bg-accent/10 px-1.5 text-[10px] font-bold text-accent ring-1 ring-inset ring-accent/25"
+                    title={name}
+                  >
+                    <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[8px] ring-1 ring-inset ring-border/50">
+                      <LineupAssetImage
+                        imagePath={asset?.imagePath ?? slot.templatePath}
+                        fallback={String(slot.slotLabel ?? slot.slotIndex)}
+                        basePath={basePath}
+                      />
+                    </span>
+                    <span className="truncate">{name}</span>
+                  </span>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="rounded-full bg-bg-primary/55 px-2 py-0.5 text-[10px] font-bold text-text-muted">
+              {t('goldenSpatula.recognition.noSelectedAugmentsObserved')}
+            </div>
+          )}
         </div>
-        {selectedAugments.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {selectedAugments.map((augment) => (
-              <KnowledgeSelectedAugmentChip
-                key={`${augment.slotIndex}:${augment.templatePath ?? augment.augmentName ?? 'unknown'}`}
-                augment={augment}
-                augmentAssets={augmentAssets}
-                basePath={basePath}
-                t={t}
-              />
-            ))}
+
+        <div className="rounded-lg bg-bg-secondary/60 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+          <div className="mb-1 text-[9px] font-black uppercase tracking-wide text-text-muted">
+            {t('goldenSpatula.recognition.currentItems')}
           </div>
-        ) : (
-          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
-            {t('goldenSpatula.recognition.noSelectedAugmentsObserved')}
-          </div>
-        )}
+          {items.length > 0 ? (
+            <div className="flex flex-wrap gap-1">
+              {items.map((item) => {
+                const asset = findItemAssetByTemplatePath(item.templatePath, itemAssets);
+                const label =
+                  asset?.name ?? item.templatePath.split(/[\\/]/).pop() ?? item.templatePath;
+
+                return (
+                  <span
+                    key={item.templatePath}
+                    className="flex h-6 w-6 items-center justify-center overflow-hidden rounded bg-bg-primary text-[8px] text-text-muted ring-1 ring-inset ring-border/50"
+                    title={label}
+                  >
+                    <LineupAssetImage
+                      imagePath={asset?.imagePath ?? item.templatePath}
+                      fallback={label.slice(0, 1)}
+                      basePath={basePath}
+                    />
+                  </span>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="rounded-full bg-bg-primary/55 px-2 py-0.5 text-[10px] font-bold text-text-muted">
+              {t('goldenSpatula.recognition.noItemsObserved')}
+            </div>
+          )}
+        </div>
       </div>
 
-      <div>
-        <div className="mb-1 text-[11px] font-medium text-text-secondary">
-          {t('goldenSpatula.recognition.currentItems')}
-        </div>
-        {items.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {items.slice(0, 12).map((item) => (
-              <KnowledgeItemChip
-                key={`${item.itemKind}:${item.templatePath}`}
-                item={item}
-                itemAssets={itemAssets}
-                basePath={basePath}
-                t={t}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
-            {t('goldenSpatula.recognition.noItemsObserved')}
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center justify-between gap-2 text-[11px] text-text-muted">
-        <span className="min-w-0 truncate">{latestText}</span>
-        <span className="shrink-0">
-          {t('goldenSpatula.lineups.rollStatusLastUpdated', {
-            time: formatRollEventTime(state.updatedAt, '-'),
-          })}
-        </span>
+      <div className="truncate rounded-full bg-bg-secondary/45 px-2 py-0.5 text-[10px] font-bold text-text-muted">
+        {latestEvent?.message ?? t('goldenSpatula.recognition.knowledgeNoEvents')}
       </div>
     </div>
   );
 }
 
-function mergeShopSlotsFromRollEvent(
-  previous: GoldenSpatulaKnowledgeScanState,
-  event: GoldenSpatulaRollEvent,
-): GoldenSpatulaKnowledgeScanState {
-  const shouldReset = event.kind === 'started' || event.kind === 'refreshed';
-  const shouldMarkMatched =
-    (event.kind === 'bought' || event.kind === 'buyConfirmed') &&
-    event.slotIndex !== undefined &&
-    Boolean(event.targetName);
-
-  if (!shouldReset && !shouldMarkMatched) return previous;
-
-  const shopSlots = shouldReset ? {} : { ...previous.shopSlots };
-  if (shouldMarkMatched && event.slotIndex !== undefined && event.targetName) {
-    shopSlots[event.slotIndex] = {
-      slotIndex: event.slotIndex,
-      slotLabel: event.slotLabel,
-      championName: event.targetName,
-      confidence: 'matched',
-      updatedAt: event.timestamp,
-    };
-  }
-
-  return {
-    ...previous,
-    shopSlots,
-    updatedAt: event.timestamp,
-  };
+function formatOddsValue(value: number | undefined): string {
+  if (value === undefined || Number.isNaN(value)) return '-';
+  const percent = value <= 1 ? value * 100 : value;
+  return `${Math.round(percent)}%`;
 }
 
-function buildShopVisionKnowledgeEvents(
-  result: GoldenSpatulaShopVisionResult,
+function formatShopOddsSummary(
+  shopOdds: Partial<Record<number, number>> | undefined,
   t: TFunction,
-): GoldenSpatulaKnowledgeEvent[] {
-  if (result.slots.length === 0) return [];
+): string {
+  const entries = Object.entries(shopOdds ?? {})
+    .filter(([, odds]) => odds !== undefined && !Number.isNaN(odds))
+    .sort(([left], [right]) => Number(left) - Number(right));
 
-  const timestamp = result.scannedAt;
-  const startEvent: GoldenSpatulaKnowledgeEvent = {
-    id: `${timestamp}-shop-vision-started`,
-    timestamp,
-    kind: 'shopScanStarted',
-    scanKind: 'champions',
-    message: t('goldenSpatula.recognition.knowledgeEvent.shopScanStarted'),
-    nodeName: 'ShopVision',
-  };
-  const slotEvents = result.slots.map<GoldenSpatulaKnowledgeEvent>((slot) => {
-    const matched = slot.confidence === 'matched';
-    const kind = matched ? 'shopChampionHit' : 'shopSlotMiss';
-    return {
-      id: `${timestamp}-shop-vision-${slot.slotIndex}`,
-      timestamp,
-      kind,
-      scanKind: 'champions',
-      slotIndex: slot.slotIndex,
-      slotLabel: slot.slotLabel,
-      championName: slot.championName,
-      templatePath: slot.templatePath,
-      rawText: slot.score !== undefined ? slot.score.toFixed(3) : undefined,
-      message: t(`goldenSpatula.recognition.knowledgeEvent.${kind}`, {
-        slot: slot.slotLabel,
+  if (entries.length === 0) return t('goldenSpatula.lineups.decisionShopOddsUnknown');
+
+  return entries
+    .map(([cost, odds]) =>
+      t('goldenSpatula.lineups.economyCostOdds', {
+        cost,
+        odds: formatOddsValue(odds),
       }),
-      nodeName: 'ShopVision',
-    };
-  });
-  const completedEvent: GoldenSpatulaKnowledgeEvent = {
-    id: `${timestamp}-shop-vision-completed`,
-    timestamp,
-    kind: 'shopScanCompleted',
-    scanKind: 'champions',
-    message: t('goldenSpatula.recognition.knowledgeEvent.shopScanCompleted'),
-    nodeName: 'ShopVision',
-  };
-
-  return [startEvent, ...slotEvents, completedEvent];
+    )
+    .join('  ');
 }
 
-function buildSelectedAugmentKnowledgeEvents(
-  result: GoldenSpatulaSelectedAugmentVisionResult,
-  t: TFunction,
-): GoldenSpatulaKnowledgeEvent[] {
-  if (result.slots.length === 0) return [];
-
-  const timestamp = result.scannedAt;
-  const startEvent: GoldenSpatulaKnowledgeEvent = {
-    id: `${timestamp}-selected-augment-vision-started`,
-    timestamp,
-    kind: 'selectedAugmentScanStarted',
-    scanKind: 'augments',
-    message: t('goldenSpatula.recognition.knowledgeEvent.selectedAugmentScanStarted'),
-    nodeName: 'SelectedAugmentVision',
-  };
-  const slotEvents = result.slots.map<GoldenSpatulaKnowledgeEvent>((slot) => {
-    const matched = slot.confidence === 'matched';
-    const kind = matched ? 'selectedAugmentHit' : 'selectedAugmentSlotMiss';
-    return {
-      id: `${timestamp}-selected-augment-vision-${slot.slotIndex}`,
-      timestamp,
-      kind,
-      scanKind: 'augments',
-      slotIndex: slot.slotIndex,
-      slotLabel: slot.slotLabel,
-      augmentName: slot.augmentName,
-      templatePath: slot.templatePath,
-      score: slot.score,
-      rawText: slot.score !== undefined ? slot.score.toFixed(3) : undefined,
-      message: t(`goldenSpatula.recognition.knowledgeEvent.${kind}`, {
-        slot: slot.slotLabel,
-        augmentName: slot.augmentName,
-      }),
-      nodeName: 'SelectedAugmentVision',
-    };
-  });
-  const completedEvent: GoldenSpatulaKnowledgeEvent = {
-    id: `${timestamp}-selected-augment-vision-completed`,
-    timestamp,
-    kind: 'selectedAugmentScanCompleted',
-    scanKind: 'augments',
-    message: t('goldenSpatula.recognition.knowledgeEvent.selectedAugmentScanCompleted'),
-    nodeName: 'SelectedAugmentVision',
-  };
-
-  return [startEvent, ...slotEvents, completedEvent];
+function formatEconomyValue(value: number | string | undefined, fallback: string): string {
+  if (value === undefined || value === '') return fallback;
+  return String(value);
 }
 
-function buildAugmentChoiceVisionScanState(
-  result: GoldenSpatulaAugmentChoiceVisionResult,
-  t: TFunction,
-): GoldenSpatulaAugmentScanState {
-  const timestamp = result.scannedAt;
-  const choices: GoldenSpatulaAugmentScanState['choices'] = {};
-  const slotEvents = result.slots.map<GoldenSpatulaAugmentScanEvent>((slot) => {
-    const matched = slot.confidence === 'matched' && Boolean(slot.augmentName);
-    if (matched) {
-      choices[slot.slotIndex] = {
-        slotIndex: slot.slotIndex,
-        slotLabel: slot.slotLabel,
-        titleText: slot.augmentName,
-        titleStatus: 'recognized',
-        descriptionStatus: 'unknown',
-        updatedAt: timestamp,
-      };
-    }
-
-    return {
-      id: `${timestamp}-augment-choice-vision-${slot.slotIndex}`,
-      timestamp,
-      kind: matched ? 'recognized' : 'scanFailed',
-      slotIndex: slot.slotIndex,
-      slotLabel: slot.slotLabel,
-      field: 'title',
-      rawText: slot.augmentName,
-      title: slot.augmentName,
-      matchedName: slot.augmentName,
-      score: slot.score,
-      message: t(
-        `goldenSpatula.lineups.augmentStatusEvent.${matched ? 'recognized' : 'scanFailed'}`,
-        {
-          slot: slot.slotLabel,
-          field: t('goldenSpatula.lineups.augmentField.title'),
-          text: slot.augmentName,
-        },
-      ),
-      nodeName: 'AugmentChoiceVision',
-    };
-  });
-  const scannedEvent: GoldenSpatulaAugmentScanEvent = {
-    id: `${timestamp}-augment-choice-vision-scanned`,
-    timestamp,
-    kind: 'scanned',
-    message: t('goldenSpatula.lineups.augmentStatusEvent.scanned'),
-    nodeName: 'AugmentChoiceVision',
-  };
-
-  return {
-    active: false,
-    startedAt: timestamp,
-    updatedAt: timestamp,
-    choices,
-    lastEvent: scannedEvent,
-    events: [scannedEvent, ...slotEvents],
-  };
+function EconomyStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div
+      className="inline-flex h-6 max-w-[160px] min-w-0 items-center gap-1 rounded-full bg-bg-tertiary px-1.5 ring-1 ring-inset ring-border/30"
+      title={`${label}: ${value}`}
+    >
+      <div className="shrink-0 text-[9px] font-bold text-text-muted">{label}</div>
+      <div className="min-w-0 truncate text-[11px] font-black text-text-primary">{value}</div>
+    </div>
+  );
 }
 
-function decisionActionTone(action: string): 'success' | 'warning' | 'error' | 'muted' {
-  switch (action) {
-    case 'roll':
-      return 'warning';
-    case 'save':
-      return 'success';
-    case 'level':
-      return 'success';
-    default:
-      return 'muted';
-  }
+function EconomyRunStatusPanel({
+  runState,
+  selectedAugments,
+  augmentAssets,
+  basePath,
+  detecting,
+  polling,
+  detectDisabledReason,
+  onDetect,
+  t,
+}: {
+  runState: GoldenSpatulaEconomyRunState;
+  selectedAugments: Record<number, GoldenSpatulaKnowledgeSelectedAugmentState>;
+  augmentAssets: GoldenSpatulaAugmentAssetIndex | undefined;
+  basePath: string;
+  detecting: boolean;
+  polling: boolean;
+  detectDisabledReason?: string;
+  onDetect: () => void;
+  t: TFunction;
+}) {
+  const fallback = t('goldenSpatula.lineups.economyStatusUnknown');
+  const selectedAugmentList = Object.values(selectedAugments)
+    .filter((slot) => slot.confidence === 'matched')
+    .sort((left, right) => left.slotIndex - right.slotIndex);
+  const economyStats = [
+    {
+      label: t('goldenSpatula.lineups.economyRound'),
+      value: formatEconomyValue(runState.round, fallback),
+    },
+    {
+      label: t('goldenSpatula.lineups.economyGold'),
+      value: formatEconomyValue(runState.gold, fallback),
+    },
+    {
+      label: t('goldenSpatula.lineups.economyLevel'),
+      value: formatEconomyValue(runState.level, fallback),
+    },
+    {
+      label: t('goldenSpatula.lineups.economyExperience'),
+      value:
+        runState.experience !== undefined && runState.experienceMax !== undefined
+          ? `${runState.experience}/${runState.experienceMax}`
+          : fallback,
+    },
+  ];
+
+  return (
+    <div className="rounded-lg bg-bg-primary/55 px-1.5 py-1 ring-1 ring-inset ring-border/35">
+      <div className="flex flex-wrap items-center gap-1">
+        <div className="inline-flex h-6 items-center gap-1 rounded-full bg-bg-tertiary px-1.5 ring-1 ring-inset ring-border/30">
+          <Coins className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+          <span className="text-[11px] font-black text-text-primary">
+            {t('goldenSpatula.lineups.economyStatus')}
+          </span>
+        </div>
+        {polling && (
+          <StatusPill tone="success">{t('goldenSpatula.lineups.economyOcrPolling')}</StatusPill>
+        )}
+        {economyStats.map((stat) => (
+          <EconomyStat key={stat.label} label={stat.label} value={stat.value} />
+        ))}
+
+        <div className="mx-0.5 h-4 w-px bg-border/60" />
+        <span className="text-[9px] font-black uppercase tracking-wide text-text-muted">
+          {t('goldenSpatula.recognition.currentSelectedAugments')}
+        </span>
+        {selectedAugmentList.length > 0 ? (
+          selectedAugmentList.slice(0, 4).map((slot) => {
+            const asset =
+              findAugmentAssetByName(slot.augmentName, augmentAssets) ??
+              findAugmentAssetByTemplatePath(slot.templatePath, augmentAssets);
+            const name =
+              slot.augmentName ?? asset?.name ?? t('goldenSpatula.recognition.unknownAugment');
+
+            return (
+              <span
+                key={slot.slotIndex}
+                className="inline-flex h-6 max-w-[140px] items-center gap-1 rounded-full bg-bg-tertiary px-1.5 text-[10px] font-bold text-text-primary ring-1 ring-inset ring-border/30"
+                title={name}
+              >
+                <span className="flex h-[18px] w-[18px] shrink-0 items-center justify-center overflow-hidden rounded bg-bg-primary text-[8px] ring-1 ring-inset ring-border/50">
+                  <LineupAssetImage
+                    imagePath={asset?.imagePath ?? slot.templatePath}
+                    fallback={String(slot.slotLabel ?? slot.slotIndex)}
+                    basePath={basePath}
+                  />
+                </span>
+                <span className="truncate">{name}</span>
+              </span>
+            );
+          })
+        ) : (
+          <span className="inline-flex h-6 items-center rounded-full bg-bg-tertiary px-1.5 text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
+            {t('goldenSpatula.recognition.noSelectedAugmentsObserved')}
+          </span>
+        )}
+
+        <button
+          type="button"
+          disabled={Boolean(detectDisabledReason)}
+          onClick={onDetect}
+          className="ml-auto inline-flex h-6 items-center justify-center gap-1 rounded-full border border-border/55 bg-bg-secondary px-1.5 text-[10px] font-black text-text-primary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+          title={detectDisabledReason || t('goldenSpatula.lineups.runEconomyOcr')}
+        >
+          {detecting ? (
+            <Loader2 className="h-3 w-3 animate-spin" />
+          ) : (
+            <Search className="h-3 w-3" />
+          )}
+          <span>
+            {detecting
+              ? t('goldenSpatula.lineups.stopEconomyOcr')
+              : t('goldenSpatula.lineups.runEconomyOcr')}
+          </span>
+        </button>
+      </div>
+    </div>
+  );
 }
 
-function rollDecisionBandTone(
-  band: GoldenSpatulaDecisionPlan['economyAdvice']['breakdown']['rollDecisionScore']['band'],
-): 'success' | 'warning' | 'error' | 'muted' {
-  if (band === 'rollToQuality') return 'warning';
-  if (band === 'smallRoll') return 'success';
-  return 'muted';
+function AugmentDecisionPanel({
+  decision,
+  scanState,
+  detecting,
+  polling,
+  picking,
+  pickDisabledReason,
+  onPick,
+  basePath,
+  t,
+  embedded = false,
+}: {
+  decision: GoldenSpatulaAugmentDecision;
+  scanState: GoldenSpatulaAugmentScanState;
+  detecting: boolean;
+  polling: boolean;
+  picking: boolean;
+  pickDisabledReason?: string;
+  onPick: () => void;
+  basePath: string;
+  t: TFunction;
+  embedded?: boolean;
+}) {
+  const options = decision.options.slice(0, 3);
+
+  return (
+    <div
+      className={clsx(
+        'space-y-1',
+        !embedded && 'rounded-lg bg-bg-primary/35 p-1.5 ring-1 ring-inset ring-border/30',
+      )}
+    >
+      {!embedded && (
+        <div className="flex items-center justify-between gap-1.5">
+          <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.augmentTitle')} />
+          <div className="flex items-center gap-1">
+            {polling && (
+              <StatusPill tone="success">{t('goldenSpatula.lineups.economyOcrPolling')}</StatusPill>
+            )}
+            <StatusPill tone={scanState.active || detecting ? 'success' : 'muted'}>
+              {scanState.active || detecting
+                ? t('goldenSpatula.lineups.rollStatusRunning')
+                : t('goldenSpatula.lineups.rollStatusIdle')}
+            </StatusPill>
+          </div>
+        </div>
+      )}
+      {options.length > 0 ? (
+        <div className="grid grid-cols-3 gap-1">
+          {options.map((option) => {
+            const selected = decision.bestOption?.slotIndex === option.slotIndex;
+            const name =
+              option.matchedAsset?.name ??
+              option.titleText ??
+              t('goldenSpatula.lineups.augmentUnknown');
+
+            return (
+              <div
+                key={option.slotIndex}
+                className={clsx(
+                  'min-w-0 rounded-xl border px-1.5 py-1 text-center transition-colors',
+                  selected
+                    ? 'border-accent/55 bg-accent/10 text-accent ring-1 ring-inset ring-accent/30'
+                    : 'border-border/45 bg-bg-secondary/55 text-text-secondary',
+                )}
+                title={name}
+              >
+                <div className="mx-auto flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg bg-bg-primary text-[10px] font-black text-text-muted ring-1 ring-inset ring-border/45">
+                  <LineupAssetImage
+                    imagePath={option.matchedAsset?.imagePath}
+                    fallback={name.slice(0, 2)}
+                    basePath={basePath}
+                  />
+                </div>
+                <div className="mt-1 truncate text-[11px] font-black">{name}</div>
+                <div
+                  className={clsx(
+                    'mx-auto mt-0.5 inline-flex h-4 min-w-8 items-center justify-center rounded-full px-1.5 text-[9px] font-black ring-1 ring-inset',
+                    selected
+                      ? 'bg-accent text-white ring-accent'
+                      : 'bg-bg-primary text-text-muted ring-border/40',
+                  )}
+                >
+                  {Math.round(option.score)}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="rounded-full bg-bg-secondary/60 px-2 py-1 text-[10px] font-bold text-text-muted">
+          {scanState.lastEvent?.message ??
+            t('goldenSpatula.recognition.noSelectedAugmentsObserved')}
+        </div>
+      )}
+      <button
+        type="button"
+        disabled={Boolean(pickDisabledReason) || picking || detecting}
+        onClick={onPick}
+        className="inline-flex h-7 w-full items-center justify-center gap-1 rounded-full bg-accent px-2 text-[10px] font-black text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+        title={pickDisabledReason || t('goldenSpatula.lineups.augmentPickBest')}
+      >
+        {picking ? <Loader2 className="h-3 w-3 animate-spin" /> : <Sparkles className="h-3 w-3" />}
+        <span>
+          {picking
+            ? t('goldenSpatula.lineups.augmentPicking')
+            : t('goldenSpatula.lineups.augmentPickBest')}
+        </span>
+      </button>
+    </div>
+  );
+}
+
+function SpecialEventPanel({
+  augmentPresence,
+  decision,
+  scanState,
+  detecting,
+  polling,
+  picking,
+  pickDisabledReason,
+  onPick,
+  basePath,
+  t,
+}: {
+  augmentPresence: GoldenSpatulaAugmentPresenceResult;
+  decision: GoldenSpatulaAugmentDecision;
+  scanState: GoldenSpatulaAugmentScanState;
+  detecting: boolean;
+  polling: boolean;
+  picking: boolean;
+  pickDisabledReason?: string;
+  onPick: () => void;
+  basePath: string;
+  t: TFunction;
+}) {
+  const hasAugmentChoices = decision.options.length > 0;
+  const hasAugmentEvent =
+    augmentPresence.visible || scanState.active || detecting || hasAugmentChoices;
+  const confidencePercent = Math.round((augmentPresence.confidence ?? 0) * 100);
+
+  return (
+    <div
+      className={clsx(
+        'rounded-lg px-1.5 py-1 ring-1 ring-inset transition-colors',
+        hasAugmentEvent ? 'bg-accent/10 ring-accent/25' : 'bg-bg-primary/35 ring-border/30',
+      )}
+    >
+      <div className="flex items-center justify-between gap-1.5">
+        <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.augmentMonitor')} />
+        <div className="flex min-w-0 items-center gap-1">
+          {polling && (
+            <StatusPill tone="success">{t('goldenSpatula.lineups.economyOcrPolling')}</StatusPill>
+          )}
+          {augmentPresence.visible && (
+            <span className="inline-flex h-5 items-center rounded-full bg-accent/10 px-1.5 text-[9px] font-black text-accent ring-1 ring-inset ring-accent/25">
+              {confidencePercent}%
+            </span>
+          )}
+          <StatusPill tone={hasAugmentEvent ? 'success' : 'muted'}>
+            {hasAugmentEvent
+              ? t('goldenSpatula.lineups.rollStatusRunning')
+              : t('goldenSpatula.lineups.rollStatusIdle')}
+          </StatusPill>
+        </div>
+      </div>
+
+      <div className="mt-1">
+        {hasAugmentEvent ? (
+          <AugmentDecisionPanel
+            decision={decision}
+            scanState={scanState}
+            detecting={detecting}
+            polling={polling}
+            picking={picking}
+            pickDisabledReason={pickDisabledReason}
+            onPick={onPick}
+            basePath={basePath}
+            t={t}
+            embedded
+          />
+        ) : (
+          <div className="rounded-full bg-bg-secondary/55 px-2 py-1 text-[10px] font-bold text-text-muted">
+            {t('goldenSpatula.lineups.augmentPresenceMissing')}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 function DecisionPickCard({
@@ -3486,304 +3614,69 @@ function DecisionPickCard({
   onToggle: () => void;
   t: TFunction;
 }) {
+  const score = Math.round(pick.score);
   const levelLocked = pick.shopOddsAvailability === 'unavailable';
-  const targetDisabled = levelLocked && !selected;
-  const scoreText = Math.round(pick.score);
-  const primaryReasons = pick.reasons.slice(0, 2);
-  const visibleTraits = pick.traitTags.slice(0, 2);
-  const oddsTone =
-    pick.shopOddsAvailability === 'available'
-      ? 'success'
-      : pick.shopOddsAvailability === 'rare'
-        ? 'warning'
-        : pick.shopOddsAvailability === 'unavailable'
-          ? 'error'
-          : 'muted';
-  const shopOddsLabel =
-    pick.currentLevel !== undefined && pick.shopOdds !== undefined
-      ? t('goldenSpatula.lineups.decisionShopOdds', {
-          level: pick.currentLevel,
-          odds: formatShopOddsPercent(pick.shopOdds),
-        })
-      : pick.shopOdds !== undefined && pick.shopOddsSource === 'ocr'
-        ? t('goldenSpatula.lineups.decisionShopOddsOcr', {
-            odds: formatShopOddsPercent(pick.shopOdds),
-          })
-        : pick.shopOdds !== undefined && pick.shopOddsSource === 'mixed'
-          ? t('goldenSpatula.lineups.decisionShopOddsMixed', {
-              odds: formatShopOddsPercent(pick.shopOdds),
-            })
-          : t('goldenSpatula.lineups.decisionShopOddsUnknown');
+  const scoreToneClass = selected
+    ? 'bg-emerald-500 text-white ring-emerald-300 dark:ring-emerald-400/70'
+    : score >= 100
+      ? 'bg-amber-300 text-slate-950 ring-amber-100'
+      : score >= 60
+        ? 'bg-sky-500 text-white ring-sky-300/70'
+        : score >= 40
+          ? 'bg-white text-slate-950 ring-white/70'
+          : 'bg-slate-800 text-white ring-white/20 dark:bg-slate-700';
 
   return (
-    <div className="min-w-0 rounded-md border border-border/70 bg-bg-primary p-2 transition-colors hover:border-accent/40">
-      <div className="flex items-start gap-2">
-        <div
-          className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded p-[2px] text-[10px] text-text-secondary"
-          style={costFrameStyle(asset?.cost ?? pick.cost)}
-        >
-          <div className="h-full w-full overflow-hidden rounded bg-bg-primary">
-            <LineupAssetImage
-              imagePath={asset?.imagePath}
-              fallback={shortUnitName(pick.name)}
-              basePath={basePath}
-            />
-          </div>
-          <span className="absolute right-0 top-0 rounded-bl bg-bg-primary/90 px-1 text-[9px] font-semibold text-accent">
-            {scoreText}
-          </span>
-        </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-1">
-            <div className="min-w-0">
-              <div className="truncate text-xs font-medium text-text-primary">{pick.name}</div>
-              <div className="mt-0.5 truncate text-[11px] text-text-muted">
-                {t(`goldenSpatula.lineups.decisionRole.${pick.role}`)}
-                {pick.cost !== undefined
-                  ? ` · ${t('goldenSpatula.lineups.decisionCost', { cost: pick.cost })}`
-                  : ''}
-                {` · ${t('goldenSpatula.lineups.decisionOwned', { count: pick.ownedCount })}`}
-                {pick.copiesNeeded > 0
-                  ? ` · ${t('goldenSpatula.lineups.decisionNeed', { count: pick.copiesNeeded })}`
-                  : ''}
-              </div>
-            </div>
-            <StatusPill tone={pick.tier === 'core' || pick.tier === 'high' ? 'success' : 'muted'}>
-              {t(`goldenSpatula.lineups.decisionTier.${pick.tier}`)}
-            </StatusPill>
-          </div>
-          <div className="mt-1 flex flex-wrap gap-1">
-            {pick.shopVisibleCount !== undefined && pick.shopVisibleCount > 0 && (
-              <StatusPill tone="success">
-                {t('goldenSpatula.lineups.decisionShopVisible', {
-                  count: pick.shopVisibleCount,
-                })}
-              </StatusPill>
-            )}
-            {pick.observedItemMatchCount !== undefined && pick.observedItemMatchCount > 0 && (
-              <StatusPill tone="success">
-                {t('goldenSpatula.lineups.decisionItemFit', {
-                  count: pick.observedItemMatchCount,
-                })}
-              </StatusPill>
-            )}
-            <StatusPill tone={oddsTone}>
-              {shopOddsLabel}
-            </StatusPill>
-            {pick.levelUpShopOddsGain !== undefined &&
-              pick.levelUpShopOddsGain > 0 &&
-              pick.nextLevel !== undefined && (
-                <StatusPill tone={levelLocked ? 'warning' : 'muted'}>
-                  {t('goldenSpatula.lineups.decisionLevelUpOdds', {
-                    level: pick.nextLevel,
-                    odds: formatShopOddsPercent(pick.levelUpShopOddsGain),
-                  })}
-                </StatusPill>
-              )}
-            {pick.acquisitionExpectedRolls !== undefined && (
-              <StatusPill tone={expectedRollsTone(pick.acquisitionExpectedRolls)}>
-                {t('goldenSpatula.lineups.decisionExpectedRolls', {
-                  rolls: formatDecisionEstimate(pick.acquisitionExpectedRolls),
-                })}
-              </StatusPill>
-            )}
-            {pick.acquisitionCompletionChance !== undefined && (
-              <StatusPill tone={completionChanceTone(pick.acquisitionCompletionChance)}>
-                {t('goldenSpatula.lineups.decisionCompletionChance', {
-                  chance: formatShopOddsPercent(pick.acquisitionCompletionChance),
-                })}
-              </StatusPill>
-            )}
-          </div>
+    <button
+      type="button"
+      aria-pressed={selected}
+      onClick={onToggle}
+      title={
+        selected
+          ? t('goldenSpatula.lineups.decisionTargetSelected')
+          : t('goldenSpatula.lineups.decisionSetTarget')
+      }
+      className={clsx(
+        'group relative w-[58px] shrink-0 rounded-xl p-1 text-center transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50',
+        selected
+          ? 'bg-accent/10 text-accent ring-2 ring-accent/70 shadow-sm'
+          : 'bg-transparent text-text-primary hover:-translate-y-0.5 hover:bg-bg-hover/70 hover:ring-1 hover:ring-border/70',
+        levelLocked && !selected && 'opacity-70',
+      )}
+    >
+      <div
+        className={clsx(
+          'relative mx-auto flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-bg-tertiary p-[2px] text-[10px] text-text-muted shadow-sm transition-transform group-hover:scale-[1.03]',
+          selected && 'ring-2 ring-accent ring-offset-1 ring-offset-bg-secondary',
+        )}
+        style={costFrameStyle(asset?.cost ?? pick.cost)}
+      >
+        <div className="h-full w-full overflow-hidden rounded-md bg-bg-primary">
+          <LineupAssetImage
+            imagePath={asset?.imagePath}
+            fallback={shortUnitName(pick.name)}
+            basePath={basePath}
+            className="scale-105"
+          />
         </div>
       </div>
-
-      {(primaryReasons.length > 0 || visibleTraits.length > 0) && (
-        <div className="mt-1.5 flex flex-wrap gap-1">
-          {primaryReasons.map((reason) => (
-          <span key={reason} className={goldenSpatulaAccentTagClass}>
-            {t(`goldenSpatula.lineups.decisionReason.${reason}`)}
-          </span>
-          ))}
-          {visibleTraits.map((tag) => (
-            <span key={tag} className={goldenSpatulaNeutralTagClass}>
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-
-      <button
-        type="button"
-        disabled={targetDisabled}
-        onClick={onToggle}
+      <span
         className={clsx(
-          'mt-1.5 inline-flex w-full items-center justify-center gap-1 rounded-md px-2 py-1 text-[11px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40',
-          targetDisabled
-            ? 'cursor-not-allowed bg-bg-tertiary text-text-muted opacity-70'
-            : selected
-              ? 'bg-accent/10 text-accent ring-1 ring-inset ring-accent/30'
-              : 'bg-bg-tertiary text-text-secondary hover:text-accent',
+          'relative z-10 mx-auto -mt-2 inline-flex h-4 min-w-9 items-center justify-center rounded-full px-1.5 text-[10px] font-black leading-none shadow-[0_1px_4px_rgba(0,0,0,0.35)] ring-1 ring-inset',
+          scoreToneClass,
         )}
       >
-        <Target className="h-3 w-3" />
-        {targetDisabled
-          ? t('goldenSpatula.lineups.decisionLevelLockedAction')
-          : selected
-            ? t('goldenSpatula.lineups.decisionTargetSelected')
-            : t('goldenSpatula.lineups.decisionSetTarget')}
-      </button>
-    </div>
-  );
-}
-
-function formatAugmentReason(reason: GoldenSpatulaAugmentScoreReason, t: TFunction): string {
-  return t(`goldenSpatula.lineups.augmentReason.${reason.kind}`, {
-    keyword: reason.keyword,
-    name: reason.assetName,
-    weight: Math.abs(reason.weight),
-  });
-}
-
-function AugmentDecisionPanel({
-  decision,
-  scanState,
-  detecting,
-  polling,
-  picking,
-  pickDisabledReason,
-  onPick,
-  t,
-}: {
-  decision: GoldenSpatulaAugmentDecision;
-  scanState: GoldenSpatulaAugmentScanState;
-  detecting: boolean;
-  polling: boolean;
-  picking: boolean;
-  pickDisabledReason?: string;
-  onPick: () => void;
-  t: TFunction;
-}) {
-  const options = decision.options;
-  const bestSlot = decision.bestOption?.slotIndex;
-
-  return (
-    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2 ring-1 ring-inset ring-border/60">
-      <div className="flex items-center justify-between gap-2">
-        <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.augmentTitle')} />
-        {decision.recommendationNote && (
-          <span className="truncate text-[11px] text-text-muted" title={decision.recommendationNote}>
-            {decision.recommendationNote}
-          </span>
+        {score}
+      </span>
+      <span
+        className={clsx(
+          'mt-1 block max-w-full truncate text-[10px] font-black leading-none',
+          selected ? 'text-accent' : 'text-text-primary',
         )}
-      </div>
-
-      <p className="text-[11px] leading-relaxed text-text-muted">
-        {t('goldenSpatula.lineups.augmentSubtitle')}
-      </p>
-
-      {options.length > 0 ? (
-        <div className="grid gap-2 lg:grid-cols-3">
-          {options.map((option) => {
-            const selected = option.slotIndex === bestSlot;
-            const title =
-              option.matchedAsset?.name ||
-              option.titleText ||
-              option.rawText ||
-              t('goldenSpatula.lineups.augmentUnknown');
-            return (
-              <div
-                key={option.slotIndex}
-                className={clsx(
-                  'rounded-md border bg-bg-primary p-2 text-xs shadow-sm',
-                  selected ? 'border-accent/60 ring-1 ring-accent/30' : 'border-border/70',
-                )}
-              >
-                <div className="mb-1 flex items-center justify-between gap-2">
-                  <span className="font-medium text-text-primary">
-                    {t('goldenSpatula.lineups.augmentSlot', {
-                      slot: option.slotLabel || option.slotIndex,
-                    })}
-                  </span>
-                  <span
-                    className={clsx(
-                      'rounded px-1.5 py-0.5 text-[11px] font-medium',
-                      selected ? 'bg-accent/10 text-accent' : 'bg-bg-tertiary text-text-secondary',
-                    )}
-                  >
-                    {t('goldenSpatula.lineups.augmentScore', { score: option.score })}
-                  </span>
-                </div>
-                <div className="truncate font-medium text-text-primary" title={title}>
-                  {title}
-                </div>
-                {option.descriptionText && (
-                  <div className="mt-1 line-clamp-2 text-[11px] leading-relaxed text-text-muted">
-                    {option.descriptionText}
-                  </div>
-                )}
-                {option.matchedAsset && (
-                  <div className="mt-1 text-[11px] text-text-secondary">
-                    {t('goldenSpatula.lineups.augmentMatched', {
-                      name: option.matchedAsset.name,
-                    })}
-                  </div>
-                )}
-                {option.reasons.length > 0 && (
-                  <div className="mt-2 flex flex-wrap gap-1">
-                    {option.reasons.slice(0, 4).map((reason, index) => (
-                      <span
-                        key={`${reason.kind}-${index}`}
-                        className={clsx(
-                          'rounded px-1.5 py-0.5 text-[10px]',
-                          reason.weight < 0
-                            ? 'bg-warning/10 text-warning'
-                            : 'bg-success/10 text-success',
-                        )}
-                      >
-                        {formatAugmentReason(reason, t)}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="rounded-md border border-dashed border-border bg-bg-primary p-2 text-xs text-text-muted">
-          {t('goldenSpatula.lineups.augmentNoOcr')}
-        </div>
-      )}
-
-      {scanState.lastEvent && (
-        <div className="text-[11px] text-text-muted">{scanState.lastEvent.message}</div>
-      )}
-
-      <div className="flex flex-wrap items-center gap-2">
-        <StatusPill tone={detecting || polling ? 'success' : 'muted'}>
-          {detecting
-            ? t('goldenSpatula.lineups.augmentDetecting')
-            : polling
-              ? t('goldenSpatula.lineups.augmentMonitoring')
-              : t('goldenSpatula.lineups.augmentPresenceMissing')}
-        </StatusPill>
-        <button
-          type="button"
-          disabled={Boolean(pickDisabledReason)}
-          onClick={onPick}
-          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-md bg-accent px-2 py-1.5 text-xs font-medium text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
-          title={pickDisabledReason || t('goldenSpatula.lineups.augmentPickBest')}
-        >
-          {picking ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Target className="h-3.5 w-3.5" />}
-          <span>
-            {picking
-              ? t('goldenSpatula.lineups.augmentPicking')
-              : t('goldenSpatula.lineups.augmentPickBest')}
-          </span>
-        </button>
-      </div>
-    </div>
+      >
+        {pick.name}
+      </span>
+    </button>
   );
 }
 
@@ -3795,210 +3688,95 @@ function DecisionPlanPanel({
   shopOddsSource,
   activeTargetNames,
   onToggleTarget,
-  onApplySortedTargets,
-  onApplyRecommendedCounts,
+  onAutoCapture,
   t,
 }: {
   plan: GoldenSpatulaDecisionPlan;
   championAssets: GoldenSpatulaChampionAssetIndex | undefined;
+  itemAssets: GoldenSpatulaItemAssetIndex | undefined;
   basePath: string;
-  shopOdds: GoldenSpatulaEconomyRunState['shopOdds'];
-  shopOddsSource: GoldenSpatulaShopOddsSource | undefined;
+  shopOdds?: Partial<Record<number, number>>;
+  shopOddsSource?: GoldenSpatulaShopOddsSource;
   activeTargetNames: string[];
   onToggleTarget: (name: string) => void;
-  onApplySortedTargets?: (names: string[]) => void;
-  onApplyRecommendedCounts?: () => void;
+  onAutoCapture: () => void;
   t: TFunction;
 }) {
-  const selectedTargets = new Set(activeTargetNames.map(normalizeSearchText));
+  const selectedTargets = useMemo(
+    () => new Set(activeTargetNames.map((name) => normalizeSearchText(name))),
+    [activeTargetNames],
+  );
   const advice = plan.economyAdvice;
-  const hasRecommendedCounts =
-    advice.recommendedRollCount > 0 || (advice.recommendedXpPurchaseCount ?? 0) > 0;
-  const benchInterestAdvice = advice.benchInterestAdvice;
   const roundPolicy = advice.breakdown.roundPolicy;
-  const benchSellGold =
-    benchInterestAdvice?.sellCandidates.reduce((sum, candidate) => sum + candidate.sellGold, 0) ??
-    0;
+  const shopOddsText = formatShopOddsSummary(shopOdds, t);
+  const topTransition = plan.transitionLineups[0];
 
   return (
-    <div className="space-y-2 rounded-md bg-bg-tertiary/70 p-2">
-      <div className="flex items-center justify-between gap-2">
-        <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.decisionTitle')} />
-        <div className="flex shrink-0 items-center gap-1">
-          {onApplySortedTargets && plan.recommendedRollTargetNames.length > 0 && (
-            <button
-              type="button"
-              onClick={() => onApplySortedTargets(plan.recommendedRollTargetNames)}
-              className="inline-flex h-6 items-center gap-1 rounded-md border border-border bg-bg-primary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
-              title={t('goldenSpatula.lineups.decisionApplySortedTargetsTitle')}
-            >
-              <ListChecks className="h-3 w-3" />
-              <span className="hidden sm:inline">
-                {t('goldenSpatula.lineups.decisionApplySortedTargets')}
-              </span>
-            </button>
-          )}
-          {onApplyRecommendedCounts && hasRecommendedCounts && (
-            <button
-              type="button"
-              onClick={onApplyRecommendedCounts}
-              className="inline-flex h-6 items-center gap-1 rounded-md border border-border bg-bg-primary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
-              title={t('goldenSpatula.lineups.decisionApplyAutomationCountsTitle')}
-            >
-              <Sparkles className="h-3 w-3" />
-              <span className="hidden sm:inline">
-                {t('goldenSpatula.lineups.decisionApplyAutomationCounts')}
-              </span>
-            </button>
-          )}
-          <StatusPill tone={decisionActionTone(advice.action)}>
-            {t(`goldenSpatula.lineups.decisionEconomyAction.${advice.action}`)}
-          </StatusPill>
+    <div className="space-y-1 rounded-xl border border-border/55 bg-bg-secondary/25 p-1 shadow-sm">
+      <div className="flex items-center gap-1 rounded-lg bg-bg-primary/50 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+        <div className="inline-flex h-6 items-center gap-1 rounded-full bg-bg-tertiary px-2 ring-1 ring-inset ring-border/30">
+          <Crosshair className="h-3.5 w-3.5 text-accent" />
+          <span className="text-[11px] font-black text-text-primary">
+            {t('goldenSpatula.lineups.decisionPicks')}
+          </span>
         </div>
+        <span className="hidden min-w-0 truncate text-[10px] font-semibold text-text-muted sm:inline">
+          {t('goldenSpatula.lineups.decisionSearchMeta', {
+            lineups: plan.evaluatedLineups,
+            candidates: plan.evaluatedCandidates,
+          })}
+        </span>
+        <button
+          type="button"
+          onClick={onAutoCapture}
+          className="ml-auto inline-flex h-6 min-w-6 items-center justify-center gap-1 rounded-full border border-border/60 bg-bg-secondary/80 px-1.5 text-[10px] font-bold text-text-secondary transition-colors hover:border-accent hover:text-accent lg:px-2"
+          title={t('goldenSpatula.lineups.decisionAutoCaptureTitle')}
+        >
+          <Target className="h-3 w-3 shrink-0" />
+          <span className="hidden lg:inline">{t('goldenSpatula.lineups.decisionAutoCapture')}</span>
+        </button>
       </div>
 
-      <div className="rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/60">
-        <div className="flex items-center justify-between gap-2">
-          <div className="min-w-0">
-            <div className="truncate text-xs font-medium text-text-primary">
-              {t(`goldenSpatula.lineups.decisionEconomyHeadline.${advice.action}`)}
-            </div>
-            <div className="mt-1 truncate text-[11px] text-text-muted">
-              {t('goldenSpatula.lineups.decisionSearchMeta', {
-                candidates: plan.evaluatedCandidates,
-                lineups: plan.evaluatedLineups,
-              })}
-            </div>
-          </div>
-          <div className="flex shrink-0 flex-wrap justify-end gap-1">
-            <StatusPill tone="muted">
-              {t(`goldenSpatula.lineups.decisionConfidence.${advice.confidence}`)}
-            </StatusPill>
-            <StatusPill tone={rollDecisionBandTone(advice.breakdown.rollDecisionScore.band)}>
-              {t('goldenSpatula.lineups.decisionRollScore', {
-                score: advice.breakdown.rollDecisionScore.total,
-              })}
-            </StatusPill>
-            {roundPolicy && (
-              <StatusPill tone={decisionActionTone(roundPolicy.action)}>
-                {t('goldenSpatula.lineups.decisionRoundPolicy', {
-                  checkpoint: roundPolicy.checkpoint,
-                  kind: t(`goldenSpatula.lineups.decisionRoundPolicyKind.${roundPolicy.kind}`),
-                })}
-              </StatusPill>
-            )}
-            {advice.breakdown.projectedRollBudget !== undefined && (
-              <StatusPill tone="muted">
-                {t('goldenSpatula.lineups.decisionEconomyRollBudget', {
-                  count: advice.breakdown.projectedRollBudget,
-                })}
-              </StatusPill>
-            )}
-            {roundPolicy?.targetLevel !== undefined && (
-              <StatusPill tone="muted">
-                {t('goldenSpatula.lineups.decisionRoundPolicyLevel', {
-                  level: roundPolicy.targetLevel,
-                })}
-              </StatusPill>
-            )}
-            {roundPolicy?.bankFloor !== undefined && (
-              <StatusPill tone="muted">
-                {t('goldenSpatula.lineups.decisionRoundPolicyBank', {
-                  gold: roundPolicy.bankFloor,
-                })}
-              </StatusPill>
-            )}
-            {advice.breakdown.levelLockedPickCount > 0 && (
-              <StatusPill tone="warning">
-                {t('goldenSpatula.lineups.decisionEconomyLockedCount', {
-                  count: advice.breakdown.levelLockedPickCount,
-                })}
-              </StatusPill>
-            )}
-            {advice.breakdown.levelUpTargetName &&
-              advice.breakdown.levelUpShopOddsGain !== undefined &&
-              advice.breakdown.levelUpShopOddsGain > 0 &&
-              advice.breakdown.levelUpLevel !== undefined && (
-                <StatusPill tone={advice.action === 'level' ? 'success' : 'muted'}>
-                  {t('goldenSpatula.lineups.decisionEconomyLevelUpOdds', {
-                    target: advice.breakdown.levelUpTargetName,
-                    level: advice.breakdown.levelUpLevel,
-                    odds: formatShopOddsPercent(advice.breakdown.levelUpShopOddsGain),
-                  })}
-                </StatusPill>
-              )}
-            {advice.recommendedXpPurchaseCount !== undefined &&
-              advice.recommendedXpPurchaseCount > 0 && (
-                <StatusPill tone="success">
-                  {t('goldenSpatula.lineups.decisionRecommendedXp', {
-                    count: advice.recommendedXpPurchaseCount,
-                  })}
-                </StatusPill>
-              )}
-            {advice.recommendedRollCount > 0 && (
-              <StatusPill tone="warning">
-                {t('goldenSpatula.lineups.decisionRecommendedRoll', {
-                  count: advice.recommendedRollCount,
-                })}
-              </StatusPill>
-            )}
-            {advice.interestGoldNeeded !== undefined && advice.interestGoldNeeded > 0 && (
-              <StatusPill tone="success">
-                {t('goldenSpatula.lineups.decisionInterestGap', {
-                  count: advice.interestGoldNeeded,
-                })}
-              </StatusPill>
-            )}
-            {benchInterestAdvice?.canReachNextInterest &&
-              benchInterestAdvice.interestGoldNeeded !== undefined &&
-              benchInterestAdvice.interestGoldNeeded > 0 && (
-                <StatusPill tone="success">
-                  {t('goldenSpatula.lineups.decisionBenchSellInterest', {
-                    gold: benchInterestAdvice.interestGoldNeeded,
-                  })}
-                </StatusPill>
-              )}
-          </div>
-        </div>
-        {advice.urgentPickNames.length > 0 && (
-          <div className="mt-1 truncate text-[11px] text-text-secondary">
-            {t('goldenSpatula.lineups.decisionUrgentTargets', {
-              targets: advice.urgentPickNames.join(' / '),
+      <div className="hidden">
+        <span className="mr-auto min-w-[120px] truncate text-[11px] font-semibold text-text-primary">
+          {t(`goldenSpatula.lineups.decisionEconomyHeadline.${advice.action}`)}
+        </span>
+        <StatusPill tone="warning">
+          {t('goldenSpatula.lineups.decisionRollScore', {
+            score: advice.breakdown.rollDecisionScore.total,
+          })}
+        </StatusPill>
+        {roundPolicy && (
+          <StatusPill tone="muted">
+            {t('goldenSpatula.lineups.decisionRoundPolicy', {
+              checkpoint: roundPolicy.checkpoint,
+              kind: t(`goldenSpatula.lineups.decisionRoundPolicyKind.${roundPolicy.kind}`),
             })}
-          </div>
+          </StatusPill>
         )}
-        {benchInterestAdvice !== undefined &&
-          benchInterestAdvice.sellCandidates.length > 0 &&
-          benchInterestAdvice.interestGoldNeeded !== undefined &&
-          benchInterestAdvice.interestGoldNeeded > 0 && (
-            <div className="mt-1 truncate text-[11px] text-text-secondary">
-              {t('goldenSpatula.lineups.decisionBenchSellCandidates', {
-                targets: benchInterestAdvice.sellCandidates
-                  .map((candidate) => candidate.name)
-                  .join(' / '),
-                gold: benchSellGold,
-              })}
-            </div>
-          )}
-        {advice.breakdown.rollDecisionScore.stopLineTargetNames.length > 0 && (
-          <div className="mt-1 truncate text-[11px] text-text-muted">
-            {t('goldenSpatula.lineups.decisionRollStopLine', {
-              targets: advice.breakdown.rollDecisionScore.stopLineTargetNames.join(' / '),
-            })}
-          </div>
+        <StatusPill tone="muted">{shopOddsText}</StatusPill>
+        {shopOddsSource && (
+          <StatusPill tone="muted">
+            {t(`goldenSpatula.lineups.economyShopOddsSource.${shopOddsSource}`)}
+          </StatusPill>
         )}
       </div>
 
       <div>
-        <div className="mb-1 flex min-w-0 items-center justify-between gap-2">
-          <div className="shrink-0 text-[11px] font-medium text-text-secondary">
+        <div className="hidden">
+          <div className="text-[11px] font-semibold uppercase tracking-wide text-text-muted">
             {t('goldenSpatula.lineups.decisionPicks')}
           </div>
-          <ShopOddsSummary shopOdds={shopOdds} source={shopOddsSource} t={t} />
+          <div className="truncate text-[11px] text-text-muted">
+            {t('goldenSpatula.lineups.decisionSearchMeta', {
+              lineups: plan.evaluatedLineups,
+              candidates: plan.evaluatedCandidates,
+            })}
+          </div>
         </div>
         {plan.picks.length > 0 ? (
-          <div className="grid grid-cols-1 gap-1.5 xl:grid-cols-2">
-            {plan.picks.slice(0, 6).map((pick) => (
+          <div className="flex min-w-0 items-start gap-1.5 overflow-x-auto overflow-y-visible rounded-lg bg-bg-primary/55 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+            {plan.picks.slice(0, 12).map((pick) => (
               <DecisionPickCard
                 key={pick.name}
                 pick={pick}
@@ -4017,100 +3795,63 @@ function DecisionPlanPanel({
         )}
       </div>
 
-      <div>
-        <div className="mb-1 text-[11px] font-medium text-text-secondary">
-          {t('goldenSpatula.lineups.decisionTransitions')}
-        </div>
-        {plan.transitionLineups.length > 0 ? (
-          <div className="space-y-1">
-            {plan.transitionLineups.map((lineup) => (
+      {plan.transitionLineups.length > 0 ? (
+        <details className="group rounded-lg bg-bg-primary/40 px-2 py-1 ring-1 ring-inset ring-border/30">
+          <summary className="flex cursor-pointer list-none items-center gap-1.5 [&::-webkit-details-marker]:hidden">
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-text-muted">
+              {t('goldenSpatula.lineups.decisionTransitions')}
+            </span>
+            {topTransition && (
+              <>
+                <span className="min-w-0 truncate text-[11px] font-bold text-text-primary">
+                  {formatLineupDisplayName(topTransition.name)}
+                </span>
+                <span className="rounded-full bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-black text-text-secondary ring-1 ring-inset ring-border/35">
+                  {topTransition.score}
+                </span>
+              </>
+            )}
+            <span className="ml-auto rounded-full bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-semibold text-text-muted ring-1 ring-inset ring-border/35">
+              {plan.transitionLineups.length}
+            </span>
+          </summary>
+          <div className="mt-1.5 flex flex-wrap gap-1 border-t border-border/45 pt-1.5">
+            {plan.transitionLineups.slice(0, 4).map((lineup, index) => (
               <div
                 key={`${lineup.lineupId}-${lineup.variantId}`}
-                className="rounded-md bg-bg-primary px-2 py-1.5 ring-1 ring-inset ring-border/50"
+                className={clsx(
+                  'inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-full border bg-bg-primary px-2 py-1 ring-1 ring-inset',
+                  index === 0
+                    ? 'border-accent/45 ring-accent/25'
+                    : 'border-border/60 ring-border/30',
+                )}
               >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="min-w-0 truncate text-xs font-medium text-text-primary">
-                    {lineup.name}
-                  </span>
-                  <StatusPill tone="muted">
-                    {t('goldenSpatula.lineups.decisionScore', { score: lineup.score })}
-                  </StatusPill>
-                </div>
-                <div className="mt-1 flex flex-wrap gap-1">
-                  {lineup.scoreBreakdown.sharedTraitScore > 0 && (
-                    <StatusPill tone="muted">
-                      {t('goldenSpatula.lineups.decisionTransitionTraitScore', {
-                        score: formatDecisionEstimate(lineup.scoreBreakdown.sharedTraitScore),
-                      })}
-                    </StatusPill>
+                <span
+                  className={clsx(
+                    'flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[9px] font-black leading-none',
+                    index === 0 ? 'bg-accent text-white' : 'bg-bg-tertiary text-text-secondary',
                   )}
-                  {lineup.scoreBreakdown.unitScore > 0 && (
-                    <StatusPill tone="muted">
-                      {t('goldenSpatula.lineups.decisionTransitionUnitScore', {
-                        score: formatDecisionEstimate(lineup.scoreBreakdown.unitScore),
-                      })}
-                    </StatusPill>
-                  )}
-                  <StatusPill tone={lineup.scoreBreakdown.coreReachRatio >= 0.8 ? 'success' : 'warning'}>
-                    {t('goldenSpatula.lineups.decisionTransitionReach', {
-                      percent: formatPercentValue(lineup.scoreBreakdown.coreReachRatio),
-                    })}
-                  </StatusPill>
-                  {lineup.shopVisibleUnitNames && lineup.shopVisibleUnitNames.length > 0 && (
-                    <StatusPill tone="success">
-                      {t('goldenSpatula.lineups.decisionShopVisible', {
-                        count: lineup.shopVisibleUnitNames.length,
-                      })}
-                    </StatusPill>
-                  )}
-                  {lineup.itemFitNames && lineup.itemFitNames.length > 0 && (
-                    <StatusPill tone="success">
-                      {t('goldenSpatula.lineups.decisionItemFit', {
-                        count: lineup.itemFitNames.length,
-                      })}
-                    </StatusPill>
-                  )}
-                  {lineup.blockedUnitNames && lineup.blockedUnitNames.length > 0 && (
-                    <StatusPill tone="warning">
-                      {t('goldenSpatula.lineups.decisionReason.levelLocked')}
-                    </StatusPill>
-                  )}
-                  {lineup.matchedUnitNames.length > 0 && (
-                    <span className={goldenSpatulaAccentTagClass}>
-                      {t('goldenSpatula.lineups.decisionOverlap', {
-                        units: lineup.matchedUnitNames.join(' / '),
-                      })}
-                    </span>
-                  )}
-                  {lineup.shopVisibleUnitNames?.slice(0, 3).map((unitName) => (
-                    <span key={`shop-${unitName}`} className={goldenSpatulaAccentTagClass}>
-                      {unitName}
-                    </span>
-                  ))}
-                  {lineup.itemFitNames?.slice(0, 3).map((itemName) => (
-                    <span key={`item-${itemName}`} className={goldenSpatulaAccentTagClass}>
-                      {itemName}
-                    </span>
-                  ))}
-                  {lineup.traitTags.slice(0, 3).map((tag) => (
-                    <span key={tag} className={goldenSpatulaNeutralTagClass}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                >
+                  #{index + 1}
+                </span>
+                <span className="min-w-0 truncate text-[11px] font-semibold text-text-primary">
+                  {formatLineupDisplayName(lineup.name)}
+                </span>
+                <span className="rounded bg-bg-tertiary px-1.5 py-0.5 text-[10px] font-bold text-text-secondary">
+                  {lineup.score}
+                </span>
               </div>
             ))}
           </div>
-        ) : (
-          <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
-            {t('goldenSpatula.lineups.decisionNoTransitions')}
-          </div>
-        )}
-      </div>
+        </details>
+      ) : (
+        <div className="rounded-md bg-bg-primary p-2 text-xs text-text-muted">
+          {t('goldenSpatula.lineups.decisionNoTransitions')}
+        </div>
+      )}
     </div>
   );
 }
-
 function parseBoardIndex(location?: string): number | undefined {
   if (!location) return undefined;
   const [rowValue, columnValue] = location.split(',').map((part) => Number(part.trim()));
@@ -4161,19 +3902,19 @@ function LineupBattleBoard({
   const boardUnits = mapUnitsToBoard(units);
 
   return (
-    <div className="space-y-2">
-      <div className="rounded-md bg-bg-tertiary p-2">
-        <div className="mb-2 flex items-center justify-between gap-2">
-          <div className="text-[11px] font-medium text-text-secondary">
+    <div className="space-y-1.5">
+      <div className="rounded-xl bg-slate-50/90 p-1.5 ring-1 ring-inset ring-slate-200/80 dark:bg-bg-primary/45 dark:ring-border/35">
+        <div className="mb-1.5 flex items-center justify-between gap-2">
+          <div className="inline-flex rounded-full bg-bg-secondary px-2 py-px text-[10px] font-black uppercase tracking-wide text-text-secondary ring-1 ring-inset ring-border/35">
             {t('goldenSpatula.lineups.boardPreview')}
           </div>
           {variant.traitsSummary && (
-            <span className="min-w-0 truncate text-[11px] text-text-muted">
+            <span className="min-w-0 truncate text-[10px] font-medium text-text-muted">
               {variant.traitsSummary}
             </span>
           )}
         </div>
-        <div className="grid grid-cols-7 gap-x-1.5 gap-y-3 pt-2">
+        <div className="grid grid-cols-7 gap-x-1 gap-y-2 rounded-lg bg-white/70 p-2 shadow-inner ring-1 ring-inset ring-slate-200/70 dark:bg-bg-secondary/20 dark:ring-border/25">
           {boardUnits.map((unit, index) => {
             const carry = unit ? isMainCarryUnit(unit, variant) : false;
             const cost = unit ? getUnitCost(unit.name, championAssets) : undefined;
@@ -4188,7 +3929,7 @@ function LineupBattleBoard({
                   <>
                     <div
                       className={clsx(
-                        'absolute -top-2 left-1/2 z-20 max-w-[calc(100%+12px)] -translate-x-1/2 truncate rounded bg-bg-primary/95 px-1 py-px text-[9px] font-medium shadow-sm ring-1 ring-border/70',
+                        'absolute -top-1.5 left-1/2 z-20 max-w-[calc(100%+10px)] -translate-x-1/2 truncate rounded-full bg-white/95 px-1 py-px text-[8px] font-bold shadow-sm ring-1 ring-slate-200/80 dark:bg-bg-primary/90 dark:ring-border/45',
                         carry ? 'text-accent' : costNameClass(cost),
                       )}
                     >
@@ -4201,8 +3942,8 @@ function LineupBattleBoard({
                       />
                       <div
                         className={clsx(
-                          'absolute inset-[3px] flex items-center justify-center overflow-hidden bg-bg-primary',
-                          carry && 'bg-accent/10',
+                          'absolute inset-[3px] flex items-center justify-center overflow-hidden bg-white shadow-sm ring-1 ring-inset ring-white/80 dark:bg-bg-primary dark:ring-black/25',
+                          carry && 'bg-accent/10 dark:bg-accent/10',
                         )}
                         style={{ clipPath: hexClipPath }}
                       >
@@ -4215,16 +3956,16 @@ function LineupBattleBoard({
                       </div>
                     </div>
                     {carry && (
-                      <span className="absolute right-0 top-0 z-30 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400 text-[10px] font-bold leading-none text-slate-950 shadow-sm ring-1 ring-white/80">
+                      <span className="absolute right-0 top-0 z-30 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[9px] font-black leading-none text-slate-950 shadow-sm ring-1 ring-white/80">
                         C
                       </span>
                     )}
                     {(unit.items?.length ?? 0) > 0 && (
-                      <div className="absolute -bottom-1 left-1/2 z-30 flex -translate-x-1/2 gap-0.5 rounded bg-bg-secondary/90 px-0.5 py-0.5 shadow-sm ring-1 ring-border/60 backdrop-blur-sm dark:bg-black/70 dark:ring-white/10">
+                      <div className="absolute -bottom-1 left-1/2 z-30 flex -translate-x-1/2 gap-0.5 rounded bg-white/90 px-0.5 py-px shadow-sm ring-1 ring-slate-200/80 backdrop-blur-sm dark:bg-bg-secondary/85 dark:ring-border/45">
                         {unit.items?.slice(0, 3).map((item, itemIndex) => (
                           <span
                             key={`${item}-${itemIndex}`}
-                            className="flex h-[18px] w-[18px] items-center justify-center overflow-hidden rounded bg-bg-primary p-[1px] text-[7px] text-text-muted shadow-sm ring-1 ring-border/70 dark:bg-zinc-950 dark:text-zinc-400 dark:ring-white/10"
+                            className="flex h-4 w-4 items-center justify-center overflow-hidden rounded bg-white p-[1px] text-[6px] text-text-muted shadow-sm ring-1 ring-slate-200/80 dark:bg-bg-primary dark:ring-border/55"
                             title={item}
                           >
                             <LineupAssetImage
@@ -4239,7 +3980,7 @@ function LineupBattleBoard({
                   </>
                 ) : (
                   <div
-                    className="flex h-full w-full items-center justify-center overflow-hidden border border-border/50 bg-bg-primary/60 text-text-muted ring-1 ring-inset ring-border/50"
+                    className="flex h-full w-full items-center justify-center overflow-hidden border border-dashed border-slate-300/70 bg-slate-100/75 text-transparent ring-1 ring-inset ring-slate-200/80 dark:border-border/35 dark:bg-bg-tertiary/25 dark:ring-border/25"
                     style={{ clipPath: hexClipPath }}
                   >
                     +
@@ -4274,8 +4015,10 @@ function LineupBattleBoard({
 
 function LineupVisualSection({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="border-t border-border/60 pt-2 first:border-t-0 first:pt-0">
-      <div className="mb-2 text-xs font-semibold text-text-primary">{title}</div>
+    <section className="border-t border-border/35 pt-1.5 first:border-t-0 first:pt-0">
+      <div className="mb-1.5 inline-flex rounded-full bg-bg-secondary px-2 py-px text-[10px] font-black uppercase tracking-wide text-text-secondary ring-1 ring-inset ring-border/35">
+        {title}
+      </div>
       {children}
     </section>
   );
@@ -4292,12 +4035,12 @@ function LineupVisualItemCard({
   basePath: string;
   compact?: boolean;
 }) {
-  const sizeClass = compact ? 'h-8 w-8 text-[8px]' : 'h-10 w-10 text-[9px]';
+  const sizeClass = compact ? 'h-7 w-7 text-[7px]' : 'h-9 w-9 text-[8px]';
   return (
-    <div className={clsx('min-w-0 text-center', compact ? 'w-10' : 'w-12')} title={item}>
+    <div className={clsx('min-w-0 text-center', compact ? 'w-8' : 'w-10')} title={item}>
       <div
         className={clsx(
-          'mx-auto flex items-center justify-center overflow-hidden rounded-md bg-bg-primary shadow-sm ring-1 ring-border/70',
+          'mx-auto flex items-center justify-center overflow-hidden rounded-lg bg-bg-primary shadow-sm ring-1 ring-border/55',
           sizeClass,
         )}
       >
@@ -4307,7 +4050,9 @@ function LineupVisualItemCard({
           basePath={basePath}
         />
       </div>
-      {!compact && <div className="mt-1 truncate text-[10px] text-text-secondary">{item}</div>}
+      {!compact && (
+        <div className="mt-1 truncate text-[9px] font-semibold text-text-secondary">{item}</div>
+      )}
     </div>
   );
 }
@@ -4334,18 +4079,21 @@ function LineupVisualUnitCard({
   const asset = findChampionAsset(unit.name, championAssets);
   const carry = showCarryBadge && isMainCarryUnit(unit, variant);
   const items = showItems ? (unit.items?.slice(0, 3) ?? []) : [];
-  const tileClass = compact ? 'h-9 w-9 text-[9px]' : 'h-12 w-12 text-[10px]';
+  const tileClass = compact ? 'h-10 w-10 text-[9px]' : 'h-11 w-11 text-[10px]';
 
   return (
-    <div className={clsx('min-w-0 text-center', compact ? 'w-11' : 'w-14')} title={unitLabel(unit)}>
+    <div
+      className={clsx('min-w-0 text-center', compact ? 'w-12' : 'w-[52px]')}
+      title={unitLabel(unit)}
+    >
       <div
         className={clsx(
-          'relative mx-auto flex items-center justify-center rounded p-[2px]',
+          'relative mx-auto flex items-center justify-center rounded-lg p-[2px] shadow-sm',
           tileClass,
         )}
         style={costFrameStyle(asset?.cost)}
       >
-        <div className="h-full w-full overflow-hidden rounded bg-bg-primary">
+        <div className="h-full w-full overflow-hidden rounded-md bg-bg-primary">
           <LineupAssetImage
             imagePath={asset?.imagePath}
             fallback={shortUnitName(unit.name)}
@@ -4361,8 +4109,8 @@ function LineupVisualUnitCard({
       </div>
       <div
         className={clsx(
-          'mt-1 truncate text-text-secondary',
-          compact ? 'text-[10px]' : 'text-[11px] font-medium',
+          'mt-1 truncate font-bold leading-none text-text-secondary',
+          compact ? 'text-[10px]' : 'text-[11px]',
         )}
       >
         {unit.name}
@@ -4372,7 +4120,7 @@ function LineupVisualUnitCard({
           {items.map((item, index) => (
             <span
               key={`${item}-${index}`}
-              className="flex h-[18px] w-[18px] items-center justify-center overflow-hidden rounded bg-bg-primary p-[1px] text-[7px] text-text-muted ring-1 ring-border/70 dark:bg-zinc-950 dark:text-zinc-400 dark:ring-white/10"
+              className="flex h-4 w-4 items-center justify-center overflow-hidden rounded bg-bg-primary p-[1px] text-[6px] text-text-muted ring-1 ring-border/60"
               title={item}
             >
               <LineupAssetImage
@@ -4600,10 +4348,12 @@ export function GoldenSpatulaAssistantPanel() {
     setGoldenSpatulaLineupManager,
     addTaskToInstance,
     setSelectedResource,
+    setInstanceResourceLoaded,
     toggleTaskEnabled,
     updateInstance,
     setInstanceTaskStatus,
     registerTaskIdName,
+    addLog,
   } = useAppStore();
 
   const [activeTab, setActiveTab] = useState<AssistantTab>('lineups');
@@ -4624,27 +4374,34 @@ export function GoldenSpatulaAssistantPanel() {
   const [recommendedPickerOpen, setRecommendedPickerOpen] = useState(false);
   const [importPanelOpen, setImportPanelOpen] = useState(false);
   const [importText, setImportText] = useState('');
-  const [autoRollCount, setAutoRollCount] = useState<AutoRollCount>(3);
-  const [autoBuyExperienceCount, setAutoBuyExperienceCount] = useState<AutoRollCount>(1);
+  const [autoDecisionInterestTarget, setAutoDecisionInterestTarget] = useState<AutoRollCount>(5);
+  const [autoDecisionMode, setAutoDecisionMode] = useState<AutoDecisionMode>('off');
   const [economyOcrSubmitting, setEconomyOcrSubmitting] = useState(false);
   const [economyOcrPolling, setEconomyOcrPolling] = useState(false);
   const [augmentOcrSubmitting, setAugmentOcrSubmitting] = useState(false);
   const [augmentOcrPolling, setAugmentOcrPolling] = useState(false);
   const [augmentPickSubmitting, setAugmentPickSubmitting] = useState(false);
+  const [calibrationSelectedAugmentProbeSubmitting, setCalibrationSelectedAugmentProbeSubmitting] =
+    useState(false);
+  const [selectedAugmentProbeBatchProgress, setSelectedAugmentProbeBatchProgress] = useState<{
+    current: number;
+    total: number;
+  } | null>(null);
+  const [selectedAugmentProbeReliability, setSelectedAugmentProbeReliability] =
+    useState<SelectedAugmentProbeReliabilitySnapshot>(() =>
+      createEmptySelectedAugmentProbeReliability(),
+    );
+  const [selectedAugmentProbeTraceEntries, setSelectedAugmentProbeTraceEntries] = useState<
+    SelectedAugmentProbeTraceEntry[]
+  >([]);
   const [augmentPresence, setAugmentPresence] = useState<GoldenSpatulaAugmentPresenceResult>({
     visible: false,
     confidence: 0,
     slots: [],
   });
-  const [autoRollBuySubmitting, setAutoRollBuySubmitting] = useState(false);
-  const [autoLevelRollBuySubmitting, setAutoLevelRollBuySubmitting] = useState(false);
-  const [autoBuyExperienceSubmitting, setAutoBuyExperienceSubmitting] = useState(false);
-  const [rollRunState, setRollRunState] = useState<GoldenSpatulaRollRunState>(() =>
-    createEmptyRollRunState(),
-  );
-  const [xpRunState, setXpRunState] = useState<GoldenSpatulaXpRunState>(() =>
-    createEmptyXpRunState(),
-  );
+  const [autoDecisionSubmitting, setAutoDecisionSubmitting] = useState(false);
+  const [, setRollRunState] = useState<GoldenSpatulaRollRunState>(() => createEmptyRollRunState());
+  const [, setXpRunState] = useState<GoldenSpatulaXpRunState>(() => createEmptyXpRunState());
   const [handRunState, setHandRunState] = useState<GoldenSpatulaHandRunState>(() =>
     createEmptyHandRunState(),
   );
@@ -4661,6 +4418,37 @@ export function GoldenSpatulaAssistantPanel() {
   const augmentPresenceCheckingRef = useRef(false);
   const augmentPresenceLastCheckAtRef = useRef(0);
   const selectedAugmentVisionLastRunAtRef = useRef(0);
+  const selectedAugmentVisionRunningRef = useRef(false);
+  const selectedAugmentVisionRunSeqRef = useRef(0);
+  const selectedAugmentVisionBackoffUntilRef = useRef(0);
+  const selectedAugmentVisionNoPresenceStreakRef = useRef(0);
+  const selectedAugmentVisionMissStreakRef = useRef(0);
+  const selectedAugmentVisionLastImageFingerprintRef = useRef('');
+  const selectedAugmentVisionLastImageAtRef = useRef(0);
+  const selectedAugmentActiveProbeRunningRef = useRef(false);
+  const selectedAugmentActiveProbeLastRunAtRef = useRef(0);
+  const selectedAugmentProbeReliabilityRef = useRef<SelectedAugmentProbeReliabilitySnapshot>(
+    createEmptySelectedAugmentProbeReliability(),
+  );
+  const selectedAugmentProbeCandidateStatsRef = useRef<
+    Map<string, SelectedAugmentProbeCandidateStats>
+  >(new Map());
+  const selectedAugmentProbeTraceEntriesRef = useRef<SelectedAugmentProbeTraceEntry[]>([]);
+  const augmentChoiceVisibleLastSeenAtRef = useRef(0);
+  const specialEventLogStateRef = useRef<
+    Partial<
+      Record<
+        GoldenSpatulaSpecialEventType,
+        {
+          visible: boolean;
+          lastSeenAt: number;
+          lastLoggedAt: number;
+        }
+      >
+    >
+  >({});
+  const autoDecisionTimerRef = useRef<number | null>(null);
+  const autoDecisionFirstDelayRef = useRef(true);
 
   const isGoldenSpatula = projectInterface?.name === GOLDEN_SPATULA_PROJECT;
   const activeInstance = instances.find((item) => item.id === activeInstanceId);
@@ -4675,6 +4463,7 @@ export function GoldenSpatulaAssistantPanel() {
   const resourceLoaded = activeInstanceId
     ? Boolean(instanceResourceLoaded[activeInstanceId])
     : false;
+  const autoDecisionResourceReady = resourceLoaded;
   const screenshotStreaming = activeInstanceId
     ? Boolean(instanceScreenshotStreaming[activeInstanceId])
     : false;
@@ -4691,7 +4480,79 @@ export function GoldenSpatulaAssistantPanel() {
     setAugmentOcrPolling(false);
     augmentPresenceLastCheckAtRef.current = 0;
     selectedAugmentVisionLastRunAtRef.current = 0;
+    selectedAugmentVisionRunSeqRef.current += 1;
+    selectedAugmentVisionRunningRef.current = false;
+    selectedAugmentVisionBackoffUntilRef.current = 0;
+    selectedAugmentVisionNoPresenceStreakRef.current = 0;
+    selectedAugmentVisionMissStreakRef.current = 0;
+    selectedAugmentVisionLastImageFingerprintRef.current = '';
+    selectedAugmentVisionLastImageAtRef.current = 0;
+    selectedAugmentActiveProbeRunningRef.current = false;
+    selectedAugmentActiveProbeLastRunAtRef.current = 0;
+    selectedAugmentProbeReliabilityRef.current = createEmptySelectedAugmentProbeReliability();
+    selectedAugmentProbeCandidateStatsRef.current = new Map();
+    selectedAugmentProbeTraceEntriesRef.current = [];
+    setSelectedAugmentProbeReliability(createEmptySelectedAugmentProbeReliability());
+    setSelectedAugmentProbeTraceEntries([]);
+    setSelectedAugmentProbeBatchProgress(null);
+    specialEventLogStateRef.current = {};
   }, [activeInstanceId, currentResourceName]);
+
+  function publishSpecialEventLogs(events: GoldenSpatulaSpecialEventDetection[]) {
+    const timestamp = Date.now();
+    const visibleTypes = new Set(events.map((event) => event.type));
+
+    if (activeInstanceId) {
+      for (const event of events) {
+        const previous = specialEventLogStateRef.current[event.type];
+        const shouldLog = !previous?.visible;
+
+        specialEventLogStateRef.current[event.type] = {
+          visible: true,
+          lastSeenAt: timestamp,
+          lastLoggedAt: shouldLog ? timestamp : (previous?.lastLoggedAt ?? 0),
+        };
+
+        if (shouldLog) {
+          addLog(activeInstanceId, {
+            type: event.type === 'settlement' ? 'success' : 'warning',
+            message: t(`goldenSpatula.lineups.specialEventLog.${event.type}`, {
+              confidence: Math.max(0, Math.min(100, Math.round(event.confidence * 100))),
+            }),
+          });
+        }
+      }
+    }
+
+    for (const type of Object.keys(
+      specialEventLogStateRef.current,
+    ) as GoldenSpatulaSpecialEventType[]) {
+      if (!visibleTypes.has(type)) {
+        const previous = specialEventLogStateRef.current[type];
+        if (previous && timestamp - previous.lastSeenAt >= specialEventMissingGraceMs) {
+          specialEventLogStateRef.current[type] = {
+            ...previous,
+            visible: false,
+          };
+        }
+      }
+    }
+  }
+
+  async function detectAndPublishSpecialEvents(cachedImage: string) {
+    if (!cachedImage.startsWith('data:image/')) {
+      publishSpecialEventLogs([]);
+      return;
+    }
+
+    try {
+      const specialEventResult = await detectGoldenSpatulaSpecialEventsFromDataUrl(cachedImage);
+      publishSpecialEventLogs(specialEventResult.events);
+    } catch (error) {
+      console.warn('Golden Spatula special event detection failed:', error);
+      publishSpecialEventLogs([]);
+    }
+  }
 
   useEffect(() => {
     if (!isGoldenSpatula) return;
@@ -4763,11 +4624,7 @@ export function GoldenSpatulaAssistantPanel() {
         if (useAppStore.getState().projectInterface?.name !== GOLDEN_SPATULA_PROJECT) return;
         const callbackDetails = details as MaaCallbackDetails & Record<string, unknown>;
 
-        const rollEvent = buildRollEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const rollEvent = buildRollEvent(message, callbackDetails, t);
         if (rollEvent) {
           setRollRunState((previous) => mergeRollEvent(previous, rollEvent));
           setKnowledgeScanState((previous) => mergeShopSlotsFromRollEvent(previous, rollEvent));
@@ -4782,11 +4639,7 @@ export function GoldenSpatulaAssistantPanel() {
           return;
         }
 
-        const xpEvent = buildXpEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const xpEvent = buildXpEvent(message, callbackDetails, t);
         if (xpEvent) {
           setXpRunState((previous) => mergeXpEvent(previous, xpEvent));
           const economyEvent = buildEconomyEventFromXpEvent(xpEvent, t);
@@ -4796,49 +4649,29 @@ export function GoldenSpatulaAssistantPanel() {
           return;
         }
 
-        const handEvent = buildHandEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const handEvent = buildHandEvent(message, callbackDetails, t);
         if (handEvent) {
           setHandRunState((previous) => mergeHandEvent(previous, handEvent));
           return;
         }
 
-        const economyEvent = buildEconomyEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const economyEvent = buildEconomyEvent(message, callbackDetails, t);
         if (economyEvent) {
           setEconomyRunState((previous) => mergeEconomyEvent(previous, economyEvent));
           return;
         }
 
-        const augmentEvent = buildAugmentScanEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const augmentEvent = buildAugmentScanEvent(message, callbackDetails, t);
         if (augmentEvent) {
           setAugmentScanState((previous) => mergeAugmentScanEvent(previous, augmentEvent));
         }
 
-        const knowledgeEvent = buildKnowledgeEvent(
-          message,
-          callbackDetails,
-          t,
-        );
+        const knowledgeEvent = buildKnowledgeEvent(message, callbackDetails, t);
         if (knowledgeEvent) {
           setKnowledgeScanState((previous) => mergeKnowledgeEvent(previous, knowledgeEvent));
         }
 
-        const summary = buildRecognitionSummary(
-          message,
-          callbackDetails,
-          t,
-        );
+        const summary = buildRecognitionSummary(message, callbackDetails, t);
         if (!summary) return;
 
         setRecognitionSummaries((previous) =>
@@ -4885,6 +4718,28 @@ export function GoldenSpatulaAssistantPanel() {
       cancelled = true;
     };
   }, [activeInstanceId, connectionStatus, isGoldenSpatula, screenshotStreaming]);
+
+  useEffect(() => {
+    const augmentAssets = assistantData?.augmentAssets.data;
+    if (!isGoldenSpatula || !augmentAssets || !basePath) return;
+
+    let cancelled = false;
+    preloadGoldenSpatulaAugmentChoiceVisionTemplates({ augmentAssets, basePath })
+      .then((metrics) => {
+        if (!cancelled && metrics.templateLoadMs > 100) {
+          console.info('Golden Spatula augment choice templates preloaded:', metrics);
+        }
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          console.warn('Failed to preload Golden Spatula augment choice templates:', error);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [assistantData?.augmentAssets.data, basePath, isGoldenSpatula]);
 
   const tabs = useMemo(
     () => [
@@ -4991,28 +4846,21 @@ export function GoldenSpatulaAssistantPanel() {
       }),
     [activeVariant, assistantData?.augmentAssets.data, augmentScanState.choices],
   );
-  const showAugmentDecisionPanel =
-    augmentPresence.visible ||
-    augmentScanState.active ||
-    Object.keys(augmentScanState.choices).length > 0;
-  const autoRollBuyTargets = useMemo(
-    () => {
-      if (!activeVariant) return [];
-
-      return collectGoldenSpatulaDecisionRollTargetTemplates({
-        variant: activeVariant,
-        championAssets: assistantData?.championAssets.data,
-        decisionPlan,
-      });
-    },
-    [activeVariant, assistantData?.championAssets.data, decisionPlan],
-  );
-  const decisionRecommendedRollCount = toAutoRollCount(
-    decisionPlan?.economyAdvice.recommendedRollCount,
-  );
-  const decisionRecommendedXpPurchaseCount = toAutoRollCount(
-    decisionPlan?.economyAdvice.recommendedXpPurchaseCount,
-  );
+  const shopOddsSummary = formatShopOddsSummary(economyRunState.shopOdds, t);
+  const autoDecisionReserveGold = autoDecisionInterestTarget * 10;
+  const autoDecisionActionCost = getAutoDecisionActionCost(autoDecisionMode);
+  const autoDecisionGold = economyRunState.gold;
+  const autoDecisionAvailableGold =
+    autoDecisionGold !== undefined ? autoDecisionGold - autoDecisionReserveGold : undefined;
+  const autoDecisionRequiredGold =
+    autoDecisionActionCost !== undefined
+      ? autoDecisionReserveGold + autoDecisionActionCost
+      : autoDecisionReserveGold;
+  const autoDecisionCanSpend =
+    autoDecisionMode !== 'off' &&
+    autoDecisionActionCost !== undefined &&
+    autoDecisionAvailableGold !== undefined &&
+    autoDecisionAvailableGold >= autoDecisionActionCost;
   const savedRecommendedIds = useMemo(
     () =>
       new Set(
@@ -5052,106 +4900,109 @@ export function GoldenSpatulaAssistantPanel() {
       : !activeLineup
         ? t('goldenSpatula.lineups.noActiveLineup')
         : undefined;
-  const autoRollDisabledReason = !activeInstanceId
+  const autoDecisionRollSetupDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
-    : activeInstance?.isRunning
-      ? t('goldenSpatula.lineups.taskRunning')
-      : !activeLineup || !activeVariant
-        ? t('goldenSpatula.lineups.noActiveLineup')
-        : !autoRollTaskByCount[autoRollCount] ||
-            !projectInterface?.task.some((task) => task.name === autoRollTaskByCount[autoRollCount])
+    : connectionStatus !== 'Connected'
+      ? t('goldenSpatula.lineups.deviceNotConnected')
+      : !autoDecisionResourceReady
+        ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
+        : !autoRollTaskByCount[1] ||
+            !projectInterface?.task.some((task) => task.name === autoRollTaskByCount[1])
           ? t('goldenSpatula.lineups.autoRollTaskMissing')
           : undefined;
-  const autoRollBuyDisabledReason = !activeInstanceId
+  const autoDecisionLevelSetupDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
     : connectionStatus !== 'Connected'
       ? t('goldenSpatula.lineups.deviceNotConnected')
-      : activeInstance?.isRunning || autoRollBuySubmitting
-        ? t('goldenSpatula.lineups.taskRunning')
-        : !activeLineup || !activeVariant
-          ? t('goldenSpatula.lineups.noActiveLineup')
-          : !projectInterface?.task.some((task) => task.name === autoRollBuyEntry)
-            ? t('goldenSpatula.lineups.autoRollBuyTaskMissing')
-            : !usingKnowledgeResource
-              ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
-              : !resourceLoaded
-                ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-                : autoRollBuyTargets.length === 0
-                  ? t('goldenSpatula.lineups.autoBuyNoMatchedTargets')
-                  : undefined;
-  const autoLevelRollBuyDisabledReason = !activeInstanceId
+      : !autoDecisionResourceReady
+        ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
+        : !autoBuyExperienceTaskByCount[1] ||
+            !projectInterface?.task.some((task) => task.name === autoBuyExperienceTaskByCount[1])
+          ? t('goldenSpatula.lineups.autoBuyExperienceTaskMissing')
+          : undefined;
+  const decisionAutoCaptureSetupDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
     : connectionStatus !== 'Connected'
       ? t('goldenSpatula.lineups.deviceNotConnected')
-      : activeInstance?.isRunning ||
-          autoRollBuySubmitting ||
-          autoBuyExperienceSubmitting ||
-          autoLevelRollBuySubmitting
-        ? t('goldenSpatula.lineups.taskRunning')
+      : !autoDecisionResourceReady
+        ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
         : !activeLineup || !activeVariant
           ? t('goldenSpatula.lineups.noActiveLineup')
-          : !projectInterface?.task.some((task) => task.name === autoLevelRollBuyEntry)
-            ? t('goldenSpatula.lineups.autoLevelRollBuyTaskMissing')
-            : !usingKnowledgeResource
-              ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
-              : !resourceLoaded
-                ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-                : autoRollBuyTargets.length === 0
-                  ? t('goldenSpatula.lineups.autoBuyNoMatchedTargets')
-                  : undefined;
+          : activeInstance?.isRunning || autoDecisionSubmitting
+            ? t('goldenSpatula.lineups.taskRunning')
+            : undefined;
+  const autoDecisionSetupDisabledReason =
+    autoDecisionMode === 'roll'
+      ? autoDecisionRollSetupDisabledReason
+      : autoDecisionMode === 'level'
+        ? autoDecisionLevelSetupDisabledReason
+        : undefined;
+  const autoDecisionBlockedReason =
+    autoDecisionSetupDisabledReason ??
+    (autoDecisionMode !== 'off' && (activeInstance?.isRunning || autoDecisionSubmitting)
+      ? t('goldenSpatula.lineups.taskRunning')
+      : undefined);
   const economyOcrDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
     : connectionStatus !== 'Connected'
       ? t('goldenSpatula.lineups.deviceNotConnected')
       : economyOcrSubmitting
         ? t('goldenSpatula.lineups.taskRunning')
-        : !resourceLoaded
-          ? t('goldenSpatula.lineups.resourceNotLoaded')
-          : undefined;
+        : undefined;
   const augmentOcrDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
-    : connectionStatus !== 'Connected'
-      ? t('goldenSpatula.lineups.deviceNotConnected')
-      : augmentOcrSubmitting
-        ? t('goldenSpatula.lineups.taskRunning')
-        : !activeLineup || !activeVariant
-          ? t('goldenSpatula.lineups.noActiveLineup')
-          : !usingKnowledgeResource
-            ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
-            : !resourceLoaded
-              ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
+    : !augmentOcrExperimentalEnabled
+      ? t('goldenSpatula.lineups.augmentOcrExperimentalDisabled')
+      : connectionStatus !== 'Connected'
+        ? t('goldenSpatula.lineups.deviceNotConnected')
+        : augmentOcrSubmitting
+          ? t('goldenSpatula.lineups.taskRunning')
+          : !activeLineup || !activeVariant
+            ? t('goldenSpatula.lineups.noActiveLineup')
+            : !usingKnowledgeResource
+              ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
               : undefined;
   const augmentPickDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
-    : connectionStatus !== 'Connected'
-      ? t('goldenSpatula.lineups.deviceNotConnected')
-      : augmentPickSubmitting || augmentScanState.active
-        ? t('goldenSpatula.lineups.taskRunning')
-        : !activeLineup || !activeVariant
-          ? t('goldenSpatula.lineups.noActiveLineup')
-          : !projectInterface?.task.some((task) => task.name === autoPickAugmentEntry)
-            ? t('goldenSpatula.lineups.augmentPickTaskMissing')
-            : !usingKnowledgeResource
-              ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
-              : !resourceLoaded
-                ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-                : !augmentDecision.bestOption
-                  ? t('goldenSpatula.lineups.augmentNeedsChoices')
-                  : undefined;
-  const autoBuyExperienceDisabledReason = !activeInstanceId
+    : !augmentOcrExperimentalEnabled
+      ? t('goldenSpatula.lineups.augmentOcrExperimentalDisabled')
+      : connectionStatus !== 'Connected'
+        ? t('goldenSpatula.lineups.deviceNotConnected')
+        : augmentPickSubmitting || augmentScanState.active
+          ? t('goldenSpatula.lineups.taskRunning')
+          : !activeLineup || !activeVariant
+            ? t('goldenSpatula.lineups.noActiveLineup')
+            : !projectInterface?.task.some((task) => task.name === autoPickAugmentEntry)
+              ? t('goldenSpatula.lineups.augmentPickTaskMissing')
+              : !usingKnowledgeResource
+                ? t('goldenSpatula.lineups.autoBuyNeedsKnowledgeResource')
+                : !resourceLoaded
+                  ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
+                  : !augmentDecision.bestOption
+                    ? t('goldenSpatula.lineups.augmentNeedsChoices')
+                    : undefined;
+  const calibrationSelectedAugmentProbeDisabledReason = !activeInstanceId
     ? t('goldenSpatula.lineups.noActiveInstance')
     : connectionStatus !== 'Connected'
       ? t('goldenSpatula.lineups.deviceNotConnected')
-      : activeInstance?.isRunning || autoBuyExperienceSubmitting
-        ? t('goldenSpatula.lineups.taskRunning')
-        : !resourceLoaded
-          ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
-          : !autoBuyExperienceTaskByCount[autoBuyExperienceCount] ||
-              !projectInterface?.task.some(
-                (task) => task.name === autoBuyExperienceTaskByCount[autoBuyExperienceCount],
-              )
-            ? t('goldenSpatula.lineups.autoBuyExperienceTaskMissing')
-            : undefined;
+      : !resourceLoaded
+        ? t('goldenSpatula.lineups.autoBuyNeedsLoadedResource')
+        : !hasGoldenSpatulaAugmentVisionAssets(assistantData?.augmentAssets.data)
+          ? t('goldenSpatula.calibration.selectedAugmentProbeNeedsTemplates')
+          : activeInstance?.isRunning ||
+              calibrationSelectedAugmentProbeSubmitting ||
+              selectedAugmentActiveProbeRunningRef.current ||
+              selectedAugmentVisionRunningRef.current ||
+              augmentScanState.active ||
+              augmentOcrSubmitting ||
+              augmentPickSubmitting ||
+              autoDecisionSubmitting ||
+              handRunState.active
+            ? t('goldenSpatula.lineups.taskRunning')
+            : augmentPresence.visible ||
+                isSelectedAugmentProbeBlockingSpecialEvent(specialEventLogStateRef.current)
+              ? t('goldenSpatula.calibration.selectedAugmentProbeBlocked')
+              : undefined;
 
   useEffect(() => {
     if (!isGoldenSpatula || managedLineups.length === 0 || activeLineup) return;
@@ -5240,6 +5091,26 @@ export function GoldenSpatulaAssistantPanel() {
     !hasScreenshot && t('goldenSpatula.calibration.captureScreenshot'),
     knowledgeTasksEnabled === 0 && t('goldenSpatula.calibration.enableRecognitionTask'),
   ].filter(Boolean) as string[];
+  const selectedAugmentProbeRatePercent = Math.round(
+    selectedAugmentProbeReliability.passRate * 100,
+  );
+  const selectedAugmentProbeTargetPercent = Math.round(
+    selectedAugmentProbeReliability.targetRate * 100,
+  );
+  const selectedAugmentProbeReliabilityReady =
+    selectedAugmentProbeReliability.total >= 5 &&
+    selectedAugmentProbeReliability.passRate >= selectedAugmentProbeReliability.targetRate;
+  const selectedAugmentProbeReliabilityTone =
+    selectedAugmentProbeReliability.total === 0
+      ? 'muted'
+      : selectedAugmentProbeReliabilityReady
+        ? 'success'
+        : 'warning';
+  const selectedAugmentProbeLastStageLabel = selectedAugmentProbeReliability.lastStage
+    ? t(
+        `goldenSpatula.calibration.selectedAugmentProbeStage.${selectedAugmentProbeReliability.lastStage}`,
+      )
+    : t('goldenSpatula.calibration.selectedAugmentProbeReliabilityEmpty');
 
   if (!isGoldenSpatula) {
     return null;
@@ -5256,6 +5127,75 @@ export function GoldenSpatulaAssistantPanel() {
       .writeText(text)
       .then(() => toast.success(t(successKey)))
       .catch(() => toast.error(t('goldenSpatula.lineups.copyFailed')));
+  };
+
+  const selectedAugmentProbeStageLabel = (stage: SelectedAugmentProbeRunStage): string =>
+    t(`goldenSpatula.calibration.selectedAugmentProbeStage.${stage}`);
+
+  const formatSelectedAugmentProbeTraceTarget = (
+    target: SelectedAugmentProbeTraceTarget | undefined,
+  ): string => {
+    if (!target) return '-';
+    const parts = [
+      target.source,
+      `#${target.slotLabel}`,
+      target.augmentName,
+      target.score !== undefined ? target.score.toFixed(3) : undefined,
+      target.screenTarget ? `@${target.screenTarget[0]},${target.screenTarget[1]}` : undefined,
+    ].filter(Boolean);
+    return parts.join(' ');
+  };
+
+  const formatSelectedAugmentProbeTraceDiagnostics = (
+    entry: SelectedAugmentProbeTraceEntry,
+  ): string => {
+    const diagnostics = entry.detailDiagnostics;
+    const match = entry.match;
+    if (!diagnostics && !match) {
+      return t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsEmpty');
+    }
+
+    const kind =
+      match?.matchKind === 'detailTitle'
+        ? t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsKindDetailTitle')
+        : match?.matchKind === 'icon'
+          ? t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsKindIcon')
+          : t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsKindUnknown');
+    const ownedPanel = diagnostics?.ownedPanelVisible
+      ? t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsVisible')
+      : t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsMissing');
+    const sides =
+      diagnostics && diagnostics.detailCardSides.length > 0
+        ? diagnostics.detailCardSides.join('/')
+        : t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsNoSide');
+    const source = [match?.matchSourceLabel, match?.matchSide].filter(Boolean).join('@') || '-';
+    const margin = match?.matchMargin ?? diagnostics?.titleMatch?.margin;
+
+    return t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnosticsValue', {
+      kind,
+      ownedPanel,
+      sides,
+      source,
+      margin: margin !== undefined ? margin.toFixed(3) : '-',
+    });
+  };
+
+  const copySelectedAugmentProbeTraceLog = () => {
+    if (selectedAugmentProbeTraceEntries.length === 0) {
+      toast.info(t('goldenSpatula.calibration.selectedAugmentProbeTraceEmpty'));
+      return;
+    }
+
+    const payload = {
+      createdAt: new Date().toISOString(),
+      targetPassRate: selectedAugmentProbeReliabilityTargetRate,
+      reliability: selectedAugmentProbeReliability,
+      entries: selectedAugmentProbeTraceEntries,
+    };
+    copyText(
+      JSON.stringify(payload, null, 2),
+      'goldenSpatula.calibration.selectedAugmentProbeTraceCopied',
+    );
   };
 
   const setLineupManager = (
@@ -5427,39 +5367,1044 @@ export function GoldenSpatulaAssistantPanel() {
     toast.success(t('goldenSpatula.lineups.taskConfigApplied', { added, enabled }));
   };
 
-  const applyAutoRollTask = () => {
-    if (autoRollDisabledReason || !activeInstanceId || !projectInterface) return;
+  async function ensureActiveResourceLoaded(showToast: boolean): Promise<boolean> {
+    if (!activeInstanceId) return false;
 
-    const taskName = autoRollTaskByCount[autoRollCount];
-    if (!taskName) return;
-    const currentInstance = useAppStore
-      .getState()
-      .instances.find((instance) => instance.id === activeInstanceId);
+    try {
+      const loaded = await maaService.isResourceLoaded(activeInstanceId);
+      setInstanceResourceLoaded(activeInstanceId, loaded);
+      if (loaded) {
+        return true;
+      }
+    } catch (error) {
+      console.warn('Failed to verify Maa resource loaded state:', error);
+      if (resourceLoaded) return true;
+    }
 
-    for (const task of currentInstance?.selectedTasks ?? []) {
-      if (autoRollTaskNames.has(task.taskName) && task.enabled && task.taskName !== taskName) {
-        toggleTaskEnabled(activeInstanceId, task.id);
+    if (showToast) toast.error(t('goldenSpatula.lineups.autoBuyNeedsLoadedResource'));
+    return false;
+  }
+
+  function isSelectedAugmentActiveProbeBlocked(ignoreRunning = false): boolean {
+    return Boolean(
+      !selectedAugmentActiveProbeEnabled ||
+      !activeInstanceId ||
+      (!ignoreRunning && selectedAugmentActiveProbeRunningRef.current) ||
+      activeInstance?.isRunning ||
+      augmentPresence.visible ||
+      augmentScanState.active ||
+      augmentOcrSubmitting ||
+      augmentPickSubmitting ||
+      autoDecisionSubmitting ||
+      handRunState.active ||
+      isSelectedAugmentProbeBlockingSpecialEvent(specialEventLogStateRef.current),
+    );
+  }
+
+  async function refreshCachedImageAfterAction(delayMs: number): Promise<string> {
+    if (!activeInstanceId) return '';
+    await waitMs(delayMs);
+    await maaService.postScreencap(activeInstanceId).catch(() => 0);
+    return maaService.getCachedImage(activeInstanceId);
+  }
+
+  async function closeSelectedAugmentDetailCard(dataUrl: string): Promise<void> {
+    if (!activeInstanceId || !dataUrl.startsWith('data:image/')) return;
+    try {
+      const [x, y] = await scaleGoldenSpatulaSelectedAugmentTargetFromDataUrl(
+        dataUrl,
+        selectedAugmentActiveProbeCloseLogicalTarget,
+      );
+      await maaService.postClick(activeInstanceId, x, y).catch(() => 0);
+      await waitMs(selectedAugmentActiveProbeCloseDelayMs);
+      await maaService.postScreencap(activeInstanceId).catch(() => 0);
+    } catch (error) {
+      console.warn('Selected augment detail close click failed:', error);
+    }
+  }
+
+  function shouldCloseSelectedAugmentDetailCard(result: {
+    detailMatched?: boolean;
+    detailDiagnostics?: GoldenSpatulaSelectedAugmentDetailDiagnostics;
+  }): boolean {
+    const diagnostics = result.detailDiagnostics;
+    return Boolean(
+      result.detailMatched ||
+      diagnostics?.ownedPanelVisible ||
+      (diagnostics?.detailCardSides.length ?? 0) > 0,
+    );
+  }
+
+  async function closeSelectedAugmentDetailCardForResult(
+    result: Pick<
+      SelectedAugmentProbeSequenceResult,
+      'detailMatched' | 'detailDiagnostics' | 'finalImage'
+    >,
+  ): Promise<void> {
+    if (!shouldCloseSelectedAugmentDetailCard(result)) return;
+    await closeSelectedAugmentDetailCard(result.finalImage);
+  }
+
+  function getUnconfirmedSelectedAugmentProbeTargets(
+    targets: GoldenSpatulaSelectedAugmentProbeTarget[],
+  ): GoldenSpatulaSelectedAugmentProbeTarget[] {
+    const matchedSlots = new Set(
+      Object.values(knowledgeScanState.selectedAugments ?? {})
+        .filter((slot) => slot.confidence === 'matched')
+        .map((slot) => slot.slotIndex),
+    );
+    const unconfirmed = targets.filter((target) => !matchedSlots.has(target.slotIndex));
+    return unconfirmed.length > 0 ? unconfirmed : targets;
+  }
+
+  function recordSelectedAugmentProbeReliability(result: SelectedAugmentProbeSequenceResult) {
+    const next = updateSelectedAugmentProbeReliability(selectedAugmentProbeReliabilityRef.current, {
+      success: result.detailMatched,
+      stage: result.stage,
+      attempts: result.attempts,
+    });
+    selectedAugmentProbeReliabilityRef.current = next;
+    setSelectedAugmentProbeReliability(next);
+  }
+
+  function createSelectedAugmentProbeTraceTarget(
+    target: GoldenSpatulaSelectedAugmentProbeTarget | undefined,
+  ): SelectedAugmentProbeTraceTarget | undefined {
+    if (!target) return undefined;
+    return {
+      slotIndex: target.slotIndex,
+      slotLabel: target.slotLabel,
+      source: target.source,
+      augmentName: target.augmentName,
+      score: target.score,
+      logicalTarget: target.logicalTarget,
+      screenTarget: target.screenTarget,
+    };
+  }
+
+  function createSelectedAugmentProbeTraceMatch(
+    match: GoldenSpatulaSelectedAugmentVisionSlotResult | undefined,
+  ): SelectedAugmentProbeTraceMatch | undefined {
+    if (!match) return undefined;
+    return {
+      augmentName: match.augmentName,
+      score: match.score,
+      slotIndex: match.slotIndex,
+      slotLabel: match.slotLabel,
+      templatePath: match.templatePath,
+      matchKind: match.matchKind,
+      matchCenter: match.matchCenter,
+      matchSourceLabel: match.matchSourceLabel,
+      matchSide: match.matchSide,
+      matchMargin: match.matchMargin,
+    };
+  }
+
+  function appendSelectedAugmentProbeTrace(params: {
+    runKind: SelectedAugmentProbeTraceEntry['runKind'];
+    result: SelectedAugmentProbeSequenceResult;
+    initialImage?: string;
+    iteration?: number;
+    total?: number;
+  }) {
+    const entry: SelectedAugmentProbeTraceEntry = {
+      id: `${Date.now()}-${params.runKind}-${params.iteration ?? 0}`,
+      timestamp: Date.now(),
+      runKind: params.runKind,
+      iteration: params.iteration,
+      total: params.total,
+      success: params.result.detailMatched,
+      stage: params.result.stage,
+      attempts: params.result.attempts,
+      targetCount: params.result.targetCount,
+      panelTargetCount: params.result.panelTargetCount,
+      initialImage: params.initialImage?.startsWith('data:image/')
+        ? params.initialImage
+        : undefined,
+      finalImage: params.result.finalImage.startsWith('data:image/')
+        ? params.result.finalImage
+        : undefined,
+      target: createSelectedAugmentProbeTraceTarget(params.result.target),
+      panelTarget: createSelectedAugmentProbeTraceTarget(params.result.panelTarget),
+      match: createSelectedAugmentProbeTraceMatch(params.result.match),
+      detailDiagnostics: params.result.detailDiagnostics,
+    };
+    const next = [entry, ...selectedAugmentProbeTraceEntriesRef.current].slice(
+      0,
+      selectedAugmentProbeTraceLimit,
+    );
+    selectedAugmentProbeTraceEntriesRef.current = next;
+    setSelectedAugmentProbeTraceEntries(next);
+  }
+
+  function getSelectedAugmentAdaptiveTargetLimit(baseLimit: number): number {
+    const reliability = selectedAugmentProbeReliabilityRef.current;
+    if (reliability.total >= 5 && reliability.passRate < reliability.targetRate) {
+      return selectedAugmentMaxScanSlots;
+    }
+    return Math.max(1, Math.min(selectedAugmentMaxScanSlots, baseLimit));
+  }
+
+  function rankSelectedAugmentPanelTargetsForProbe(
+    target: GoldenSpatulaSelectedAugmentProbeTarget,
+    panelTargets: GoldenSpatulaSelectedAugmentProbeTarget[],
+  ): GoldenSpatulaSelectedAugmentProbeTarget[] {
+    const expectedName = target.augmentName ? normalizeSearchText(target.augmentName) : '';
+    return [...panelTargets].sort((left, right) => {
+      const leftSlotMatch = left.slotIndex === target.slotIndex ? 1 : 0;
+      const rightSlotMatch = right.slotIndex === target.slotIndex ? 1 : 0;
+      if (leftSlotMatch !== rightSlotMatch) return rightSlotMatch - leftSlotMatch;
+
+      const leftNameMatch =
+        expectedName && left.augmentName
+          ? normalizeSearchText(left.augmentName) === expectedName
+          : false;
+      const rightNameMatch =
+        expectedName && right.augmentName
+          ? normalizeSearchText(right.augmentName) === expectedName
+          : false;
+      if (leftNameMatch !== rightNameMatch) return Number(rightNameMatch) - Number(leftNameMatch);
+
+      const leftScore = (left.score ?? 0) + getSelectedAugmentProbeCandidateWeight(left);
+      const rightScore = (right.score ?? 0) + getSelectedAugmentProbeCandidateWeight(right);
+      return rightScore - leftScore;
+    });
+  }
+
+  function getSelectedAugmentProbeTargetKey(
+    target: GoldenSpatulaSelectedAugmentProbeTarget,
+  ): string {
+    return [
+      target.source,
+      target.slotIndex,
+      target.augmentName ? normalizeSearchText(target.augmentName) : '',
+      target.templatePath ?? '',
+      target.screenTarget.join(','),
+    ].join(':');
+  }
+
+  function getSelectedAugmentProbeCandidateWeight(
+    target: GoldenSpatulaSelectedAugmentProbeTarget,
+  ): number {
+    const stats = selectedAugmentProbeCandidateStatsRef.current.get(
+      getSelectedAugmentProbeTargetKey(target),
+    );
+    if (!stats) return 0;
+    return Math.max(-0.35, Math.min(0.35, stats.success * 0.12 - stats.failure * 0.16));
+  }
+
+  function rememberSelectedAugmentProbeCandidateResult(
+    target: GoldenSpatulaSelectedAugmentProbeTarget | undefined,
+    success: boolean,
+  ) {
+    if (!target) return;
+    const key = getSelectedAugmentProbeTargetKey(target);
+    const previous = selectedAugmentProbeCandidateStatsRef.current.get(key) ?? {
+      success: 0,
+      failure: 0,
+      lastUpdatedAt: 0,
+    };
+    selectedAugmentProbeCandidateStatsRef.current.set(key, {
+      success: Math.min(6, previous.success + (success ? 1 : 0)),
+      failure: Math.min(6, previous.failure + (success ? 0 : 1)),
+      lastUpdatedAt: Date.now(),
+    });
+  }
+
+  function rankSelectedAugmentProbeTargetsByHistory(
+    targets: GoldenSpatulaSelectedAugmentProbeTarget[],
+  ): GoldenSpatulaSelectedAugmentProbeTarget[] {
+    return [...targets].sort((left, right) => {
+      const leftScore = (left.score ?? 0) + getSelectedAugmentProbeCandidateWeight(left);
+      const rightScore = (right.score ?? 0) + getSelectedAugmentProbeCandidateWeight(right);
+      return rightScore - leftScore;
+    });
+  }
+
+  async function recognizeAndPublishSelectedAugmentDetail(
+    dataUrl: string,
+    target: Pick<
+      GoldenSpatulaSelectedAugmentProbeTarget,
+      'slotIndex' | 'slotLabel' | 'augmentName' | 'score' | 'templatePath'
+    >,
+    runSeq: number,
+    context?: {
+      expectedTargets?: ReadonlyArray<
+        Pick<GoldenSpatulaSelectedAugmentProbeTarget, 'augmentName' | 'score' | 'templatePath'>
+      >;
+    },
+  ): Promise<SelectedAugmentDetailRecognitionResult> {
+    if (selectedAugmentVisionRunSeqRef.current !== runSeq) return {};
+    const expectedTargets = [target, ...(context?.expectedTargets ?? [])].filter((candidate) =>
+      Boolean(candidate.augmentName),
+    );
+    const expectedAugmentNames = [
+      ...new Set(expectedTargets.map((candidate) => candidate.augmentName!)),
+    ];
+    const fallbackTarget = expectedTargets
+      .filter((candidate) => candidate.augmentName && Number.isFinite(candidate.score))
+      .sort((left, right) => (right.score ?? 0) - (left.score ?? 0))[0];
+    const detailResult = await recognizeGoldenSpatulaSelectedAugmentDetailFromDataUrl(dataUrl, {
+      augmentAssets: assistantData?.augmentAssets.data,
+      basePath,
+      slotIndex: target.slotIndex,
+      slotLabel: target.slotLabel,
+      allowOwnedPanelFallback: false,
+      expectedAugmentNames,
+      fallbackAugmentName: fallbackTarget?.augmentName,
+      fallbackScore: fallbackTarget?.score,
+      fallbackTemplatePath: fallbackTarget?.templatePath,
+    });
+    if (selectedAugmentVisionRunSeqRef.current !== runSeq) return {};
+
+    const detailEvents = buildSelectedAugmentKnowledgeEvents(
+      detailResult,
+      t,
+      'SelectedAugmentDetailProbe',
+    );
+    if (detailEvents.length > 0) {
+      setKnowledgeScanState((previous) =>
+        detailEvents.reduce<GoldenSpatulaKnowledgeScanState>(
+          (state, event) => mergeKnowledgeEvent(state, event),
+          previous,
+        ),
+      );
+    }
+    return {
+      match: detailResult.slots.find((slot) => slot.confidence === 'matched'),
+      diagnostics: detailResult.detailDiagnostics,
+    };
+  }
+
+  async function clickSelectedAugmentProbeTargetAndCapture(
+    target: Pick<GoldenSpatulaSelectedAugmentProbeTarget, 'screenTarget'>,
+  ): Promise<string> {
+    if (!activeInstanceId) return '';
+    const [x, y] = target.screenTarget;
+    await maaService.postClick(activeInstanceId, x, y);
+    await waitMs(selectedAugmentActiveProbeClickDelayMs);
+    return refreshCachedImageAfterAction(selectedAugmentActiveProbeScreencapDelayMs);
+  }
+
+  async function openSelectedAugmentDetailFromProbeTarget(params: {
+    target: GoldenSpatulaSelectedAugmentProbeTarget;
+    maxSlots: number;
+    runSeq: number;
+  }): Promise<SelectedAugmentDetailProbeResult> {
+    let attempts = 1;
+    let finalImage = await clickSelectedAugmentProbeTargetAndCapture(params.target);
+    if (selectedAugmentVisionRunSeqRef.current !== params.runSeq) {
+      return {
+        detailMatched: false,
+        finalImage,
+        stage: 'cancelled',
+        attempts,
+        target: params.target,
+        panelTargetCount: 0,
+      };
+    }
+
+    const triedPanelTargets = new Set<string>();
+    let lastPanelTarget: GoldenSpatulaSelectedAugmentProbeTarget | undefined;
+    let lastPanelTargetCount = 0;
+    let clickedAnyPanelTarget = false;
+    let lastDetailDiagnostics: GoldenSpatulaSelectedAugmentDetailDiagnostics | undefined;
+
+    while (attempts < selectedAugmentProbeMaxClickAttempts) {
+      const panelTargetsResult =
+        await findGoldenSpatulaSelectedAugmentDetailPanelTargetsFromDataUrl(finalImage, {
+          augmentAssets: assistantData?.augmentAssets.data,
+          basePath,
+          maxSlots: params.maxSlots,
+          maxTargets: selectedAugmentProbePanelTargetLimit,
+          allowPresenceFallback: false,
+        });
+      const panelTargets = rankSelectedAugmentPanelTargetsForProbe(
+        params.target,
+        getUnconfirmedSelectedAugmentProbeTargets(panelTargetsResult.targets),
+      );
+      lastPanelTargetCount = Math.max(lastPanelTargetCount, panelTargets.length);
+      const panelTarget = panelTargets.find(
+        (candidate) => !triedPanelTargets.has(getSelectedAugmentProbeTargetKey(candidate)),
+      );
+
+      if (!panelTarget) break;
+      if (isSelectedAugmentActiveProbeBlocked(true)) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'blocked',
+          attempts,
+          target: params.target,
+          panelTarget: lastPanelTarget,
+          panelTargetCount: lastPanelTargetCount,
+        };
+      }
+
+      triedPanelTargets.add(getSelectedAugmentProbeTargetKey(panelTarget));
+      lastPanelTarget = panelTarget;
+      clickedAnyPanelTarget = true;
+      attempts += 1;
+      const detailImage = await clickSelectedAugmentProbeTargetAndCapture(panelTarget);
+      finalImage = detailImage;
+      let detailRecognition = await recognizeAndPublishSelectedAugmentDetail(
+        detailImage,
+        panelTarget,
+        params.runSeq,
+        {
+          expectedTargets: [params.target, panelTarget],
+        },
+      );
+      let match = detailRecognition.match;
+      lastDetailDiagnostics = detailRecognition.diagnostics ?? lastDetailDiagnostics;
+      if (!match && selectedAugmentVisionRunSeqRef.current === params.runSeq) {
+        const retryImage = await refreshCachedImageAfterAction(
+          selectedAugmentDetailProbeSettleRetryDelayMs,
+        );
+        if (retryImage.startsWith('data:image/')) {
+          finalImage = retryImage;
+          detailRecognition = await recognizeAndPublishSelectedAugmentDetail(
+            retryImage,
+            panelTarget,
+            params.runSeq,
+            {
+              expectedTargets: [params.target, panelTarget],
+            },
+          );
+          match = detailRecognition.match;
+          lastDetailDiagnostics = detailRecognition.diagnostics ?? lastDetailDiagnostics;
+        }
+      }
+      if (selectedAugmentVisionRunSeqRef.current !== params.runSeq) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'cancelled',
+          attempts,
+          target: params.target,
+          panelTarget,
+          detailDiagnostics: lastDetailDiagnostics,
+          panelTargetCount: lastPanelTargetCount,
+        };
+      }
+      if (match) {
+        rememberSelectedAugmentProbeCandidateResult(params.target, true);
+        rememberSelectedAugmentProbeCandidateResult(panelTarget, true);
+        return {
+          detailMatched: true,
+          finalImage,
+          stage: 'matched',
+          attempts,
+          match,
+          detailDiagnostics: lastDetailDiagnostics,
+          target: params.target,
+          panelTarget,
+          panelTargetCount: lastPanelTargetCount,
+        };
+      }
+      rememberSelectedAugmentProbeCandidateResult(panelTarget, false);
+
+      if (attempts + 1 >= selectedAugmentProbeMaxClickAttempts) break;
+      await closeSelectedAugmentDetailCard(finalImage);
+      if (isSelectedAugmentActiveProbeBlocked(true)) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'blocked',
+          attempts,
+          target: params.target,
+          panelTarget,
+          detailDiagnostics: lastDetailDiagnostics,
+          panelTargetCount: lastPanelTargetCount,
+        };
+      }
+      attempts += 1;
+      finalImage = await clickSelectedAugmentProbeTargetAndCapture(params.target);
+      if (selectedAugmentVisionRunSeqRef.current !== params.runSeq) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'cancelled',
+          attempts,
+          target: params.target,
+          panelTarget,
+          detailDiagnostics: lastDetailDiagnostics,
+          panelTargetCount: lastPanelTargetCount,
+        };
       }
     }
 
-    const refreshedInstance = useAppStore
-      .getState()
-      .instances.find((instance) => instance.id === activeInstanceId);
-    const existing = refreshedInstance?.selectedTasks.find((task) => task.taskName === taskName);
+    const detailRecognition = await recognizeAndPublishSelectedAugmentDetail(
+      finalImage,
+      params.target,
+      params.runSeq,
+      {
+        expectedTargets: lastPanelTarget ? [params.target, lastPanelTarget] : [params.target],
+      },
+    );
+    const match = detailRecognition.match;
+    lastDetailDiagnostics = detailRecognition.diagnostics ?? lastDetailDiagnostics;
+    rememberSelectedAugmentProbeCandidateResult(params.target, Boolean(match));
+    const detailCardVisible = (lastDetailDiagnostics?.detailCardSides.length ?? 0) > 0;
+    return {
+      detailMatched: Boolean(match),
+      finalImage,
+      stage: match
+        ? 'matched'
+        : clickedAnyPanelTarget
+          ? detailCardVisible
+            ? 'detailUnmatched'
+            : 'noDetailCard'
+          : 'noPanelTarget',
+      attempts,
+      match,
+      detailDiagnostics: lastDetailDiagnostics,
+      target: params.target,
+      panelTarget: lastPanelTarget,
+      panelTargetCount: lastPanelTargetCount,
+    };
+  }
 
-    if (existing) {
-      if (!existing.enabled) {
-        toggleTaskEnabled(activeInstanceId, existing.id);
-      }
-    } else {
-      const taskDef = projectInterface.task.find((task) => task.name === taskName);
-      if (taskDef) {
-        addTaskToInstance(activeInstanceId, taskDef);
-      }
+  async function runSelectedAugmentProbeSequenceFromImage(params: {
+    cachedImage: string;
+    maxSlots: number;
+    maxTargets: number;
+    runSeq: number;
+  }): Promise<SelectedAugmentProbeSequenceResult> {
+    if (!params.cachedImage.startsWith('data:image/')) {
+      return {
+        detailMatched: false,
+        finalImage: params.cachedImage,
+        stage: 'noScreenshot',
+        attempts: 0,
+        targetCount: 0,
+      };
     }
 
-    toast.success(t('goldenSpatula.lineups.autoRollTaskApplied', { count: autoRollCount }));
-  };
+    const probeTargetResult = await findGoldenSpatulaSelectedAugmentProbeTargetsFromDataUrl(
+      params.cachedImage,
+      {
+        augmentAssets: assistantData?.augmentAssets.data,
+        basePath,
+        maxSlots: params.maxSlots,
+        maxTargets: params.maxTargets,
+        allowedSources: ['spectator', 'board'],
+        allowPresenceFallback: false,
+      },
+    );
+    if (selectedAugmentVisionRunSeqRef.current !== params.runSeq) {
+      return {
+        detailMatched: false,
+        finalImage: params.cachedImage,
+        stage: 'cancelled',
+        attempts: 0,
+        targetCount: probeTargetResult.targets.length,
+      };
+    }
+
+    const targets = rankSelectedAugmentProbeTargetsByHistory(
+      getUnconfirmedSelectedAugmentProbeTargets(probeTargetResult.targets),
+    );
+    if (targets.length === 0) {
+      return {
+        detailMatched: false,
+        finalImage: params.cachedImage,
+        stage: 'noTargets',
+        attempts: 0,
+        targetCount: 0,
+      };
+    }
+
+    let attempts = 0;
+    let finalImage = params.cachedImage;
+    let lastResult: SelectedAugmentDetailProbeResult | undefined;
+
+    for (const target of targets) {
+      if (selectedAugmentVisionRunSeqRef.current !== params.runSeq) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'cancelled',
+          attempts,
+          targetCount: targets.length,
+          target: lastResult?.target,
+          panelTarget: lastResult?.panelTarget,
+          detailDiagnostics: lastResult?.detailDiagnostics,
+        };
+      }
+      if (isSelectedAugmentActiveProbeBlocked(true)) {
+        return {
+          detailMatched: false,
+          finalImage,
+          stage: 'blocked',
+          attempts,
+          targetCount: targets.length,
+          target: lastResult?.target,
+          panelTarget: lastResult?.panelTarget,
+          detailDiagnostics: lastResult?.detailDiagnostics,
+        };
+      }
+      if (attempts >= selectedAugmentProbeMaxClickAttempts) break;
+
+      const detailProbe = await openSelectedAugmentDetailFromProbeTarget({
+        target,
+        maxSlots: params.maxSlots,
+        runSeq: params.runSeq,
+      });
+      lastResult = detailProbe;
+      attempts += detailProbe.attempts;
+      finalImage = detailProbe.finalImage;
+
+      if (detailProbe.detailMatched) {
+        return {
+          detailMatched: true,
+          finalImage,
+          stage: 'matched',
+          attempts,
+          targetCount: targets.length,
+          panelTargetCount: detailProbe.panelTargetCount,
+          match: detailProbe.match,
+          detailDiagnostics: detailProbe.detailDiagnostics,
+          target: detailProbe.target,
+          panelTarget: detailProbe.panelTarget,
+        };
+      }
+
+      await closeSelectedAugmentDetailCardForResult({
+        detailMatched: detailProbe.detailMatched,
+        detailDiagnostics: detailProbe.detailDiagnostics,
+        finalImage,
+      });
+    }
+
+    return {
+      detailMatched: false,
+      finalImage,
+      stage: lastResult?.stage ?? 'detailUnmatched',
+      attempts,
+      targetCount: targets.length,
+      panelTargetCount: lastResult?.panelTargetCount,
+      match: lastResult?.match,
+      detailDiagnostics: lastResult?.detailDiagnostics,
+      target: lastResult?.target,
+      panelTarget: lastResult?.panelTarget,
+    };
+  }
+
+  async function runSelectedAugmentActiveDetailProbe(params: {
+    cachedImage: string;
+    maxSlots: number;
+    expectedCount: number;
+    knownMatchedCount: number;
+    runSeq: number;
+  }): Promise<boolean> {
+    if (isSelectedAugmentActiveProbeBlocked()) return false;
+    const now = Date.now();
+    if (
+      now - selectedAugmentActiveProbeLastRunAtRef.current <
+      selectedAugmentActiveProbeMinIntervalMs
+    ) {
+      return false;
+    }
+
+    selectedAugmentActiveProbeRunningRef.current = true;
+    selectedAugmentActiveProbeLastRunAtRef.current = now;
+    let matchedAny = false;
+
+    try {
+      const missingCount =
+        params.expectedCount > 0 ? Math.max(1, params.expectedCount - params.knownMatchedCount) : 1;
+      const targetLimit = getSelectedAugmentAdaptiveTargetLimit(
+        Math.min(selectedAugmentMaxScanSlots, Math.max(missingCount, 2)),
+      );
+      const probeResult = await runSelectedAugmentProbeSequenceFromImage({
+        cachedImage: params.cachedImage,
+        maxSlots: params.maxSlots,
+        maxTargets: targetLimit,
+        runSeq: params.runSeq,
+      });
+      matchedAny = probeResult.detailMatched;
+      recordSelectedAugmentProbeReliability(probeResult);
+      appendSelectedAugmentProbeTrace({
+        runKind: 'active',
+        result: probeResult,
+        initialImage: params.cachedImage,
+      });
+      await closeSelectedAugmentDetailCardForResult(probeResult);
+
+      if (matchedAny) {
+        selectedAugmentVisionBackoffUntilRef.current = 0;
+        selectedAugmentVisionNoPresenceStreakRef.current = 0;
+        selectedAugmentVisionMissStreakRef.current = 0;
+      }
+    } catch (error) {
+      console.warn('Selected augment active detail probe failed:', error);
+      const errorResult = {
+        detailMatched: false,
+        finalImage: '',
+        stage: 'error',
+        attempts: 0,
+        targetCount: 0,
+      } satisfies SelectedAugmentProbeSequenceResult;
+      recordSelectedAugmentProbeReliability(errorResult);
+      appendSelectedAugmentProbeTrace({
+        runKind: 'active',
+        result: errorResult,
+      });
+    } finally {
+      selectedAugmentActiveProbeRunningRef.current = false;
+    }
+
+    return matchedAny;
+  }
+
+  async function runCalibrationSelectedAugmentProbeTest() {
+    if (calibrationSelectedAugmentProbeDisabledReason) {
+      toast.error(calibrationSelectedAugmentProbeDisabledReason);
+      return;
+    }
+    if (!activeInstanceId) return;
+
+    selectedAugmentActiveProbeRunningRef.current = true;
+    selectedAugmentVisionRunningRef.current = true;
+    const runSeq = selectedAugmentVisionRunSeqRef.current + 1;
+    selectedAugmentVisionRunSeqRef.current = runSeq;
+    setCalibrationSelectedAugmentProbeSubmitting(true);
+
+    try {
+      toast.info(t('goldenSpatula.calibration.selectedAugmentProbeTestStarted'));
+      const cachedImage = await refreshCachedImageAfterAction(
+        selectedAugmentActiveProbeScreencapDelayMs,
+      );
+      if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+      if (!cachedImage.startsWith('data:image/')) {
+        toast.error(t('goldenSpatula.calibration.selectedAugmentProbeTestNoScreenshot'));
+        const noScreenshotResult = {
+          detailMatched: false,
+          finalImage: cachedImage,
+          stage: 'noScreenshot',
+          attempts: 0,
+          targetCount: 0,
+        } satisfies SelectedAugmentProbeSequenceResult;
+        recordSelectedAugmentProbeReliability(noScreenshotResult);
+        appendSelectedAugmentProbeTrace({
+          runKind: 'single',
+          result: noScreenshotResult,
+          initialImage: cachedImage,
+        });
+        return;
+      }
+
+      const probeResult = await runSelectedAugmentProbeSequenceFromImage({
+        cachedImage,
+        maxSlots: selectedAugmentMaxScanSlots,
+        maxTargets: selectedAugmentProbeCalibrationTargetLimit,
+        runSeq,
+      });
+      if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+      recordSelectedAugmentProbeReliability(probeResult);
+      appendSelectedAugmentProbeTrace({
+        runKind: 'single',
+        result: probeResult,
+        initialImage: cachedImage,
+      });
+      await closeSelectedAugmentDetailCardForResult(probeResult);
+
+      if (probeResult.stage === 'noTargets') {
+        toast.error(t('goldenSpatula.calibration.selectedAugmentProbeTestNoTargets'));
+        return;
+      }
+
+      if (!probeResult.panelTarget && !probeResult.detailMatched) {
+        toast.error(t('goldenSpatula.calibration.selectedAugmentProbeTestNoPanelTarget'));
+        return;
+      }
+
+      if (probeResult.stage === 'noDetailCard') {
+        toast.error(t('goldenSpatula.calibration.selectedAugmentProbeTestNoDetailCard'));
+        return;
+      }
+
+      if (probeResult.detailMatched) {
+        selectedAugmentVisionBackoffUntilRef.current = 0;
+        selectedAugmentVisionNoPresenceStreakRef.current = 0;
+        selectedAugmentVisionMissStreakRef.current = 0;
+        toast.success(
+          t('goldenSpatula.calibration.selectedAugmentProbeTestMatched', {
+            augmentName:
+              probeResult.match?.augmentName ??
+              probeResult.target?.augmentName ??
+              t('goldenSpatula.recognition.unknownAugment'),
+          }),
+        );
+        return;
+      }
+
+      toast.error(t('goldenSpatula.calibration.selectedAugmentProbeTestUnmatched'));
+    } catch (error) {
+      const errorResult = {
+        detailMatched: false,
+        finalImage: '',
+        stage: 'error',
+        attempts: 0,
+        targetCount: 0,
+      } satisfies SelectedAugmentProbeSequenceResult;
+      recordSelectedAugmentProbeReliability(errorResult);
+      appendSelectedAugmentProbeTrace({
+        runKind: 'single',
+        result: errorResult,
+      });
+      toast.error(
+        t('goldenSpatula.calibration.selectedAugmentProbeTestFailed', {
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
+    } finally {
+      selectedAugmentActiveProbeRunningRef.current = false;
+      selectedAugmentVisionRunningRef.current = false;
+      setCalibrationSelectedAugmentProbeSubmitting(false);
+    }
+  }
+
+  async function runCalibrationSelectedAugmentProbeBatchTest() {
+    if (calibrationSelectedAugmentProbeDisabledReason) {
+      toast.error(calibrationSelectedAugmentProbeDisabledReason);
+      return;
+    }
+    if (!activeInstanceId) return;
+
+    selectedAugmentActiveProbeRunningRef.current = true;
+    selectedAugmentVisionRunningRef.current = true;
+    const runSeq = selectedAugmentVisionRunSeqRef.current + 1;
+    selectedAugmentVisionRunSeqRef.current = runSeq;
+    setCalibrationSelectedAugmentProbeSubmitting(true);
+    setSelectedAugmentProbeBatchProgress({ current: 0, total: selectedAugmentProbeBatchSize });
+
+    let completed = 0;
+    let success = 0;
+    let attempts = 0;
+
+    try {
+      toast.info(
+        t('goldenSpatula.calibration.selectedAugmentProbeBatchStarted', {
+          total: selectedAugmentProbeBatchSize,
+        }),
+      );
+
+      for (let index = 0; index < selectedAugmentProbeBatchSize; index += 1) {
+        if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+        if (isSelectedAugmentActiveProbeBlocked(true)) break;
+
+        setSelectedAugmentProbeBatchProgress({
+          current: index + 1,
+          total: selectedAugmentProbeBatchSize,
+        });
+        const cachedImage = await refreshCachedImageAfterAction(
+          selectedAugmentActiveProbeScreencapDelayMs,
+        );
+        const probeResult = cachedImage.startsWith('data:image/')
+          ? await runSelectedAugmentProbeSequenceFromImage({
+              cachedImage,
+              maxSlots: selectedAugmentMaxScanSlots,
+              maxTargets: selectedAugmentProbeCalibrationTargetLimit,
+              runSeq,
+            })
+          : ({
+              detailMatched: false,
+              finalImage: cachedImage,
+              stage: 'noScreenshot',
+              attempts: 0,
+              targetCount: 0,
+            } satisfies SelectedAugmentProbeSequenceResult);
+
+        if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+        recordSelectedAugmentProbeReliability(probeResult);
+        appendSelectedAugmentProbeTrace({
+          runKind: 'batch',
+          result: probeResult,
+          initialImage: cachedImage,
+          iteration: index + 1,
+          total: selectedAugmentProbeBatchSize,
+        });
+        completed += 1;
+        attempts += probeResult.attempts;
+        if (probeResult.detailMatched) success += 1;
+        await closeSelectedAugmentDetailCardForResult(probeResult);
+
+        if (probeResult.stage === 'blocked' || probeResult.stage === 'cancelled') break;
+      }
+
+      const rate = completed > 0 ? Math.round((success / completed) * 100) : 0;
+      const payload = {
+        success,
+        total: completed,
+        rate,
+        target: Math.round(selectedAugmentProbeReliabilityTargetRate * 100),
+        attempts,
+      };
+      if (completed > 0 && rate >= selectedAugmentProbeReliabilityTargetRate * 100) {
+        toast.success(t('goldenSpatula.calibration.selectedAugmentProbeBatchMatched', payload));
+      } else {
+        toast.error(t('goldenSpatula.calibration.selectedAugmentProbeBatchBelowTarget', payload));
+      }
+    } catch (error) {
+      const errorResult = {
+        detailMatched: false,
+        finalImage: '',
+        stage: 'error',
+        attempts: 0,
+        targetCount: 0,
+      } satisfies SelectedAugmentProbeSequenceResult;
+      recordSelectedAugmentProbeReliability(errorResult);
+      appendSelectedAugmentProbeTrace({
+        runKind: 'batch',
+        result: errorResult,
+      });
+      toast.error(
+        t('goldenSpatula.calibration.selectedAugmentProbeBatchFailed', {
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
+    } finally {
+      selectedAugmentActiveProbeRunningRef.current = false;
+      selectedAugmentVisionRunningRef.current = false;
+      setCalibrationSelectedAugmentProbeSubmitting(false);
+      setSelectedAugmentProbeBatchProgress(null);
+    }
+  }
+
+  async function runSelectedAugmentVisionScan(
+    cachedImage: string,
+    maxSlots = selectedAugmentMaxScanSlots,
+    fastMode = true,
+    force = false,
+    context: {
+      expectedCount?: number;
+      knownMatchedCount?: number;
+      allowActiveProbe?: boolean;
+    } = {},
+  ) {
+    if (!selectedAugmentVisionEnabled) return;
+    if (selectedAugmentVisionRunningRef.current) return;
+    const imageFingerprint = getGoldenSpatulaDataUrlFastFingerprint(cachedImage);
+    const now = Date.now();
+    if (
+      !force &&
+      imageFingerprint &&
+      selectedAugmentVisionLastImageFingerprintRef.current === imageFingerprint &&
+      now - selectedAugmentVisionLastImageAtRef.current < selectedAugmentRepeatedImageBackoffMs
+    ) {
+      return;
+    }
+    if (imageFingerprint) {
+      selectedAugmentVisionLastImageFingerprintRef.current = imageFingerprint;
+      selectedAugmentVisionLastImageAtRef.current = now;
+    }
+    const runSeq = selectedAugmentVisionRunSeqRef.current + 1;
+    selectedAugmentVisionRunSeqRef.current = runSeq;
+
+    try {
+      selectedAugmentVisionRunningRef.current = true;
+      await waitForSelectedAugmentVisionBackgroundSlot();
+      if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+      const selectedAugmentVisionResult = await recognizeGoldenSpatulaSelectedAugmentsFromDataUrl(
+        cachedImage,
+        {
+          augmentAssets: assistantData?.augmentAssets.data,
+          basePath,
+          maxSlots,
+          fastMode,
+        },
+      );
+      if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+      const matchedSelectedAugmentVisionCount = selectedAugmentVisionResult.slots.filter(
+        (slot) => slot.confidence === 'matched',
+      ).length;
+      if (matchedSelectedAugmentVisionCount > 0) {
+        selectedAugmentVisionBackoffUntilRef.current = 0;
+        selectedAugmentVisionNoPresenceStreakRef.current = 0;
+        selectedAugmentVisionMissStreakRef.current = 0;
+      } else {
+        selectedAugmentVisionMissStreakRef.current = Math.min(
+          selectedAugmentVisionMissStreakRef.current + 1,
+          selectedAugmentActiveProbeMissThreshold,
+        );
+        const didRunTemplateMatch =
+          (selectedAugmentVisionResult.metrics?.templateCount ?? 0) > 0 ||
+          (selectedAugmentVisionResult.metrics?.matchMs ?? 0) > 0;
+        if (didRunTemplateMatch) {
+          selectedAugmentVisionNoPresenceStreakRef.current = 0;
+        } else {
+          selectedAugmentVisionNoPresenceStreakRef.current = Math.min(
+            selectedAugmentVisionNoPresenceStreakRef.current + 1,
+            Math.ceil(selectedAugmentNoPresenceMaxBackoffMs / selectedAugmentNoPresenceBackoffMs),
+          );
+        }
+        const noPresenceBackoff = Math.min(
+          selectedAugmentNoPresenceMaxBackoffMs,
+          selectedAugmentNoPresenceBackoffMs *
+            Math.max(1, selectedAugmentVisionNoPresenceStreakRef.current),
+        );
+        selectedAugmentVisionBackoffUntilRef.current =
+          Date.now() + (didRunTemplateMatch ? selectedAugmentNoMatchBackoffMs : noPresenceBackoff);
+      }
+      if (
+        selectedAugmentVisionResult.metrics &&
+        (selectedAugmentVisionResult.metrics.totalMs > 50 ||
+          selectedAugmentVisionResult.metrics.templateLoadMs > 30 ||
+          selectedAugmentVisionResult.metrics.matchMs > 30)
+      ) {
+        console.info(
+          'Golden Spatula selected augment vision metrics:',
+          selectedAugmentVisionResult.metrics,
+        );
+      }
+      const selectedAugmentVisionEvents = buildSelectedAugmentKnowledgeEvents(
+        selectedAugmentVisionResult,
+        t,
+      );
+      if (selectedAugmentVisionRunSeqRef.current !== runSeq) return;
+      if (selectedAugmentVisionEvents.length > 0) {
+        setKnowledgeScanState((previous) =>
+          selectedAugmentVisionEvents.reduce<GoldenSpatulaKnowledgeScanState>(
+            (state, event) => mergeKnowledgeEvent(state, event),
+            previous,
+          ),
+        );
+      }
+      const knownMatchedCount = context.knownMatchedCount ?? 0;
+      const expectedCount = context.expectedCount ?? 0;
+      const knownAndPassiveMatchedCount = Math.max(
+        knownMatchedCount,
+        matchedSelectedAugmentVisionCount,
+      );
+      const needsActiveProbe =
+        context.allowActiveProbe &&
+        matchedSelectedAugmentVisionCount === 0 &&
+        selectedAugmentVisionMissStreakRef.current >= selectedAugmentActiveProbeMissThreshold &&
+        (expectedCount === 0 || knownAndPassiveMatchedCount < expectedCount);
+      if (needsActiveProbe) {
+        const probeMatched = await runSelectedAugmentActiveDetailProbe({
+          cachedImage,
+          maxSlots,
+          expectedCount,
+          knownMatchedCount: knownAndPassiveMatchedCount,
+          runSeq,
+        });
+        if (probeMatched) {
+          selectedAugmentVisionBackoffUntilRef.current = 0;
+          selectedAugmentVisionNoPresenceStreakRef.current = 0;
+          selectedAugmentVisionMissStreakRef.current = 0;
+        }
+      }
+    } catch (error) {
+      console.warn('Selected augment vision recognition failed:', error);
+    } finally {
+      if (selectedAugmentVisionRunSeqRef.current === runSeq) {
+        selectedAugmentVisionRunningRef.current = false;
+      }
+    }
+  }
 
   async function submitEconomyOcrTask(showToast: boolean) {
     if (economyOcrDisabledReason || !activeInstanceId) {
@@ -5485,6 +6430,7 @@ export function GoldenSpatulaAssistantPanel() {
         await new Promise((resolve) => window.setTimeout(resolve, 180));
         cachedImage = await maaService.getCachedImage(activeInstanceId);
       }
+      await detectAndPublishSpecialEvents(cachedImage);
       const timestamp = Date.now();
       const rawResult = await recognizeGoldenSpatulaEconomyFromDataUrl(cachedImage);
       const stabilized = stabilizeGoldenSpatulaEconomyResult(
@@ -5677,24 +6623,79 @@ export function GoldenSpatulaAssistantPanel() {
         console.warn('Shop vision recognition failed:', error);
       }
 
-      let selectedAugmentVisionEvents: GoldenSpatulaKnowledgeEvent[] = [];
-      const shouldCheckSelectedAugments =
-        showToast ||
-        timestamp - selectedAugmentVisionLastRunAtRef.current >= selectedAugmentCheckIntervalMs;
-      if (shouldCheckSelectedAugments) {
-        selectedAugmentVisionLastRunAtRef.current = timestamp;
-        try {
-          const selectedAugmentVisionResult =
-            await recognizeGoldenSpatulaSelectedAugmentsFromDataUrl(cachedImage, {
-              augmentAssets: assistantData?.augmentAssets.data,
-              basePath,
-            });
-          selectedAugmentVisionEvents = buildSelectedAugmentKnowledgeEvents(
-            selectedAugmentVisionResult,
-            t,
+      const selectedAugmentVisionAssetsAvailable = hasGoldenSpatulaAugmentVisionAssets(
+        assistantData?.augmentAssets.data,
+      );
+      const selectedAugmentScreenshotAvailable = cachedImage.startsWith('data:image/');
+      const selectedAugmentChoiceScreenBusy =
+        augmentPresence.visible || augmentScanState.active || augmentOcrSubmitting;
+      const selectedAugmentBaseScanAllowed =
+        selectedAugmentVisionEnabled &&
+        selectedAugmentVisionAssetsAvailable &&
+        selectedAugmentScreenshotAvailable &&
+        !selectedAugmentChoiceScreenBusy;
+      if (selectedAugmentBaseScanAllowed) {
+        const matchedSelectedAugmentCount = Object.values(
+          knowledgeScanState.selectedAugments ?? {},
+        ).filter((augment) => augment.confidence === 'matched').length;
+        const selectedAugmentCheckInterval = getSelectedAugmentCheckIntervalMs(
+          result.round,
+          matchedSelectedAugmentCount,
+        );
+        const selectedAugmentMaxSlots = getSelectedAugmentMaxScanSlots(
+          result.round,
+          matchedSelectedAugmentCount,
+        );
+        const selectedAugmentScanAvailable = isSelectedAugmentScanAvailable(
+          result.round,
+          matchedSelectedAugmentCount,
+        );
+        const expectedSelectedAugmentCount = getExpectedSelectedAugmentCountForRound(result.round);
+        const selectedAugmentNeedsMoreMatches =
+          expectedSelectedAugmentCount > 0
+            ? matchedSelectedAugmentCount < expectedSelectedAugmentCount
+            : matchedSelectedAugmentCount < 4;
+        const selectedAugmentRecentlyWokenByChoice =
+          timestamp - augmentChoiceVisibleLastSeenAtRef.current <=
+          selectedAugmentPostChoiceWakeWindowMs;
+        const selectedAugmentScheduledScanDue =
+          timestamp - selectedAugmentVisionLastRunAtRef.current >= selectedAugmentCheckInterval;
+        const selectedAugmentChoiceWakeIntervalDue =
+          timestamp - selectedAugmentVisionLastRunAtRef.current >=
+          selectedAugmentChoiceWakeMinIntervalMs;
+        const selectedAugmentChoiceWakeScanDue =
+          selectedAugmentRecentlyWokenByChoice &&
+          selectedAugmentNeedsMoreMatches &&
+          selectedAugmentChoiceWakeIntervalDue;
+        const selectedAugmentFastMode =
+          !showToast &&
+          !selectedAugmentChoiceWakeScanDue &&
+          !isLikelySelectedAugmentUpdateWindow(result.round);
+        const selectedAugmentBackoffActive =
+          !showToast &&
+          !selectedAugmentChoiceWakeScanDue &&
+          timestamp < selectedAugmentVisionBackoffUntilRef.current;
+        const shouldCheckSelectedAugments =
+          showToast ||
+          (!selectedAugmentBackoffActive &&
+            !selectedAugmentVisionRunningRef.current &&
+            (selectedAugmentChoiceWakeScanDue ||
+              (selectedAugmentScanAvailable && selectedAugmentScheduledScanDue)));
+        if (shouldCheckSelectedAugments) {
+          selectedAugmentVisionLastRunAtRef.current = timestamp;
+          void runSelectedAugmentVisionScan(
+            cachedImage,
+            selectedAugmentMaxSlots,
+            selectedAugmentFastMode,
+            showToast,
+            {
+              expectedCount: expectedSelectedAugmentCount,
+              knownMatchedCount: matchedSelectedAugmentCount,
+              allowActiveProbe:
+                selectedAugmentNeedsMoreMatches &&
+                !isSelectedAugmentProbeBlockingSpecialEvent(specialEventLogStateRef.current),
+            },
           );
-        } catch (error) {
-          console.warn('Selected augment vision recognition failed:', error);
         }
       }
 
@@ -5708,7 +6709,7 @@ export function GoldenSpatulaAssistantPanel() {
           },
         ),
       );
-      const knowledgeEvents = [...shopVisionEvents, ...selectedAugmentVisionEvents];
+      const knowledgeEvents = [...shopVisionEvents];
       if (knowledgeEvents.length > 0) {
         setKnowledgeScanState((previous) =>
           knowledgeEvents.reduce<GoldenSpatulaKnowledgeScanState>(
@@ -5726,6 +6727,15 @@ export function GoldenSpatulaAssistantPanel() {
       setAugmentOcrPolling(false);
       setAugmentPresence({ visible: false, confidence: 0, slots: [] });
       setAugmentScanState(createEmptyAugmentScanState());
+      selectedAugmentVisionRunSeqRef.current += 1;
+      selectedAugmentVisionRunningRef.current = false;
+      selectedAugmentVisionBackoffUntilRef.current = 0;
+      selectedAugmentVisionNoPresenceStreakRef.current = 0;
+      selectedAugmentVisionMissStreakRef.current = 0;
+      selectedAugmentVisionLastImageFingerprintRef.current = '';
+      selectedAugmentVisionLastImageAtRef.current = 0;
+      selectedAugmentActiveProbeRunningRef.current = false;
+      selectedAugmentActiveProbeLastRunAtRef.current = 0;
       setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
       toast.error(
         t('goldenSpatula.lineups.economyOcrFailed', {
@@ -5743,6 +6753,15 @@ export function GoldenSpatulaAssistantPanel() {
       setAugmentOcrPolling(false);
       setAugmentPresence({ visible: false, confidence: 0, slots: [] });
       setAugmentScanState(createEmptyAugmentScanState());
+      selectedAugmentVisionRunSeqRef.current += 1;
+      selectedAugmentVisionRunningRef.current = false;
+      selectedAugmentVisionBackoffUntilRef.current = 0;
+      selectedAugmentVisionNoPresenceStreakRef.current = 0;
+      selectedAugmentVisionMissStreakRef.current = 0;
+      selectedAugmentVisionLastImageFingerprintRef.current = '';
+      selectedAugmentVisionLastImageAtRef.current = 0;
+      selectedAugmentActiveProbeRunningRef.current = false;
+      selectedAugmentActiveProbeLastRunAtRef.current = 0;
       toast.success(t('goldenSpatula.lineups.economyOcrStopped'));
       return;
     }
@@ -5755,13 +6774,21 @@ export function GoldenSpatulaAssistantPanel() {
     }
 
     setEconomyOcrPolling(true);
-    setAugmentOcrPolling(true);
+    setAugmentOcrPolling(augmentOcrExperimentalEnabled);
     await submitEconomyOcrTask(true);
     augmentPresenceLastCheckAtRef.current = Date.now();
-    await checkAugmentPresenceAndMaybeOcr(false);
+    if (augmentOcrExperimentalEnabled) {
+      await checkAugmentPresenceAndMaybeOcr(false);
+    }
   };
 
-  async function submitAugmentOcrTask(showToast: boolean) {
+  async function submitAugmentOcrTask(
+    showToast: boolean,
+    preparedImage?: string,
+    preparedPresence?: GoldenSpatulaAugmentPresenceResult,
+    preparedScreenshot?: HTMLImageElement,
+    preparedScreenshotLoadMs = 0,
+  ) {
     if (augmentOcrDisabledReason || !activeInstanceId) {
       if (showToast && augmentOcrDisabledReason) {
         toast.error(augmentOcrDisabledReason);
@@ -5779,14 +6806,30 @@ export function GoldenSpatulaAssistantPanel() {
         updatedAt: startedAt,
       }));
 
-      let image = await maaService.getCachedImage(activeInstanceId);
-      if (!image.startsWith('data:image/')) {
+      let image = preparedImage ?? (await maaService.getCachedImage(activeInstanceId));
+      if (!preparedImage && !image.startsWith('data:image/')) {
         await maaService.postScreencap(activeInstanceId).catch(() => 0);
         await new Promise((resolve) => window.setTimeout(resolve, 120));
         image = await maaService.getCachedImage(activeInstanceId);
       }
 
-      const presence = await detectGoldenSpatulaAugmentPresenceFromDataUrl(image);
+      let screenshot = preparedScreenshot;
+      let screenshotLoadMs = Math.max(0, preparedScreenshotLoadMs);
+      if (!preparedPresence && !screenshot && image.startsWith('data:image/')) {
+        const loadedScreenshot = await loadGoldenSpatulaAugmentPresenceImage(image);
+        screenshot = loadedScreenshot.image;
+        screenshotLoadMs = loadedScreenshot.loadMs;
+      }
+
+      const presence =
+        preparedPresence ??
+        (screenshot
+          ? detectGoldenSpatulaAugmentPresenceFromLoadedImage(screenshot, screenshotLoadMs)
+          : await detectGoldenSpatulaAugmentPresenceFromDataUrl(image));
+      if (presence.visible) augmentChoiceVisibleLastSeenAtRef.current = Date.now();
+      if (presence.metrics) {
+        console.info('Golden Spatula augment presence metrics:', presence.metrics);
+      }
       setAugmentPresence(presence);
       if (!presence.visible) {
         setAugmentScanState(createEmptyAugmentScanState());
@@ -5794,10 +6837,17 @@ export function GoldenSpatulaAssistantPanel() {
         return;
       }
 
-      const result = await recognizeGoldenSpatulaAugmentChoicesFromDataUrl(image, {
+      const choiceVisionOptions = {
         augmentAssets: assistantData?.augmentAssets.data,
         basePath,
-      });
+      };
+      const result = screenshot
+        ? await recognizeGoldenSpatulaAugmentChoicesFromImageElement(
+            screenshot,
+            choiceVisionOptions,
+            { screenshotLoadMs },
+          )
+        : await recognizeGoldenSpatulaAugmentChoicesFromDataUrl(image, choiceVisionOptions);
       console.info('Golden Spatula augment choice vision metrics:', result.metrics);
       setAugmentScanState(buildAugmentChoiceVisionScanState(result, t));
       if (showToast) toast.success(t('goldenSpatula.lineups.augmentOcrStarted'));
@@ -5823,7 +6873,22 @@ export function GoldenSpatulaAssistantPanel() {
     try {
       augmentPresenceCheckingRef.current = true;
       const image = await maaService.getCachedImage(activeInstanceId);
-      const presence = await detectGoldenSpatulaAugmentPresenceFromDataUrl(image);
+      let screenshot: HTMLImageElement | undefined;
+      let presence: GoldenSpatulaAugmentPresenceResult;
+      if (image.startsWith('data:image/')) {
+        const loadedScreenshot = await loadGoldenSpatulaAugmentPresenceImage(image);
+        screenshot = loadedScreenshot.image;
+        presence = detectGoldenSpatulaAugmentPresenceFromLoadedImage(
+          screenshot,
+          loadedScreenshot.loadMs,
+        );
+      } else {
+        presence = await detectGoldenSpatulaAugmentPresenceFromDataUrl(image);
+      }
+      if (presence.metrics && (presence.visible || presence.metrics.totalMs > 30)) {
+        console.info('Golden Spatula augment presence metrics:', presence.metrics);
+      }
+      if (presence.visible) augmentChoiceVisibleLastSeenAtRef.current = Date.now();
       setAugmentPresence(presence);
 
       if (!presence.visible) {
@@ -5833,7 +6898,13 @@ export function GoldenSpatulaAssistantPanel() {
       }
 
       if (!augmentOcrSubmitting && !augmentScanState.active) {
-        await submitAugmentOcrTask(showToast);
+        await submitAugmentOcrTask(
+          showToast,
+          image,
+          presence,
+          screenshot,
+          presence.metrics?.screenshotLoadMs,
+        );
       }
     } catch (error) {
       if (showToast) {
@@ -5856,6 +6927,7 @@ export function GoldenSpatulaAssistantPanel() {
       }
       return;
     }
+    if (!(await ensureActiveResourceLoaded(true))) return;
 
     try {
       setAugmentPickSubmitting(true);
@@ -5901,207 +6973,192 @@ export function GoldenSpatulaAssistantPanel() {
     }
   };
 
-  const runAutoRollBuyTask = async () => {
-    if (autoRollBuyDisabledReason || !activeInstanceId || !activeVariant) {
-      if (autoRollBuyDisabledReason) {
-        toast.error(autoRollBuyDisabledReason);
-      }
-      return;
-    }
+  const runAutoDecisionOnce = async (mode: Exclude<AutoDecisionMode, 'off'>) => {
+    const setupDisabledReason =
+      mode === 'roll' ? autoDecisionRollSetupDisabledReason : autoDecisionLevelSetupDisabledReason;
+    if (setupDisabledReason || !activeInstanceId || activeInstance?.isRunning) return;
 
-    try {
-      setAutoRollBuySubmitting(true);
-      const startedAt = Date.now();
-      setRollRunState({
-        active: true,
-        targetNames: autoRollBuyTargets.map((target) => target.name),
-        rollCount: autoRollCount,
-        currentCycle: 1,
-        totalCycles: autoRollCount + 1,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-      setHandRunState({
-        ...createEmptyHandRunState(),
-        active: true,
-        targetNames: autoRollBuyTargets.map((target) => target.name),
-        startedAt,
-        updatedAt: startedAt,
-      });
-      economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
-      setEconomyRunState({
-        ...createEmptyEconomyRunState(),
-        active: true,
-        startedAt,
-        updatedAt: startedAt,
-      });
-      const pipelineOverride = buildAutoRollBuyPipelineOverride(autoRollBuyTargets, autoRollCount);
-      const maaTaskId = await maaService.runTask(
-        activeInstanceId,
-        autoRollBuyEntry,
-        pipelineOverride,
-      );
-
-      registerTaskIdName(
-        maaTaskId,
-        t('goldenSpatula.lineups.autoRollBuyTaskName', { count: autoRollCount }),
-      );
-      updateInstance(activeInstanceId, { isRunning: true });
-      setInstanceTaskStatus(activeInstanceId, 'Running');
-      toast.success(t('goldenSpatula.lineups.autoRollBuyStarted', { count: autoRollCount }));
-    } catch (error) {
-      setRollRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setHandRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      toast.error(
-        t('goldenSpatula.lineups.autoRollBuyFailed', {
-          error: error instanceof Error ? error.message : String(error),
-        }),
-      );
-    } finally {
-      setAutoRollBuySubmitting(false);
-    }
-  };
-
-  const runAutoLevelRollBuyTask = async () => {
-    if (autoLevelRollBuyDisabledReason || !activeInstanceId || !activeVariant) {
-      if (autoLevelRollBuyDisabledReason) {
-        toast.error(autoLevelRollBuyDisabledReason);
-      }
-      return;
-    }
-
-    try {
-      setAutoLevelRollBuySubmitting(true);
-      const startedAt = Date.now();
-      setXpRunState({
-        active: true,
-        current: 0,
-        total: autoBuyExperienceCount,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-      setRollRunState({
-        active: true,
-        targetNames: autoRollBuyTargets.map((target) => target.name),
-        rollCount: autoRollCount,
-        currentCycle: 1,
-        totalCycles: autoRollCount + 1,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-      setHandRunState({
-        ...createEmptyHandRunState(),
-        active: true,
-        targetNames: autoRollBuyTargets.map((target) => target.name),
-        startedAt,
-        updatedAt: startedAt,
-      });
-      economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
-      setEconomyRunState({
-        ...createEmptyEconomyRunState(),
-        active: true,
-        startedAt,
-        updatedAt: startedAt,
-      });
-      const pipelineOverride = buildAutoLevelRollBuyPipelineOverride(
-        autoRollBuyTargets,
-        autoRollCount,
-        autoBuyExperienceCount,
-      );
-      const maaTaskId = await maaService.runTask(
-        activeInstanceId,
-        autoLevelRollBuyEntry,
-        pipelineOverride,
-      );
-
-      registerTaskIdName(
-        maaTaskId,
-        t('goldenSpatula.lineups.autoLevelRollBuyTaskName', {
-          roll: autoRollCount,
-          xp: autoBuyExperienceCount,
-        }),
-      );
-      updateInstance(activeInstanceId, { isRunning: true });
-      setInstanceTaskStatus(activeInstanceId, 'Running');
-      toast.success(
-        t('goldenSpatula.lineups.autoLevelRollBuyStarted', {
-          roll: autoRollCount,
-          xp: autoBuyExperienceCount,
-        }),
-      );
-    } catch (error) {
-      setXpRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setRollRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setHandRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      toast.error(
-        t('goldenSpatula.lineups.autoLevelRollBuyFailed', {
-          error: error instanceof Error ? error.message : String(error),
-        }),
-      );
-    } finally {
-      setAutoLevelRollBuySubmitting(false);
-    }
-  };
-
-  const runAutoBuyExperienceTask = async () => {
-    if (autoBuyExperienceDisabledReason || !activeInstanceId) {
-      if (autoBuyExperienceDisabledReason) {
-        toast.error(autoBuyExperienceDisabledReason);
-      }
-      return;
-    }
-
-    const taskName = autoBuyExperienceTaskByCount[autoBuyExperienceCount];
+    const taskName = mode === 'roll' ? autoRollTaskByCount[1] : autoBuyExperienceTaskByCount[1];
     if (!taskName) return;
+    if (!(await ensureActiveResourceLoaded(false))) return;
 
     try {
-      setAutoBuyExperienceSubmitting(true);
+      setAutoDecisionSubmitting(true);
       const startedAt = Date.now();
-      setXpRunState({
-        active: true,
-        current: 0,
-        total: autoBuyExperienceCount,
-        startedAt,
-        updatedAt: startedAt,
-        events: [],
-      });
-      economyStabilizerRef.current = createGoldenSpatulaEconomyStabilizerState();
-      setEconomyRunState({
-        ...createEmptyEconomyRunState(),
-        active: true,
-        startedAt,
-        updatedAt: startedAt,
-      });
+      if (mode === 'level') {
+        setXpRunState({
+          active: true,
+          current: 0,
+          total: 1,
+          startedAt,
+          updatedAt: startedAt,
+          events: [],
+        });
+      }
+
       const maaTaskId = await maaService.runTask(activeInstanceId, taskName);
+      if (mode === 'roll') {
+        setEconomyRunState((previous) => ({
+          ...previous,
+          gold:
+            previous.gold !== undefined
+              ? Math.max(0, previous.gold - autoDecisionRollCost)
+              : previous.gold,
+          estimatedGoldDelta: previous.estimatedGoldDelta - autoDecisionRollCost,
+          refreshGold: previous.refreshGold + autoDecisionRollCost,
+          updatedAt: startedAt,
+        }));
+      }
 
       registerTaskIdName(
         maaTaskId,
-        t('goldenSpatula.lineups.autoBuyExperienceTaskName', {
-          count: autoBuyExperienceCount,
+        t('goldenSpatula.lineups.autoDecisionTaskName', {
+          action: t(`goldenSpatula.lineups.autoDecisionMode.${mode}`),
         }),
       );
       updateInstance(activeInstanceId, { isRunning: true });
       setInstanceTaskStatus(activeInstanceId, 'Running');
-      toast.success(
-        t('goldenSpatula.lineups.autoBuyExperienceStarted', {
-          count: autoBuyExperienceCount,
-        }),
-      );
     } catch (error) {
-      setXpRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
-      setEconomyRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      setAutoDecisionMode('off');
+      autoDecisionFirstDelayRef.current = true;
+      if (mode === 'level') {
+        setXpRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      }
       toast.error(
-        t('goldenSpatula.lineups.autoBuyExperienceFailed', {
+        t('goldenSpatula.lineups.autoDecisionTaskFailed', {
+          action: t(`goldenSpatula.lineups.autoDecisionMode.${mode}`),
           error: error instanceof Error ? error.message : String(error),
         }),
       );
     } finally {
-      setAutoBuyExperienceSubmitting(false);
+      setAutoDecisionSubmitting(false);
+    }
+  };
+
+  const runDecisionAutoCaptureTask = async () => {
+    if (decisionAutoCaptureSetupDisabledReason) {
+      toast.error(decisionAutoCaptureSetupDisabledReason);
+      return;
+    }
+    if (!activeInstanceId || !activeVariant || !decisionPlan) return;
+
+    const advice = decisionPlan.economyAdvice;
+    const action = advice.action;
+    const actionText = t(`goldenSpatula.lineups.decisionEconomyAction.${action}`);
+    if (action === 'save' || action === 'hold') {
+      toast.info(
+        t('goldenSpatula.lineups.decisionAutoCaptureSkipped', {
+          action: actionText,
+        }),
+      );
+      return;
+    }
+    if (!(await ensureActiveResourceLoaded(true))) return;
+
+    const taskEntry = action === 'level' ? autoLevelRollBuyEntry : autoRollBuyEntry;
+    if (!projectInterface?.task.some((task) => task.name === taskEntry)) {
+      toast.error(
+        action === 'level'
+          ? t('goldenSpatula.lineups.autoLevelRollBuyTaskMissing')
+          : t('goldenSpatula.lineups.autoRollBuyTaskMissing'),
+      );
+      return;
+    }
+
+    const targets = collectGoldenSpatulaDecisionRollTargetTemplates({
+      variant: activeVariant,
+      championAssets: assistantData?.championAssets.data,
+      decisionPlan,
+      maxTargets: 8,
+    });
+    if (targets.length === 0) {
+      toast.error(t('goldenSpatula.lineups.decisionAutoCaptureNoTargets'));
+      return;
+    }
+
+    const rollCount = clampAutoRollCount(advice.recommendedRollCount, 1);
+    const xpRaw = advice.recommendedXpPurchaseCount;
+    const xpCount =
+      action === 'level'
+        ? xpRaw !== undefined && xpRaw > 0
+          ? clampAutoRollCount(xpRaw, 1)
+          : undefined
+        : undefined;
+    if (action === 'level' && xpCount === undefined) {
+      toast.error(t('goldenSpatula.lineups.decisionAutoCaptureNeedXpInfo'));
+      return;
+    }
+
+    const targetNames =
+      decisionPlan.recommendedRollTargetNames.length > 0
+        ? decisionPlan.recommendedRollTargetNames
+        : targets.map((target) => target.name);
+    const startedAt = Date.now();
+    const pipelineOverride =
+      action === 'level'
+        ? buildAutoLevelRollBuyPipelineOverride(targets, rollCount, xpCount!)
+        : buildAutoRollBuyPipelineOverride(targets, rollCount);
+
+    try {
+      setAutoDecisionSubmitting(true);
+      setAutoDecisionMode('off');
+      autoDecisionFirstDelayRef.current = true;
+      updateActiveVariant({ rollTargetNames: targetNames });
+      setRollRunState({
+        active: true,
+        targetNames,
+        rollCount,
+        currentCycle: 0,
+        totalCycles: rollCount + 1,
+        startedAt,
+        updatedAt: startedAt,
+        events: [],
+      });
+      if (action === 'level') {
+        setXpRunState({
+          active: true,
+          current: 0,
+          total: xpCount!,
+          startedAt,
+          updatedAt: startedAt,
+          events: [],
+        });
+      }
+
+      const maaTaskId = await maaService.runTask(activeInstanceId, taskEntry, pipelineOverride);
+      registerTaskIdName(
+        maaTaskId,
+        action === 'level'
+          ? t('goldenSpatula.lineups.autoLevelRollBuyTaskName', {
+              xp: xpCount,
+              roll: rollCount,
+            })
+          : t('goldenSpatula.lineups.autoRollBuyTaskName', {
+              count: rollCount,
+            }),
+      );
+      updateInstance(activeInstanceId, { isRunning: true });
+      setInstanceTaskStatus(activeInstanceId, 'Running');
+      toast.success(
+        t('goldenSpatula.lineups.decisionAutoCaptureStarted', {
+          action: actionText,
+          roll: rollCount,
+          xp: xpCount ?? 0,
+          targets: targetNames.join(', '),
+        }),
+      );
+    } catch (error) {
+      setRollRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      if (action === 'level') {
+        setXpRunState((previous) => ({ ...previous, active: false, updatedAt: Date.now() }));
+      }
+      toast.error(
+        t('goldenSpatula.lineups.decisionAutoCaptureFailed', {
+          error: error instanceof Error ? error.message : String(error),
+        }),
+      );
+    } finally {
+      setAutoDecisionSubmitting(false);
     }
   };
 
@@ -6118,54 +7175,108 @@ export function GoldenSpatulaAssistantPanel() {
     updateActiveVariant({ rollTargetNames: nextNames });
   };
 
-  const applySortedRollTargets = (names: string[]) => {
-    if (!activeLineup || !activeVariant || names.length === 0) return;
-
-    updateActiveVariant({ rollTargetNames: names });
-    toast.success(
-      t('goldenSpatula.lineups.decisionSortedTargetsApplied', {
-        count: names.length,
-      }),
-    );
-  };
-
-  const applyDecisionAutomationCounts = () => {
-    let appliedRollCount: AutoRollCount | undefined;
-    let appliedXpCount: AutoRollCount | undefined;
-
-    if (decisionRecommendedRollCount !== undefined) {
-      setAutoRollCount(decisionRecommendedRollCount);
-      appliedRollCount = decisionRecommendedRollCount;
-    }
-    if (decisionRecommendedXpPurchaseCount !== undefined) {
-      setAutoBuyExperienceCount(decisionRecommendedXpPurchaseCount);
-      appliedXpCount = decisionRecommendedXpPurchaseCount;
+  const selectAutoDecisionMode = (mode: Exclude<AutoDecisionMode, 'off'>) => {
+    const setupDisabledReason =
+      mode === 'roll' ? autoDecisionRollSetupDisabledReason : autoDecisionLevelSetupDisabledReason;
+    const nextMode: AutoDecisionMode = autoDecisionMode === mode ? 'off' : mode;
+    if (nextMode !== 'off' && setupDisabledReason) {
+      toast.error(setupDisabledReason);
+      return;
     }
 
-    if (appliedRollCount === undefined && appliedXpCount === undefined) return;
+    autoDecisionFirstDelayRef.current = true;
+    setAutoDecisionMode(nextMode);
+    if (nextMode === 'off') return;
 
-    toast.success(
-      t('goldenSpatula.lineups.decisionAutomationCountsApplied', {
-        roll: appliedRollCount ?? autoRollCount,
-        xp: appliedXpCount ?? autoBuyExperienceCount,
-      }),
-    );
+    if (!economyOcrPolling) setEconomyOcrPolling(true);
+    if (!economyOcrSubmitting && !economyOcrDisabledReason) {
+      void submitEconomyOcrTask(false);
+    }
   };
+
+  useEffect(() => {
+    if (autoDecisionTimerRef.current !== null) {
+      window.clearTimeout(autoDecisionTimerRef.current);
+      autoDecisionTimerRef.current = null;
+    }
+
+    if (autoDecisionMode === 'off') {
+      autoDecisionFirstDelayRef.current = true;
+      return;
+    }
+
+    if (autoDecisionBlockedReason || !autoDecisionCanSpend) {
+      if (!autoDecisionCanSpend) autoDecisionFirstDelayRef.current = true;
+      return;
+    }
+
+    const mode = autoDecisionMode;
+    const delay = autoDecisionFirstDelayRef.current
+      ? autoDecisionInitialDelayMs
+      : autoDecisionRepeatDelayMs;
+    autoDecisionTimerRef.current = window.setTimeout(() => {
+      autoDecisionTimerRef.current = null;
+      autoDecisionFirstDelayRef.current = false;
+      void runAutoDecisionOnce(mode);
+    }, delay);
+
+    return () => {
+      if (autoDecisionTimerRef.current !== null) {
+        window.clearTimeout(autoDecisionTimerRef.current);
+        autoDecisionTimerRef.current = null;
+      }
+    };
+  }, [
+    autoDecisionBlockedReason,
+    autoDecisionCanSpend,
+    autoDecisionGold,
+    autoDecisionMode,
+    autoDecisionRequiredGold,
+  ]);
+
+  const autoDecisionModeText =
+    autoDecisionMode === 'off'
+      ? t('goldenSpatula.lineups.autoDecisionMode.off')
+      : t(`goldenSpatula.lineups.autoDecisionMode.${autoDecisionMode}`);
+  const autoDecisionStatusText =
+    autoDecisionMode === 'off'
+      ? t('goldenSpatula.lineups.autoDecisionIdle')
+      : autoDecisionBlockedReason
+        ? autoDecisionBlockedReason
+        : autoDecisionGold === undefined
+          ? t('goldenSpatula.lineups.autoDecisionWaitingGold')
+          : autoDecisionCanSpend
+            ? t('goldenSpatula.lineups.autoDecisionReady', {
+                gold: autoDecisionGold,
+                reserve: autoDecisionReserveGold,
+                available: Math.max(0, autoDecisionAvailableGold ?? 0),
+                cost: autoDecisionActionCost ?? 0,
+                first: autoDecisionInitialDelayMs / 1000,
+                repeat: autoDecisionRepeatDelayMs / 1000,
+              })
+            : t('goldenSpatula.lineups.autoDecisionHold', {
+                gold: autoDecisionGold,
+                reserve: autoDecisionReserveGold,
+                required: autoDecisionRequiredGold,
+                missing: Math.max(0, autoDecisionRequiredGold - autoDecisionGold),
+              });
 
   const activeLineupStrategyPanel =
     activeLineup && activeVariant ? (
-      <div className="space-y-2 rounded-md border border-border/70 p-2">
-        <div className="flex items-center gap-1.5">
-          <Pencil className="h-3.5 w-3.5 shrink-0 text-text-muted" />
+      <div className="space-y-1.5 rounded-lg border border-border/45 bg-bg-secondary/20 p-1.5 ring-1 ring-inset ring-border/20">
+        <div className="flex items-center gap-1">
+          <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-bg-primary/80 text-text-muted ring-1 ring-inset ring-border/35">
+            <Pencil className="h-3.5 w-3.5" />
+          </span>
           <input
             value={activeLineup.name}
             onChange={(event) => updateManagedLineup(activeLineup.id, { name: event.target.value })}
-            className="min-w-0 flex-1 rounded border border-border bg-bg-primary px-2 py-1 text-xs text-text-primary outline-none focus:border-accent"
+            className="h-7 min-w-0 flex-1 rounded-full border border-border/55 bg-bg-primary/75 px-3 text-[12px] font-black text-text-primary outline-none transition-colors focus:border-accent focus:bg-bg-primary"
           />
           <button
             type="button"
             onClick={() => duplicateManagedLineup(activeLineup)}
-            className="inline-flex h-7 w-7 items-center justify-center rounded border border-border text-text-secondary hover:text-accent"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/55 bg-bg-primary/65 text-text-secondary transition-colors hover:border-accent hover:text-accent"
             title={t('goldenSpatula.lineups.duplicate')}
           >
             <CopyPlus className="h-3.5 w-3.5" />
@@ -6173,17 +7284,95 @@ export function GoldenSpatulaAssistantPanel() {
           <button
             type="button"
             onClick={() => removeManagedLineup(activeLineup.id)}
-            className="inline-flex h-7 w-7 items-center justify-center rounded border border-border text-text-secondary hover:text-error"
+            className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/55 bg-bg-primary/65 text-text-secondary transition-colors hover:border-error/60 hover:text-error"
             title={t('goldenSpatula.lineups.delete')}
           >
             <Trash2 className="h-3.5 w-3.5" />
           </button>
+          <details className="group relative shrink-0">
+            <summary
+              className="inline-flex h-7 cursor-pointer list-none items-center justify-center gap-1 rounded-full border border-border/55 bg-bg-primary/65 px-2 text-[10px] font-black text-text-secondary transition-colors hover:border-accent hover:text-accent [&::-webkit-details-marker]:hidden"
+              title={t('goldenSpatula.lineups.advancedActions')}
+            >
+              <Clipboard className="h-3.5 w-3.5 shrink-0" />
+              <span className="hidden truncate xl:inline">
+                {t('goldenSpatula.lineups.advancedActions')}
+              </span>
+            </summary>
+            <div className="absolute right-0 top-8 z-30 w-[min(24rem,calc(100vw-2rem))] space-y-1 rounded-xl border border-border/55 bg-bg-primary/95 p-1.5 shadow-xl ring-1 ring-border/35">
+              <input
+                value={activeVariant.name}
+                onChange={(event) => updateActiveVariant({ name: event.target.value })}
+                className="h-7 w-full rounded-full border border-border/60 bg-bg-secondary/70 px-3 text-[11px] font-semibold text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent focus:bg-bg-primary"
+                placeholder={t('goldenSpatula.lineups.variantName')}
+              />
+
+              <textarea
+                value={activeVariant.code}
+                onChange={(event) => updateActiveVariant({ code: event.target.value })}
+                rows={2}
+                className="w-full resize-none rounded-lg border border-border/60 bg-bg-secondary/70 px-2.5 py-1.5 text-[11px] leading-4 text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent focus:bg-bg-primary"
+                placeholder={t('goldenSpatula.lineups.codePlaceholder')}
+              />
+
+              <div className="grid grid-cols-3 gap-1">
+                <button
+                  type="button"
+                  disabled={!activeVariant.code}
+                  onClick={() => copyLineupCode(activeVariant.id, activeVariant.code)}
+                  className="inline-flex h-7 min-w-0 items-center justify-center gap-1 rounded-full border border-border/60 bg-bg-secondary/80 px-2 text-[10px] font-bold text-text-secondary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <Copy className="h-3 w-3 shrink-0" />
+                  <span className="truncate">
+                    {copiedCode === activeVariant.id
+                      ? t('goldenSpatula.strategy.copied')
+                      : t('goldenSpatula.lineups.copyCode')}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    copyText(
+                      exportGoldenSpatulaLineups([activeLineup]),
+                      'goldenSpatula.lineups.exportSuccess',
+                    )
+                  }
+                  className="inline-flex h-7 min-w-0 items-center justify-center gap-1 rounded-full border border-border/60 bg-bg-secondary/80 px-2 text-[10px] font-bold text-text-secondary transition-colors hover:border-accent hover:text-accent"
+                >
+                  <Download className="h-3 w-3 shrink-0" />
+                  <span className="truncate">{t('goldenSpatula.lineups.exportOne')}</span>
+                </button>
+                <button
+                  type="button"
+                  disabled={Boolean(taskConfigDisabledReason)}
+                  onClick={applyTaskConfig}
+                  className="inline-flex h-7 min-w-0 items-center justify-center gap-1 rounded-full border border-border/60 bg-bg-secondary/80 px-2 text-[10px] font-bold text-text-secondary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+                  title={taskConfigDisabledReason}
+                >
+                  <ListChecks className="h-3 w-3 shrink-0" />
+                  <span className="truncate">{t('goldenSpatula.lineups.applyTasks')}</span>
+                </button>
+              </div>
+
+              {activeVariant.sourceUrl && (
+                <a
+                  className="inline-flex max-w-full truncate rounded-full bg-accent/10 px-2 py-0.5 text-[10px] font-bold text-accent hover:underline"
+                  href={activeVariant.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  title={activeVariant.sourceUrl}
+                >
+                  {t('goldenSpatula.lineups.sourceLink')}
+                </a>
+              )}
+            </div>
+          </details>
         </div>
 
         {visibleActiveVariants.length > 1 && (
           <div
             className={clsx(
-              'grid rounded-md bg-bg-tertiary p-0.5',
+              'grid rounded-full bg-bg-primary/55 p-0.5 ring-1 ring-inset ring-border/35',
               visibleActiveVariants.length === 2 ? 'grid-cols-2' : 'grid-cols-3',
             )}
           >
@@ -6195,9 +7384,9 @@ export function GoldenSpatulaAssistantPanel() {
                   type="button"
                   onClick={() => setLineupManager(managedLineups, activeLineup.id, variant.id)}
                   className={clsx(
-                    'rounded px-2 py-1 text-xs transition-colors',
+                    'rounded-full px-2 py-0.5 text-[11px] font-black transition-colors',
                     selected
-                      ? 'bg-bg-primary text-text-primary shadow-sm'
+                      ? 'bg-accent/10 text-accent shadow-sm ring-1 ring-inset ring-accent/25'
                       : 'text-text-muted hover:text-text-primary',
                   )}
                 >
@@ -6209,7 +7398,7 @@ export function GoldenSpatulaAssistantPanel() {
         )}
 
         <LineupCompositionSummary
-          name={activeVariant.name || activeLineup.name}
+          name={formatLineupDisplayName(activeVariant.name || activeLineup.name)}
           variant={activeVariant}
           sourceKind={activeLineup.source?.kind}
           version={activeLineup.source?.version}
@@ -6218,6 +7407,8 @@ export function GoldenSpatulaAssistantPanel() {
           itemAssets={assistantData?.itemAssets.data}
           basePath={basePath}
           t={t}
+          compact
+          selected
         />
 
         <AugmentRecommendationTierBoard
@@ -6227,122 +7418,129 @@ export function GoldenSpatulaAssistantPanel() {
           t={t}
         />
 
-        <details className="rounded-md bg-bg-tertiary/70 p-2">
-          <summary className="cursor-pointer select-none text-xs font-medium text-text-secondary">
-            {t('goldenSpatula.lineups.advancedActions')}
-          </summary>
-          <div className="mt-2 space-y-2">
-            <input
-              value={activeVariant.name}
-              onChange={(event) => updateActiveVariant({ name: event.target.value })}
-              className="w-full rounded border border-border bg-bg-primary px-2 py-1 text-xs text-text-primary outline-none focus:border-accent"
-              placeholder={t('goldenSpatula.lineups.variantName')}
-            />
+        <div className="space-y-1 rounded-lg bg-bg-primary/35 p-1.5 ring-1 ring-inset ring-border/30">
+          <div className="flex flex-wrap items-center justify-between gap-1.5">
+            <SectionTitle icon={Route} label={t('goldenSpatula.lineups.autoDecisionPanel')} />
+            <StatusPill tone={autoDecisionMode === 'off' ? 'muted' : 'success'}>
+              {autoDecisionModeText}
+            </StatusPill>
+          </div>
 
-            <textarea
-              value={activeVariant.code}
-              onChange={(event) => updateActiveVariant({ code: event.target.value })}
-              rows={2}
-              className="w-full resize-none rounded border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-primary outline-none focus:border-accent"
-              placeholder={t('goldenSpatula.lineups.codePlaceholder')}
-            />
-
-            <div className="grid grid-cols-3 gap-1">
-              <button
-                type="button"
-                disabled={!activeVariant.code}
-                onClick={() => copyLineupCode(activeVariant.id, activeVariant.code)}
-                className="inline-flex min-w-0 items-center justify-center gap-1 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-secondary hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <Copy className="h-3.5 w-3.5 shrink-0" />
-                <span className="truncate">
-                  {copiedCode === activeVariant.id
-                    ? t('goldenSpatula.strategy.copied')
-                    : t('goldenSpatula.lineups.copyCode')}
+          <div className="grid gap-1 md:grid-cols-[minmax(0,1fr)_minmax(12rem,0.72fr)]">
+            <div className="space-y-1">
+              <div className="flex items-center justify-between gap-1">
+                <span className="text-[10px] font-black uppercase tracking-wide text-text-muted">
+                  {t('goldenSpatula.lineups.autoDecisionInterest')}
                 </span>
-              </button>
-              <button
-                type="button"
-                onClick={() =>
-                  copyText(
-                    exportGoldenSpatulaLineups([activeLineup]),
-                    'goldenSpatula.lineups.exportSuccess',
-                  )
-                }
-                className="inline-flex min-w-0 items-center justify-center gap-1 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-secondary hover:text-accent"
-              >
-                <Download className="h-3.5 w-3.5 shrink-0" />
-                <span className="truncate">{t('goldenSpatula.lineups.exportOne')}</span>
-              </button>
-              <button
-                type="button"
-                disabled={Boolean(taskConfigDisabledReason)}
-                onClick={applyTaskConfig}
-                className="inline-flex min-w-0 items-center justify-center gap-1 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-secondary hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
-                title={taskConfigDisabledReason}
-              >
-                <ListChecks className="h-3.5 w-3.5 shrink-0" />
-                <span className="truncate">{t('goldenSpatula.lineups.applyTasks')}</span>
-              </button>
+                <span className="rounded-full bg-bg-secondary px-1.5 py-px text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
+                  {t('goldenSpatula.lineups.autoDecisionReserveGold', {
+                    gold: autoDecisionReserveGold,
+                  })}
+                </span>
+              </div>
+              <div className="grid grid-cols-10 rounded-full bg-bg-secondary/70 p-0.5 ring-1 ring-inset ring-border/30">
+                {autoRollCounts.map((count) => {
+                  const selected = autoDecisionInterestTarget === count;
+                  return (
+                    <button
+                      key={count}
+                      type="button"
+                      onClick={() => {
+                        setAutoDecisionInterestTarget(count);
+                        autoDecisionFirstDelayRef.current = true;
+                      }}
+                      className={clsx(
+                        'h-6 rounded-full px-0.5 text-[10px] font-black transition-colors',
+                        selected
+                          ? 'bg-accent/10 text-accent shadow-sm ring-1 ring-inset ring-accent/25'
+                          : 'text-text-muted hover:text-text-primary',
+                      )}
+                    >
+                      {t('goldenSpatula.lineups.autoDecisionInterestCount', { count })}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
 
-            <button
-              type="button"
-              disabled={Boolean(autoRollDisabledReason)}
-              onClick={applyAutoRollTask}
-              className="inline-flex w-full items-center justify-center gap-1 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-secondary hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
-              title={autoRollDisabledReason}
-            >
-              <RefreshCw className="h-3.5 w-3.5 shrink-0" />
-              <span className="truncate">{t('goldenSpatula.lineups.applyAutoRoll')}</span>
-            </button>
+            <div className="space-y-1">
+              <span className="block text-[10px] font-black uppercase tracking-wide text-text-muted">
+                {t('goldenSpatula.lineups.autoDecisionAction')}
+              </span>
+              <div className="grid grid-cols-2 gap-1">
+                {(['roll', 'level'] as const).map((mode) => {
+                  const selected = autoDecisionMode === mode;
+                  const setupDisabledReason =
+                    mode === 'roll'
+                      ? autoDecisionRollSetupDisabledReason
+                      : autoDecisionLevelSetupDisabledReason;
+                  return (
+                    <button
+                      key={mode}
+                      type="button"
+                      disabled={!selected && Boolean(setupDisabledReason)}
+                      onClick={() => selectAutoDecisionMode(mode)}
+                      className={clsx(
+                        'inline-flex h-8 min-w-0 items-center justify-center gap-1 rounded-full border px-2 text-[10px] font-black transition-colors disabled:cursor-not-allowed disabled:opacity-50',
+                        selected
+                          ? 'border-accent/45 bg-accent/10 text-accent shadow-sm ring-1 ring-inset ring-accent/20'
+                          : 'border-border/60 bg-bg-secondary/80 text-text-secondary hover:border-accent hover:text-accent',
+                      )}
+                      title={setupDisabledReason}
+                    >
+                      {mode === 'roll' ? (
+                        <ShoppingCart className="h-3 w-3 shrink-0" />
+                      ) : (
+                        <Sparkles className="h-3 w-3 shrink-0" />
+                      )}
+                      <span className="truncate">
+                        {t(`goldenSpatula.lineups.autoDecisionMode.${mode}`)}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
-            {activeVariant.sourceUrl && (
-              <a
-                className="block truncate text-[11px] text-accent hover:underline"
-                href={activeVariant.sourceUrl}
-                target="_blank"
-                rel="noreferrer"
-                title={activeVariant.sourceUrl}
-              >
-                {t('goldenSpatula.lineups.sourceLink')}
-              </a>
+          <div className="rounded-lg bg-bg-secondary/45 px-2 py-1 text-[10px] font-semibold leading-relaxed text-text-muted ring-1 ring-inset ring-border/25">
+            {autoDecisionStatusText}
+          </div>
+        </div>
+
+        <div className="space-y-1.5 rounded-lg bg-bg-secondary/20 p-1.5 ring-1 ring-inset ring-border/25">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <SectionTitle icon={Target} label={t('goldenSpatula.lineups.targetD')} />
+            <span
+              className="inline-flex min-w-0 max-w-full items-center rounded-full bg-bg-hover px-1.5 py-px text-[10px] font-semibold leading-4 text-text-secondary ring-1 ring-inset ring-border/70"
+              title={`${t('goldenSpatula.lineups.economyShopOdds')}: ${shopOddsSummary}`}
+            >
+              <span className="shrink-0">{t('goldenSpatula.lineups.economyShopOdds')}</span>
+              <span className="ml-1 truncate font-black text-text-primary">{shopOddsSummary}</span>
+            </span>
+            {economyRunState.shopOddsSource && (
+              <StatusPill tone="muted">
+                {t(`goldenSpatula.lineups.economyShopOddsSource.${economyRunState.shopOddsSource}`)}
+              </StatusPill>
             )}
           </div>
-        </details>
-
-        <div className="space-y-2 rounded-md bg-bg-primary p-2 ring-1 ring-inset ring-border/70">
-          <SectionTitle icon={Target} label={t('goldenSpatula.lineups.targetD')} />
-          {showAugmentDecisionPanel ? (
-            <AugmentDecisionPanel
-              decision={augmentDecision}
-              scanState={augmentScanState}
-              detecting={augmentOcrSubmitting || augmentScanState.active}
-              polling={augmentOcrPolling}
-              picking={augmentPickSubmitting}
-              pickDisabledReason={augmentPickDisabledReason}
-              onPick={runAutoPickAugmentTask}
-              t={t}
-            />
-          ) : (
-            <ShopObservationGrid
-              shopSlots={knowledgeScanState.shopSlots}
-              championAssets={assistantData?.championAssets.data}
-              basePath={basePath}
-              t={t}
-            />
-          )}
+          <ShopObservationGrid
+            shopSlots={knowledgeScanState.shopSlots}
+            championAssets={assistantData?.championAssets.data}
+            basePath={basePath}
+            t={t}
+          />
           {decisionPlan && (
             <DecisionPlanPanel
               plan={decisionPlan}
               championAssets={assistantData?.championAssets.data}
+              itemAssets={assistantData?.itemAssets.data}
               basePath={basePath}
               shopOdds={economyRunState.shopOdds}
               shopOddsSource={economyRunState.shopOddsSource}
               activeTargetNames={getActiveRollTargetNames(activeVariant)}
               onToggleTarget={toggleRollTarget}
-              onApplySortedTargets={applySortedRollTargets}
-              onApplyRecommendedCounts={applyDecisionAutomationCounts}
+              onAutoCapture={runDecisionAutoCaptureTask}
               t={t}
             />
           )}
@@ -6353,136 +7551,25 @@ export function GoldenSpatulaAssistantPanel() {
             onToggleTarget={toggleRollTarget}
             t={t}
           />
-          <RollRunStatusPanel
-            runState={rollRunState}
-            t={t}
-          />
-          <HandRunStatusPanel runState={handRunState} t={t} />
-          <KnowledgeObservationPanel
-            state={knowledgeScanState}
-            itemAssets={assistantData?.itemAssets.data}
-            augmentAssets={assistantData?.augmentAssets.data}
+          <SpecialEventPanel
+            augmentPresence={augmentPresence}
+            decision={augmentDecision}
+            scanState={augmentScanState}
+            detecting={augmentOcrSubmitting || augmentScanState.active}
+            polling={augmentOcrPolling}
+            picking={augmentPickSubmitting}
+            pickDisabledReason={augmentPickDisabledReason}
+            onPick={runAutoPickAugmentTask}
             basePath={basePath}
             t={t}
           />
-          <div className="space-y-1.5">
-            <div className="grid grid-cols-5 rounded-md bg-bg-tertiary p-0.5">
-              {autoRollCounts.map((count) => {
-                const selected = autoRollCount === count;
-                return (
-                  <button
-                    key={count}
-                    type="button"
-                    onClick={() => setAutoRollCount(count)}
-                    className={clsx(
-                      'rounded px-2 py-1 text-xs transition-colors',
-                      selected
-                        ? 'bg-bg-primary text-text-primary shadow-sm'
-                        : 'text-text-muted hover:text-text-primary',
-                    )}
-                  >
-                    {t('goldenSpatula.lineups.autoRollCount', { count })}
-                  </button>
-                );
-              })}
-            </div>
-            <button
-              type="button"
-              disabled={Boolean(autoRollBuyDisabledReason)}
-              onClick={runAutoRollBuyTask}
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md bg-accent px-2 py-1.5 text-xs font-medium text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
-              title={autoRollBuyDisabledReason || t('goldenSpatula.lineups.runAutoRollBuy')}
-            >
-              {autoRollBuySubmitting ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <ShoppingCart className="h-3.5 w-3.5" />
-              )}
-              <span>{t('goldenSpatula.lineups.runAutoRollBuy')}</span>
-            </button>
-            <button
-              type="button"
-              disabled={Boolean(autoLevelRollBuyDisabledReason)}
-              onClick={runAutoLevelRollBuyTask}
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-accent/60 bg-bg-primary px-2 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent/10 disabled:cursor-not-allowed disabled:border-border disabled:text-text-muted disabled:opacity-50"
-              title={
-                autoLevelRollBuyDisabledReason ||
-                t('goldenSpatula.lineups.runAutoLevelRollBuy', {
-                  roll: autoRollCount,
-                  xp: autoBuyExperienceCount,
-                })
-              }
-            >
-              {autoLevelRollBuySubmitting ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Sparkles className="h-3.5 w-3.5" />
-              )}
-              <span>
-                {t('goldenSpatula.lineups.runAutoLevelRollBuy', {
-                  roll: autoRollCount,
-                  xp: autoBuyExperienceCount,
-                })}
-              </span>
-            </button>
-          </div>
-          <div className="space-y-1.5 rounded-md bg-bg-tertiary/70 p-2">
-            <div className="flex items-center justify-between gap-2">
-              <SectionTitle icon={Sparkles} label={t('goldenSpatula.lineups.autoLevel')} />
-              <span className="text-[11px] text-text-muted">
-                {t('goldenSpatula.lineups.autoRollCount', {
-                  count: autoBuyExperienceCount,
-                })}
-              </span>
-            </div>
-            <div className="grid grid-cols-5 rounded-md bg-bg-primary p-0.5">
-              {autoRollCounts.map((count) => {
-                const selected = autoBuyExperienceCount === count;
-                return (
-                  <button
-                    key={count}
-                    type="button"
-                    onClick={() => setAutoBuyExperienceCount(count)}
-                    className={clsx(
-                      'rounded px-2 py-1 text-xs transition-colors',
-                      selected
-                        ? 'bg-bg-secondary text-text-primary shadow-sm'
-                        : 'text-text-muted hover:text-text-primary',
-                    )}
-                  >
-                    {t('goldenSpatula.lineups.autoRollCount', { count })}
-                  </button>
-                );
-              })}
-            </div>
-            <button
-              type="button"
-              disabled={Boolean(autoBuyExperienceDisabledReason)}
-              onClick={runAutoBuyExperienceTask}
-              className="inline-flex w-full items-center justify-center gap-1.5 rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs font-medium text-text-primary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
-              title={
-                autoBuyExperienceDisabledReason || t('goldenSpatula.lineups.runAutoBuyExperience')
-              }
-            >
-              {autoBuyExperienceSubmitting ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Sparkles className="h-3.5 w-3.5" />
-              )}
-              <span>{t('goldenSpatula.lineups.runAutoBuyExperience')}</span>
-            </button>
-            <XpRunStatusPanel runState={xpRunState} t={t} />
-            <div className="text-[11px] leading-relaxed text-text-muted">
-              {t('goldenSpatula.lineups.autoBuyExperienceDescription')}
-            </div>
-          </div>
         </div>
 
-        <details className="rounded-md bg-bg-tertiary/70 p-2">
-          <summary className="cursor-pointer select-none text-xs font-medium text-text-secondary">
+        <details className="rounded-lg bg-bg-primary/35 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+          <summary className="inline-flex cursor-pointer list-none items-center rounded-full bg-bg-secondary/80 px-2 py-px text-[10px] font-black uppercase tracking-wide text-text-secondary ring-1 ring-inset ring-border/30 transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
             {t('goldenSpatula.lineups.details')}
           </summary>
-          <div className="mt-2 space-y-2">
+          <div className="mt-1.5 space-y-1 border-t border-border/30 pt-1.5">
             <LineupBattleBoard
               variant={activeVariant}
               championAssets={assistantData?.championAssets.data}
@@ -6501,7 +7588,7 @@ export function GoldenSpatulaAssistantPanel() {
         </details>
       </div>
     ) : (
-      <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
+      <div className="rounded-full bg-bg-primary/50 px-3 py-1 text-[11px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
         {managedLineups.length === 0
           ? t('goldenSpatula.lineups.empty')
           : t('goldenSpatula.lineups.noData')}
@@ -6510,7 +7597,7 @@ export function GoldenSpatulaAssistantPanel() {
 
   const recommendedPicker = recommendedPickerOpen ? (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-3"
       role="presentation"
       onClick={() => setRecommendedPickerOpen(false)}
     >
@@ -6518,71 +7605,94 @@ export function GoldenSpatulaAssistantPanel() {
         role="dialog"
         aria-modal="true"
         aria-label={t('goldenSpatula.lineups.recommendedPickerTitle')}
-        className="flex max-h-[84vh] w-full max-w-6xl flex-col overflow-hidden rounded-lg bg-bg-secondary shadow-xl ring-1 ring-border"
+        className="flex max-h-[86vh] w-full max-w-6xl flex-col overflow-hidden rounded-xl bg-bg-primary/95 shadow-xl ring-1 ring-border/45"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="flex items-center justify-between gap-2 border-b border-border px-3 py-2">
-          <div className="flex min-w-0 items-center gap-2">
-            <Database className="h-4 w-4 shrink-0 text-accent" />
-            <div className="truncate text-sm font-medium text-text-primary">
+        <div className="flex items-center justify-between gap-1.5 border-b border-border/40 px-1.5 py-1">
+          <div className="flex min-w-0 items-center gap-1.5">
+            <Database className="h-3 w-3 shrink-0 text-accent" />
+            <div className="truncate text-[11px] font-black uppercase tracking-wide text-text-primary">
               {t('goldenSpatula.lineups.recommendedPickerTitle')}
             </div>
+            <span
+              className="hidden h-5 shrink-0 items-center gap-1 rounded-full bg-bg-secondary px-1.5 text-[9px] font-black text-text-muted ring-1 ring-inset ring-border/30 sm:inline-flex"
+              title={t('goldenSpatula.lineups.recommendedPickerTitle')}
+            >
+              <Database className="h-3 w-3" />
+              {recommendedData?.lineups.length ?? 0}
+            </span>
+            <span
+              className="hidden h-5 shrink-0 items-center gap-1 rounded-full bg-emerald-500/10 px-1.5 text-[9px] font-black text-emerald-700 ring-1 ring-inset ring-emerald-500/25 dark:text-emerald-200 sm:inline-flex"
+              title={t('goldenSpatula.lineups.myLineup')}
+            >
+              <CheckCircle2 className="h-3 w-3" />
+              {savedRecommendedIds.size}
+            </span>
           </div>
           <button
             type="button"
             onClick={() => setRecommendedPickerOpen(false)}
-            className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-bg-hover hover:text-text-primary"
+            className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-text-muted transition-colors hover:bg-bg-hover hover:text-text-primary"
             title={t('common.close')}
             aria-label={t('common.close')}
           >
-            <XCircle className="h-4 w-4" />
+            <XCircle className="h-3.5 w-3.5" />
           </button>
         </div>
 
-        <div className="border-b border-border p-3">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
-            <input
-              value={recommendedSearch}
-              onChange={(event) => setRecommendedSearch(event.target.value)}
-              placeholder={t('goldenSpatula.lineups.searchRecommended')}
-              className="w-full rounded-md border border-border bg-bg-primary py-1.5 pl-7 pr-2 text-xs text-text-primary outline-none focus:border-accent"
-            />
+        <div className="border-b border-border/40 p-1.5">
+          <div className="flex items-center gap-1 rounded-lg bg-bg-secondary/60 p-1 ring-1 ring-inset ring-border/30">
+            <span
+              className="inline-flex h-6 shrink-0 items-center gap-1 rounded-full bg-bg-primary px-1.5 text-[10px] font-black text-text-secondary ring-1 ring-inset ring-border/30"
+              title={t('goldenSpatula.lineups.recommendedPickerTitle')}
+            >
+              <Database className="h-3 w-3 text-text-muted" />
+              {filteredRecommendedLineups.length}/{recommendedData?.lineups.length ?? 0}
+            </span>
+            <div className="relative min-w-0 flex-1">
+              <Search className="pointer-events-none absolute left-2 top-1/2 h-3 w-3 -translate-y-1/2 text-text-muted" />
+              <input
+                value={recommendedSearch}
+                onChange={(event) => setRecommendedSearch(event.target.value)}
+                placeholder={t('goldenSpatula.lineups.searchRecommended')}
+                className="h-6 w-full rounded-full border border-border/55 bg-bg-primary px-2 pl-6 text-[11px] font-semibold text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto p-3">
+        <div className="min-h-0 flex-1 overflow-y-auto p-1.5">
           {recommendedLoading && (
-            <div className="flex items-center gap-2 rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
+            <div className="inline-flex items-center gap-1 rounded-full bg-bg-secondary px-2 py-0.5 text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
+              <Loader2 className="h-3 w-3 animate-spin" />
               {t('goldenSpatula.lineups.loadingRecommended')}
             </div>
           )}
 
           {recommendedError && (
-            <div className="rounded-md border border-error/30 bg-error/5 p-2 text-xs text-text-secondary">
+            <div className="rounded-full border border-error/25 bg-error/5 px-2 py-1 text-[10px] font-bold text-text-secondary">
               {t('goldenSpatula.lineups.recommendedFailed', { error: recommendedError })}
             </div>
           )}
 
           {recommendedData?.index.status !== 'ready' && !recommendedLoading && (
-            <div className="rounded-md border border-warning/30 bg-warning/5 p-2 text-xs text-text-secondary">
+            <div className="rounded-full border border-warning/25 bg-warning/5 px-2 py-1 text-[10px] font-bold text-text-secondary">
               {t('goldenSpatula.lineups.recommendedMissing')}
             </div>
           )}
 
           {recommendedData?.index.status === 'ready' && (
-            <div className="space-y-2">
+            <div className="space-y-0.5">
               {filteredRecommendedLineups.map((lineup) => {
                 const saved = savedRecommendedIds.has(lineup.id);
                 return (
                   <div
                     key={lineup.id}
-                    className="flex w-full flex-col gap-2 rounded-md bg-bg-tertiary/60 p-1.5 ring-1 ring-inset ring-border/60 transition-colors hover:bg-bg-hover/70 lg:flex-row lg:items-stretch"
+                    className="grid w-full gap-0.5 lg:grid-cols-[minmax(0,1fr)_28px] lg:items-stretch"
                   >
                     <div className="min-w-0 flex-1">
                       <LineupCompositionSummary
-                        name={lineup.name}
+                        name={formatLineupDisplayName(lineup.name)}
                         variant={lineup.variant}
                         sourceKind="recommended"
                         version={lineup.version}
@@ -6592,26 +7702,30 @@ export function GoldenSpatulaAssistantPanel() {
                         basePath={basePath}
                         t={t}
                         compact
+                        selected={saved}
                       />
                     </div>
-                    <div className="flex shrink-0 flex-col gap-1.5 lg:w-24">
-                      {saved && (
-                        <div className="flex justify-end lg:justify-center">
-                          <StatusPill tone="success">
-                            {t('goldenSpatula.lineups.source.recommended')}
-                          </StatusPill>
-                        </div>
-                      )}
+                    <div className="flex shrink-0 items-center justify-end gap-1 lg:w-7 lg:flex-col">
                       <button
                         type="button"
                         onClick={() => applyRecommendedLineupAndClose(lineup)}
                         className={clsx(
-                          'inline-flex min-h-9 w-full items-center justify-center gap-1.5 rounded-md border border-border bg-bg-primary px-2 text-[11px] font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent',
-                          saved ? 'lg:flex-1' : 'lg:min-h-[116px]',
+                          'inline-flex h-6 w-full items-center justify-center gap-1 rounded-full border border-border/55 bg-bg-secondary px-2 text-[10px] font-black text-text-secondary transition-colors hover:border-accent hover:text-accent lg:h-full lg:px-0',
+                          saved &&
+                            'border-emerald-500/35 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200',
                         )}
+                        title={
+                          saved
+                            ? t('goldenSpatula.lineups.switchSaved')
+                            : t('goldenSpatula.lineups.applyRecommended')
+                        }
                       >
-                        <Import className="h-3 w-3 shrink-0" />
-                        <span className="truncate">
+                        {saved ? (
+                          <RefreshCw className="h-3 w-3 shrink-0" />
+                        ) : (
+                          <Import className="h-3 w-3 shrink-0" />
+                        )}
+                        <span className="truncate lg:hidden">
                           {saved
                             ? t('goldenSpatula.lineups.switchSaved')
                             : t('goldenSpatula.lineups.applyRecommended')}
@@ -6622,7 +7736,7 @@ export function GoldenSpatulaAssistantPanel() {
                 );
               })}
               {filteredRecommendedLineups.length === 0 && !recommendedLoading && (
-                <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
+                <div className="rounded-full bg-bg-primary/50 px-3 py-1 text-[11px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
                   {t('goldenSpatula.lineups.searchEmpty')}
                 </div>
               )}
@@ -6637,20 +7751,45 @@ export function GoldenSpatulaAssistantPanel() {
     t(`goldenSpatula.recognition.categories.${key}`);
 
   return (
-    <div className="bg-bg-secondary rounded-lg ring-1 ring-inset ring-border overflow-hidden">
-      <div className="px-3 py-2 border-b border-border">
+    <div className="overflow-hidden rounded-xl bg-bg-primary/75 ring-1 ring-inset ring-border/45">
+      <div className="border-b border-border/45 px-2 py-1.5">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 min-w-0">
-            <Bot className="w-4 h-4 text-accent shrink-0" />
-            <span className="text-sm font-medium text-text-primary truncate">
+            <Bot className="h-3.5 w-3.5 shrink-0 text-accent" />
+            <span className="truncate text-xs font-black uppercase tracking-wide text-text-primary">
               {t('goldenSpatula.title')}
+            </span>
+            <span
+              className="hidden h-6 shrink-0 items-center gap-1 rounded-full bg-bg-secondary px-2 text-[10px] font-black text-text-muted ring-1 ring-inset ring-border/35 sm:inline-flex"
+              title={t('goldenSpatula.lineups.myLineup')}
+            >
+              <Database className="h-3 w-3" />
+              {managedLineups.length}
+            </span>
+            <span
+              className={clsx(
+                'hidden h-6 max-w-[180px] shrink-0 items-center gap-1 rounded-full px-2 text-[10px] font-black ring-1 ring-inset sm:inline-flex',
+                activeLineup
+                  ? 'bg-accent/10 text-accent ring-accent/25'
+                  : 'bg-bg-secondary text-text-muted ring-border/35',
+              )}
+              title={
+                activeLineup
+                  ? formatLineupDisplayName(activeLineup.name)
+                  : t('goldenSpatula.lineups.empty')
+              }
+            >
+              <Target className="h-3 w-3 shrink-0" />
+              <span className="truncate">
+                {activeLineup ? formatLineupDisplayName(activeLineup.name) : '-'}
+              </span>
             </span>
           </div>
         </div>
       </div>
 
-      <div className="p-3 space-y-3">
-        <div className="grid grid-cols-4 rounded-md bg-bg-tertiary p-0.5">
+      <div className="space-y-1.5 p-1.5">
+        <div className="flex min-w-0 gap-0.5 overflow-x-auto rounded-lg bg-bg-secondary/60 p-0.5 ring-1 ring-inset ring-border/30">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const selected = activeTab === tab.id;
@@ -6661,13 +7800,13 @@ export function GoldenSpatulaAssistantPanel() {
                 aria-pressed={selected}
                 onClick={() => setActiveTab(tab.id)}
                 className={clsx(
-                  'flex min-w-0 items-center justify-center gap-1.5 rounded px-2 py-1.5 text-xs transition-colors',
+                  'flex h-6 min-w-[64px] shrink-0 items-center justify-center gap-1 rounded-full px-1.5 text-[10px] font-black transition-colors',
                   selected
-                    ? 'bg-bg-primary text-text-primary shadow-sm'
-                    : 'text-text-muted hover:text-text-primary',
+                    ? 'bg-accent text-white shadow-sm'
+                    : 'text-text-muted hover:bg-bg-hover hover:text-text-primary',
                 )}
               >
-                <Icon className="w-3.5 h-3.5 shrink-0" />
+                <Icon className="h-3 w-3 shrink-0" />
                 <span className="truncate">{tab.label}</span>
               </button>
             );
@@ -6675,45 +7814,52 @@ export function GoldenSpatulaAssistantPanel() {
         </div>
 
         {dataLoading && (
-          <div className="flex items-center gap-2 text-xs text-text-muted">
-            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-bg-secondary px-2 py-1 text-[11px] font-medium text-text-muted ring-1 ring-inset ring-border/35">
+            <Loader2 className="h-3.5 w-3.5 animate-spin" />
             {t('goldenSpatula.loading')}
           </div>
         )}
 
         {dataError && (
-          <div className="flex gap-2 rounded-md border border-error/30 bg-error/5 p-2.5">
-            <FileWarning className="w-3.5 h-3.5 text-error shrink-0 mt-0.5" />
-            <div className="text-xs leading-relaxed text-text-secondary">
+          <div className="flex gap-1.5 rounded-xl border border-error/25 bg-error/5 px-2 py-1.5">
+            <FileWarning className="mt-0.5 h-3.5 w-3.5 shrink-0 text-error" />
+            <div className="text-[11px] leading-relaxed text-text-secondary">
               {t('goldenSpatula.loadFailed', { error: dataError })}
             </div>
           </div>
         )}
 
         {activeTab === 'lineups' && (
-          <div className="space-y-3">
-            <div className="flex items-center gap-1.5">
+          <div className="space-y-1.5">
+            <div className="flex items-center gap-1 rounded-lg bg-bg-primary/60 p-1 ring-1 ring-inset ring-border/30">
+              <span
+                className="inline-flex h-6 shrink-0 items-center gap-1 rounded-full bg-bg-secondary px-1.5 text-[10px] font-black text-text-secondary ring-1 ring-inset ring-border/30"
+                title={t('goldenSpatula.lineups.myLineup')}
+              >
+                <Database className="h-3 w-3 text-text-muted" />
+                {filteredLineups.length}/{managedLineups.length}
+              </span>
               <div className="relative min-w-0 flex-1">
                 <Search className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-text-muted" />
                 <input
                   value={lineupSearch}
                   onChange={(event) => setLineupSearch(event.target.value)}
                   placeholder={t('goldenSpatula.lineups.searchSaved')}
-                  className="w-full rounded-md border border-border bg-bg-primary py-1.5 pl-7 pr-2 text-xs text-text-primary outline-none focus:border-accent"
+                  className="h-6 w-full rounded-full border border-border/55 bg-bg-secondary px-2 pl-7 text-[11px] font-semibold text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent"
                 />
               </div>
               <button
                 type="button"
                 onClick={() => setRecommendedPickerOpen(true)}
-                className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-md border border-border bg-bg-primary px-2 text-xs font-medium text-text-secondary transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex h-6 shrink-0 items-center gap-1 rounded-full border border-border/55 bg-bg-secondary px-1.5 text-[10px] font-black text-text-secondary transition-colors hover:border-accent hover:text-accent xl:px-2"
                 title={t('goldenSpatula.lineups.openRecommended')}
               >
                 {recommendedLoading ? (
-                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  <Loader2 className="h-3 w-3 animate-spin" />
                 ) : (
-                  <Database className="h-3.5 w-3.5" />
+                  <Database className="h-3 w-3" />
                 )}
-                <span className="whitespace-nowrap">
+                <span className="hidden whitespace-nowrap xl:inline">
                   {t('goldenSpatula.lineups.openRecommended')}
                 </span>
               </button>
@@ -6722,25 +7868,25 @@ export function GoldenSpatulaAssistantPanel() {
                 onClick={() => setImportPanelOpen((open) => !open)}
                 aria-expanded={importPanelOpen}
                 className={clsx(
-                  'inline-flex h-8 shrink-0 items-center gap-1.5 rounded-md border px-2 text-xs font-medium transition-colors',
+                  'inline-flex h-6 shrink-0 items-center gap-1 rounded-full border px-1.5 text-[10px] font-black transition-colors xl:px-2',
                   importPanelOpen
                     ? 'border-accent/50 bg-accent/10 text-accent'
-                    : 'border-border bg-bg-primary text-text-secondary hover:border-accent hover:text-accent',
+                    : 'border-border/60 bg-bg-secondary text-text-secondary hover:border-accent hover:text-accent',
                 )}
                 title={t('goldenSpatula.lineups.import')}
               >
-                <ClipboardPaste className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline whitespace-nowrap">
+                <ClipboardPaste className="h-3 w-3" />
+                <span className="hidden whitespace-nowrap xl:inline">
                   {t('goldenSpatula.lineups.import')}
                 </span>
               </button>
               <button
                 type="button"
                 onClick={addManualLineup}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white transition-colors hover:bg-accent-hover"
+                className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-accent text-white transition-colors hover:bg-accent-hover"
                 title={t('goldenSpatula.lineups.add')}
               >
-                <Plus className="h-3.5 w-3.5" />
+                <Plus className="h-3 w-3" />
               </button>
               <button
                 type="button"
@@ -6751,17 +7897,17 @@ export function GoldenSpatulaAssistantPanel() {
                     'goldenSpatula.lineups.exportSuccess',
                   )
                 }
-                className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border text-text-secondary transition-colors hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+                className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/55 bg-bg-secondary text-text-secondary transition-colors hover:border-accent hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
                 title={t('goldenSpatula.lineups.exportAll')}
               >
-                <Download className="h-3.5 w-3.5" />
+                <Download className="h-3 w-3" />
               </button>
             </div>
 
             {importPanelOpen && (
-              <div className="rounded-md border border-accent/30 bg-accent/5 p-2.5 shadow-sm">
-                <div className="mb-2 flex items-center justify-between gap-2">
-                  <div className="flex min-w-0 items-center gap-1.5 text-xs font-medium text-text-primary">
+              <div className="rounded-lg border border-accent/20 bg-accent/5 p-1 shadow-sm ring-1 ring-inset ring-accent/10">
+                <div className="mb-1 flex items-center justify-between gap-2">
+                  <div className="flex min-w-0 items-center gap-1.5 text-[10px] font-black uppercase tracking-wide text-text-primary">
                     <ClipboardPaste className="h-3.5 w-3.5 shrink-0 text-accent" />
                     <span className="truncate">{t('goldenSpatula.lineups.import')}</span>
                   </div>
@@ -6778,23 +7924,23 @@ export function GoldenSpatulaAssistantPanel() {
                   value={importText}
                   onChange={(event) => setImportText(event.target.value)}
                   rows={2}
-                  className="w-full resize-none rounded-md border border-border bg-bg-primary px-2 py-1.5 text-xs text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent"
+                  className="w-full resize-none rounded-lg border border-border/45 bg-bg-primary/75 px-2 py-1 text-[11px] leading-4 text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-accent focus:bg-bg-primary"
                   placeholder={t('goldenSpatula.lineups.importPlaceholder')}
                 />
-                <div className="mt-2 flex justify-end">
+                <div className="mt-1 flex justify-end">
                   <button
                     type="button"
                     onClick={importLineups}
-                    className="inline-flex h-8 items-center justify-center gap-1.5 rounded-md bg-accent px-3 text-xs font-medium text-white transition-colors hover:bg-accent-hover"
+                    className="inline-flex h-6 items-center justify-center gap-1 rounded-full bg-accent px-2.5 text-[10px] font-black text-white transition-colors hover:bg-accent-hover"
                   >
-                    <Import className="h-3.5 w-3.5" />
+                    <Import className="h-3 w-3" />
                     {t('goldenSpatula.lineups.importAction')}
                   </button>
                 </div>
               </div>
             )}
 
-            <div className="max-h-[calc(100vh-18rem)] min-h-72 space-y-1 overflow-y-auto pr-1">
+            <div className="max-h-[calc(100vh-14rem)] min-h-56 space-y-0.5 overflow-y-auto pr-0.5">
               {filteredLineups.length > 0 ? (
                 filteredLineups.map((lineup) => {
                   const selected = activeLineup?.id === lineup.id;
@@ -6809,15 +7955,15 @@ export function GoldenSpatulaAssistantPanel() {
                       type="button"
                       onClick={() => selectManagedLineup(lineup)}
                       className={clsx(
-                        'w-full rounded-md text-left transition duration-150',
+                        'w-full rounded-md text-left transition duration-150 active:scale-[0.997] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/45',
                         selected
-                          ? 'text-text-primary ring-2 ring-inset ring-accent/55'
+                          ? 'text-text-primary'
                           : 'text-text-secondary hover:shadow-sm dark:hover:brightness-110',
                       )}
                     >
                       {previewVariant && (
                         <LineupCompositionSummary
-                          name={lineup.name}
+                          name={formatLineupDisplayName(lineup.name)}
                           variant={previewVariant}
                           sourceKind={lineup.source?.kind}
                           version={lineup.source?.version}
@@ -6827,18 +7973,19 @@ export function GoldenSpatulaAssistantPanel() {
                           basePath={basePath}
                           t={t}
                           compact
+                          selected={selected}
                         />
                       )}
                       {!previewVariant && (
-                        <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
-                          {lineup.name}
+                        <div className="rounded-lg bg-bg-primary/45 px-2 py-1 text-[11px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
+                          {formatLineupDisplayName(lineup.name)}
                         </div>
                       )}
                     </button>
                   );
                 })
               ) : (
-                <div className="rounded-md bg-bg-tertiary p-2 text-xs text-text-muted">
+                <div className="rounded-full bg-bg-primary/50 px-3 py-1 text-[11px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
                   {managedLineups.length === 0
                     ? t('goldenSpatula.lineups.empty')
                     : t('goldenSpatula.lineups.searchEmpty')}
@@ -6849,7 +7996,7 @@ export function GoldenSpatulaAssistantPanel() {
         )}
 
         {activeTab === 'strategy' && (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <EconomyRunStatusPanel
               runState={economyRunState}
               selectedAugments={knowledgeScanState.selectedAugments}
@@ -6994,11 +8141,11 @@ export function GoldenSpatulaAssistantPanel() {
         )}
 
         {activeTab === 'recognition' && (
-          <div className="space-y-3">
-            <div className="flex items-center justify-between gap-2 rounded-md bg-bg-tertiary p-2.5">
-              <div className="flex items-center gap-2 min-w-0">
-                <Database className="w-3.5 h-3.5 text-text-secondary shrink-0" />
-                <span className="text-xs text-text-secondary truncate">
+          <div className="space-y-1.5">
+            <div className="flex h-7 items-center justify-between gap-1.5 rounded-lg bg-bg-primary/55 px-1.5 ring-1 ring-inset ring-border/30">
+              <div className="flex min-w-0 items-center gap-1.5">
+                <Database className="h-3 w-3 shrink-0 text-text-secondary" />
+                <span className="truncate text-[10px] font-black uppercase tracking-wide text-text-secondary">
                   {t('goldenSpatula.recognition.knowledgeResource')}
                 </span>
               </div>
@@ -7009,12 +8156,12 @@ export function GoldenSpatulaAssistantPanel() {
               </StatusPill>
             </div>
 
-            <div>
+            <div className="space-y-1">
               <SectionTitle
                 icon={ListChecks}
                 label={t('goldenSpatula.recognition.templateStatus')}
               />
-              <div className="mt-2 grid gap-1.5">
+              <div className="grid gap-1 md:grid-cols-2">
                 {(assistantData?.templates ?? []).map((item) => (
                   <TemplateCategoryRow
                     key={item.key}
@@ -7026,12 +8173,14 @@ export function GoldenSpatulaAssistantPanel() {
               </div>
             </div>
 
-            <div>
+            <div className="space-y-1">
               <SectionTitle icon={Crosshair} label={t('goldenSpatula.recognition.latestResult')} />
               {latestRecognition ? (
-                <div className="mt-2 rounded-md bg-bg-tertiary p-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs text-text-primary">{latestRecognition.message}</span>
+                <div className="rounded-lg bg-bg-primary/55 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+                  <div className="flex items-center justify-between gap-1.5">
+                    <span className="truncate text-[11px] font-bold text-text-primary">
+                      {latestRecognition.message}
+                    </span>
                     <StatusPill
                       tone={
                         latestRecognition.status === 'success'
@@ -7044,12 +8193,12 @@ export function GoldenSpatulaAssistantPanel() {
                       {t(`goldenSpatula.recognition.status.${latestRecognition.status}`)}
                     </StatusPill>
                   </div>
-                  <div className="mt-1 text-[11px] text-text-muted">
+                  <div className="mt-0.5 text-[9px] font-bold text-text-muted">
                     {latestRecognition.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
               ) : (
-                <div className="mt-2 rounded-md bg-bg-tertiary p-2.5 text-xs text-text-muted">
+                <div className="rounded-full bg-bg-primary/55 px-2 py-1 text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/30">
                   {t('goldenSpatula.recognition.noResults')}
                 </div>
               )}
@@ -7064,11 +8213,11 @@ export function GoldenSpatulaAssistantPanel() {
             />
 
             {recognitionSummaries.length > 1 && (
-              <div className="max-h-36 overflow-y-auto space-y-1 pr-1">
+              <div className="max-h-28 space-y-0.5 overflow-y-auto pr-0.5">
                 {recognitionSummaries.slice(1).map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between gap-2 text-[11px] text-text-muted"
+                    className="flex h-5 items-center justify-between gap-1.5 rounded-full bg-bg-primary/35 px-2 text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/20"
                   >
                     <span className="truncate">{item.message}</span>
                     <span className="shrink-0">{item.timestamp.toLocaleTimeString()}</span>
@@ -7080,25 +8229,235 @@ export function GoldenSpatulaAssistantPanel() {
         )}
 
         {activeTab === 'calibration' && (
-          <div className="space-y-3">
-            <div className="grid gap-1.5">
+          <div className="space-y-1.5">
+            <div className="grid gap-1 md:grid-cols-2">
               {healthItems.map((item) => (
                 <div
                   key={item.key}
-                  className="flex items-center justify-between gap-2 rounded-md bg-bg-tertiary px-2 py-1.5"
+                  className="flex h-7 min-w-0 items-center justify-between gap-1.5 rounded-lg bg-bg-primary/55 px-1.5 ring-1 ring-inset ring-border/30"
                 >
-                  <div className="flex items-center gap-2 min-w-0">
+                  <div className="flex min-w-0 items-center gap-1.5">
                     <StatusIcon ok={item.ok} />
-                    <span className="text-xs text-text-secondary truncate">{item.label}</span>
+                    <span className="truncate text-[10px] font-black text-text-secondary">
+                      {item.label}
+                    </span>
                   </div>
-                  <span className="text-[11px] text-text-muted shrink-0">{item.value}</span>
+                  <span className="shrink-0 truncate text-[9px] font-bold text-text-muted">
+                    {item.value}
+                  </span>
                 </div>
               ))}
             </div>
 
+            <div className="flex min-w-0 items-center justify-between gap-1.5 rounded-lg bg-bg-primary/55 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+              <div className="flex min-w-0 items-center gap-1.5">
+                <Crosshair className="h-3 w-3 shrink-0 text-success" />
+                <span className="truncate text-[10px] font-black text-text-secondary">
+                  {t('goldenSpatula.calibration.selectedAugmentProbeTestTitle')}
+                </span>
+              </div>
+              <div className="flex shrink-0 items-center gap-1">
+                <button
+                  type="button"
+                  onClick={runCalibrationSelectedAugmentProbeTest}
+                  disabled={calibrationSelectedAugmentProbeSubmitting}
+                  title={
+                    calibrationSelectedAugmentProbeDisabledReason ??
+                    t('goldenSpatula.calibration.selectedAugmentProbeTestTitle')
+                  }
+                  className="inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full border border-success/40 bg-success/10 px-2 text-[10px] font-black text-success transition-colors hover:border-success hover:bg-success/15 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {calibrationSelectedAugmentProbeSubmitting &&
+                  !selectedAugmentProbeBatchProgress ? (
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                  ) : (
+                    <Target className="h-3 w-3" />
+                  )}
+                  <span>{t('goldenSpatula.calibration.selectedAugmentProbeTest')}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={runCalibrationSelectedAugmentProbeBatchTest}
+                  disabled={calibrationSelectedAugmentProbeSubmitting}
+                  title={
+                    calibrationSelectedAugmentProbeDisabledReason ??
+                    t('goldenSpatula.calibration.selectedAugmentProbeBatchTest')
+                  }
+                  className="inline-flex h-6 shrink-0 items-center justify-center gap-1 rounded-full border border-accent/40 bg-accent/10 px-2 text-[10px] font-black text-accent transition-colors hover:border-accent hover:bg-accent/15 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {selectedAugmentProbeBatchProgress ? (
+                    <Loader2 className="h-3 w-3 animate-spin" />
+                  ) : (
+                    <Activity className="h-3 w-3" />
+                  )}
+                  <span>
+                    {selectedAugmentProbeBatchProgress
+                      ? t('goldenSpatula.calibration.selectedAugmentProbeBatchProgress', {
+                          current: selectedAugmentProbeBatchProgress.current,
+                          total: selectedAugmentProbeBatchProgress.total,
+                        })
+                      : t('goldenSpatula.calibration.selectedAugmentProbeBatchTest')}
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex min-w-0 items-center justify-between gap-1.5 rounded-lg bg-bg-primary/55 px-1.5 py-1 ring-1 ring-inset ring-border/30">
+              <div className="flex min-w-0 items-center gap-1.5">
+                <Activity className="h-3 w-3 shrink-0 text-accent" />
+                <div className="min-w-0">
+                  <div className="truncate text-[10px] font-black text-text-secondary">
+                    {t('goldenSpatula.calibration.selectedAugmentProbeReliabilityTitle')}
+                  </div>
+                  <div className="truncate text-[9px] font-bold text-text-muted">
+                    {selectedAugmentProbeReliability.total > 0
+                      ? t('goldenSpatula.calibration.selectedAugmentProbeReliabilityLast', {
+                          stage: selectedAugmentProbeLastStageLabel,
+                          attempts: selectedAugmentProbeReliability.lastAttempts,
+                        })
+                      : t('goldenSpatula.calibration.selectedAugmentProbeReliabilityEmpty')}
+                  </div>
+                </div>
+              </div>
+              <StatusPill tone={selectedAugmentProbeReliabilityTone}>
+                {selectedAugmentProbeReliability.total > 0
+                  ? t('goldenSpatula.calibration.selectedAugmentProbeReliabilityValue', {
+                      success: selectedAugmentProbeReliability.success,
+                      total: selectedAugmentProbeReliability.total,
+                      rate: selectedAugmentProbeRatePercent,
+                      target: selectedAugmentProbeTargetPercent,
+                    })
+                  : t('goldenSpatula.calibration.selectedAugmentProbeReliabilityEmpty')}
+              </StatusPill>
+            </div>
+
+            <div className="space-y-1 rounded-lg bg-bg-primary/45 p-1.5 ring-1 ring-inset ring-border/30">
+              <div className="flex min-w-0 items-center justify-between gap-1.5">
+                <div className="flex min-w-0 items-center gap-1.5">
+                  <Clipboard className="h-3 w-3 shrink-0 text-text-muted" />
+                  <span className="truncate text-[10px] font-black text-text-secondary">
+                    {t('goldenSpatula.calibration.selectedAugmentProbeTraceTitle')}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={copySelectedAugmentProbeTraceLog}
+                  disabled={selectedAugmentProbeTraceEntries.length === 0}
+                  className="inline-flex h-5 shrink-0 items-center gap-1 rounded-full border border-border/60 bg-bg-secondary px-1.5 text-[9px] font-black text-text-secondary transition-colors hover:border-accent/50 hover:text-accent disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <Clipboard className="h-3 w-3" />
+                  {t('goldenSpatula.calibration.selectedAugmentProbeTraceCopy')}
+                </button>
+              </div>
+              {selectedAugmentProbeTraceEntries.length > 0 ? (
+                <div className="max-h-72 space-y-1 overflow-y-auto pr-0.5">
+                  {selectedAugmentProbeTraceEntries.map((entry) => (
+                    <div
+                      key={entry.id}
+                      className="rounded-lg bg-bg-secondary/80 p-1 ring-1 ring-inset ring-border/30"
+                    >
+                      <div className="flex min-w-0 items-center justify-between gap-1.5">
+                        <div className="min-w-0">
+                          <div className="truncate text-[10px] font-black text-text-primary">
+                            {t(
+                              `goldenSpatula.calibration.selectedAugmentProbeTraceRunKind.${entry.runKind}`,
+                            )}
+                            {entry.iteration && entry.total
+                              ? ` ${entry.iteration}/${entry.total}`
+                              : ''}
+                          </div>
+                          <div className="truncate text-[9px] font-bold text-text-muted">
+                            {new Date(entry.timestamp).toLocaleTimeString()} ·{' '}
+                            {t('goldenSpatula.calibration.selectedAugmentProbeTraceMeta', {
+                              stage: selectedAugmentProbeStageLabel(entry.stage),
+                              attempts: entry.attempts,
+                              targets: entry.targetCount,
+                              rows: entry.panelTargetCount ?? 0,
+                            })}
+                          </div>
+                        </div>
+                        <StatusPill
+                          tone={
+                            entry.success
+                              ? 'success'
+                              : entry.stage === 'error'
+                                ? 'error'
+                                : 'warning'
+                          }
+                        >
+                          {selectedAugmentProbeStageLabel(entry.stage)}
+                        </StatusPill>
+                      </div>
+
+                      <div className="mt-1 grid gap-1 md:grid-cols-2">
+                        <div className="min-w-0">
+                          <div className="mb-0.5 text-[9px] font-black text-text-muted">
+                            {t('goldenSpatula.calibration.selectedAugmentProbeTraceInitial')}
+                          </div>
+                          {entry.initialImage ? (
+                            <img
+                              src={entry.initialImage}
+                              alt={t('goldenSpatula.calibration.selectedAugmentProbeTraceInitial')}
+                              className="aspect-video w-full rounded-md object-cover ring-1 ring-inset ring-border/40"
+                            />
+                          ) : (
+                            <div className="flex aspect-video items-center justify-center rounded-md bg-bg-tertiary text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/40">
+                              {t('goldenSpatula.calibration.selectedAugmentProbeTraceNoImage')}
+                            </div>
+                          )}
+                        </div>
+                        <div className="min-w-0">
+                          <div className="mb-0.5 text-[9px] font-black text-text-muted">
+                            {t('goldenSpatula.calibration.selectedAugmentProbeTraceFinal')}
+                          </div>
+                          {entry.finalImage ? (
+                            <img
+                              src={entry.finalImage}
+                              alt={t('goldenSpatula.calibration.selectedAugmentProbeTraceFinal')}
+                              className="aspect-video w-full rounded-md object-cover ring-1 ring-inset ring-border/40"
+                            />
+                          ) : (
+                            <div className="flex aspect-video items-center justify-center rounded-md bg-bg-tertiary text-[9px] font-bold text-text-muted ring-1 ring-inset ring-border/40">
+                              {t('goldenSpatula.calibration.selectedAugmentProbeTraceNoImage')}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="mt-1 space-y-0.5 text-[9px] font-bold text-text-muted">
+                        <div className="truncate">
+                          {t('goldenSpatula.calibration.selectedAugmentProbeTraceTarget')}:{' '}
+                          {formatSelectedAugmentProbeTraceTarget(entry.target)}
+                        </div>
+                        <div className="truncate">
+                          {t('goldenSpatula.calibration.selectedAugmentProbeTracePanelTarget')}:{' '}
+                          {formatSelectedAugmentProbeTraceTarget(entry.panelTarget)}
+                        </div>
+                        <div className="truncate">
+                          {t('goldenSpatula.calibration.selectedAugmentProbeTraceMatch')}:{' '}
+                          {entry.match?.augmentName ?? '-'}
+                          {entry.match?.score !== undefined
+                            ? ` ${entry.match.score.toFixed(3)}`
+                            : ''}
+                        </div>
+                        <div className="truncate">
+                          {t('goldenSpatula.calibration.selectedAugmentProbeTraceDiagnostics')}:{' '}
+                          {formatSelectedAugmentProbeTraceDiagnostics(entry)}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="rounded-full bg-bg-secondary px-2 py-1 text-[10px] font-bold text-text-muted ring-1 ring-inset ring-border/25">
+                  {t('goldenSpatula.calibration.selectedAugmentProbeTraceEmpty')}
+                </div>
+              )}
+            </div>
+
             <div
               className={clsx(
-                'flex gap-2 rounded-md border p-2.5',
+                'flex gap-1.5 rounded-lg border px-1.5 py-1',
                 recommendations.length === 0
                   ? 'border-success/30 bg-success/5'
                   : 'border-warning/30 bg-warning/5',
@@ -7106,15 +8465,15 @@ export function GoldenSpatulaAssistantPanel() {
             >
               <ShieldAlert
                 className={clsx(
-                  'w-3.5 h-3.5 shrink-0 mt-0.5',
+                  'mt-0.5 h-3 w-3 shrink-0',
                   recommendations.length === 0 ? 'text-success' : 'text-warning',
                 )}
               />
-              <div className="text-xs leading-relaxed text-text-secondary">
+              <div className="text-[10px] font-bold leading-relaxed text-text-secondary">
                 {recommendations.length === 0 ? (
                   t('goldenSpatula.calibration.allGood')
                 ) : (
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     {recommendations.map((item) => (
                       <div key={item}>{item}</div>
                     ))}

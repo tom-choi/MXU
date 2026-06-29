@@ -228,9 +228,13 @@ export function LogsPanel() {
     <div
       id="logs-panel"
       className={clsx(
-        'flex flex-col bg-bg-secondary rounded-lg ring-1 ring-inset ring-border overflow-hidden',
+        'flex flex-col bg-bg-primary/65 rounded-lg ring-1 ring-inset ring-border/35 overflow-hidden',
         // 2.5rem = TabBar h-10；若 TabBar 高度变更需同步更新
-        isMobile ? 'h-[calc(100dvh-2.5rem)]' : 'flex-1 min-h-50',
+        isMobile
+          ? 'h-[calc(100dvh-2.5rem)]'
+          : sidePanelExpanded
+            ? 'max-h-72 min-h-32'
+            : 'flex-1 min-h-50',
       )}
     >
       {/* 标题栏（桌面端可点击展开/折叠上方面板，移动端仅显示标题） */}
@@ -249,12 +253,12 @@ export function LogsPanel() {
               }
         }
         className={clsx(
-          'flex items-center justify-between px-3 py-2 border-b border-border transition-colors shrink-0 rounded-t-lg',
+          'flex items-center justify-between px-2 py-1.5 border-b border-border/60 transition-colors shrink-0 rounded-t-xl',
           !isMobile &&
             'hover:bg-bg-hover cursor-pointer focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 outline-none',
         )}
       >
-        <span className="text-sm font-medium text-text-primary">{t('logs.title')}</span>
+        <span className="text-xs font-semibold text-text-primary">{t('logs.title')}</span>
         <div className="flex items-center gap-1.5">
           <button
             onClick={(e) => {
@@ -309,7 +313,7 @@ export function LogsPanel() {
       {/* 日志内容 */}
       <div
         ref={logsContainerRef}
-        className="flex-1 min-h-0 overflow-y-auto p-2.5 font-mono text-[12px] leading-4 bg-bg-tertiary dark:bg-bg-secondary"
+        className="flex-1 min-h-0 overflow-y-auto p-2 font-mono text-[11px] leading-4 bg-bg-tertiary/70 dark:bg-bg-secondary/70"
         onScroll={handleLogsScroll}
         onContextMenu={handleContextMenu}
       >

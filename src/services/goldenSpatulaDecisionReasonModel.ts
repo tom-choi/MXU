@@ -8,6 +8,7 @@ export const GOLDEN_SPATULA_DECISION_REASON_ORDER: GoldenSpatulaDecisionReason[]
   'itemFit',
   'stageFit',
   'streakPressure',
+  'contested',
   'activeCarry',
   'activeFrontline',
   'recommendedCarry',

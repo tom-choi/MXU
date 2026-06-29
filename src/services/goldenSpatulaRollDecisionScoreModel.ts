@@ -16,6 +16,67 @@ function buildFactor(score: number, available = true): GoldenSpatulaRollDecision
   };
 }
 
+export interface GoldenSpatulaHealthPressureDecision {
+  health?: number;
+  factor: GoldenSpatulaRollDecisionFactorScore;
+  bankFloor?: number;
+  recommendedRollCount: number;
+  survivalPressure: boolean;
+  deathPressure: boolean;
+}
+
+function normalizeHealthValue(value: number | undefined): number | undefined {
+  if (value === undefined || !Number.isFinite(value)) return undefined;
+  return clampGoldenSpatulaDecisionValue(value, 0, 100);
+}
+
+function getHealthBankFloor(health: number): number | undefined {
+  if (health >= 70) return 40;
+  if (health >= 50) return 30;
+  if (health >= 35) return 20;
+  if (health >= 20) return 10;
+  return 0;
+}
+
+function getHealthPressureScore(health: number | undefined): GoldenSpatulaRollDecisionFactorScore {
+  if (health === undefined) return buildFactor(0, false);
+  if (health >= 70) return buildFactor(0);
+  if (health >= 50) return buildFactor(1);
+  return buildFactor(2);
+}
+
+function getHealthRollCount(
+  health: number | undefined,
+  gold: number | undefined,
+  bankFloor: number | undefined,
+): number {
+  if (health === undefined || bankFloor === undefined || health >= 50) return 0;
+  if (gold === undefined || !Number.isFinite(gold)) {
+    if (health < 20) return 8;
+    if (health < 35) return 6;
+    return 4;
+  }
+  const spendableGold = Math.max(0, gold - bankFloor);
+  const affordableRolls = Math.floor(spendableGold / 2);
+  if (health < 35) return Math.max(0, affordableRolls);
+  return Math.max(0, Math.min(4, affordableRolls));
+}
+
+export function getGoldenSpatulaHealthPressureDecision(
+  economyState: GoldenSpatulaEconomyRunState | undefined,
+): GoldenSpatulaHealthPressureDecision {
+  const health = normalizeHealthValue(economyState?.health);
+  const bankFloor = health === undefined ? undefined : getHealthBankFloor(health);
+  return {
+    health,
+    factor: getHealthPressureScore(health),
+    bankFloor,
+    recommendedRollCount: getHealthRollCount(health, economyState?.gold, bankFloor),
+    survivalPressure: health !== undefined && health < 50,
+    deathPressure: health !== undefined && health < 20,
+  };
+}
+
 function getRollDecisionBand(total: number): GoldenSpatulaRollDecisionBand {
   if (total >= 8) return 'rollToQuality';
   if (total >= 5) return 'smallRoll';
@@ -36,7 +97,9 @@ function scoreCombatGap(
   return buildFactor(0);
 }
 
-function scoreTargetClarity(picks: GoldenSpatulaPickRecommendation[]): GoldenSpatulaRollDecisionFactorScore {
+function scoreTargetClarity(
+  picks: GoldenSpatulaPickRecommendation[],
+): GoldenSpatulaRollDecisionFactorScore {
   const top = picks[0];
   if (!top) return buildFactor(0);
   if (
@@ -51,7 +114,9 @@ function scoreTargetClarity(picks: GoldenSpatulaPickRecommendation[]): GoldenSpa
   return buildFactor(1);
 }
 
-function scorePairsAndOuts(picks: GoldenSpatulaPickRecommendation[]): GoldenSpatulaRollDecisionFactorScore {
+function scorePairsAndOuts(
+  picks: GoldenSpatulaPickRecommendation[],
+): GoldenSpatulaRollDecisionFactorScore {
   const nearUpgradeCount = picks.filter((pick) => pick.reasons.includes('nearUpgrade')).length;
   const visibleCount = picks.filter((pick) => (pick.shopVisibleCount ?? 0) > 0).length;
   const ownedCount = picks.filter((pick) => pick.ownedCount > 0).length;
@@ -60,7 +125,9 @@ function scorePairsAndOuts(picks: GoldenSpatulaPickRecommendation[]): GoldenSpat
   return buildFactor(0);
 }
 
-function scoreEconomyMargin(economyState: GoldenSpatulaEconomyRunState | undefined): GoldenSpatulaRollDecisionFactorScore {
+function scoreEconomyMargin(
+  economyState: GoldenSpatulaEconomyRunState | undefined,
+): GoldenSpatulaRollDecisionFactorScore {
   const gold = economyState?.gold;
   if (gold === undefined || !Number.isFinite(gold)) return buildFactor(1, false);
   const afterSmallRoll = gold - 6;
@@ -93,11 +160,9 @@ export function buildGoldenSpatulaRollDecisionScore({
   economyState,
   tempoContext,
 }: GoldenSpatulaRollDecisionScoreInput): GoldenSpatulaRollDecisionScoreBreakdown {
-  const factors: Record<
-    GoldenSpatulaRollDecisionFactor,
-    GoldenSpatulaRollDecisionFactorScore
-  > = {
-    healthPressure: buildFactor(0, false),
+  const healthPressure = getGoldenSpatulaHealthPressureDecision(economyState);
+  const factors: Record<GoldenSpatulaRollDecisionFactor, GoldenSpatulaRollDecisionFactorScore> = {
+    healthPressure: healthPressure.factor,
     combatGap: scoreCombatGap(actionablePicks, tempoContext),
     targetClarity: scoreTargetClarity(actionablePicks),
     pairsAndOuts: scorePairsAndOuts(actionablePicks),

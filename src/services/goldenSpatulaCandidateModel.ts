@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   GoldenSpatulaChampionAssetIndex,
   GoldenSpatulaDecisionReason,
   GoldenSpatulaDecisionRole,
@@ -56,9 +56,10 @@ const roleOrder: GoldenSpatulaDecisionRole[] = [
 
 function qualityWeight(quality: string | undefined): number {
   if (!quality) return 1;
-  if (/s|t0|顶|强/u.test(quality)) return 1.22;
-  if (/a|t1|优/u.test(quality)) return 1.12;
-  if (/b|t2/u.test(quality)) return 1.04;
+  const normalized = quality.trim().toLocaleLowerCase();
+  if (/(^|\b)(s|op|t0)(\b|$)|顶|強|强|神/u.test(normalized)) return 1.24;
+  if (/(^|\b)(a|t1)(\b|$)|优|優|稳|穩/u.test(normalized)) return 1.13;
+  if (/(^|\b)(b|t2)(\b|$)/u.test(normalized)) return 1.05;
   return 1;
 }
 

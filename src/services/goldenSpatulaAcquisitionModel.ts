@@ -7,6 +7,13 @@ export const GOLDEN_SPATULA_UNKNOWN_SHOP_ODDS_FALLBACK = 0.06;
 export const GOLDEN_SPATULA_ROLL_SLOT_COUNT = 5;
 export const GOLDEN_SPATULA_ROLL_REFRESH_COST = 2;
 export const GOLDEN_SPATULA_GOLD_KEEP_BUFFER = 10;
+export const GOLDEN_SPATULA_POOL_COPIES_BY_COST: Record<number, number> = {
+  1: 29,
+  2: 22,
+  3: 18,
+  4: 10,
+  5: 9,
+};
 
 const COST_DENSITY_MIN_FALLBACK = 1;
 
@@ -33,6 +40,8 @@ export interface GoldenSpatulaAcquisitionEstimateInput {
   shopOddsAvailability: GoldenSpatulaShopOddsAvailability;
   cost?: number;
   copiesNeeded: number;
+  ownedCount?: number;
+  externalCopies?: number;
   gold?: number;
   costDensity: GoldenSpatulaChampionCostDensityProfile;
 }
@@ -46,6 +55,11 @@ export function normalizeGoldenSpatulaOdds(value: number | undefined): number | 
   if (value < 0) return 0;
   if (value <= 1) return value;
   return clampGoldenSpatulaDecisionValue(value / 100, 0, 1);
+}
+
+export function getGoldenSpatulaPoolCopiesForCost(cost: number | undefined): number | undefined {
+  if (cost === undefined || !Number.isFinite(cost)) return undefined;
+  return GOLDEN_SPATULA_POOL_COPIES_BY_COST[Math.trunc(cost)];
 }
 
 export function buildGoldenSpatulaChampionCostDensity(
@@ -117,6 +131,8 @@ function getTargetSlotOdds(
   shopOdds: number | undefined,
   availability: GoldenSpatulaShopOddsAvailability,
   cost: number | undefined,
+  ownedCount: number | undefined,
+  externalCopies: number | undefined,
   costDensity: GoldenSpatulaChampionCostDensityProfile,
 ): number {
   if (availability === 'unavailable' || cost === undefined) return 0;
@@ -125,7 +141,31 @@ function getTargetSlotOdds(
   if (sourceOdds === undefined || sourceOdds <= 0) return 0;
   const championChoices = getChampionCostDensityFallback(costDensity, cost);
   if (championChoices <= 0) return 0;
-  return clampGoldenSpatulaDecisionValue(sourceOdds / championChoices, 0, 1);
+
+  const normalizedCost = Math.trunc(cost);
+  const copiesPerChampion = getGoldenSpatulaPoolCopiesForCost(normalizedCost);
+  const normalizedOwnedCount =
+    ownedCount !== undefined && Number.isFinite(ownedCount) ? Math.max(0, ownedCount) : 0;
+  const normalizedExternalCopies =
+    externalCopies !== undefined && Number.isFinite(externalCopies)
+      ? Math.max(0, externalCopies)
+      : 0;
+  if (copiesPerChampion === undefined || copiesPerChampion <= 0) {
+    return clampGoldenSpatulaDecisionValue(sourceOdds / championChoices, 0, 1);
+  }
+
+  const removedTargetCopies = normalizedOwnedCount + normalizedExternalCopies;
+  const remainingTargetCopies = Math.max(0, copiesPerChampion - removedTargetCopies);
+  const remainingCostCopies = Math.max(
+    remainingTargetCopies,
+    championChoices * copiesPerChampion - removedTargetCopies,
+  );
+  if (remainingTargetCopies <= 0 || remainingCostCopies <= 0) return 0;
+  return clampGoldenSpatulaDecisionValue(
+    sourceOdds * (remainingTargetCopies / remainingCostCopies),
+    0,
+    1,
+  );
 }
 
 function getExpectedRollsToFindCopies(expectedCopiesPerRoll: number, copiesNeeded: number): number {
@@ -236,6 +276,8 @@ export function estimateGoldenSpatulaAcquisition(
     input.shopOdds,
     input.shopOddsAvailability,
     input.cost,
+    input.ownedCount,
+    input.externalCopies,
     input.costDensity,
   );
   const expectedCopiesPerRoll = getExpectedCopiesPerRoll(targetSlotOdds);
@@ -243,10 +285,7 @@ export function estimateGoldenSpatulaAcquisition(
     expectedCopiesPerRoll,
     input.copiesNeeded,
   );
-  const expectedRollHitRate = getExpectedShopHitRate(
-    targetSlotOdds,
-    input.shopOddsAvailability,
-  );
+  const expectedRollHitRate = getExpectedShopHitRate(targetSlotOdds, input.shopOddsAvailability);
   const projectedRollBudget = getGoldenSpatulaProjectedRollBudget(input.gold);
   const completionChance = getCompletionChanceWithinRollBudget(
     projectedRollBudget,

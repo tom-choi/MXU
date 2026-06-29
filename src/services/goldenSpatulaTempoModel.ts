@@ -60,9 +60,9 @@ export function getGoldenSpatulaTempoContext(
       : undefined;
   const streakValue = streakInterest ?? 0;
   const streakPressure: GoldenSpatulaStreakPressure =
-    economyState?.streakKind === 'win' && streakValue >= 2
+    economyState?.streakKind === 'win' && streakValue >= 1
       ? 'push'
-      : economyState?.streakKind === 'loss' && streakValue >= 2
+      : economyState?.streakKind === 'loss' && streakValue >= 1
         ? 'preserve'
         : 'neutral';
 

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
  * 主题 CSS 变量
  * 颜色值由 src/themes/index.ts 动态注入
@@ -11,11 +13,61 @@
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+
+  /* Typography */
+  --font-ui:
+    'Segoe UI Variable',
+    'Segoe UI',
+    'MiSans',
+    'HarmonyOS Sans SC',
+    'PingFang SC',
+    'PingFang TC',
+    'Microsoft YaHei UI',
+    'Microsoft JhengHei UI',
+    'Microsoft YaHei',
+    'Microsoft JhengHei',
+    'Source Han Sans SC',
+    'Source Han Sans TC',
+    'Noto Sans SC',
+    'Noto Sans TC',
+    'Noto Sans CJK SC',
+    'Noto Sans CJK TC',
+    'Hiragino Sans GB',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    sans-serif;
+  --font-code:
+    'Cascadia Mono',
+    'JetBrains Mono',
+    'SFMono-Regular',
+    'Consolas',
+    'Liberation Mono',
+    'Menlo',
+    monospace;
 }
 
 /* Base styles */
 * {
   box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+/* Dark theme comfort layer: soften surfaces, typography, focus, and dense data UI. */
+html.dark {
+  color-scheme: dark;
+  --mxu-dark-surface-primary: color-mix(in srgb, var(--color-bg-primary) 94%, #30405a);
+  --mxu-dark-surface-secondary: color-mix(in srgb, var(--color-bg-secondary) 92%, #34445d);
+  --mxu-dark-surface-tertiary: color-mix(in srgb, var(--color-bg-tertiary) 90%, #40516a);
+  --mxu-dark-surface-hover: color-mix(in srgb, var(--color-bg-hover) 88%, #52657e);
+  --mxu-dark-surface-active: color-mix(in srgb, var(--color-bg-active) 86%, #60728b);
+  --mxu-dark-border-soft: color-mix(in srgb, var(--color-border) 82%, #6f7f98);
+  --mxu-dark-border-muted: color-mix(in srgb, var(--color-border) 62%, #6f7f98);
 }
 
 html,
@@ -27,25 +79,840 @@ body,
 }
 
 body {
-  font-family:
-    'Segoe UI Variable',
-    'Segoe UI',
-    'Microsoft YaHei UI',
-    'Microsoft YaHei',
-    'PingFang SC',
-    'Noto Sans CJK SC',
-    'Noto Sans CJK TC',
-    'Hiragino Sans GB',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    sans-serif;
+  font-family: var(--font-ui);
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
+  letter-spacing: 0;
+  line-height: 1.5;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-synthesis-weight: none;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1;
+  font-variant-east-asian: proportional-width;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  accent-color: var(--color-accent);
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  transition:
+    background-color 0.16s ease,
+    border-color 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at 16% 0%, color-mix(in srgb, var(--color-accent) 10%, transparent) 0, transparent 34rem),
+    linear-gradient(180deg, var(--color-bg-primary) 0%, color-mix(in srgb, var(--color-bg-primary) 88%, #263244) 100%);
+}
+
+html.dark #root > .bg-bg-primary {
+  background-image:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--color-accent) 8%, transparent) 0, transparent 28rem),
+    radial-gradient(circle at 82% 12%, rgb(255 255 255 / 0.025) 0, transparent 22rem),
+    linear-gradient(180deg, rgb(255 255 255 / 0.018), transparent 26rem);
+}
+
+html.dark .bg-bg-primary {
+  background-color: var(--mxu-dark-surface-primary);
+}
+
+html.dark .bg-bg-secondary {
+  background-color: var(--mxu-dark-surface-secondary);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.018), transparent 12rem);
+}
+
+html.dark .bg-bg-tertiary {
+  background-color: var(--mxu-dark-surface-tertiary);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.014), transparent 10rem);
+}
+
+html.dark .bg-bg-hover {
+  background-color: var(--mxu-dark-surface-hover);
+}
+
+html.dark .bg-bg-active {
+  background-color: var(--mxu-dark-surface-active);
+}
+
+html.dark .hover\:bg-bg-hover:hover {
+  background-color: color-mix(in srgb, var(--mxu-dark-surface-hover) 82%, #657893);
+}
+
+html.dark .hover\:text-text-primary:hover,
+html.dark .group:hover .group-hover\:text-text-primary {
+  color: color-mix(in srgb, var(--color-text-primary) 94%, #f7fbff);
+}
+
+html.dark .hover\:text-accent:hover,
+html.dark .group:hover .group-hover\:text-accent {
+  color: color-mix(in srgb, var(--color-accent) 86%, #e8fff7);
+}
+
+html.dark tr:hover,
+html.dark [role='option']:hover,
+html.dark [role='menuitem']:hover {
+  background-color: color-mix(in srgb, var(--mxu-dark-surface-hover) 78%, transparent);
+}
+
+html.dark [aria-selected='true'],
+html.dark [data-state='checked'],
+html.dark [data-state='open'] {
+  background-color: color-mix(in srgb, var(--color-accent) 13%, var(--mxu-dark-surface-hover));
+}
+
+html.dark [data-state='active'],
+html.dark [data-active='true'],
+html.dark .bg-bg-active {
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #f7fbff);
+}
+
+html.dark [aria-current='page'],
+html.dark [aria-current='true'] {
+  background-color: color-mix(in srgb, var(--color-accent) 11%, var(--mxu-dark-surface-active));
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #f7fbff);
+}
+
+html.dark .text-text-muted {
+  color: color-mix(in srgb, var(--color-text-muted) 92%, #d8e1ee);
+}
+
+html.dark .text-text-tertiary {
+  color: color-mix(in srgb, var(--color-text-tertiary) 94%, #d8e1ee);
+}
+
+html.dark .text-text-secondary {
+  color: color-mix(in srgb, var(--color-text-secondary) 96%, #f0f4f9);
+}
+
+html.dark svg:not([class*='text-']):not([class*='stroke-']):not([class*='fill-']) {
+  color: color-mix(in srgb, var(--color-text-secondary) 92%, #f0f4f9);
+}
+
+html.dark .text-white,
+html.dark .dark\:text-white {
+  color: #f3f7fb;
+}
+
+html.dark .text-zinc-50,
+html.dark .dark\:text-zinc-50 {
+  color: #eef3f8;
+}
+
+html.dark .text-zinc-100,
+html.dark .dark\:text-zinc-100 {
+  color: #e3ebf3;
+}
+
+html.dark .text-zinc-200,
+html.dark .dark\:text-zinc-200 {
+  color: #ced9e6;
+}
+
+html.dark .text-zinc-300,
+html.dark .dark\:text-zinc-300 {
+  color: #b7c5d5;
+}
+
+html.dark .text-zinc-400,
+html.dark .dark\:text-zinc-400 {
+  color: #9eacbf;
+}
+
+html.dark .text-zinc-500,
+html.dark .dark\:text-zinc-500 {
+  color: #8594a9;
+}
+
+html.dark .text-amber-200,
+html.dark .dark\:text-amber-200,
+html.dark .text-amber-300,
+html.dark .dark\:text-amber-300,
+html.dark .text-amber-400,
+html.dark .dark\:text-amber-400 {
+  color: #f2c96d;
+}
+
+html.dark .text-sky-200,
+html.dark .dark\:text-sky-200,
+html.dark .text-sky-300,
+html.dark .dark\:text-sky-300,
+html.dark .text-sky-400,
+html.dark .dark\:text-sky-400 {
+  color: #91c9ec;
+}
+
+html.dark .text-emerald-200,
+html.dark .dark\:text-emerald-200,
+html.dark .text-emerald-300,
+html.dark .dark\:text-emerald-300,
+html.dark .text-emerald-400,
+html.dark .dark\:text-emerald-400 {
+  color: #8fd8b3;
+}
+
+html.dark .text-violet-200,
+html.dark .dark\:text-violet-200,
+html.dark .text-violet-300,
+html.dark .dark\:text-violet-300,
+html.dark .text-violet-400,
+html.dark .dark\:text-violet-400 {
+  color: #c8b5f5;
+}
+
+html.dark .text-orange-200,
+html.dark .dark\:text-orange-200,
+html.dark .text-orange-300,
+html.dark .dark\:text-orange-300,
+html.dark .text-orange-400,
+html.dark .dark\:text-orange-400 {
+  color: #efb27f;
+}
+
+html.dark .text-rose-200,
+html.dark .dark\:text-rose-200,
+html.dark .text-rose-300,
+html.dark .dark\:text-rose-300,
+html.dark .text-red-300,
+html.dark .dark\:text-red-300 {
+  color: #efaaa9;
+}
+
+html.dark .text-warning {
+  color: color-mix(in srgb, var(--color-warning) 94%, #fff3c4);
+}
+
+html.dark .text-error {
+  color: color-mix(in srgb, var(--color-error) 92%, #ffe4e6);
+}
+
+html.dark .text-success,
+html.dark .text-info {
+  color: color-mix(in srgb, var(--color-accent) 90%, #e8fff7);
+}
+
+html.dark .text-accent {
+  color: color-mix(in srgb, var(--color-accent) 88%, #e8fff7);
+}
+
+html.dark .bg-accent {
+  background-color: color-mix(in srgb, var(--color-accent) 88%, #1c3f34);
+}
+
+html.dark .bg-accent-hover,
+html.dark .hover\:bg-accent-hover:hover {
+  background-color: color-mix(in srgb, var(--color-accent-hover) 86%, #21483c);
+}
+
+html.dark .bg-accent\/10 {
+  background-color: color-mix(in srgb, var(--color-accent) 13%, transparent);
+}
+
+html.dark .bg-accent\/15 {
+  background-color: color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+html.dark .bg-accent\/20 {
+  background-color: color-mix(in srgb, var(--color-accent) 23%, transparent);
+}
+
+html.dark .bg-accent\/30 {
+  background-color: color-mix(in srgb, var(--color-accent) 32%, transparent);
+}
+
+html.dark .bg-warning\/10 {
+  background-color: color-mix(in srgb, var(--color-warning) 14%, transparent);
+}
+
+html.dark .bg-error\/10 {
+  background-color: color-mix(in srgb, var(--color-error) 14%, transparent);
+}
+
+html.dark .bg-success\/10,
+html.dark .bg-info\/10 {
+  background-color: color-mix(in srgb, var(--color-accent) 13%, transparent);
+}
+
+html.dark .bg-success\/80,
+html.dark .bg-success\/90 {
+  background-color: color-mix(in srgb, var(--color-accent) 78%, #183329);
+}
+
+html.dark .bg-amber-300,
+html.dark .from-amber-300 {
+  background-color: #e8bd52;
+  --tw-gradient-from: #e8bd52 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(232 189 82 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.dark .bg-amber-400,
+html.dark .from-amber-400 {
+  background-color: #dca937;
+  --tw-gradient-from: #dca937 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(220 169 55 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.dark .to-amber-600 {
+  --tw-gradient-to: #a36d1c var(--tw-gradient-to-position);
+}
+
+html.dark .bg-sky-300,
+html.dark .from-sky-300 {
+  background-color: #7dbde3;
+  --tw-gradient-from: #7dbde3 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(125 189 227 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.dark .to-sky-600 {
+  --tw-gradient-to: #327aa7 var(--tw-gradient-to-position);
+}
+
+html.dark .bg-violet-300,
+html.dark .from-violet-300 {
+  background-color: #bba7eb;
+  --tw-gradient-from: #bba7eb var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(187 167 235 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.dark .to-violet-600 {
+  --tw-gradient-to: #7557b7 var(--tw-gradient-to-position);
+}
+
+html.dark .bg-error,
+html.dark .bg-error\/80,
+html.dark .bg-red-500\/80,
+html.dark .bg-red-500\/90 {
+  background-color: color-mix(in srgb, var(--color-error) 84%, #3a1820);
+}
+
+html.dark .bg-warning,
+html.dark .bg-yellow-500\/80 {
+  background-color: color-mix(in srgb, var(--color-warning) 82%, #3f3012);
+}
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #dbe7f6);
+  letter-spacing: -0.01em;
+}
+
+html.dark .prose,
+html.dark .prose p,
+html.dark .prose li {
+  color: color-mix(in srgb, var(--color-text-secondary) 96%, #eef4fb);
+  line-height: 1.68;
+}
+
+html.dark .prose strong {
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #f7fbff);
+}
+
+html.dark .prose a {
+  color: color-mix(in srgb, var(--color-accent) 88%, #e8fff7);
+}
+
+html.dark ::marker {
+  color: color-mix(in srgb, var(--color-text-muted) 90%, #d5deeb);
+}
+
+html.dark p,
+html.dark li,
+html.dark dd {
+  line-height: 1.58;
+  text-wrap: pretty;
+}
+
+html.dark table,
+html.dark [role='table'],
+html.dark [role='grid'] {
+  font-variant-numeric: tabular-nums;
+}
+
+html.dark th,
+html.dark [role='columnheader'] {
+  color: color-mix(in srgb, var(--color-text-secondary) 96%, #f0f4f9);
+  font-weight: 620;
+}
+
+html.dark td,
+html.dark th {
+  border-color: var(--mxu-dark-border-muted);
+}
+
+html.dark dt,
+html.dark label {
+  letter-spacing: 0.002em;
+}
+
+html.dark small,
+html.dark .text-\[9px\] {
+  color: color-mix(in srgb, var(--color-text-muted) 92%, #d5deeb);
+  font-weight: 460;
+  line-height: 1.35;
+}
+
+html.dark strong,
+html.dark b {
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #dbe7f6);
+  font-weight: 650;
+}
+
+html.dark .bg-bg-secondary\/50 {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent);
+}
+
+html.dark .bg-bg-secondary\/70 {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent);
+}
+
+html.dark .bg-bg-secondary\/80 {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent);
+}
+
+html.dark .bg-bg-secondary\/90 {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 90%, transparent);
+}
+
+html.dark .bg-bg-tertiary\/50 {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 50%, transparent);
+}
+
+html.dark .bg-bg-tertiary\/70 {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 70%, transparent);
+}
+
+html.dark .bg-bg-tertiary\/80 {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 80%, transparent);
+}
+
+html.dark .bg-bg-primary\/60 {
+  background-color: color-mix(in srgb, var(--color-bg-primary) 60%, transparent);
+}
+
+html.dark .bg-bg-primary\/90 {
+  background-color: color-mix(in srgb, var(--color-bg-primary) 90%, transparent);
+}
+
+html.dark .bg-bg-primary\/95 {
+  background-color: color-mix(in srgb, var(--color-bg-primary) 95%, transparent);
+}
+
+html.dark .border-border {
+  border-color: var(--mxu-dark-border-soft);
+}
+
+html.dark .border-border\/50 {
+  border-color: color-mix(in srgb, var(--color-border) 50%, #6f7f98);
+}
+
+html.dark .border-border\/60 {
+  border-color: color-mix(in srgb, var(--color-border) 60%, #6f7f98);
+}
+
+html.dark .border-border\/70 {
+  border-color: color-mix(in srgb, var(--color-border) 70%, #6f7f98);
+}
+
+html.dark .border-border-strong,
+html.dark .border-border-strong\/50 {
+  border-color: color-mix(in srgb, var(--color-border-strong) 78%, #7889a3);
+}
+
+html.dark .divide-border > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-border\/50 > :not([hidden]) ~ :not([hidden]),
+html.dark hr {
+  border-color: var(--mxu-dark-border-muted);
+}
+
+html.dark .shadow-sm {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 4%, transparent) inset,
+    0 4px 12px -10px rgb(3 7 18 / 0.5);
+}
+
+html.dark .shadow-md {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 4.5%, transparent) inset,
+    0 10px 24px -18px rgb(3 7 18 / 0.58);
+}
+
+html.dark .shadow-lg,
+html.dark .shadow-xl {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 5%, transparent) inset,
+    0 14px 36px -24px rgb(3 7 18 / 0.72);
+}
+
+html.dark .shadow-2xl {
+  box-shadow:
+    0 1px 0 color-mix(in srgb, white 6%, transparent) inset,
+    0 24px 56px -32px rgb(3 7 18 / 0.78);
+}
+
+html.dark [data-radix-popper-content-wrapper] {
+  color-scheme: dark;
+}
+
+html.dark [data-radix-popper-content-wrapper] > * {
+  backdrop-filter: blur(12px) saturate(1.06);
+}
+
+html.dark .ring-border,
+html.dark .ring-border\/60,
+html.dark .ring-border\/70 {
+  --tw-ring-color: var(--mxu-dark-border-soft);
+}
+
+html.dark .border-accent,
+html.dark .hover\:border-accent:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 82%, #c9f7e3);
+}
+
+html.dark .border-accent\/30 {
+  border-color: color-mix(in srgb, var(--color-accent) 34%, transparent);
+}
+
+html.dark .border-accent\/40 {
+  border-color: color-mix(in srgb, var(--color-accent) 44%, transparent);
+}
+
+html.dark .border-accent\/45 {
+  border-color: color-mix(in srgb, var(--color-accent) 48%, transparent);
+}
+
+html.dark .border-accent\/50 {
+  border-color: color-mix(in srgb, var(--color-accent) 54%, transparent);
+}
+
+html.dark .ring-accent\/30 {
+  --tw-ring-color: color-mix(in srgb, var(--color-accent) 34%, transparent);
+}
+
+html.dark .ring-accent\/50,
+html.dark .focus\:ring-accent\/50:focus,
+html.dark .focus\:ring-accent\/50:focus-visible {
+  --tw-ring-color: color-mix(in srgb, var(--color-accent) 52%, transparent);
+}
+
+html.dark .focus\:border-accent\/50:focus,
+html.dark .focus\:border-accent\/50:focus-visible {
+  border-color: color-mix(in srgb, var(--color-accent) 56%, transparent);
+}
+
+html.dark .border-b-accent {
+  border-bottom-color: color-mix(in srgb, var(--color-accent) 84%, #c9f7e3);
+}
+
+html.dark .outline-accent {
+  outline-color: color-mix(in srgb, var(--color-accent) 56%, transparent);
+}
+
+html.dark .border-white\/10,
+html.dark .dark\:border-white\/10 {
+  border-color: color-mix(in srgb, white 7%, transparent);
+}
+
+html.dark .border-white\/15,
+html.dark .dark\:border-white\/15 {
+  border-color: color-mix(in srgb, white 10%, transparent);
+}
+
+html.dark .ring-white\/5,
+html.dark .dark\:ring-white\/5 {
+  --tw-ring-color: color-mix(in srgb, white 4%, transparent);
+}
+
+html.dark .ring-white\/10,
+html.dark .dark\:ring-white\/10 {
+  --tw-ring-color: color-mix(in srgb, white 7%, transparent);
+}
+
+html.dark .ring-white\/15,
+html.dark .dark\:ring-white\/15 {
+  --tw-ring-color: color-mix(in srgb, white 10%, transparent);
+}
+
+html.dark .bg-white\/10,
+html.dark .dark\:bg-white\/10 {
+  background-color: color-mix(in srgb, white 7%, transparent);
+}
+
+html.dark .bg-white\/5,
+html.dark .dark\:bg-white\/5 {
+  background-color: color-mix(in srgb, white 4%, transparent);
+}
+
+html.dark .bg-white\/\[0\.035\],
+html.dark .dark\:bg-white\/\[0\.035\] {
+  background-color: color-mix(in srgb, white 3%, transparent);
+}
+
+html.dark .shadow-black\/10,
+html.dark .shadow-black\/15,
+html.dark .shadow-black\/20,
+html.dark .shadow-black\/30,
+html.dark .shadow-black\/40 {
+  --tw-shadow-color: rgb(3 7 18 / 0.34);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+html.dark .bg-black\/30 {
+  background-color: rgb(12 20 33 / 0.36);
+}
+
+html.dark .bg-black\/35 {
+  background-color: rgb(12 20 33 / 0.42);
+}
+
+html.dark .bg-black\/40 {
+  background-color: rgb(12 20 33 / 0.48);
+}
+
+html.dark .bg-black\/50 {
+  background-color: rgb(12 20 33 / 0.58);
+}
+
+html.dark .bg-zinc-900,
+html.dark .dark\:bg-zinc-900 {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 86%, #34445d);
+}
+
+html.dark .bg-zinc-950,
+html.dark .dark\:bg-zinc-950 {
+  background-color: color-mix(in srgb, var(--color-bg-primary) 88%, #30405a);
+}
+
+html.dark .from-zinc-800,
+html.dark .dark\:from-zinc-800 {
+  --tw-gradient-from: color-mix(in srgb, var(--color-bg-tertiary) 90%, #40516a) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+html.dark .to-zinc-950,
+html.dark .dark\:to-zinc-950 {
+  --tw-gradient-to: color-mix(in srgb, var(--color-bg-primary) 90%, #30405a) var(--tw-gradient-to-position);
+}
+
+html.dark .backdrop-blur-sm {
+  backdrop-filter: blur(10px) saturate(1.08);
+}
+
+html.dark .font-black {
+  font-weight: 730;
+}
+
+html.dark .font-extrabold {
+  font-weight: 700;
+}
+
+html.dark .text-xs,
+html.dark .text-\[10px\],
+html.dark .text-\[11px\],
+html.dark .text-\[12px\] {
+  font-weight: 450;
+  line-height: 1.42;
+}
+
+html.dark .font-medium {
+  font-weight: 520;
+}
+
+html.dark .font-semibold {
+  font-weight: 600;
+}
+
+html.dark .font-bold {
+  font-weight: 650;
+}
+
+html.dark button,
+html.dark [role='button'],
+html.dark .rounded,
+html.dark .rounded-md,
+html.dark .rounded-lg,
+html.dark .rounded-xl {
+  text-rendering: geometricPrecision;
+}
+
+html.dark button,
+html.dark [role='button'] {
+  letter-spacing: 0.003em;
+}
+
+.tabular-nums,
+html.dark .font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+html.dark .font-mono {
+  font-weight: 430;
+  line-height: 1.48;
+}
+
+html.dark pre,
+html.dark code,
+html.dark kbd,
+html.dark samp {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+html.dark :focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-accent) 48%, transparent);
+  outline-offset: 2px;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 82%, #4a5c78);
+  border-color: color-mix(in srgb, var(--color-border) 74%, #7b8ca6);
+  color: var(--color-text-primary);
+  caret-color: color-mix(in srgb, var(--color-accent) 82%, #e8fff7);
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, #bdebd9);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+html.dark input:-webkit-autofill,
+html.dark input:-webkit-autofill:hover,
+html.dark input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-text-primary);
+  box-shadow: 0 0 0 1000px color-mix(in srgb, var(--color-bg-tertiary) 86%, #4a5c78) inset;
+  caret-color: var(--color-accent);
+}
+
+html.dark input::file-selector-button {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 88%, #34445d);
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, #6f7f98);
+  color: var(--color-text-secondary);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: color-mix(in srgb, var(--color-text-muted) 92%, #d5deeb);
+}
+
+html.dark :disabled,
+html.dark [aria-disabled='true'] {
+  color: color-mix(in srgb, var(--color-text-muted) 86%, #b8c4d6);
+}
+
+html.dark .dragging,
+html.dark .opacity-50.dragging {
+  opacity: 0.74;
+  filter: saturate(0.92);
+}
+
+html.dark button:disabled,
+html.dark input:disabled,
+html.dark textarea:disabled,
+html.dark select:disabled {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 72%, #334258);
+  border-color: color-mix(in srgb, var(--color-border) 64%, #6f7f98);
+  opacity: 0.72;
+}
+
+html.dark .opacity-50 {
+  opacity: 0.62;
+}
+
+html.dark .opacity-60 {
+  opacity: 0.7;
+}
+
+html.dark .opacity-70 {
+  opacity: 0.78;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  color: var(--color-text-primary);
+}
+
+html.dark ::selection {
+  background: color-mix(in srgb, var(--color-accent) 22%, #2f3d4e);
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #ffffff);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+code,
+pre,
+kbd,
+samp,
+.font-mono {
+  font-family: var(--font-code);
+  letter-spacing: -0.01em;
+  font-variant-east-asian: normal;
+}
+
+html.dark code:not(pre code),
+html.dark kbd,
+html.dark samp {
+  background-color: color-mix(in srgb, var(--color-bg-tertiary) 78%, #44536a);
+  border: 1px solid color-mix(in srgb, var(--color-border) 70%, #7b8ca6);
+  border-radius: 0.375rem;
+  color: color-mix(in srgb, var(--color-text-primary) 96%, #ffffff);
+  padding: 0.08rem 0.32rem;
+}
+
+html.dark pre {
+  background-color: color-mix(in srgb, var(--color-bg-secondary) 88%, #334156);
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, #7b8ca6);
+  color: color-mix(in srgb, var(--color-text-secondary) 96%, #eef4fb);
+}
+
+input,
+textarea,
+select {
+  caret-color: var(--color-accent);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted);
 }
 
 /* Scrollbar styling */
@@ -67,8 +934,23 @@ body {
   background: var(--color-text-muted);
 }
 
+html.dark ::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-border-strong) 78%, #7e8fa8);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-text-muted) 72%, #d7dfec);
+}
+
+html.dark ::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /* Custom theme utilities */
 @theme {
+  --font-sans: var(--font-ui);
+  --font-mono: var(--font-code);
+
   --color-bg-primary: var(--color-bg-primary);
   --color-bg-secondary: var(--color-bg-secondary);
   --color-bg-tertiary: var(--color-bg-tertiary);

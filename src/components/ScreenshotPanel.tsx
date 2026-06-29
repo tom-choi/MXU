@@ -556,7 +556,7 @@ export function ScreenshotPanel() {
   ]);
 
   return (
-    <div className="bg-bg-secondary rounded-lg ring-1 ring-inset ring-border overflow-hidden">
+    <div className="bg-bg-primary/75 rounded-xl ring-1 ring-inset ring-border/45 overflow-hidden">
       {/* 标题栏（可点击折叠） */}
       <div
         role="button"
@@ -569,16 +569,16 @@ export function ScreenshotPanel() {
           }
         }}
         className={clsx(
-          'w-full flex items-center justify-between px-3 py-2 hover:bg-bg-hover cursor-pointer focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 outline-none',
-          screenshotPanelExpanded ? 'rounded-t-lg' : 'rounded-lg',
+          'w-full flex items-center justify-between px-2 py-1.5 hover:bg-bg-hover cursor-pointer focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/50 outline-none',
+          screenshotPanelExpanded ? 'rounded-t-xl' : 'rounded-xl',
         )}
         style={{
           transition: `background-color 150ms, border-radius 0s${screenshotPanelExpanded ? '' : ' 150ms'}`,
         }}
       >
         <div className="flex items-center gap-2">
-          <Monitor className="w-4 h-4 text-text-secondary" />
-          <span className="text-sm font-medium text-text-primary">{t('screenshot.title')}</span>
+          <Monitor className="w-3.5 h-3.5 text-text-secondary" />
+          <span className="text-xs font-semibold text-text-primary">{t('screenshot.title')}</span>
         </div>
         <div className="flex items-center gap-2">
           {/* 流模式开关按钮 */}
@@ -635,8 +635,8 @@ export function ScreenshotPanel() {
         <div className="overflow-hidden min-h-0">
           {/* 分隔线放在 overflow-hidden 内部，避免展开瞬间闪烁 */}
           <div className="border-t border-border" />
-          <div className="p-3">
-            <FrameRateSelector compact className="mb-3" />
+          <div className="p-2">
+            <FrameRateSelector compact className="mb-2" />
             {/* 截图区域 */}
             <div
               className="aspect-video bg-bg-tertiary rounded-md flex items-center justify-center overflow-hidden relative"

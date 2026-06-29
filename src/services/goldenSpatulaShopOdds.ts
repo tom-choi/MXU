@@ -25,7 +25,7 @@ export const goldenSpatulaShopOddsByLevel: Record<number, GoldenSpatulaShopOddsB
   6: { 1: 0.3, 2: 0.4, 3: 0.25, 4: 0.05, 5: 0 },
   7: { 1: 0.19, 2: 0.3, 3: 0.4, 4: 0.1, 5: 0.01 },
   8: { 1: 0.15, 2: 0.2, 3: 0.32, 4: 0.3, 5: 0.03 },
-  9: { 1: 0.15, 2: 0.18, 3: 0.25, 4: 0.3, 5: 0.12 },
+  9: { 1: 0.1, 2: 0.17, 3: 0.25, 4: 0.33, 5: 0.15 },
   10: { 1: 0.05, 2: 0.1, 3: 0.2, 4: 0.4, 5: 0.25 },
   11: { 1: 0.01, 2: 0.02, 3: 0.12, 4: 0.5, 5: 0.35 },
 };
@@ -56,6 +56,7 @@ export interface GoldenSpatulaNextLevelShopOdds {
   currentOdds?: number;
   nextOdds?: number;
   gain?: number;
+  ratio?: number;
 }
 
 export function getGoldenSpatulaNextLevelShopOddsGain(
@@ -86,6 +87,7 @@ export function getGoldenSpatulaNextLevelShopOddsGain(
     currentOdds,
     nextOdds,
     gain: Math.max(0, nextOdds - currentOdds),
+    ratio: currentOdds > 0 ? nextOdds / currentOdds : undefined,
   };
 }
 
@@ -110,10 +112,7 @@ function resolveGoldenSpatulaShopOddsValue(
     }
     return { value: levelValue, source: 'levelTable' };
   }
-  if (
-    ocrValue !== undefined &&
-    isGoldenSpatulaShopOddsOcrValuePlausible(ocrValue, levelValue)
-  ) {
+  if (ocrValue !== undefined && isGoldenSpatulaShopOddsOcrValuePlausible(ocrValue, levelValue)) {
     return { value: ocrValue, source: 'ocr' };
   }
   if (ocrValue !== undefined) return { value: ocrValue, source: 'ocr' };

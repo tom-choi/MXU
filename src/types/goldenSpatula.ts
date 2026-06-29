@@ -437,6 +437,7 @@ export type GoldenSpatulaShopOddsSource = 'ocr' | 'levelTable' | 'mixed';
 export interface GoldenSpatulaEconomySnapshot {
   round?: string;
   gold?: number;
+  health?: number;
   level?: number;
   experience?: number;
   experienceMax?: number;
@@ -572,6 +573,22 @@ export interface GoldenSpatulaKnowledgeScanState {
   events: GoldenSpatulaKnowledgeEvent[];
 }
 
+export type GoldenSpatulaContestConfidence = 'observed' | 'estimated' | 'manual';
+
+export interface GoldenSpatulaContestChampionState {
+  championName: string;
+  externalCopies: number;
+  playerCount?: number;
+  confidence?: GoldenSpatulaContestConfidence;
+  updatedAt?: number;
+}
+
+export interface GoldenSpatulaContestState {
+  active?: boolean;
+  champions: Record<string, GoldenSpatulaContestChampionState>;
+  updatedAt?: number;
+}
+
 export type GoldenSpatulaDecisionRole = 'carry' | 'frontline' | 'trait' | 'transition' | 'power';
 
 export type GoldenSpatulaDecisionTier = 'core' | 'high' | 'medium' | 'watch';
@@ -590,6 +607,7 @@ export type GoldenSpatulaDecisionReason =
   | 'highCostPower'
   | 'cheapTransition'
   | 'traitBridge'
+  | 'contested'
   | 'owned'
   | 'levelOdds'
   | 'levelLocked';
@@ -630,6 +648,50 @@ export type GoldenSpatulaRoundPolicyKind =
   | 'lateCap'
   | 'interest';
 
+export type GoldenSpatulaStopLossKind =
+  | 'oneCostRerollAbandon'
+  | 'twoCostRerollStabilize'
+  | 'threeCostPivotFourCost'
+  | 'fourCostStabilize'
+  | 'fastNineAvoidGreed'
+  | 'stopRollingSideUnits';
+
+export type GoldenSpatulaStopLossSeverity = 'watch' | 'warning' | 'critical';
+
+export type GoldenSpatulaStopLossAction =
+  | 'stopRolling'
+  | 'stabilize'
+  | 'pivot'
+  | 'avoidLevel'
+  | 'monitor';
+
+export interface GoldenSpatulaStopLossAdvice {
+  kind: GoldenSpatulaStopLossKind;
+  severity: GoldenSpatulaStopLossSeverity;
+  action: GoldenSpatulaStopLossAction;
+  targetNames: string[];
+  reasonNames: GoldenSpatulaDecisionReason[];
+  pivotPreferred?: boolean;
+  bankFloor?: number;
+}
+
+export type GoldenSpatulaFormationBalanceKind =
+  | 'carryBeforeFrontline'
+  | 'frontlineFirst'
+  | 'carryFirst'
+  | 'balanced';
+
+export interface GoldenSpatulaFormationBalanceAdvice {
+  kind: GoldenSpatulaFormationBalanceKind;
+  carryName?: string;
+  frontlineName?: string;
+  carryStable: boolean;
+  frontlineStable: boolean;
+  priorityTargetNames: string[];
+  deprioritizedTargetNames: string[];
+  reasonNames: GoldenSpatulaDecisionReason[];
+}
+
 export interface GoldenSpatulaRoundPolicyRecommendation {
   checkpoint: GoldenSpatulaRoundPolicyCheckpoint;
   kind: GoldenSpatulaRoundPolicyKind;
@@ -655,7 +717,17 @@ export interface GoldenSpatulaRollDecisionScoreBreakdown {
   unknownFactors: GoldenSpatulaRollDecisionFactor[];
 }
 
-export type GoldenSpatulaBenchDecisionKind = 'fantasy' | 'transition' | 'directUpgrade' | 'core';
+export type GoldenSpatulaBenchDecisionKind =
+  | 'fantasy'
+  | 'pairBait'
+  | 'transition'
+  | 'directUpgrade'
+  | 'core';
+
+export type GoldenSpatulaBenchCleanupReason =
+  | 'stageFourDeadSingle'
+  | 'stageFourPairBait'
+  | 'lowEconomyBenchTax';
 
 export interface GoldenSpatulaBenchSellCandidate {
   name: string;
@@ -663,6 +735,8 @@ export interface GoldenSpatulaBenchSellCandidate {
   benchCount: number;
   sellGold: number;
   kind: GoldenSpatulaBenchDecisionKind;
+  cleanupPriority?: number;
+  cleanupReason?: GoldenSpatulaBenchCleanupReason;
   score?: number;
   reasons: GoldenSpatulaDecisionReason[];
 }
@@ -671,6 +745,10 @@ export interface GoldenSpatulaBenchInterestAdvice {
   interestGoldNeeded?: number;
   sellGoldAvailable: number;
   canReachNextInterest: boolean;
+  cleanupRecommended: boolean;
+  cleanupCandidateNames: string[];
+  decisionTaxCount: number;
+  benchTaxGold: number;
   sellCandidates: GoldenSpatulaBenchSellCandidate[];
   preservedNames: string[];
 }
@@ -682,6 +760,11 @@ export interface GoldenSpatulaPickScoreBreakdown {
     nearUpgrade: number;
     shopVisible: number;
     itemFit: number;
+  };
+  penalties: {
+    complete: number;
+    interestTax: number;
+    contest: number;
   };
   penalty: number;
   beforeMultipliers: number;
@@ -719,12 +802,15 @@ export interface GoldenSpatulaPickRecommendation {
   nextLevel?: number;
   nextLevelShopOdds?: number;
   levelUpShopOddsGain?: number;
+  levelUpShopOddsRatio?: number;
   shopVisibleCount?: number;
   observedItemMatchCount?: number;
   matchedItemNames?: string[];
   acquisitionExpectedRolls?: number;
   acquisitionExpectedSpend?: number;
   acquisitionCompletionChance?: number;
+  externalContestCopies?: number;
+  contestPoolShare?: number;
   traitTags: string[];
   sourceLineupNames: string[];
   reasons: GoldenSpatulaDecisionReason[];
@@ -735,10 +821,68 @@ export interface GoldenSpatulaTransitionLineupScoreBreakdown {
   unitCountScore: number;
   sourceWeightScore: number;
   unitScore: number;
+  stageReachScore: number;
+  itemBridgeScore: number;
+  itemFamilyScore: number;
+  structureScore: number;
+  lowCostBridgeScore: number;
+  costCurveScore: number;
+  guideScore: number;
   coreReachRatio: number;
   spendPressurePenalty: number;
+  highCostPressurePenalty: number;
+  dreamPivotPenalty: number;
+  spellCyclePenalty: number;
+  lateralPivotBonus: number;
+  pivotBlockedPenalty: number;
   beforePenalty: number;
   final: number;
+}
+
+export type GoldenSpatulaTransitionPlanKind =
+  | 'earlyBridge'
+  | 'midPivot'
+  | 'lateCap'
+  | 'itemCarrier';
+
+export type GoldenSpatulaTransitionCostCurve = 'low' | 'balanced' | 'expensive' | 'spike';
+
+export type GoldenSpatulaTransitionNextAction =
+  | 'holdBridge'
+  | 'itemHolder'
+  | 'pivotSoon'
+  | 'saveForLevel'
+  | 'pushCap';
+
+export type GoldenSpatulaTransitionRiskLevel = 'safe' | 'conditional' | 'greedy';
+
+export type GoldenSpatulaTransitionTempoStep =
+  | 'nowBridge'
+  | 'itemHold'
+  | 'pivot'
+  | 'saveLevel'
+  | 'capBoard';
+
+export type GoldenSpatulaTransitionEconomyPlan =
+  | 'holdInterest'
+  | 'buyShopHits'
+  | 'smallRoll'
+  | 'pushLevel'
+  | 'avoidOverroll';
+
+export type GoldenSpatulaTransitionReadiness =
+  | 'ready'
+  | 'needShopHit'
+  | 'needItems'
+  | 'needLevel'
+  | 'tooGreedy';
+
+export type GoldenSpatulaTransitionRouteUnitTag = 'owned' | 'shop' | 'item' | 'carry' | 'frontline';
+
+export interface GoldenSpatulaTransitionRouteUnit {
+  name: string;
+  itemNames?: string[];
+  tags?: GoldenSpatulaTransitionRouteUnitTag[];
 }
 
 export interface GoldenSpatulaTransitionLineupRecommendation {
@@ -752,7 +896,29 @@ export interface GoldenSpatulaTransitionLineupRecommendation {
   matchedUnitNames: string[];
   shopVisibleUnitNames?: string[];
   itemFitNames?: string[];
+  itemFamilyNames?: string[];
   blockedUnitNames?: string[];
+  carryUnitNames?: string[];
+  frontlineUnitNames?: string[];
+  bridgeUnitNames?: string[];
+  itemBridgeUnitNames?: string[];
+  itemFamilyUnitNames?: string[];
+  lowCostUnitNames?: string[];
+  transitionPlanKind: GoldenSpatulaTransitionPlanKind;
+  costCurve: GoldenSpatulaTransitionCostCurve;
+  nextAction: GoldenSpatulaTransitionNextAction;
+  riskLevel: GoldenSpatulaTransitionRiskLevel;
+  economyPlan: GoldenSpatulaTransitionEconomyPlan;
+  readiness: GoldenSpatulaTransitionReadiness;
+  primaryReasonNames?: string[];
+  shopPriorityUnitNames?: string[];
+  missingKeyUnitNames?: string[];
+  routeUnitNames?: string[];
+  routeUnits?: GoldenSpatulaTransitionRouteUnit[];
+  tempoSteps?: GoldenSpatulaTransitionTempoStep[];
+  transitionHint?: string;
+  targetLevel?: number;
+  averageCost?: number;
   traitTags: string[];
 }
 
@@ -771,8 +937,14 @@ export interface GoldenSpatulaEconomyDecisionBreakdown {
   levelUpGoldNeeded?: number;
   levelUpShopOddsGain?: number;
   levelUpNextShopOdds?: number;
+  levelUpShopOddsRatio?: number;
+  levelUpBoardSlotPressure?: boolean;
+  levelUpProjectedUnitCount?: number;
+  levelUpStreakValue?: number;
   rollDecisionScore: GoldenSpatulaRollDecisionScoreBreakdown;
   roundPolicy?: GoldenSpatulaRoundPolicyRecommendation;
+  stopLoss?: GoldenSpatulaStopLossAdvice;
+  formationBalance?: GoldenSpatulaFormationBalanceAdvice;
   tempoPhase: GoldenSpatulaTempoPhase;
   streakPressure: GoldenSpatulaStreakPressure;
   projectedRollBudget?: number;

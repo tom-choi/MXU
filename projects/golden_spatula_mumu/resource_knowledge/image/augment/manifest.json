@@ -4101,6 +4101,44 @@
       }
     },
     {
+      "id": 990001,
+      "name": "时间流",
+      "slug": "augment_990001_timestream2",
+      "category": "augment",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "manual_crop:scripts/fixtures/golden-spatula-ocr-audit-videos7-12-20260618/augment_choice_frames_representative/video7_seg01_0128_00s.png#slot1",
+      "template_resource_path": "augment/augment_990001_timestream2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/manual/17_17.17.4_S18/image/augment/augment_990001_timestream2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "augment_choice_1280x720": [180, 120, 920, 500],
+        "note": "强化符文选择区域；第一版仅做模板分类，不接自动选择。"
+      }
+    },
+    {
+      "id": 990002,
+      "name": "三相庇护",
+      "slug": "augment_990002_trinityshelter2",
+      "category": "augment",
+      "season": "S18",
+      "version_id": "17_17.17.4_S18",
+      "source_url": "manual_crop:scripts/fixtures/golden-spatula-ocr-audit-videos7-12-20260618/augment_choice_frames_all/video12_0128_00s.png#slot1",
+      "template_resource_path": "augment/augment_990002_trinityshelter2.png",
+      "template_available": true,
+      "needs_review": false,
+      "download_error": "",
+      "raw_path": "raw/manual/17_17.17.4_S18/image/augment/augment_990002_trinityshelter2.png",
+      "usage": "MaaFramework TemplateMatch local recognition template",
+      "roi_hint": {
+        "augment_choice_1280x720": [180, 120, 920, 500],
+        "note": "强化符文选择区域；第一版仅做模板分类，不接自动选择。"
+      }
+    },
+    {
       "id": 20721,
       "name": "黄金赌约",
       "slug": "augment_20721_goldengamble3",
